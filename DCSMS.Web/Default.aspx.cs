@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace DCSMS.WebSite
+namespace DCSMS.Web
 {
     public partial class _Default : System.Web.UI.Page
     {

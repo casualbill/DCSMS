@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace DCSMS.WebSite
+namespace DCSMS.Web
 {
 
 
