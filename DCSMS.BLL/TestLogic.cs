@@ -11,5 +11,10 @@ namespace DCSMS.BLL
         {
             return testDb.testDbQuery().Tables[0];
         }
+
+        public string testQueryCount()
+        {
+            return testDb.testDbCount();
+        }
     }
 }

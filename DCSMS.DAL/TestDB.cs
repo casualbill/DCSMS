@@ -6,14 +6,18 @@ using System.Data;
 
 namespace DCSMS.DAL
 {
-    public class TestDB
+    public class TestDB : DBHelper
     {
-        DBHelper _dbHelper = new DBHelper();
-
         public DataSet testDbQuery()
         {
             String sqlCommandStr = "select * from test";
-            return _dbHelper.executeSqlCommandDataSet(sqlCommandStr);
+            return executeSqlCommandDataSet(sqlCommandStr);
+        }
+
+        public String testDbCount()
+        {
+            String sqlCommandStr = "select count(*) from test";
+            return executeSqlCommandScalar(sqlCommandStr);
         }
     }
 }

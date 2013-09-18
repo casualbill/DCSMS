@@ -10,6 +10,7 @@
     <form id="form1" runat="server">
     <div>
         <asp:DataGrid ID="dataGrid" runat="server"></asp:DataGrid>
+        <asp:Label ID="label" runat="server"></asp:Label>
     </div>
     </form>
 </body>

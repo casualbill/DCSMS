@@ -11,6 +11,7 @@ namespace DCSMS.Web
         {
             dataGrid.DataSource = testLogic.testQueryList();
             dataGrid.DataBind();
+            label.Text = testLogic.testQueryCount();
         }
     }
 }

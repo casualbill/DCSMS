@@ -24,8 +24,28 @@ namespace DCSMS.DAL
                 MySqlCommand sqlCommand = new MySqlCommand(sqlCommandStr, sqlCon);
                 sqlCommand.ExecuteNonQuery();
                 sqlCommand.Dispose();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
                 sqlCon.Close();
                 sqlCon.Dispose();
+            }
+        }
+
+        public String executeSqlCommandScalar(String sqlCommandStr)
+        {
+            MySqlConnection sqlCon = this.getMySqlConnection();
+            try
+            {
+                sqlCon.Open();
+                MySqlCommand sqlCommand = new MySqlCommand(sqlCommandStr, sqlCon);
+                String str = sqlCommand.ExecuteScalar().ToString();
+                sqlCommand.Dispose();
+                return str;
             }
             catch (Exception ex)
             {
@@ -70,8 +90,6 @@ namespace DCSMS.DAL
                 DataSet ds = new DataSet();
                 sqlAdapter.Fill(ds);
                 sqlAdapter.Dispose();
-                sqlCon.Close();
-                sqlCon.Dispose();
                 return ds;
             }
             catch (Exception ex)
