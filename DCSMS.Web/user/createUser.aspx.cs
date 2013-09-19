@@ -22,6 +22,7 @@ namespace DCSMS.Web.user
             String userName = tb_username.Text.Trim().ToLower();
             String password = tb_password.Text;
             String passwordRepeat = tb_password_repeat.Text;
+            int userType = Convert.ToInt16(rbl_usertype.SelectedValue);
 
             if (userName.Length < 4 || password.Length < 6 || password != passwordRepeat)
             {
@@ -29,7 +30,7 @@ namespace DCSMS.Web.user
             }
             else
             {
-                int retVal = userLogic.createUser(userName, password, 1);
+                int retVal = userLogic.createUser(userName, password, userType);
                 if (retVal == 1)
                 {
                     lb_tips.Text = "success";
