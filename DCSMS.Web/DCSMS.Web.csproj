@@ -53,6 +53,7 @@
     <Content Include="Scripts\jquery-1.4.1.js" />
     <Content Include="Scripts\jquery-1.4.1.min.js" />
     <Content Include="test.aspx" />
+    <Content Include="user\createUser.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -85,6 +86,13 @@
     </Compile>
     <Compile Include="test.aspx.designer.cs">
       <DependentUpon>test.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="user\createUser.aspx.cs">
+      <DependentUpon>createUser.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="user\createUser.aspx.designer.cs">
+      <DependentUpon>createUser.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
