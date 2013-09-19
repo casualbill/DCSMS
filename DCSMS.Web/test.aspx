@@ -11,6 +11,8 @@
     <div>
         <asp:DataGrid ID="dataGrid" runat="server"></asp:DataGrid>
         <asp:Label ID="label" runat="server"></asp:Label>
+        <asp:TextBox ID="textBox" runat="server"></asp:TextBox>
+        <asp:Button ID="button" runat="server" OnClick="onButtonClick" />
     </div>
     </form>
 </body>

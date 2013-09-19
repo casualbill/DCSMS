@@ -8,22 +8,23 @@ namespace DCSMS.DAL
     public class DBHelper
     {
         // 建立数据库连接
-        protected MySqlConnection getMySqlConnection()
+        private MySqlConnection getMySqlConnection()
         {
             string connectionStr = ConfigurationManager.ConnectionStrings["connectionString"].ToString();
             MySqlConnection mySqlConnection = new MySqlConnection(connectionStr);
             return mySqlConnection;
         }
 
-        public void executeSqlCommandNoQuery(string sqlCommandStr)
+        protected int executeSqlCommandNoQuery(string sqlCommandStr)
         {
             MySqlConnection sqlCon = this.getMySqlConnection();
             try
             {
                 sqlCon.Open();
                 MySqlCommand sqlCommand = new MySqlCommand(sqlCommandStr, sqlCon);
-                sqlCommand.ExecuteNonQuery();
+                int num = Convert.ToInt16(sqlCommand.ExecuteNonQuery());
                 sqlCommand.Dispose();
+                return num;
             }
             catch (Exception ex)
             {
@@ -36,7 +37,7 @@ namespace DCSMS.DAL
             }
         }
 
-        public String executeSqlCommandScalar(String sqlCommandStr)
+        protected String executeSqlCommandScalar(String sqlCommandStr)
         {
             MySqlConnection sqlCon = this.getMySqlConnection();
             try
@@ -58,7 +59,7 @@ namespace DCSMS.DAL
             }
         }
 
-        public MySqlDataReader executeSqlCommandDataReader(string sqlCommandStr)
+        protected MySqlDataReader executeSqlCommandDataReader(string sqlCommandStr)
         {
             MySqlConnection sqlCon = this.getMySqlConnection();
             try
@@ -80,7 +81,7 @@ namespace DCSMS.DAL
             }
         }
 
-        public DataSet executeSqlCommandDataSet(string sqlCommandStr)
+        protected DataSet executeSqlCommandDataSet(string sqlCommandStr)
         {
             MySqlConnection sqlCon = this.getMySqlConnection();
             try
