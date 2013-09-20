@@ -30,7 +30,7 @@ namespace DCSMS.Web.user
             }
             else
             {
-                int retVal = userLogic.createUser(userName, password, userType);
+                int retVal = userLogic.userCreate(userName, password, userType);
                 if (retVal == 1)
                 {
                     lb_tips.Text = "success";

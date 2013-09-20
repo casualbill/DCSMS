@@ -8,7 +8,7 @@ namespace DCSMS.DAL
 {
     public class UserDB : DBHelper
     {
-        public int createUser(String userName, String password, int userType)
+        public int userCreate(String userName, String password, int userType)
         {
             String sqlCommand = "insert into userinfo (UserName, Password, UserType) values ('" + userName + "' , '" + password + "' , " + userType + ")";
             return executeSqlCommandNoQuery(sqlCommand);
@@ -26,10 +26,16 @@ namespace DCSMS.DAL
             return executeSqlCommandScalar(sqlCommand);
         }
 
-        public int updateUser(String userName, String password, int userType)
+        public int userUpdate(int id, String userName, int userType)
         {
-            String sqlCommand = "update userinfo set Password = '" + password + "' , UserType = " + userType;
+            String sqlCommand = "update userinfo set UserName = '" + userName + "', UserType = " + userType + " where Id = " + id;
             return executeSqlCommandNoQuery(sqlCommand);
+        }
+
+        public DataSet userQueryByUserId(int id)
+        {
+            String sqlCommand = "select * from userinfo where Id = " + id;
+            return executeSqlCommandDataSet(sqlCommand);
         }
 
         public DataSet userQueryByUserName(String userName)

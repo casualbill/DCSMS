@@ -13,7 +13,7 @@ namespace DCSMS.BLL
         protected UserDB userDb = new UserDB();
 
         //新建用户  返回： -1用户已存在，0失败，1成功
-        public int createUser(String userName, String password, int userType)
+        public int userCreate(String userName, String password, int userType)
         {
             if (userDb.checkUserExist(userName) != "0")
             {
@@ -22,7 +22,7 @@ namespace DCSMS.BLL
             else
             {
                 String encryptedPwd = getMD5HashCode(password);
-                return userDb.createUser(userName, encryptedPwd, userType);
+                return userDb.userCreate(userName, encryptedPwd, userType);
             }
         }
 
@@ -43,7 +43,7 @@ namespace DCSMS.BLL
             return userInfoStr;
         }
 
-        //用户查询
+        //用户查询 根据用户名模糊查询
         public DataTable userQueryByUserNameVaguely(String queryStr)
         {
             DataSet ds = userDb.userQueryByUserNameVaguely(queryStr);
@@ -70,6 +70,28 @@ namespace DCSMS.BLL
             {
                 return null;
             }
+        }
+
+        //用户信息修改 返回：0失败，1成功
+        public int userUpdate(int id, String userName, int userType)
+        {
+            return userDb.userUpdate(id, userName, userType);
+        }
+
+        //用户查询 根据用户Id
+        public String[] userQueryByUserId(int id)
+        {
+            String[] userInfoStr = new String[5];
+            DataSet ds = userDb.userQueryByUserId(id);
+
+            if (ds.Tables[0].Rows.Count > 0)
+            {
+                for (int i = 0; i < 4; i++)
+                {
+                    userInfoStr[i] = ds.Tables[0].Rows[0][i].ToString();
+                }
+            }
+            return userInfoStr;
         }
 
         //加密密码 （MD5 Hash32位截取16）

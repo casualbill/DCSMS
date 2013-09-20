@@ -55,6 +55,7 @@
     <Content Include="test.aspx" />
     <Content Include="user\createUser.aspx" />
     <Content Include="user\userQuery.aspx" />
+    <Content Include="user\userUpdate.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -101,6 +102,13 @@
     </Compile>
     <Compile Include="user\userQuery.aspx.designer.cs">
       <DependentUpon>userQuery.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="user\userUpdate.aspx.cs">
+      <DependentUpon>userUpdate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="user\userUpdate.aspx.designer.cs">
+      <DependentUpon>userUpdate.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

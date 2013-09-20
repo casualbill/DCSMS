@@ -26,7 +26,7 @@
                 <td><%# Eval("UserName") %></td>
                 <td><%# Eval("UserTypeStr") %></td>
                 <td>
-                    <a href="user/userUpdate.aspx?id=<%# Eval("Id") %>">编辑</a>
+                    <a href="userUpdate.aspx?id=<%# Eval("Id") %>">编辑</a>
                 </td>
             </tr>
             
