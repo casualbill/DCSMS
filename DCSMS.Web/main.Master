@@ -1,0 +1,50 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="main.master.cs" Inherits="DCSMS.Web.main" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>Desoutter CC China Online Service Management System</title>
+
+    <asp:ContentPlaceHolder ID="head" runat="server"></asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+
+<div id="page">
+    <div id="wrapper">
+
+        <div id="header">
+            <div class="header-logo">
+                <a href="index.aspx"><img src="images/logo.png" alt="" /></a>
+            </div>
+
+            <div class="header-menu">
+                <ul>
+                    <li><a href="#">我的任务</a></li>
+                    <li><a href="#">查询工单</a></li>
+                    <li><a href="#">新建工单</a></li>
+                    <li><dl>
+                        <dt>客户管理</dt>
+                        <dd><a href="#">客户查询</a></dd>
+                        <dd><a href="#">客户添加</a></dd>
+                        <dd><a href="#">客户修改</a></dd>
+                    </dl></li>
+                    <li><dl>
+                        <dt>用户管理</dt>
+                        <dd><a href="/user/userQuery.aspx">用户查询</a></dd>
+                        <dd><a href="/user/userCreate.aspx">用户添加</a></dd>
+                        <dd><a href="/user/userQuery.aspx">用户修改</a></dd>
+                    </dl></li>
+                </ul>
+            </div>
+
+            <div id="main" class="clearfix">
+                <asp:ContentPlaceHolder ID="MainContentPlaceHolder" runat="server"></asp:ContentPlaceHolder>
+            </div>
+        </div>
+    </div>
+</div>
+    </form>
+</body>
+</html>

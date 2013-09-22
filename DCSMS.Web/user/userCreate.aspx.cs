@@ -8,7 +8,7 @@ using DCSMS.BLL;
 
 namespace DCSMS.Web.user
 {
-    public partial class createUser : System.Web.UI.Page
+    public partial class userCreate : System.Web.UI.Page
     {
         protected UserLogic userLogic = new UserLogic();
 

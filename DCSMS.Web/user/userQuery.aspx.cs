@@ -15,7 +15,7 @@ namespace DCSMS.Web.user
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+
         }
 
         protected void btn_submit_Click(object sender, EventArgs e)
@@ -28,11 +28,12 @@ namespace DCSMS.Web.user
                 rpt_userinfo.DataSource = dt;
                 rpt_userinfo.DataBind();
             }
-            else {
+            else
+            {
                 lb_tips.Text = "Empty";
             }
         }
 
-        
+
     }
 }
