@@ -17,11 +17,24 @@ namespace DCSMS.DAL
 
         protected int executeSqlCommandNoQuery(string sqlCommandStr)
         {
+            return executeSqlCommandNoQuery(sqlCommandStr, null);
+        }
+
+        protected int executeSqlCommandNoQuery(string sqlCommandStr, MySqlParameter[] paramArray)
+        {
             MySqlConnection sqlCon = this.getMySqlConnection();
             try
             {
                 sqlCon.Open();
                 MySqlCommand sqlCommand = new MySqlCommand(sqlCommandStr, sqlCon);
+
+                if (paramArray.Length > 0)
+                {
+                    foreach (MySqlParameter param in paramArray)
+                    {
+                        sqlCommand.Parameters.Add(param);
+                    }
+                }
                 int num = Convert.ToInt16(sqlCommand.ExecuteNonQuery());
                 sqlCommand.Dispose();
                 return num;
