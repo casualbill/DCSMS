@@ -83,7 +83,7 @@ namespace DCSMS.DAL
             {
                 sqlCon.Open();
                 MySqlCommand sqlCommand = new MySqlCommand(sqlCommandStr, sqlCon);
-                if (paramList.Count > 0)
+                if (paramList != null && paramList.Count > 0)
                 {
                     foreach (MySqlParameter param in paramList)
                     {
@@ -129,7 +129,7 @@ namespace DCSMS.DAL
             {
                 sqlCon.Open();
                 MySqlCommand sqlCommand = new MySqlCommand(sqlCommandStr, sqlCon);
-                if (paramList.Count > 0)
+                if (paramList != null && paramList.Count > 0)
                 {
                     foreach (MySqlParameter param in paramList)
                     {
@@ -175,7 +175,7 @@ namespace DCSMS.DAL
             {
                 sqlCon.Open();
                 MySqlCommand sqlCommand = new MySqlCommand(sqlCommandStr, sqlCon);
-                if (paramList.Count > 0)
+                if (paramList != null && paramList.Count > 0)
                 {
                     foreach (MySqlParameter param in paramList)
                     {
