@@ -2,6 +2,7 @@
 using System.Configuration;
 using System.Data;
 using System;
+using System.Collections.Generic;
 
 namespace DCSMS.DAL
 {
@@ -10,27 +11,35 @@ namespace DCSMS.DAL
         // 建立数据库连接
         private MySqlConnection getMySqlConnection()
         {
-            string connectionStr = ConfigurationManager.ConnectionStrings["connectionString"].ToString();
+            String connectionStr = ConfigurationManager.ConnectionStrings["connectionString"].ToString();
             MySqlConnection mySqlConnection = new MySqlConnection(connectionStr);
             return mySqlConnection;
         }
 
-        protected int executeSqlCommandNoQuery(string sqlCommandStr)
+        #region executeSqlCommandNoQuery
+        protected int executeSqlCommandNoQuery(String sqlCommandStr)
         {
-            return executeSqlCommandNoQuery(sqlCommandStr, null);
+            List<MySqlParameter> paramList = null;
+            return executeSqlCommandNoQuery(sqlCommandStr, paramList);
         }
 
-        protected int executeSqlCommandNoQuery(string sqlCommandStr, MySqlParameter[] paramArray)
+        protected int executeSqlCommandNoQuery(String sqlCommandStr, MySqlParameter param)
+        {
+            List<MySqlParameter> paramList = new List<MySqlParameter>();
+            paramList.Add(param);
+            return executeSqlCommandNoQuery(sqlCommandStr, paramList);
+        }
+
+        protected int executeSqlCommandNoQuery(String sqlCommandStr, List<MySqlParameter> paramList)
         {
             MySqlConnection sqlCon = this.getMySqlConnection();
             try
             {
                 sqlCon.Open();
                 MySqlCommand sqlCommand = new MySqlCommand(sqlCommandStr, sqlCon);
-
-                if (paramArray.Length > 0)
+                if (paramList.Count > 0)
                 {
-                    foreach (MySqlParameter param in paramArray)
+                    foreach (MySqlParameter param in paramList)
                     {
                         sqlCommand.Parameters.Add(param);
                     }
@@ -49,14 +58,38 @@ namespace DCSMS.DAL
                 sqlCon.Dispose();
             }
         }
+        #endregion
 
+
+
+        #region executeSqlCommandScalar
         protected String executeSqlCommandScalar(String sqlCommandStr)
+        {
+            List<MySqlParameter> paramList = null;
+            return executeSqlCommandScalar(sqlCommandStr, paramList);
+        }
+
+        protected String executeSqlCommandScalar(String sqlCommandStr, MySqlParameter param)
+        {
+            List<MySqlParameter> paramList = new List<MySqlParameter>();
+            paramList.Add(param);
+            return executeSqlCommandScalar(sqlCommandStr, paramList);
+        }
+
+        protected String executeSqlCommandScalar(String sqlCommandStr, List<MySqlParameter> paramList)
         {
             MySqlConnection sqlCon = this.getMySqlConnection();
             try
             {
                 sqlCon.Open();
                 MySqlCommand sqlCommand = new MySqlCommand(sqlCommandStr, sqlCon);
+                if (paramList.Count > 0)
+                {
+                    foreach (MySqlParameter param in paramList)
+                    {
+                        sqlCommand.Parameters.Add(param);
+                    }
+                }
                 String str = sqlCommand.ExecuteScalar().ToString();
                 sqlCommand.Dispose();
                 return str;
@@ -71,14 +104,38 @@ namespace DCSMS.DAL
                 sqlCon.Dispose();
             }
         }
+        #endregion
 
-        protected MySqlDataReader executeSqlCommandDataReader(string sqlCommandStr)
+
+
+        #region executeSqlCommandDataReader
+        protected MySqlDataReader executeSqlCommandDataReader(String sqlCommandStr)
+        {
+            List<MySqlParameter> paramList = null;
+            return executeSqlCommandDataReader(sqlCommandStr, paramList);
+        }
+
+        protected MySqlDataReader executeSqlCommandDataReader(String sqlCommandStr, MySqlParameter param)
+        {
+            List<MySqlParameter> paramList = new List<MySqlParameter>();
+            paramList.Add(param);
+            return executeSqlCommandDataReader(sqlCommandStr, paramList);
+        }
+
+        protected MySqlDataReader executeSqlCommandDataReader(String sqlCommandStr, List<MySqlParameter> paramList)
         {
             MySqlConnection sqlCon = this.getMySqlConnection();
             try
             {
-                MySqlCommand sqlCommand = new MySqlCommand(sqlCommandStr, sqlCon);
                 sqlCon.Open();
+                MySqlCommand sqlCommand = new MySqlCommand(sqlCommandStr, sqlCon);
+                if (paramList.Count > 0)
+                {
+                    foreach (MySqlParameter param in paramList)
+                    {
+                        sqlCommand.Parameters.Add(param);
+                    }
+                }
                 MySqlDataReader sqlReader = sqlCommand.ExecuteReader();
                 sqlCommand.Dispose();
                 return sqlReader;
@@ -93,14 +150,39 @@ namespace DCSMS.DAL
                 sqlCon.Dispose();
             }
         }
+        #endregion
 
-        protected DataSet executeSqlCommandDataSet(string sqlCommandStr)
+
+
+        #region executeSqlCommandDataSet
+        protected DataSet executeSqlCommandDataSet(String sqlCommandStr)
+        {
+            List<MySqlParameter> paramList = null;
+            return executeSqlCommandDataSet(sqlCommandStr, paramList);
+        }
+
+        protected DataSet executeSqlCommandDataSet(String sqlCommandStr, MySqlParameter param)
+        {
+            List<MySqlParameter> paramList = new List<MySqlParameter>();
+            paramList.Add(param);
+            return executeSqlCommandDataSet(sqlCommandStr, paramList);
+        }
+
+        protected DataSet executeSqlCommandDataSet(String sqlCommandStr, List<MySqlParameter> paramList)
         {
             MySqlConnection sqlCon = this.getMySqlConnection();
             try
             {
                 sqlCon.Open();
-                MySqlDataAdapter sqlAdapter = new MySqlDataAdapter(sqlCommandStr, sqlCon);
+                MySqlCommand sqlCommand = new MySqlCommand(sqlCommandStr, sqlCon);
+                if (paramList.Count > 0)
+                {
+                    foreach (MySqlParameter param in paramList)
+                    {
+                        sqlCommand.Parameters.Add(param);
+                    }
+                }
+                MySqlDataAdapter sqlAdapter = new MySqlDataAdapter(sqlCommand);
                 DataSet ds = new DataSet();
                 sqlAdapter.Fill(ds);
                 sqlAdapter.Dispose();
@@ -116,5 +198,6 @@ namespace DCSMS.DAL
                 sqlCon.Dispose();
             }
         }
+        #endregion
     }
 }

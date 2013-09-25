@@ -12,13 +12,14 @@ namespace DCSMS.DAL
         public int userCreate(String userName, String password, int userType)
         {
             String sqlCommand = "insert into userinfo (UserName, Password, UserType) values (@userName, @password, @userType)";
-            MySqlParameter[] para = new MySqlParameter[3];
 
-            para[0] = new MySqlParameter("@userName", userName);
-            para[1] = new MySqlParameter("@password", password);
-            para[2] = new MySqlParameter("@userType", userType);
+            List<MySqlParameter> paramList = new List<MySqlParameter>();
 
-            return executeSqlCommandNoQuery(sqlCommand, para);
+            paramList.Add(new MySqlParameter("@userName", userName));
+            paramList.Add( new MySqlParameter("@password", password));
+            paramList.Add( new MySqlParameter("@userType", userType));
+
+            return executeSqlCommandNoQuery(sqlCommand, paramList);
         }
 
         public String checkUserExist(String userName)
