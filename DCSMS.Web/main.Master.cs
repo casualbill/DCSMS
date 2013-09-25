@@ -15,7 +15,7 @@ namespace DCSMS.Web
             {
                 if (Session["userid"] == null)
                 {
-                    Response.Redirect("/login.aspx");
+                    //Response.Redirect("/login.aspx");
                 }
             }
         }
