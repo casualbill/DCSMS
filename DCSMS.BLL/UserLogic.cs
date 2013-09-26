@@ -27,16 +27,17 @@ namespace DCSMS.BLL
         }
 
         //验证用户登录并返回用户信息
-        public String[] validateUserLogin(String userName, String password)
+        public List<String> validateUserLogin(String userName, String password)
         {
-            String[] userInfoStr = new String[5];
+            List<String> userInfoStr = new List<String>();
             String encryptedPwd = getMD5HashCode(password);
             if (userDb.validateUserLogin(userName, encryptedPwd) == "1")
             {
                 DataRow dr = userDb.userQueryByUserName(userName).Tables[0].Rows[0];
-                for (int i = 0; i < 4; i++)
+
+                foreach (Object obj in dr.ItemArray)
                 {
-                    userInfoStr[i] = dr[i].ToString();
+                    userInfoStr.Add(obj.ToString());
                 }
 
             }

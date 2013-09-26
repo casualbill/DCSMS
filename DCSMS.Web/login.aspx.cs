@@ -22,7 +22,7 @@ namespace DCSMS.Web
             String userName = tb_username.Text.Trim().ToLower();
             String password = tb_password.Text.Trim().ToLower();
 
-            String[] userInfoStr = userLogic.validateUserLogin(userName, password);
+            List<String> userInfoStr = userLogic.validateUserLogin(userName, password);
             if (userInfoStr[0] != null)
             {
                 Session["userId"] = userInfoStr[0];
