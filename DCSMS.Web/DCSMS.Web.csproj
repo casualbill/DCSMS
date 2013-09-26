@@ -47,6 +47,9 @@
     <Reference Include="System.Web.Mobile" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="customer\customerCreate.aspx" />
+    <Content Include="customer\customerQuery.aspx" />
+    <Content Include="customer\customerUpdate.aspx" />
     <Content Include="index.aspx" />
     <Content Include="login.aspx" />
     <Content Include="Scripts\jquery-1.4.1-vsdoc.js" />
@@ -67,6 +70,27 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="customer\customerCreate.aspx.cs">
+      <DependentUpon>customerCreate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="customer\customerCreate.aspx.designer.cs">
+      <DependentUpon>customerCreate.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="customer\customerQuery.aspx.cs">
+      <DependentUpon>customerQuery.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="customer\customerQuery.aspx.designer.cs">
+      <DependentUpon>customerQuery.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="customer\customerUpdate.aspx.cs">
+      <DependentUpon>customerUpdate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="customer\customerUpdate.aspx.designer.cs">
+      <DependentUpon>customerUpdate.aspx</DependentUpon>
+    </Compile>
     <Compile Include="index.aspx.cs">
       <DependentUpon>index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

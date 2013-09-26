@@ -26,9 +26,9 @@
                     <li><a href="#">新建工单</a></li>
                     <li><dl>
                         <dt>客户管理</dt>
-                        <dd><a href="#">客户查询</a></dd>
-                        <dd><a href="#">客户添加</a></dd>
-                        <dd><a href="#">客户修改</a></dd>
+                        <dd><a href="/customer/customerQuery.aspx">客户查询</a></dd>
+                        <dd><a href="/customer/customerCreate.aspx">客户添加</a></dd>
+                        <dd><a href="/customer/customerQuery.aspx">客户修改</a></dd>
                     </dl></li>
                     <li><dl>
                         <dt>用户管理</dt>

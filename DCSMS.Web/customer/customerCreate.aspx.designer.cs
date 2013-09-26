@@ -7,46 +7,73 @@
 // </自动生成>
 //------------------------------------------------------------------------------
 
-namespace DCSMS.Web.user {
+namespace DCSMS.Web.customer {
     
     
-    public partial class userCreate {
+    public partial class customerCreate {
         
         /// <summary>
-        /// tb_username 控件。
+        /// tb_customername 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tb_username;
+        protected global::System.Web.UI.WebControls.TextBox tb_customername;
         
         /// <summary>
-        /// tb_password 控件。
+        /// tb_endcustomername 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tb_password;
+        protected global::System.Web.UI.WebControls.TextBox tb_endcustomername;
         
         /// <summary>
-        /// tb_password_repeat 控件。
+        /// tb_contactperson 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tb_password_repeat;
+        protected global::System.Web.UI.WebControls.TextBox tb_contactperson;
         
         /// <summary>
-        /// rbl_usertype 控件。
+        /// tb_telephone 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButtonList rbl_usertype;
+        protected global::System.Web.UI.WebControls.TextBox tb_telephone;
+        
+        /// <summary>
+        /// tb_mobile 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox tb_mobile;
+        
+        /// <summary>
+        /// tb_postcode 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox tb_postcode;
+        
+        /// <summary>
+        /// tb_remark 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox tb_remark;
         
         /// <summary>
         /// btn_submit 控件。

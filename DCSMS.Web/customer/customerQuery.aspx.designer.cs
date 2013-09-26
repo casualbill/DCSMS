@@ -7,36 +7,45 @@
 // </自动生成>
 //------------------------------------------------------------------------------
 
-namespace DCSMS.Web {
+namespace DCSMS.Web.customer {
     
     
-    public partial class main {
+    public partial class customerQuery {
         
         /// <summary>
-        /// head 控件。
+        /// tb_query_text 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder head;
+        protected global::System.Web.UI.WebControls.TextBox tb_query_text;
         
         /// <summary>
-        /// form1 控件。
+        /// btn_submit 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+        protected global::System.Web.UI.WebControls.Button btn_submit;
         
         /// <summary>
-        /// MainContentPlaceHolder 控件。
+        /// lb_tips 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder MainContentPlaceHolder;
+        protected global::System.Web.UI.WebControls.Label lb_tips;
+        
+        /// <summary>
+        /// rpt_customerinfo 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater rpt_customerinfo;
     }
 }

@@ -9,7 +9,7 @@ namespace DCSMS.DAL
 {
     public class CustomerDB : DBHelper
     {
-        public int customerCreate(String[] customerInfo) 
+        public int customerCreate(List<String> customerInfo)
         {
             String sqlCommand = "insert into customerinfo values (null, @CustomerName, @EndCustomerName, @ContactPerson, @Telephone, @Mobile, @PostCode, @Remark)";
 
@@ -25,7 +25,7 @@ namespace DCSMS.DAL
             return executeSqlCommandNoQuery(sqlCommand, paramList);
         }
 
-        public int customerUpdate(int id, String[] customerInfo)
+        public int customerUpdate(int id, List<String> customerInfo)
         {
             String sqlCommand = "update customerinfo set CustomerName = @CustomerName, EndCustomerName = @EndCustomerName, ContactPerson = @ContactPerson, Telephone = @Telephone, Mobile = @Mobile, PostCode = @PostCode, Remark = @Remark where Id = @id";
 
@@ -37,6 +37,7 @@ namespace DCSMS.DAL
             paramList.Add(new MySqlParameter("@Mobile", customerInfo[4]));
             paramList.Add(new MySqlParameter("@PostCode", customerInfo[5]));
             paramList.Add(new MySqlParameter("@Remark", customerInfo[6]));
+            paramList.Add(new MySqlParameter("@Id", id));
 
             return executeSqlCommandNoQuery(sqlCommand, paramList);
         }
