@@ -34,7 +34,6 @@ namespace DCSMS.BLL
             if (userDb.validateUserLogin(userName, encryptedPwd) == "1")
             {
                 DataRow dr = userDb.userQueryByUserName(userName).Tables[0].Rows[0];
-
                 foreach (Object obj in dr.ItemArray)
                 {
                     userInfoStr.Add(obj.ToString());

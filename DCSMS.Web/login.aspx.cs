@@ -23,7 +23,7 @@ namespace DCSMS.Web
             String password = tb_password.Text.Trim().ToLower();
 
             List<String> userInfoStr = userLogic.validateUserLogin(userName, password);
-            if (userInfoStr[0] != null)
+            if (userInfoStr.Count > 0)
             {
                 Session["userId"] = userInfoStr[0];
                 Session["userName"] = userInfoStr[1];
