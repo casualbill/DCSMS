@@ -60,8 +60,8 @@ namespace DCSMS.Web.user
             }
             else
             {
-                String[] userInfoStr = userLogic.userQueryByUserId(userId);
-                if (userInfoStr[0] != null)
+                List<String> userInfoStr = userLogic.userQueryByUserId(userId);
+                if (userInfoStr.Count > 0)
                 {
                     lb_userid.Text = userInfoStr[0];
                     tb_username.Text = userInfoStr[1];

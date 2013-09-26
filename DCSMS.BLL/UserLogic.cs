@@ -79,18 +79,15 @@ namespace DCSMS.BLL
         }
 
         //用户查询 根据用户Id
-        public String[] userQueryByUserId(int id)
+        public List<String> userQueryByUserId(int id)
         {
-            String[] userInfoStr = new String[5];
-            DataSet ds = userDb.userQueryByUserId(id);
-
-            if (ds.Tables[0].Rows.Count > 0)
+            List<String> userInfoStr = new List<String>();
+            DataRow dr = userDb.userQueryByUserId(id).Tables[0].Rows[0];
+            foreach (Object obj in dr.ItemArray)
             {
-                for (int i = 0; i < 4; i++)
-                {
-                    userInfoStr[i] = ds.Tables[0].Rows[0][i].ToString();
-                }
+                userInfoStr.Add(obj.ToString());
             }
+
             return userInfoStr;
         }
 
