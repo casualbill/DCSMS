@@ -42,5 +42,30 @@ namespace DCSMS.Web
             str += "]";
             return str;
         }
+
+        [WebMethod]
+        public String customerQuery(String queryStr)
+        {
+            CustomerLogic customerLogic = new CustomerLogic();
+            if (queryStr.Length < 1)
+            {
+                return "[]";
+            }
+            DataTable dt = customerLogic.customerQueryByCustomerNameVaguely(queryStr);
+            String str = "[";
+            if (dt != null)
+            {
+                foreach (DataRow dr in dt.Rows)
+                {
+                    str += "{";
+                    str += "\"id\":" + dr["Id"] + ",";
+                    str += "\"customerName\":\"" + dr["customerName"] + "\"";
+                    str += "},";
+                }
+                str = str.Substring(0, str.Length - 1);
+            }
+            str += "]";
+            return str;
+        }
     }
 }

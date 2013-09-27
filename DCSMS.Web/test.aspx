@@ -12,7 +12,8 @@
             $('#userQuery').keyup(function () {
                 var queryStr = $(this).val();
                 $.ajax({
-                    url: 'ajax.asmx/userQuery',
+                    //url: 'ajax.asmx/userQuery',
+                    url: 'ajax.asmx/customerQuery',
                     data: '{queryStr:"' + queryStr + '"}',
                     type: "POST",
                     dataType: "json",
@@ -24,7 +25,8 @@
                         var str = '';
                         if (result) {
                             for (var i = 0; i < result.length; i++) {
-                                str += result[i].userName + ' ';
+                                //str += result[i].userName + ' ';
+                                str += result[i].customerName + ' ';
                             }
                             $('#userQueryResult').html(str);
                         } else {
