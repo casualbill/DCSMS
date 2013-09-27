@@ -47,14 +47,13 @@
     <Reference Include="System.Web.Mobile" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="ajax.asmx" />
     <Content Include="customer\customerCreate.aspx" />
     <Content Include="customer\customerQuery.aspx" />
     <Content Include="customer\customerUpdate.aspx" />
     <Content Include="index.aspx" />
+    <Content Include="js\jquery-1.10.2.min.js" />
     <Content Include="login.aspx" />
-    <Content Include="Scripts\jquery-1.4.1-vsdoc.js" />
-    <Content Include="Scripts\jquery-1.4.1.js" />
-    <Content Include="Scripts\jquery-1.4.1.min.js" />
     <Content Include="test.aspx" />
     <Content Include="user\userCreate.aspx" />
     <Content Include="user\userQuery.aspx" />
@@ -70,6 +69,10 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ajax.asmx.cs">
+      <DependentUpon>ajax.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="customer\customerCreate.aspx.cs">
       <DependentUpon>customerCreate.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
