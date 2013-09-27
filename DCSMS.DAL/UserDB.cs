@@ -81,5 +81,16 @@ namespace DCSMS.DAL
 
             return executeSqlCommandNoQuery(sqlCommand, paramList);
         }
+
+        public int engineerUpdate(int userId, String telephone, String email) {
+            String sqlCommand = "update engineerinfo set Telephone = @Telephone, Email = @Email where UserId = @UserId)";
+
+            List<MySqlParameter> paramList = new List<MySqlParameter>();
+            paramList.Add(new MySqlParameter("@Telephone", telephone));
+            paramList.Add(new MySqlParameter("@Email", email));
+            paramList.Add(new MySqlParameter("@UserId", userId));
+
+            return executeSqlCommandNoQuery(sqlCommand, paramList);
+        }
     }
 }

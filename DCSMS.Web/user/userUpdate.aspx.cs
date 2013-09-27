@@ -35,7 +35,18 @@ namespace DCSMS.Web.user
             }
             else
             {
-                int retVal = userLogic.userUpdate(userId, userName, userType);
+                int retVal;
+                if (userType == 2)
+                {
+                    String telephone = tb_telephone.Text.Trim();
+                    String email = tb_email.Text.Trim();
+                    retVal = userLogic.engineerUpdate(userId, userName, telephone, email);
+                }
+                else
+                {
+                    retVal = userLogic.userUpdate(userId, userName, userType);
+                }
+
                 if (retVal == 1)
                 {
                     lb_tips.Text = "success";

@@ -43,6 +43,18 @@ namespace DCSMS.BLL
             }
         }
 
+        //工程师信息修改 返回：0失败，1成功
+        public int engineerUpdate(int userId, String userName, String telephone, String email) {
+            int retVal = userUpdate(userId, userName, 2);
+            if (retVal != 1)
+            {
+                return retVal;
+            }
+            else {
+                return userDb.engineerUpdate(userId, telephone, email);
+            }
+        }
+
         //验证用户登录并返回用户信息
         public List<String> validateUserLogin(String userName, String password)
         {

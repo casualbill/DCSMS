@@ -10,7 +10,10 @@
         <asp:ListItem Text="Admin" Value="3"></asp:ListItem>
         <asp:ListItem Text="Manager" Value="4"></asp:ListItem>
         <asp:ListItem Text="Super Manager" Value="5"></asp:ListItem>
-    </asp:RadioButtonList><br />
+    </asp:RadioButtonList><br /><br />
+    技术员特有。。。<br />
+    电话：<asp:TextBox ID="tb_telephone" runat="server" MaxLength="20"></asp:TextBox><br />
+    Email：<asp:TextBox ID="tb_email" runat="server" MaxLength="50"></asp:TextBox><br />
     <asp:Button ID="btn_submit" runat="server" Text="Submit" OnClick="btn_submit_Click" />
     <asp:Label ID="lb_tips" runat="server"></asp:Label>
 </asp:Content>
