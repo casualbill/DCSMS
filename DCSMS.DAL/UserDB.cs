@@ -67,7 +67,7 @@ namespace DCSMS.DAL
 
         public DataSet userQueryByUserNameVaguely(String userName)
         {
-            String sqlCommand = "select * from userinfo where UserName like '%" + userName + "%'";
+            String sqlCommand = "select * from userinfo where UserName like '" + userName + "%'";
             return executeSqlCommandDataSet(sqlCommand);
         }
 
