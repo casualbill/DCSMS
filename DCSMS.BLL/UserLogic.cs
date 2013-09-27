@@ -26,6 +26,23 @@ namespace DCSMS.BLL
             }
         }
 
+        //新建技术员  返回： -1用户已存在，0失败，1成功
+        public int engineerCreate(String userName, String password, String telephone, String email)
+        {
+            int retVal = userCreate(userName, password, 2);
+            if (retVal != 1)
+            {
+                return retVal;
+            }
+            else
+            {
+                DataSet ds = userDb.userQueryByUserName(userName);
+                int userId = Convert.ToInt16(ds.Tables[0].Rows[0]["Id"]);
+
+                return userDb.engineerCreate(userId, telephone, email);
+            }
+        }
+
         //验证用户登录并返回用户信息
         public List<String> validateUserLogin(String userName, String password)
         {
@@ -83,6 +100,19 @@ namespace DCSMS.BLL
         {
             List<String> userInfoStr = new List<String>();
             DataRow dr = userDb.userQueryByUserId(id).Tables[0].Rows[0];
+            foreach (Object obj in dr.ItemArray)
+            {
+                userInfoStr.Add(obj.ToString());
+            }
+
+            return userInfoStr;
+        }
+
+        //用户查询 根据用户名
+        public List<String> userQueryByUserName(String userName)
+        {
+            List<String> userInfoStr = new List<String>();
+            DataRow dr = userDb.userQueryByUserName(userName).Tables[0].Rows[0];
             foreach (Object obj in dr.ItemArray)
             {
                 userInfoStr.Add(obj.ToString());

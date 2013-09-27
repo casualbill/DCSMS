@@ -30,7 +30,17 @@ namespace DCSMS.Web.user
             }
             else
             {
-                int retVal = userLogic.userCreate(userName, password, userType);
+                int retVal;
+                if (userType == 2)
+                {
+                    String telephone = tb_telephone.Text.Trim();
+                    String email = tb_email.Text.Trim();
+                    retVal = userLogic.engineerCreate(userName, password, telephone, email);
+                }
+                else
+                {
+                    retVal = userLogic.userCreate(userName, password, userType);
+                }
                 if (retVal == 1)
                 {
                     lb_tips.Text = "success";

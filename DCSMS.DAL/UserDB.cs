@@ -71,5 +71,15 @@ namespace DCSMS.DAL
             return executeSqlCommandDataSet(sqlCommand);
         }
 
+        public int engineerCreate(int userId, String telephone, String email) {
+            String sqlCommand = "insert into engineerinfo (Telephone, Email, UserId) values (@Telephone, @Email, @UserId)";
+
+            List<MySqlParameter> paramList = new List<MySqlParameter>();
+            paramList.Add(new MySqlParameter("@Telephone", telephone));
+            paramList.Add(new MySqlParameter("@Email", email));
+            paramList.Add(new MySqlParameter("@UserId", userId));
+
+            return executeSqlCommandNoQuery(sqlCommand, paramList);
+        }
     }
 }
