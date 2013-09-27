@@ -10,9 +10,9 @@ namespace DCSMS.Web
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            dataGrid.DataSource = testLogic.testQueryList();
-            dataGrid.DataBind();
-            label.Text = testLogic.testQueryCount();
+            //dataGrid.DataSource = testLogic.testQueryList();
+            //dataGrid.DataBind();
+            //label.Text = testLogic.testQueryCount();
         }
 
         protected void onButtonClick(object sender, EventArgs e)
