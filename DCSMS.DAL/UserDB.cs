@@ -83,7 +83,7 @@ namespace DCSMS.DAL
         }
 
         public int engineerUpdate(int userId, String telephone, String email) {
-            String sqlCommand = "update engineerinfo set Telephone = @Telephone, Email = @Email where UserId = @UserId)";
+            String sqlCommand = "update engineerinfo set Telephone = @Telephone, Email = @Email where UserId = @UserId";
 
             List<MySqlParameter> paramList = new List<MySqlParameter>();
             paramList.Add(new MySqlParameter("@Telephone", telephone));
