@@ -33,9 +33,17 @@ namespace DCSMS.Web.user
                 int retVal;
                 if (userType == 2)
                 {
+                    String realName = tb_realname.Text.Trim();
                     String telephone = tb_telephone.Text.Trim();
                     String email = tb_email.Text.Trim();
-                    retVal = userLogic.engineerCreate(userName, password, telephone, email);
+                    if (realName.Length < 1)
+                    {
+                        retVal = 0;
+                    }
+                    else
+                    {
+                        retVal = userLogic.engineerCreate(userName, password, realName, telephone, email);
+                    }
                 }
                 else
                 {

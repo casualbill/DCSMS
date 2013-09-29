@@ -38,9 +38,17 @@ namespace DCSMS.Web.user
                 int retVal;
                 if (userType == 2)
                 {
+                    String realName = tb_realname.Text.Trim();
                     String telephone = tb_telephone.Text.Trim();
                     String email = tb_email.Text.Trim();
-                    retVal = userLogic.engineerUpdate(userId, userName, telephone, email);
+                    if (realName.Length < 1)
+                    {
+                        retVal = 0;
+                    }
+                    else
+                    {
+                        retVal = userLogic.engineerUpdate(userId, userName, realName, telephone, email);
+                    }
                 }
                 else
                 {
@@ -77,6 +85,12 @@ namespace DCSMS.Web.user
                     lb_userid.Text = userInfoStr[0];
                     tb_username.Text = userInfoStr[1];
                     rbl_usertype.Items.FindByValue(userInfoStr[3]).Selected = true;
+                    if (userInfoStr[3] == "2") {
+                        List<String> engineerInfoStr = userLogic.engineerQueryByUserId(userId);
+                        tb_realname.Text = engineerInfoStr[1];
+                        tb_telephone.Text = engineerInfoStr[2];
+                        tb_email.Text = engineerInfoStr[3];
+                    }
                 }
                 else
                 {

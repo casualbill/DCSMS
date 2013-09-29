@@ -12,6 +12,7 @@
         <asp:ListItem Text="Super Manager" Value="5"></asp:ListItem>
     </asp:RadioButtonList><br /><br />
     技术员特有。。。<br />
+    技术员姓名：<asp:TextBox ID="tb_realname" runat="server" MaxLength="50"></asp:TextBox><br />
     电话：<asp:TextBox ID="tb_telephone" runat="server" MaxLength="20"></asp:TextBox><br />
     Email：<asp:TextBox ID="tb_email" runat="server" MaxLength="50"></asp:TextBox><br />
     <asp:Button ID="btn_submit" runat="server" Text="Submit" OnClick="btn_submit_Click" />

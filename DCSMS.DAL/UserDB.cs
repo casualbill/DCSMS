@@ -71,26 +71,37 @@ namespace DCSMS.DAL
             return executeSqlCommandDataSet(sqlCommand);
         }
 
-        public int engineerCreate(int userId, String telephone, String email) {
-            String sqlCommand = "insert into engineerinfo (Telephone, Email, UserId) values (@Telephone, @Email, @UserId)";
+        public int engineerCreate(int userId, String realName, String telephone, String email)
+        {
+            String sqlCommand = "insert into engineerinfo (UserId, RealName, Telephone, Email) values (@UserId, @RealName, @Telephone, @Email)";
 
             List<MySqlParameter> paramList = new List<MySqlParameter>();
+            paramList.Add(new MySqlParameter("@UserId", userId));
+            paramList.Add(new MySqlParameter("@RealName", realName));
             paramList.Add(new MySqlParameter("@Telephone", telephone));
             paramList.Add(new MySqlParameter("@Email", email));
-            paramList.Add(new MySqlParameter("@UserId", userId));
 
             return executeSqlCommandNoQuery(sqlCommand, paramList);
         }
 
-        public int engineerUpdate(int userId, String telephone, String email) {
-            String sqlCommand = "update engineerinfo set Telephone = @Telephone, Email = @Email where UserId = @UserId";
+        public int engineerUpdate(int userId, String realName, String telephone, String email)
+        {
+            String sqlCommand = "update engineerinfo set RealName = @RealName, Telephone = @Telephone, Email = @Email where UserId = @UserId";
 
             List<MySqlParameter> paramList = new List<MySqlParameter>();
+            paramList.Add(new MySqlParameter("@UserId", userId));
+            paramList.Add(new MySqlParameter("@RealName", realName));
             paramList.Add(new MySqlParameter("@Telephone", telephone));
             paramList.Add(new MySqlParameter("@Email", email));
-            paramList.Add(new MySqlParameter("@UserId", userId));
 
             return executeSqlCommandNoQuery(sqlCommand, paramList);
+        }
+
+        public DataSet engineerQueryByUserId(int userId)
+        {
+            String sqlCommand = "select * from engineerinfo where UserId = @UserId";
+            MySqlParameter param = new MySqlParameter("@UserId", userId);
+            return executeSqlCommandDataSet(sqlCommand, param);
         }
     }
 }
