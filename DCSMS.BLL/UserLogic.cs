@@ -82,7 +82,7 @@ namespace DCSMS.BLL
             return userInfoStr;
         }
 
-        //用户查询 根据用户名模糊查询
+        //用户查询 根据用户名模糊查询 （包含技术员信息）
         public DataTable userQueryByUserNameVaguely(String queryStr)
         {
             DataSet ds = userDb.userQueryByUserNameVaguely(queryStr);
