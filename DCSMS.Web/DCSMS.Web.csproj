@@ -51,6 +51,7 @@
     <Content Include="customer\customerCreate.aspx" />
     <Content Include="customer\customerQuery.aspx" />
     <Content Include="customer\customerUpdate.aspx" />
+    <Content Include="customer\customerVerify.aspx" />
     <Content Include="index.aspx" />
     <Content Include="js\jquery-1.10.2.min.js" />
     <Content Include="login.aspx" />
@@ -93,6 +94,13 @@
     </Compile>
     <Compile Include="customer\customerUpdate.aspx.designer.cs">
       <DependentUpon>customerUpdate.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="customer\customerVerify.aspx.cs">
+      <DependentUpon>customerVerify.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="customer\customerVerify.aspx.designer.cs">
+      <DependentUpon>customerVerify.aspx</DependentUpon>
     </Compile>
     <Compile Include="index.aspx.cs">
       <DependentUpon>index.aspx</DependentUpon>

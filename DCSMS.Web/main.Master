@@ -29,6 +29,7 @@
                         <dd><a href="/customer/customerQuery.aspx">客户查询</a></dd>
                         <dd><a href="/customer/customerCreate.aspx">客户添加</a></dd>
                         <dd><a href="/customer/customerQuery.aspx">客户修改</a></dd>
+                        <dd><a href="/customer/customerVerify.aspx">审核列表</a></dd>
                     </dl></li>
                     <li><dl>
                         <dt>用户管理</dt>

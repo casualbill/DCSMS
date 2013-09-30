@@ -67,5 +67,11 @@ namespace DCSMS.Web
             str += "]";
             return str;
         }
+
+        [WebMethod]
+        public int customerVerify(int id) {
+            CustomerLogic customerLogic = new CustomerLogic();
+            return customerLogic.customerVerify(id);
+        }
     }
 }

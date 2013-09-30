@@ -55,5 +55,19 @@ namespace DCSMS.BLL
                 return null;
             }
         }
+
+        //未审核客户查询
+        public DataTable unverifiedCustomerQuery()
+        {
+            DataSet ds = customerDb.userQueryByVerified(false);
+            if (ds.Tables[0].Rows.Count > 0)
+            {
+                return ds.Tables[0];
+            }
+            else
+            {
+                return null;
+            }
+        }
     }
 }

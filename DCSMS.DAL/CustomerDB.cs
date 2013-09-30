@@ -77,7 +77,7 @@ namespace DCSMS.DAL
         {
             String sqlCommand = "select * from customerinfo where Verified = @Verified";
             MySqlParameter param = new MySqlParameter("@Verified", verify);
-            return executeSqlCommandDataSet(sqlCommand);
+            return executeSqlCommandDataSet(sqlCommand, param);
         }
     }
 }
