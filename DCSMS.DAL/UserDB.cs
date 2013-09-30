@@ -67,8 +67,9 @@ namespace DCSMS.DAL
 
         public DataSet userQueryByUserNameVaguely(String userName)
         {
-            String sqlCommand = "select * from userinfo left join engineerinfo on userinfo.Id = engineerinfo.UserId where UserName like '" + userName + "%'";
-            return executeSqlCommandDataSet(sqlCommand);
+            String sqlCommand = "select * from userinfo left join engineerinfo on userinfo.Id = engineerinfo.UserId where UserName like @userName";
+            MySqlParameter param = new MySqlParameter("@UserName", userName + "%");
+            return executeSqlCommandDataSet(sqlCommand, param);
         }
 
         public int engineerCreate(int userId, String realName, String telephone, String email)

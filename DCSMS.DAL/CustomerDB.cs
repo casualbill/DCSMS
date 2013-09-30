@@ -68,8 +68,9 @@ namespace DCSMS.DAL
 
         public DataSet userQueryByCustomerNameVaguely(String customerName)
         {
-            String sqlCommand = "select * from customerinfo where CustomerName like '" + customerName + "%'";
-            return executeSqlCommandDataSet(sqlCommand);
+            String sqlCommand = "select * from customerinfo where CustomerName like @customerName";
+            MySqlParameter param = new MySqlParameter("@customerName", customerName + "%");
+            return executeSqlCommandDataSet(sqlCommand, param);
         }
 
         public DataSet userQueryByVerified(Boolean verify)
