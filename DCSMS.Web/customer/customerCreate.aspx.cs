@@ -25,6 +25,7 @@ namespace DCSMS.Web.customer
             customerInfo.Add(tb_contactperson.Text.Trim());
             customerInfo.Add(tb_telephone.Text.Trim());
             customerInfo.Add(tb_mobile.Text.Trim());
+            customerInfo.Add(tb_address.Text.Trim());
             customerInfo.Add(tb_postcode.Text.Trim());
             customerInfo.Add(tb_remark.Text);
 
@@ -34,7 +35,7 @@ namespace DCSMS.Web.customer
             }
             else
             {
-                int retVal = customerLogic.customerCreate(customerInfo);
+                int retVal = customerLogic.customerCreate(customerInfo, true);
                 if (retVal == 1)
                 {
                     lb_tips.Text = "success";

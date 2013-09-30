@@ -13,6 +13,7 @@
             <th>ContactPerson</th>
             <th>Telephone</th>
             <th>Mobile</th>
+            <th>Address</th>
             <th>PostCode</th>
             <th>Remark</th>
         </tr>
@@ -26,6 +27,7 @@
                 <td><%# Eval("ContactPerson")%></td>
                 <td><%# Eval("Telephone")%></td>
                 <td><%# Eval("Mobile")%></td>
+                <td><%# Eval("Address")%></td>
                 <td><%# Eval("PostCode")%></td>
                 <td><%# Eval("Remark")%></td>
                 <td>

@@ -12,15 +12,21 @@ namespace DCSMS.BLL
         protected CustomerDB customerDb = new CustomerDB();
 
         //新建客户 返回：0失败，1成功
-        public int customerCreate(List<String> customerInfo)
+        public int customerCreate(List<String> customerInfo, Boolean verify)
         {
-            return customerDb.customerCreate(customerInfo);
+            return customerDb.customerCreate(customerInfo, verify);
         }
 
         //客户信息修改 返回：0失败，1成功
         public int customerUpdate(int id, List<String> customerInfo)
         {
             return customerDb.customerUpdate(id, customerInfo);
+        }
+
+        //客户审核通过
+        public int customerVerify(int id)
+        {
+            return customerDb.customerVerify(id);
         }
 
         //客户查询 根据客户Id
