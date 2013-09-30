@@ -7,7 +7,7 @@ using System.Data;
 
 namespace DCSMS.DAL
 {
-    public class ProductDB:DBHelper
+    public class ProductDB : DBHelper
     {
         public int productCreate(List<String> productInfo, String orderId)
         {
