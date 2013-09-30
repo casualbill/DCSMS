@@ -23,7 +23,7 @@ namespace DCSMS.DAL
             return executeSqlCommandNoQuery(sqlCommand, paramList);
         }
 
-        public int sparePart(List<String> sparePartInfo, int id)
+        public int sparePartUpdate(List<String> sparePartInfo, int id)
         {
             String sqlCommand = "update sparepartinfo set SparePartName = @SparePartName, OrderingNumber = @OrderingNumber, Amount = @Amount, Remark = @Remark where Id = @Id";
 
