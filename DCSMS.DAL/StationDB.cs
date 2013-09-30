@@ -17,7 +17,6 @@ namespace DCSMS.DAL
             paramList.Add(new MySqlParameter("@StationName", stationName));
             paramList.Add(new MySqlParameter("@StationNameSimple", stationNameSimple));
 
-
             return executeSqlCommandNoQuery(sqlCommand, paramList);
         }
 
