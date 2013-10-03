@@ -24,7 +24,7 @@ namespace DCSMS.DAL
             return executeSqlCommandNoQuery(sqlCommand, paramList);
         }
 
-        public int orderStatusUpdate(int orderStatus, String id)
+        public int orderStatusUpdate(String id, int orderStatus)
         {
             String sqlCommand = "update orderinfo set OrderStatus = @OrderStatus, UpdateTime = now() where Id = @Id";
 
