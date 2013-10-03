@@ -9,27 +9,25 @@ namespace DCSMS.DAL
 {
     public class OrderDB : DBHelper
     {
-        public int orderCreate(String id, String failureDescription, String imgUrl, DateTime createTime, int stationId)
+        public int orderCreate(String id, String failureDescription, String imgUrl, int stationId)
         {
-            String sqlCommand = "insert into orderinfo values (@Id, @FailureDescription, @ImgUrl, @CreateTime, null, @StationId, 1)";
+            String sqlCommand = "insert into orderinfo values (@Id, @FailureDescription, @ImgUrl, now(), null, @StationId, 1)";
 
             List<MySqlParameter> paramList = new List<MySqlParameter>();
             paramList.Add(new MySqlParameter("@Id", id));
             paramList.Add(new MySqlParameter("@FailureDescription", failureDescription));
             paramList.Add(new MySqlParameter("@ImgUrl", imgUrl));
-            paramList.Add(new MySqlParameter("@CreateTime", createTime));
             paramList.Add(new MySqlParameter("@StationId", stationId));
 
             return executeSqlCommandNoQuery(sqlCommand, paramList);
         }
 
-        public int orderStatusUpdate(int orderStatus, DateTime updateTime, String id)
+        public int orderStatusUpdate(int orderStatus, String id)
         {
-            String sqlCommand = "update orderinfo set OrderStatus = @OrderStatus, UpdateTime = @UpdateTime where Id = @Id";
+            String sqlCommand = "update orderinfo set OrderStatus = @OrderStatus, UpdateTime = now() where Id = @Id";
 
             List<MySqlParameter> paramList = new List<MySqlParameter>();
             paramList.Add(new MySqlParameter("@OrderStatus", orderStatus));
-            paramList.Add(new MySqlParameter("@UpdateTime", updateTime));
             paramList.Add(new MySqlParameter("@Id", id));
 
             return executeSqlCommandNoQuery(sqlCommand, paramList);
@@ -42,16 +40,15 @@ namespace DCSMS.DAL
             return executeSqlCommandDataSet(sqlCommand, param);
         }
 
-        public int orderLogInsert(String orderId, int userId, int formerStatus, int newStatus, DateTime operateTime)
+        public int orderLogInsert(String orderId, int userId, int formerStatus, int newStatus)
         {
-            String sqlCommand = "insert into orderlog values (null, @OrderId, @UserId, @FormerStatus, @NewStatus, @OperateTime)";
+            String sqlCommand = "insert into orderlog values (null, @OrderId, @UserId, @FormerStatus, @NewStatus, now())";
 
             List<MySqlParameter> paramList = new List<MySqlParameter>();
             paramList.Add(new MySqlParameter("@OrderId", orderId));
             paramList.Add(new MySqlParameter("@UserId", userId));
             paramList.Add(new MySqlParameter("@FormerStatus", formerStatus));
             paramList.Add(new MySqlParameter("@NewStatus", newStatus));
-            paramList.Add(new MySqlParameter("@OperateTime", operateTime));
 
             return executeSqlCommandNoQuery(sqlCommand, paramList);
         }
