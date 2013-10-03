@@ -1,14 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Web.Security;
 using DCSMS.DAL;
 using System.Data;
 
 namespace DCSMS.BLL
 {
-    public class UserLogic
+    public class UserLogic : Utility
     {
         protected UserDB userDb = new UserDB();
 
@@ -44,22 +41,26 @@ namespace DCSMS.BLL
         }
 
         //技术员信息修改 返回：0失败，1成功
-        public int engineerUpdate(int userId, String userName, String realName, String telephone, String email) {
+        public int engineerUpdate(int userId, String userName, String realName, String telephone, String email)
+        {
             int retVal = userUpdate(userId, userName, 2);
             if (retVal != 1)
             {
                 return retVal;
             }
-            else {
+            else
+            {
                 return userDb.engineerUpdate(userId, realName, telephone, email);
             }
         }
 
         //技术员查询 根据用户ID
-        public List<String> engineerQueryByUserId(int userId) {
+        public List<String> engineerQueryByUserId(int userId)
+        {
             DataRow dr = userDb.engineerQueryByUserId(userId).Tables[0].Rows[0];
             List<String> engineerInfo = new List<String>();
-            foreach (Object obj in dr.ItemArray) {
+            foreach (Object obj in dr.ItemArray)
+            {
                 engineerInfo.Add(obj.ToString());
             }
             return engineerInfo;
@@ -141,13 +142,6 @@ namespace DCSMS.BLL
             }
 
             return userInfoStr;
-        }
-
-        //加密密码 （MD5 Hash32位截取16）
-        //test删除后改为private！！！！！！
-        public String getMD5HashCode(String sourceStr)
-        {
-            return FormsAuthentication.HashPasswordForStoringInConfigFile(sourceStr, "MD5").ToLower().Substring(8, 16);
         }
     }
 }

@@ -41,9 +41,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CustomerLogic.cs" />
+    <Compile Include="OrderLogic.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TestLogic.cs" />
     <Compile Include="UserLogic.cs" />
+    <Compile Include="Utility.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DCSMS.DAL\DCSMS.DAL.csproj">
