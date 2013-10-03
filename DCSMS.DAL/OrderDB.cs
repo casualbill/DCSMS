@@ -9,14 +9,15 @@ namespace DCSMS.DAL
 {
     public class OrderDB : DBHelper
     {
-        public int orderCreate(String id, String failureDescription, String imgUrl, int stationId)
+        public int orderCreate(String id, String failureDescription, String imgUrl, int createUserId, int stationId)
         {
-            String sqlCommand = "insert into orderinfo values (@Id, @FailureDescription, @ImgUrl, now(), null, @StationId, 1)";
+            String sqlCommand = "insert into orderinfo values (@Id, @FailureDescription, @ImgUrl, now(), null, @CreateUserId, @StationId, 1)";
 
             List<MySqlParameter> paramList = new List<MySqlParameter>();
             paramList.Add(new MySqlParameter("@Id", id));
             paramList.Add(new MySqlParameter("@FailureDescription", failureDescription));
             paramList.Add(new MySqlParameter("@ImgUrl", imgUrl));
+            paramList.Add(new MySqlParameter("@CreateUserId", createUserId));
             paramList.Add(new MySqlParameter("@StationId", stationId));
 
             return executeSqlCommandNoQuery(sqlCommand, paramList);
