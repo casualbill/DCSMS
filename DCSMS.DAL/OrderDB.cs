@@ -40,18 +40,30 @@ namespace DCSMS.DAL
             return executeSqlCommandDataSet(sqlCommand, param);
         }
 
-        public int orderLogInsert(String orderId, int userId, int formerStatus, int newStatus)
+        public int orderTaskCreate(String orderId, int userId, int formerStatus)
         {
-            String sqlCommand = "insert into orderlog values (null, @OrderId, @UserId, @FormerStatus, @NewStatus, now())";
+            String sqlCommand = "insert into orderlog values (null, @OrderId, @UserId, @FormerStatus, null, now(), null)";
 
             List<MySqlParameter> paramList = new List<MySqlParameter>();
             paramList.Add(new MySqlParameter("@OrderId", orderId));
             paramList.Add(new MySqlParameter("@UserId", userId));
             paramList.Add(new MySqlParameter("@FormerStatus", formerStatus));
+
+            return executeSqlCommandNoQuery(sqlCommand, paramList);
+        }
+
+        public int orderTaskComplete(String orderId, int newStatus)
+        {
+            String sqlCommand = "update orderlog set NewStatus = @NewStatus, OperateTime = now() where OrderId = @OrderId and NewStatus is null";
+
+            List<MySqlParameter> paramList = new List<MySqlParameter>();
+            paramList.Add(new MySqlParameter("@OrderId", orderId));
             paramList.Add(new MySqlParameter("@NewStatus", newStatus));
 
             return executeSqlCommandNoQuery(sqlCommand, paramList);
         }
+
+        //如果需要取消工单，使用修改UserId的update
 
         public DataSet orderLogQuery(String orderId)
         {
