@@ -66,9 +66,16 @@ namespace DCSMS.DAL
 
         //如果需要取消工单，使用修改UserId的update
 
+        public DataSet orderTaskQuery(int userId)
+        {
+            String sqlCommand = "select * from orderlog where UserId = @UserId and NewStatus is null";
+            MySqlParameter param = new MySqlParameter("@UserId", userId);
+            return executeSqlCommandDataSet(sqlCommand, param);
+        }
+
         public DataSet orderLogQuery(String orderId)
         {
-            String sqlCommand = "select * from orderlog where orderId = @OrderId";
+            String sqlCommand = "select * from orderlog where OrderId = @OrderId";
             MySqlParameter param = new MySqlParameter("@OrderId", orderId);
             return executeSqlCommandDataSet(sqlCommand, param);
         }
