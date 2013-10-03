@@ -59,21 +59,21 @@ namespace DCSMS.DAL
             return executeSqlCommandDataSet(sqlCommand, param);
         }
 
-        public DataSet userQueryByCustomerName(String customerName)
+        public DataSet customerQueryByCustomerName(String customerName)
         {
             String sqlCommand = "select * from customerinfo where CustomerName = @CustomerName";
             MySqlParameter param = new MySqlParameter("@CustomerName", customerName);
             return executeSqlCommandDataSet(sqlCommand, param);
         }
 
-        public DataSet userQueryByCustomerNameVaguely(String customerName)
+        public DataSet customerQueryByCustomerNameVaguely(String customerName)
         {
             String sqlCommand = "select * from customerinfo where CustomerName like @customerName";
             MySqlParameter param = new MySqlParameter("@customerName", customerName + "%");
             return executeSqlCommandDataSet(sqlCommand, param);
         }
 
-        public DataSet userQueryByVerified(Boolean verify)
+        public DataSet customerQueryByVerified(Boolean verify)
         {
             String sqlCommand = "select * from customerinfo where Verified = @Verified";
             MySqlParameter param = new MySqlParameter("@Verified", verify);

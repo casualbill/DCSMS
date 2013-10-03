@@ -45,7 +45,7 @@ namespace DCSMS.BLL
         //客户查询 根据客户名模糊查询
         public DataTable customerQueryByCustomerNameVaguely(String queryStr)
         {
-            DataSet ds = customerDb.userQueryByCustomerNameVaguely(queryStr);
+            DataSet ds = customerDb.customerQueryByCustomerNameVaguely(queryStr);
             if (ds.Tables[0].Rows.Count > 0)
             {
                 return ds.Tables[0];
@@ -59,7 +59,7 @@ namespace DCSMS.BLL
         //未审核客户查询
         public DataTable unverifiedCustomerQuery()
         {
-            DataSet ds = customerDb.userQueryByVerified(false);
+            DataSet ds = customerDb.customerQueryByVerified(false);
             if (ds.Tables[0].Rows.Count > 0)
             {
                 return ds.Tables[0];
