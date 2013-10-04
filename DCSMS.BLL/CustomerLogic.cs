@@ -29,11 +29,25 @@ namespace DCSMS.BLL
             return customerDb.customerVerify(id);
         }
 
+
+        //客户查询（所有）
+        public DataTable customerQuery() {
+            DataSet ds = customerDb.customerQuery();
+            if (ds.Tables[0].Rows.Count > 0)
+            {
+                return ds.Tables[0];
+            }
+            else
+            {
+                return null;
+            }
+        }
+
         //客户查询 根据客户Id
         public List<String> customerQueryByCustomerId(int id)
         {
             List<String> customerInfoStr = new List<string>();
-            DataRow dr = customerDb.userQueryByCustomerId(id).Tables[0].Rows[0];
+            DataRow dr = customerDb.customerQueryByCustomerId(id).Tables[0].Rows[0];
             foreach (Object obj in dr.ItemArray)
             {
                 customerInfoStr.Add(obj.ToString());

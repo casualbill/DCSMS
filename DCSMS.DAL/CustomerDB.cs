@@ -52,7 +52,13 @@ namespace DCSMS.DAL
             return executeSqlCommandNoQuery(sqlCommand, param);
         }
 
-        public DataSet userQueryByCustomerId(int id)
+        public DataSet customerQuery()
+        {
+            String sqlCommand = "select * from customerinfo where Verified = 1";
+            return executeSqlCommandDataSet(sqlCommand);
+        }
+
+        public DataSet customerQueryByCustomerId(int id)
         {
             String sqlCommand = "select * from customerinfo where Id = @Id";
             MySqlParameter param = new MySqlParameter("@Id", id);
