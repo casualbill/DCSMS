@@ -9,14 +9,19 @@ namespace DCSMS.DAL
 {
     public class UserDB : DBHelper
     {
-        public int userCreate(String userName, String password, int userType)
+        public int userCreate(List<String> userInfo, int userType)
         {
-            String sqlCommand = "insert into userinfo (UserName, Password, UserType) values (@UserName, @Password, @UserType)";
+            String sqlCommand = "insert into userinfo  values (null, @UserName, @Password, @RealName, @EmpCode, @Telephone, @Email, @UserType)";
 
             List<MySqlParameter> paramList = new List<MySqlParameter>();
-            paramList.Add(new MySqlParameter("@UserName", userName));
-            paramList.Add(new MySqlParameter("@Password", password));
+            paramList.Add(new MySqlParameter("@UserName", userInfo[0]));
+            paramList.Add(new MySqlParameter("@Password", userInfo[1]));
+            paramList.Add(new MySqlParameter("@RealName", userInfo[2]));
+            paramList.Add(new MySqlParameter("@EmpCode", userInfo[3]));
+            paramList.Add(new MySqlParameter("@Telephone", userInfo[4]));
+            paramList.Add(new MySqlParameter("@Email", userInfo[5]));
             paramList.Add(new MySqlParameter("@UserType", userType));
+
 
             return executeSqlCommandNoQuery(sqlCommand, paramList);
         }
@@ -39,12 +44,16 @@ namespace DCSMS.DAL
             return executeSqlCommandScalar(sqlCommand, paramList);
         }
 
-        public int userUpdate(int id, String userName, int userType)
+        public int userUpdate(List<String> userInfo, int id, int userType)
         {
-            String sqlCommand = "update userinfo set UserName = @UserName, UserType = @UserType where Id = @Id";
+            String sqlCommand = "update userinfo set UserName = @UserName, RealName = @RealName, EmpCode = @EmpCode, Telephone = @Telephone, Email = @Email, UserType = @UserType where Id = @Id";
 
             List<MySqlParameter> paramList = new List<MySqlParameter>();
-            paramList.Add(new MySqlParameter("@UserName", userName));
+            paramList.Add(new MySqlParameter("@UserName", userInfo[0]));
+            paramList.Add(new MySqlParameter("@RealName", userInfo[1]));
+            paramList.Add(new MySqlParameter("@EmpCode", userInfo[2]));
+            paramList.Add(new MySqlParameter("@Telephone", userInfo[3]));
+            paramList.Add(new MySqlParameter("@Email", userInfo[4]));
             paramList.Add(new MySqlParameter("@UserType", userType));
             paramList.Add(new MySqlParameter("@Id", id));
 
@@ -67,42 +76,10 @@ namespace DCSMS.DAL
 
         public DataSet userQueryByUserNameVaguely(String userName)
         {
-            String sqlCommand = "select * from userinfo left join engineerinfo on userinfo.Id = engineerinfo.UserId where UserName like @userName";
+            String sqlCommand = "select * from userinfo where UserName like @userName";
             MySqlParameter param = new MySqlParameter("@UserName", userName + "%");
             return executeSqlCommandDataSet(sqlCommand, param);
         }
 
-        public int engineerCreate(int userId, String realName, String telephone, String email)
-        {
-            String sqlCommand = "insert into engineerinfo (UserId, RealName, Telephone, Email) values (@UserId, @RealName, @Telephone, @Email)";
-
-            List<MySqlParameter> paramList = new List<MySqlParameter>();
-            paramList.Add(new MySqlParameter("@UserId", userId));
-            paramList.Add(new MySqlParameter("@RealName", realName));
-            paramList.Add(new MySqlParameter("@Telephone", telephone));
-            paramList.Add(new MySqlParameter("@Email", email));
-
-            return executeSqlCommandNoQuery(sqlCommand, paramList);
-        }
-
-        public int engineerUpdate(int userId, String realName, String telephone, String email)
-        {
-            String sqlCommand = "update engineerinfo set RealName = @RealName, Telephone = @Telephone, Email = @Email where UserId = @UserId";
-
-            List<MySqlParameter> paramList = new List<MySqlParameter>();
-            paramList.Add(new MySqlParameter("@UserId", userId));
-            paramList.Add(new MySqlParameter("@RealName", realName));
-            paramList.Add(new MySqlParameter("@Telephone", telephone));
-            paramList.Add(new MySqlParameter("@Email", email));
-
-            return executeSqlCommandNoQuery(sqlCommand, paramList);
-        }
-
-        public DataSet engineerQueryByUserId(int userId)
-        {
-            String sqlCommand = "select * from engineerinfo where UserId = @UserId";
-            MySqlParameter param = new MySqlParameter("@UserId", userId);
-            return executeSqlCommandDataSet(sqlCommand, param);
-        }
     }
 }

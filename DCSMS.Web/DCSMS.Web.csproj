@@ -55,6 +55,7 @@
     <Content Include="index.aspx" />
     <Content Include="js\jquery-1.10.2.min.js" />
     <Content Include="login.aspx" />
+    <Content Include="order\orderCreate.aspx" />
     <Content Include="test.aspx" />
     <Content Include="user\userCreate.aspx" />
     <Content Include="user\userQuery.aspx" />
@@ -122,6 +123,13 @@
     </Compile>
     <Compile Include="main.Master.designer.cs">
       <DependentUpon>main.Master</DependentUpon>
+    </Compile>
+    <Compile Include="order\orderCreate.aspx.cs">
+      <DependentUpon>orderCreate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="order\orderCreate.aspx.designer.cs">
+      <DependentUpon>orderCreate.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="test.aspx.cs">

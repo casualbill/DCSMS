@@ -31,24 +31,17 @@ namespace DCSMS.Web.user
             else
             {
                 int retVal;
-                if (userType == 2)
-                {
-                    String realName = tb_realname.Text.Trim();
-                    String telephone = tb_telephone.Text.Trim();
-                    String email = tb_email.Text.Trim();
-                    if (realName.Length < 1)
-                    {
-                        retVal = 0;
-                    }
-                    else
-                    {
-                        retVal = userLogic.engineerCreate(userName, password, realName, telephone, email);
-                    }
-                }
-                else
-                {
-                    retVal = userLogic.userCreate(userName, password, userType);
-                }
+
+                List<String> userInfo = new List<String>();
+                userInfo.Add(userName);
+                userInfo.Add(password);
+                userInfo.Add(tb_realname.Text.Trim());
+                userInfo.Add(tb_empcode.Text.Trim());
+                userInfo.Add(tb_telephone.Text.Trim());
+                userInfo.Add(tb_email.Text.Trim());
+
+                retVal = userLogic.userCreate(userInfo, userType);
+                
                 if (retVal == 1)
                 {
                     lb_tips.Text = "success";

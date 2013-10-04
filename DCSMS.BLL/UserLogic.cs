@@ -10,60 +10,17 @@ namespace DCSMS.BLL
         protected UserDB userDb = new UserDB();
 
         //新建用户  返回： -1用户已存在，0失败，1成功
-        public int userCreate(String userName, String password, int userType)
+        public int userCreate(List<String> userInfo, int userType)
         {
-            if (userDb.checkUserExist(userName) != "0")
+            if (userDb.checkUserExist(userInfo[0]) != "0")
             {
                 return -1;
             }
             else
             {
-                String encryptedPwd = getMD5HashCode(password);
-                return userDb.userCreate(userName, encryptedPwd, userType);
+                String encryptedPwd = getMD5HashCode(userInfo[1]);
+                return userDb.userCreate(userInfo, userType);
             }
-        }
-
-        //新建技术员  返回： -1用户已存在，0失败，1成功
-        public int engineerCreate(String userName, String password, String realName, String telephone, String email)
-        {
-            int retVal = userCreate(userName, password, 2);
-            if (retVal != 1)
-            {
-                return retVal;
-            }
-            else
-            {
-                DataSet ds = userDb.userQueryByUserName(userName);
-                int userId = Convert.ToInt16(ds.Tables[0].Rows[0]["Id"]);
-
-                return userDb.engineerCreate(userId, realName, telephone, email);
-            }
-        }
-
-        //技术员信息修改 返回：0失败，1成功
-        public int engineerUpdate(int userId, String userName, String realName, String telephone, String email)
-        {
-            int retVal = userUpdate(userId, userName, 2);
-            if (retVal != 1)
-            {
-                return retVal;
-            }
-            else
-            {
-                return userDb.engineerUpdate(userId, realName, telephone, email);
-            }
-        }
-
-        //技术员查询 根据用户ID
-        public List<String> engineerQueryByUserId(int userId)
-        {
-            DataRow dr = userDb.engineerQueryByUserId(userId).Tables[0].Rows[0];
-            List<String> engineerInfo = new List<String>();
-            foreach (Object obj in dr.ItemArray)
-            {
-                engineerInfo.Add(obj.ToString());
-            }
-            return engineerInfo;
         }
 
         //验证用户登录并返回用户信息
@@ -113,9 +70,9 @@ namespace DCSMS.BLL
         }
 
         //用户信息修改 返回：0失败，1成功
-        public int userUpdate(int id, String userName, int userType)
+        public int userUpdate(List<String> userInfo, int id, int userType)
         {
-            return userDb.userUpdate(id, userName, userType);
+            return userDb.userUpdate(userInfo, id, userType);
         }
 
         //用户查询 根据用户Id
