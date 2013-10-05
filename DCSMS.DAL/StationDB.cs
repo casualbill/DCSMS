@@ -37,5 +37,12 @@ namespace DCSMS.DAL
             String sqlCommand = "select * from stationinfo";
             return executeSqlCommandDataSet(sqlCommand);
         }
+
+        public DataSet stationQueryByStationId(int id)
+        {
+            String sqlCommand = "select * from stationinfo where Id = @Id";
+            MySqlParameter param = new MySqlParameter("@Id", id);
+            return executeSqlCommandDataSet(sqlCommand, param);
+        }
     }
 }

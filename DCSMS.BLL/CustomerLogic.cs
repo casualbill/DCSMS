@@ -56,6 +56,19 @@ namespace DCSMS.BLL
             return customerInfoStr;
         }
 
+        //客户查询 根据客户名称
+        public List<String> customerQueryByCustomerName(String customerName)
+        {
+            List<String> customerInfoStr = new List<string>();
+            DataRow dr = customerDb.customerQueryByCustomerName(customerName).Tables[0].Rows[0];
+            foreach (Object obj in dr.ItemArray)
+            {
+                customerInfoStr.Add(obj.ToString());
+            }
+
+            return customerInfoStr;
+        }
+
         //客户查询 根据客户名模糊查询
         public DataTable customerQueryByCustomerNameVaguely(String queryStr)
         {

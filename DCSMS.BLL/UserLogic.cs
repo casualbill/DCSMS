@@ -40,6 +40,20 @@ namespace DCSMS.BLL
             return userInfoStr;
         }
 
+        //用户查询（所有）
+        public DataTable userQuery()
+        {
+            DataSet ds = userDb.userQuery();
+            if (ds.Tables[0].Rows.Count > 0)
+            {
+                return ds.Tables[0];
+            }
+            else
+            {
+                return null;
+            }
+        }
+
         //用户查询 根据用户名模糊查询 （包含技术员信息）
         public DataTable userQueryByUserNameVaguely(String queryStr)
         {

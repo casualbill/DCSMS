@@ -60,6 +60,12 @@ namespace DCSMS.DAL
             return executeSqlCommandNoQuery(sqlCommand, paramList);
         }
 
+        public DataSet userQuery()
+        {
+            String sqlCommand = "select * from userinfo";
+            return executeSqlCommandDataSet(sqlCommand);
+        }
+
         public DataSet userQueryByUserId(int id)
         {
             String sqlCommand = "select * from userinfo where Id = @Id";
