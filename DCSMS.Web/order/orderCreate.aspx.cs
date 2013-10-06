@@ -95,8 +95,7 @@ namespace DCSMS.Web.order
             }
             else
             {
-                List<String> stationInfo = stationLogic.stationQueryByStaionId(Convert.ToInt16(stationId));
-                hf_stationid.Value = stationInfo[0];
+                hf_stationid.Value = stationId;
             }
         }
 
@@ -110,8 +109,7 @@ namespace DCSMS.Web.order
             }
             else
             {
-                List<String> userInfo = userLogic.userQueryByUserId(Convert.ToInt16(userId));
-                hf_taskuserid.Value = userInfo[0];
+                hf_taskuserid.Value = userId;
             }
         }
 
