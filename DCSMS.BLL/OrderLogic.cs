@@ -86,5 +86,37 @@ namespace DCSMS.BLL
 
             return 1;
         }
+
+        //工单模糊查询
+        public DataTable orderListQueryVaguely(String orderId, int customerId, String productName, String serialNumber, int stationId, int orderStatus)
+        {
+            DataSet ds = orderDb.orderListQueryVaguely(orderId, customerId, productName, serialNumber, stationId, orderStatus);
+            if (ds.Tables[0].Rows.Count > 0)
+            {
+                ds.Tables[0].Columns.Add("OrderStatusStr", Type.GetType("System.String"));
+
+                int index = 0;
+                foreach (DataRow dr in ds.Tables[0].Rows)
+                {
+                    switch (dr["OrderStatus"].ToString())
+                    {
+                        case "1": ds.Tables[0].Rows[index]["OrderStatusStr"] = "等待检查"; break;
+                        case "2": ds.Tables[0].Rows[index]["OrderStatusStr"] = "等待报价"; break;
+                        case "3": ds.Tables[0].Rows[index]["OrderStatusStr"] = "等待客户确认"; break;
+                        case "4": ds.Tables[0].Rows[index]["OrderStatusStr"] = "等待备件到齐"; break;
+                        case "5": ds.Tables[0].Rows[index]["OrderStatusStr"] = "等待维修"; break;
+                        case "6": ds.Tables[0].Rows[index]["OrderStatusStr"] = "等待发货"; break;
+                        case "7": ds.Tables[0].Rows[index]["OrderStatusStr"] = "完成"; break;
+                    }
+                    index++;
+                }
+                return ds.Tables[0];
+            }
+            else
+            {
+                return null;
+            }
+        }
+
     }
 }

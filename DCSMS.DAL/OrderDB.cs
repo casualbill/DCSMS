@@ -35,12 +35,59 @@ namespace DCSMS.DAL
             return executeSqlCommandNoQuery(sqlCommand, paramList);
         }
 
-        public DataSet orderQuery(String id)
+        public DataSet orderQueryByOrderId(String id)
         {
             String sqlCommand = "select * from orderinfo where Id = @Id";
             MySqlParameter param = new MySqlParameter("@Id", id);
             return executeSqlCommandDataSet(sqlCommand, param);
         }
+
+        public DataSet orderListQueryVaguely(String orderId, int customerId, String productName, String serialNumber, int stationId, int orderStatus)
+        {
+            String sqlCommand = "select orderinfo.Id as OrderId, CustomerName, ProductName, SerialNumber, FailureDescription, OrderStatus from orderinfo " +
+    "inner join customerinfo on orderinfo.customerId = customerinfo.Id " +
+    "inner join productinfo on orderinfo.Id = productinfo.OrderId " +
+    "inner join stationinfo on orderinfo.stationId = stationinfo.Id " +
+    "where ";
+
+            List<MySqlParameter> paramList = new List<MySqlParameter>();
+
+            if (orderId != null && orderId.Length > 3) {
+                sqlCommand += "orderinfo.Id like @OrderId ";
+                paramList.Add(new MySqlParameter("@OrderId", orderId + "%"));
+            }
+
+            if (customerId != 0) {
+                sqlCommand += "CustomerId = @CustomerId ";
+                paramList.Add(new MySqlParameter("@CustomerId", customerId));
+            }
+
+            if (productName != null && productName.Length > 1) {
+                sqlCommand += "ProductName like @ProductName ";
+                paramList.Add(new MySqlParameter("@ProductName", productName + "%"));
+            }
+
+            if (serialNumber != null && serialNumber.Length > 1)
+            {
+                sqlCommand += "SerialNumber like @SerialNumber ";
+                paramList.Add(new MySqlParameter("@SerialNumber", serialNumber + "%"));
+            }
+
+            if (stationId != 0)
+            {
+                sqlCommand += "StationId = @StationId ";
+                paramList.Add(new MySqlParameter("@StationId", stationId));
+            }
+
+            if (orderStatus != 0)
+            {
+                sqlCommand += "OrderStatus = @OrderStatus ";
+                paramList.Add(new MySqlParameter("@OrderStatus", orderStatus));
+            }
+
+            return executeSqlCommandDataSet(sqlCommand, paramList);
+        }
+
 
         public int orderTaskCreate(String orderId, int userId, int formerStatus)
         {
