@@ -34,7 +34,7 @@
             <th>工具序列号</th>
             <th>维修站</th>
             <th>故障描述</th>
-            <th>订单状态</th>
+            <th>工单状态</th>
             <th>操作</th>
         </tr>
     <asp:Repeater ID="rpt_orderinfo" runat="server">

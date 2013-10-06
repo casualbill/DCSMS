@@ -16,12 +16,12 @@
     ContactPerson：<asp:TextBox ID="tb_contactperson" runat="server" MaxLength="50" Enabled="false"></asp:TextBox><br />
     Telephone：<asp:TextBox ID="tb_telephone" runat="server" MaxLength="20" Enabled="false"></asp:TextBox><br />
     Mobile：<asp:TextBox ID="tb_mobile" runat="server" MaxLength="20" Enabled="false"></asp:TextBox><br />
-    Address: <asp:TextBox ID="tb_address" runat="server" MaxLength="100" Enabled="false"></asp:TextBox><br />
+    Address：<asp:TextBox ID="tb_address" runat="server" MaxLength="100" Enabled="false"></asp:TextBox><br />
     PostCode：<asp:TextBox ID="tb_postcode" runat="server" MaxLength="10" Enabled="false"></asp:TextBox><br />
     
     <br /><br />
 
-    工具名称：<asp:TextBox ID="tb_productname" MaxLength="50" runat="server"></asp:TextBox><br />
+    工具型号：<asp:TextBox ID="tb_productname" MaxLength="50" runat="server"></asp:TextBox><br />
     序列号：<asp:TextBox ID="tb_serialnumber" MaxLength="30" runat="server"></asp:TextBox><br />
     订货号：<asp:TextBox ID="tb_product_orderingnumber" MaxLength="30" runat="server"></asp:TextBox><br />
     固件版本：<asp:TextBox ID="tb_firmwareversion" MaxLength="20" runat="server"></asp:TextBox><br />
