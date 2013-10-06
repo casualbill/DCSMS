@@ -87,30 +87,73 @@ namespace DCSMS.BLL
             return 1;
         }
 
+        //工单查询 根据工单号 返回DataSet：tabel 0为工单 1客户 2工具 3备件 4维修站 5工单记录 6当前任务人 7创建人
+        public DataSet orderQueryByOrderId(String orderId)
+        {
+            DataSet orderInfoDataSet = new DataSet();
+            DataTable dt = orderDb.orderQueryByOrderId(orderId).Tables[0];
+            if (dt.Rows.Count == 0)
+            {
+                return null;
+            }
+            dt.TableName = "OrderInfoTable";
+            orderInfoDataSet.Tables.Add(addOrderStatusText(dt.Copy()));
+            int customerId = Convert.ToInt16(dt.Rows[0]["CustomerId"]);
+            int stationId = Convert.ToInt16(dt.Rows[0]["StationId"]);
+            int createUserId = Convert.ToInt16(dt.Rows[0]["CreateUserId"]);
+
+            CustomerDB customerDb = new CustomerDB();
+            dt = customerDb.customerQueryByCustomerId(customerId).Tables[0];
+            dt.TableName = "CustomerTable";
+            orderInfoDataSet.Tables.Add(dt.Copy());
+
+            ProductDB productDb = new ProductDB();
+            dt = productDb.productQuery(orderId).Tables[0];
+            dt.TableName = "ProductTable";
+            orderInfoDataSet.Tables.Add(dt.Copy());
+
+            SparePartDB sparePartDb = new SparePartDB();
+            dt = sparePartDb.sparePartQuery(orderId).Tables[0];
+            dt.TableName = "SparePartTable";
+            orderInfoDataSet.Tables.Add(dt.Copy());
+
+            StationDB stationDb = new StationDB();
+            dt = stationDb.stationQueryByStationId(stationId).Tables[0];
+            dt.TableName = "StationTable";
+            orderInfoDataSet.Tables.Add(dt.Copy());
+
+            dt = orderDb.orderLogQuery(orderId).Tables[0];
+            dt.TableName = "OrderLogTable";
+            orderInfoDataSet.Tables.Add(dt.Copy());
+
+            UserDB userDb = new UserDB();
+            DataTable taskUserTable;
+            if (dt.Rows[dt.Rows.Count - 1]["NewStatus"].ToString() == "")
+            {
+                int taskUserId = Convert.ToInt16(dt.Rows[dt.Rows.Count - 1]["UserId"]);
+                taskUserTable = userDb.userQueryByUserId(taskUserId).Tables[0];
+            }
+            else
+            {
+                taskUserTable = null;
+            }
+            taskUserTable.TableName = "TaskUserTable";
+            orderInfoDataSet.Tables.Add(taskUserTable.Copy());
+
+            dt = userDb.userQueryByUserId(createUserId).Tables[0];
+            dt.TableName = "CreateUserTable";
+            orderInfoDataSet.Tables.Add(dt.Copy());
+
+            return orderInfoDataSet;
+        }
+
         //工单模糊查询
         public DataTable orderListQueryVaguely(String orderId, int customerId, String productName, String serialNumber, int stationId, int orderStatus)
         {
             DataSet ds = orderDb.orderListQueryVaguely(orderId, customerId, productName, serialNumber, stationId, orderStatus);
             if (ds.Tables[0].Rows.Count > 0)
             {
-                ds.Tables[0].Columns.Add("OrderStatusStr", Type.GetType("System.String"));
-
-                int index = 0;
-                foreach (DataRow dr in ds.Tables[0].Rows)
-                {
-                    switch (dr["OrderStatus"].ToString())
-                    {
-                        case "1": ds.Tables[0].Rows[index]["OrderStatusStr"] = "等待检查"; break;
-                        case "2": ds.Tables[0].Rows[index]["OrderStatusStr"] = "等待报价"; break;
-                        case "3": ds.Tables[0].Rows[index]["OrderStatusStr"] = "等待客户确认"; break;
-                        case "4": ds.Tables[0].Rows[index]["OrderStatusStr"] = "等待备件到齐"; break;
-                        case "5": ds.Tables[0].Rows[index]["OrderStatusStr"] = "等待维修"; break;
-                        case "6": ds.Tables[0].Rows[index]["OrderStatusStr"] = "等待发货"; break;
-                        case "7": ds.Tables[0].Rows[index]["OrderStatusStr"] = "完成"; break;
-                    }
-                    index++;
-                }
-                return ds.Tables[0];
+                return addOrderStatusText(ds.Tables[0]);
             }
             else
             {
@@ -118,5 +161,27 @@ namespace DCSMS.BLL
             }
         }
 
+        //为工单表加入工单状态文字说明
+        protected DataTable addOrderStatusText(DataTable orderTable)
+        {
+            orderTable.Columns.Add("OrderStatusStr", Type.GetType("System.String"));
+
+            int index = 0;
+            foreach (DataRow dr in orderTable.Rows)
+            {
+                switch (dr["OrderStatus"].ToString())
+                {
+                    case "1": orderTable.Rows[index]["OrderStatusStr"] = "等待检查"; break;
+                    case "2": orderTable.Rows[index]["OrderStatusStr"] = "等待报价"; break;
+                    case "3": orderTable.Rows[index]["OrderStatusStr"] = "等待客户确认"; break;
+                    case "4": orderTable.Rows[index]["OrderStatusStr"] = "等待备件到齐"; break;
+                    case "5": orderTable.Rows[index]["OrderStatusStr"] = "等待维修"; break;
+                    case "6": orderTable.Rows[index]["OrderStatusStr"] = "等待发货"; break;
+                    case "7": orderTable.Rows[index]["OrderStatusStr"] = "完成"; break;
+                }
+                index++;
+            }
+            return orderTable;
+        }
     }
 }

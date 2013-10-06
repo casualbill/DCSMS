@@ -49,7 +49,7 @@
                 <td><%# Eval("FailureDescription")%></td>
                 <td><%# Eval("OrderStatusStr")%></td>
                 <td>
-                    <a href="#?id=<%# Eval("OrderId") %>">查看详情</a>
+                    <a href="orderDetailQuery.aspx?id=<%# Eval("OrderId") %>">查看详情</a>
                 </td>
             </tr>
             
