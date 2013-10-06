@@ -30,9 +30,10 @@ namespace DCSMS.BLL
         }
 
 
-        //客户查询（所有）
-        public DataTable customerQuery() {
-            DataSet ds = customerDb.customerQuery();
+        //已审核客户查询
+        public DataTable verifiedCustomerQuery()
+        {
+            DataSet ds = customerDb.verifiedCustomerQuery();
             if (ds.Tables[0].Rows.Count > 0)
             {
                 return ds.Tables[0];

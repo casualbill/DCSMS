@@ -225,7 +225,7 @@ namespace DCSMS.Web.order
 
         protected void loadCustomerList()
         {
-            DataTable dt = customerLogic.customerQuery();
+            DataTable dt = customerLogic.verifiedCustomerQuery();
 
             ddl_customer.Items.Clear();
             ddl_customer.Items.Add(new ListItem("请选择客户", "0"));
