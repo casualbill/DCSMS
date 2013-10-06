@@ -16,7 +16,7 @@ namespace DCSMS.BLL
         {
             ProductDB productDb = new ProductDB();
             SparePartDB sparePartDb = new SparePartDB();
-            String id = DateTime.Now.ToString("yyMMddhhmmss") + getRandomNumber(0, 1000).ToString("000");
+            String id = DateTime.Now.ToString("yyMMddHHmmss") + getRandomNumber(0, 1000).ToString("000");
 
             //判读客户是否为新建的（需审核）
             if (customerId == -1)
