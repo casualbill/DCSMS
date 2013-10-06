@@ -164,7 +164,7 @@ namespace DCSMS.Web.order
             }
             else
             {
-                stationId = Convert.ToInt16(hf_stationid);
+                stationId = Convert.ToInt16(hf_stationid.Value);
             }
 
             if (hf_taskuserid.Value == "")
@@ -174,7 +174,7 @@ namespace DCSMS.Web.order
             }
             else
             {
-                taskUserId = Convert.ToInt16(hf_taskuserid);
+                taskUserId = Convert.ToInt16(hf_taskuserid.Value);
             }
 
 
