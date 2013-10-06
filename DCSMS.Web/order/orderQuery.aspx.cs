@@ -14,17 +14,51 @@ namespace DCSMS.Web.order
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!IsPostBack)
+            {
+                orderConfig orderCfg = new orderConfig();
+                orderCfg.loadCustomerList(ddl_customer);
+                orderCfg.loadStationList(ddl_station);
+            }
         }
+
+        protected void ddl_customer_changed(object sender, EventArgs e)
+        {
+            hf_customerid.Value = ddl_customer.SelectedValue;
+        }
+
+        protected void ddl_station_changed(object sender, EventArgs e)
+        {
+            hf_stationid.Value = ddl_station.SelectedValue;
+        }
+
+        protected void ddl_orderstatus_changed(object sender, EventArgs e)
+        {
+            hf_orderstatus.Value = ddl_orderstatus.SelectedValue;
+        }
+
 
         protected void btn_submit_Click(object sender, EventArgs e)
         {
-            String orderId=tb_orderid.Text.Trim();
+            String orderId = tb_orderid.Text.Trim();
+            int customerId = Convert.ToInt16(hf_customerid.Value);
+            String productName = tb_productname.Text.Trim();
+            String serialNumber = tb_serialnumber.Text.Trim();
+            int stationId = Convert.ToInt16(hf_stationid.Value);
+            int orderStatuts = Convert.ToInt16(hf_orderstatus.Value);
 
-            rpt_orderinfo.DataSource = orderLogic.orderListQueryVaguely(orderId, 0, null, null, 0, 0);
-            rpt_orderinfo.DataBind();
-
+            if (orderId.Length < 3 && customerId == 0 && productName.Length < 3 && serialNumber.Length < 3 && stationId == 0 && orderStatuts == 0)
+            {
+                lb_tips.Text = "请填写至少一项";
+                return;
+            }
+            else
+            {
+                rpt_orderinfo.DataSource = orderLogic.orderListQueryVaguely(orderId, customerId, productName, serialNumber, stationId, orderStatuts);
+                rpt_orderinfo.DataBind();
+            }
         }
-        
+
+
     }
 }

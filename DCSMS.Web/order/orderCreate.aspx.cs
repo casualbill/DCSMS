@@ -22,9 +22,10 @@ namespace DCSMS.Web.order
 
             if (!IsPostBack)
             {
-                loadCustomerList();
-                loadStationList();
-                loadUserList();
+                orderConfig orderCfg = new orderConfig();
+                orderCfg.loadCustomerList(ddl_customer);
+                orderCfg.loadStationList(ddl_station);
+                orderCfg.loadUserList(ddl_task_user);
             }
         }
 
@@ -220,50 +221,6 @@ namespace DCSMS.Web.order
             else
             {
                 Response.Write("<script type=\"text/javascript\">alert (\"工单创建成功！\");</script>");
-            }
-        }
-
-        protected void loadCustomerList()
-        {
-            DataTable dt = customerLogic.verifiedCustomerQuery();
-
-            ddl_customer.Items.Clear();
-            ddl_customer.Items.Add(new ListItem("请选择客户", "0"));
-            if (dt != null)
-            {
-                foreach (DataRow dr in dt.Rows)
-                {
-                    ddl_customer.Items.Add(new ListItem(dr["CustomerName"].ToString(), dr["Id"].ToString()));
-                }
-            }
-        }
-
-        protected void loadStationList()
-        {
-            DataTable dt = stationLogic.stationQuery();
-
-            ddl_station.Items.Clear();
-            ddl_station.Items.Add(new ListItem("请选择维修站", "0"));
-            if (dt != null)
-            {
-                foreach (DataRow dr in dt.Rows)
-                {
-                    ddl_station.Items.Add(new ListItem(dr["StationNameSimple"].ToString(), dr["Id"].ToString()));
-                }
-            }
-        }
-
-        protected void loadUserList() {
-            DataTable dt = userLogic.userQuery();
-
-            ddl_task_user.Items.Clear();
-            ddl_task_user.Items.Add(new ListItem("请选择用户", "0"));
-            if (dt != null)
-            {
-                foreach (DataRow dr in dt.Rows)
-                {
-                    ddl_task_user.Items.Add(new ListItem(dr["UserName"].ToString(), dr["Id"].ToString()));
-                }
             }
         }
     }

@@ -44,7 +44,7 @@ namespace DCSMS.DAL
 
         public DataSet orderListQueryVaguely(String orderId, int customerId, String productName, String serialNumber, int stationId, int orderStatus)
         {
-            String sqlCommand = "select orderinfo.Id as OrderId, CustomerName, ProductName, SerialNumber, FailureDescription, OrderStatus from orderinfo " +
+            String sqlCommand = "select orderinfo.Id as OrderId, CustomerName, ProductName, SerialNumber, StationName, FailureDescription, OrderStatus from orderinfo " +
     "inner join customerinfo on orderinfo.customerId = customerinfo.Id " +
     "inner join productinfo on orderinfo.Id = productinfo.OrderId " +
     "inner join stationinfo on orderinfo.stationId = stationinfo.Id " +
@@ -52,35 +52,58 @@ namespace DCSMS.DAL
 
             List<MySqlParameter> paramList = new List<MySqlParameter>();
 
-            if (orderId != null && orderId.Length > 3) {
+            if (orderId != null && orderId.Length > 2)
+            {
                 sqlCommand += "orderinfo.Id like @OrderId ";
                 paramList.Add(new MySqlParameter("@OrderId", orderId + "%"));
             }
 
-            if (customerId != 0) {
+            if (customerId != 0)
+            {
+                if (paramList.Count > 0)
+                {
+                    sqlCommand += "and ";
+                }
                 sqlCommand += "CustomerId = @CustomerId ";
                 paramList.Add(new MySqlParameter("@CustomerId", customerId));
             }
 
-            if (productName != null && productName.Length > 1) {
+            if (productName != null && productName.Length > 2)
+            {
+                if (paramList.Count > 0)
+                {
+                    sqlCommand += "and ";
+                }
                 sqlCommand += "ProductName like @ProductName ";
                 paramList.Add(new MySqlParameter("@ProductName", productName + "%"));
             }
 
-            if (serialNumber != null && serialNumber.Length > 1)
+            if (serialNumber != null && serialNumber.Length > 2)
             {
+                if (paramList.Count > 0)
+                {
+                    sqlCommand += "and ";
+                }
                 sqlCommand += "SerialNumber like @SerialNumber ";
                 paramList.Add(new MySqlParameter("@SerialNumber", serialNumber + "%"));
             }
 
             if (stationId != 0)
             {
+                if (paramList.Count > 0)
+                {
+                    sqlCommand += "and ";
+                }
                 sqlCommand += "StationId = @StationId ";
                 paramList.Add(new MySqlParameter("@StationId", stationId));
             }
 
             if (orderStatus != 0)
             {
+                if (paramList.Count > 0)
+                {
+                    sqlCommand += "and ";
+                }
                 sqlCommand += "OrderStatus = @OrderStatus ";
                 paramList.Add(new MySqlParameter("@OrderStatus", orderStatus));
             }

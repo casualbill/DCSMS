@@ -125,6 +125,7 @@
     <Compile Include="main.Master.designer.cs">
       <DependentUpon>main.Master</DependentUpon>
     </Compile>
+    <Compile Include="orderConfig.cs" />
     <Compile Include="order\orderCreate.aspx.cs">
       <DependentUpon>orderCreate.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
