@@ -36,19 +36,23 @@ CREATE TABLE `customerinfo` (
 
 /*Data for the table `customerinfo` */
 
-insert  into `customerinfo`(`Id`,`CustomerName`,`EndCustomerName`,`ContactPerson`,`Telephone`,`Mobile`,`Address`,`PostCode`,`Remark`,`Verified`) values (1,'cn','ecn','cp','66666666','12345678901',NULL,'200001','adfarg ae5y hhwhtht',''),(2,'cnnnn','ecn','cp','232323','124',NULL,'100002','testeseetstetsasetsetestestset testestset','\0'),(3,'1','','1','','',NULL,'','',''),(4,'2','','1','','',NULL,'','',''),(5,'111','','1','','',NULL,'','','\0'),(6,'IS-7','','1','4234324','',NULL,'','tk',''),(7,'T29','','1','','',NULL,'','tk',''),(8,'Foch 155','','1','','17616',NULL,'','tk',''),(9,'Maus','','1','2646','',NULL,'','tk',''),(10,'T-62A','','1','','',NULL,'','tk','\0'),(12,'FCM50t','franch','fcm','1232123232','2626','YQ2adfdfd','00332','tk','');
+insert  into `customerinfo`(`Id`,`CustomerName`,`EndCustomerName`,`ContactPerson`,`Telephone`,`Mobile`,`Address`,`PostCode`,`Remark`,`Verified`) values (1,'cn','ecn','cp','66666666','12345678901',NULL,'200001','adfarg ae5y hhwhtht',''),(2,'cnnnn','ecn','cp','232323','124','','100002','testeset remak','\0'),(3,'1','','1','','',NULL,'','',''),(4,'2','','1','','',NULL,'','',''),(5,'111','','1','','',NULL,'','','\0'),(6,'IS-7','','1','4234324','',NULL,'','tk',''),(7,'T29','','1','','',NULL,'','tk',''),(8,'Foch 155','','1','','17616',NULL,'','tk',''),(9,'Maus','','1','2646','',NULL,'','tk',''),(10,'T-62A','','1','','',NULL,'','tk','\0'),(12,'FCM50t','franch','fcm','1232123232','2626','YQ2adfdfd','00332','tk','');
 
 /*Table structure for table `orderinfo` */
 
 DROP TABLE IF EXISTS `orderinfo`;
 
 CREATE TABLE `orderinfo` (
-  `Id` varchar(20) NOT NULL DEFAULT '',
+  `Id` char(9) NOT NULL DEFAULT '',
   `FailureDescription` varchar(500) DEFAULT NULL,
   `ImgUrl` varchar(300) DEFAULT NULL,
+  `Remark` varchar(500) DEFAULT NULL,
+  `WorkType` int(11) NOT NULL DEFAULT '0',
   `CreateTime` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
   `UpdateTime` datetime DEFAULT NULL,
   `CreateUserId` int(11) NOT NULL DEFAULT '0',
+  `TechnicianId` int(11) NOT NULL DEFAULT '0',
+  `AdminId` int(11) DEFAULT NULL,
   `CustomerId` int(11) NOT NULL DEFAULT '0',
   `StationId` int(11) NOT NULL DEFAULT '0',
   `OrderStatus` tinyint(3) NOT NULL DEFAULT '0',
@@ -56,8 +60,6 @@ CREATE TABLE `orderinfo` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 /*Data for the table `orderinfo` */
-
-insert  into `orderinfo`(`Id`,`FailureDescription`,`ImgUrl`,`CreateTime`,`UpdateTime`,`CreateUserId`,`CustomerId`,`StationId`,`OrderStatus`) values ('131006121438272','failure description','','2013-10-06 00:14:38',NULL,13,12,1,1),('131006024745476','abcbabcb','','2013-10-06 14:47:45',NULL,13,7,2,1),('131006024805262','abcbabcb','','2013-10-06 14:48:05',NULL,13,7,2,1),('131006024820814','abcbabcb','','2013-10-06 14:48:20',NULL,13,3,2,1),('131006024838428','abcbabcba','','2013-10-06 14:48:38',NULL,13,9,1,1),('131006024858170','abcbabcba','','2013-10-06 14:48:58',NULL,13,9,1,1),('131006040329394','abb','','2013-10-06 16:03:29',NULL,13,8,1,1),('131006160643775','abb24','','2013-10-06 16:06:43',NULL,13,8,1,1);
 
 /*Table structure for table `orderlog` */
 
@@ -69,14 +71,13 @@ CREATE TABLE `orderlog` (
   `UserId` int(11) NOT NULL DEFAULT '0',
   `FormerStatus` tinyint(3) NOT NULL DEFAULT '0',
   `NewStatus` tinyint(3) DEFAULT NULL,
-  `CreateTime` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `OperateTime` datetime DEFAULT NULL,
+  `OperateTime` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
   PRIMARY KEY (`Id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 
 /*Data for the table `orderlog` */
 
-insert  into `orderlog`(`Id`,`OrderId`,`UserId`,`FormerStatus`,`NewStatus`,`CreateTime`,`OperateTime`) values (1,'131006121438272',10,1,NULL,'2013-10-06 00:14:38',NULL),(2,'131006024745476',10,1,NULL,'2013-10-06 14:47:45',NULL),(3,'131006024805262',10,1,NULL,'2013-10-06 14:48:05',NULL),(4,'131006024820814',16,1,NULL,'2013-10-06 14:48:20',NULL),(5,'131006024838428',14,1,NULL,'2013-10-06 14:48:38',NULL),(6,'131006024858170',11,1,NULL,'2013-10-06 14:48:58',NULL),(7,'131006040329394',11,1,NULL,'2013-10-06 16:03:29',NULL),(8,'131006160643775',11,1,NULL,'2013-10-06 16:06:43',NULL);
+insert  into `orderlog`(`Id`,`OrderId`,`UserId`,`FormerStatus`,`NewStatus`,`OperateTime`) values (1,'131006121438272',10,1,NULL,'2013-10-06 00:14:38'),(2,'131006024745476',10,1,NULL,'2013-10-06 14:47:45'),(3,'131006024805262',10,1,NULL,'2013-10-06 14:48:05'),(4,'131006024820814',16,1,NULL,'2013-10-06 14:48:20'),(5,'131006024838428',14,1,NULL,'2013-10-06 14:48:38'),(6,'131006024858170',11,1,NULL,'2013-10-06 14:48:58'),(7,'131006040329394',11,1,NULL,'2013-10-06 16:03:29'),(8,'131006160643775',11,1,NULL,'2013-10-06 16:06:43');
 
 /*Table structure for table `productinfo` */
 
@@ -138,13 +139,13 @@ DROP TABLE IF EXISTS `stationinfo`;
 CREATE TABLE `stationinfo` (
   `Id` int(11) NOT NULL AUTO_INCREMENT,
   `StationName` varchar(50) NOT NULL DEFAULT '',
-  `StationNameSimple` varchar(20) NOT NULL DEFAULT '',
+  `StationCode` char(2) NOT NULL DEFAULT '',
   PRIMARY KEY (`Id`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
 /*Data for the table `stationinfo` */
 
-insert  into `stationinfo`(`Id`,`StationName`,`StationNameSimple`) values (1,'现场维修','现场'),(2,'上海','上海');
+insert  into `stationinfo`(`Id`,`StationName`,`StationCode`) values (1,'现场维修','OS'),(2,'上海','SH');
 
 /*Table structure for table `userinfo` */
 
