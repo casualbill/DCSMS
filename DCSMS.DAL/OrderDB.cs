@@ -9,17 +9,52 @@ namespace DCSMS.DAL
 {
     public class OrderDB : DBHelper
     {
-        public int orderCreate(String id, String failureDescription, String imgUrl, int createUserId, int customerId, int stationId)
+        public int orderCreate(String id, int workType, int createUserId, int technicianId, int customerId, int stationId, int orderStatus)
         {
-            String sqlCommand = "insert into orderinfo values (@Id, @FailureDescription, @ImgUrl, now(), null, @CreateUserId, @CustomerId, @StationId, 1)";
+            String sqlCommand = "insert into orderinfo values (@Id, null, null, @WorkType, now(), null, @CreateUserId, @TechnicianId, null, @CustomerId, @StationId, @OrderStatus)";
 
             List<MySqlParameter> paramList = new List<MySqlParameter>();
             paramList.Add(new MySqlParameter("@Id", id));
-            paramList.Add(new MySqlParameter("@FailureDescription", failureDescription));
-            paramList.Add(new MySqlParameter("@ImgUrl", imgUrl));
+            paramList.Add(new MySqlParameter("@WorkType", workType));
             paramList.Add(new MySqlParameter("@CreateUserId", createUserId));
+            paramList.Add(new MySqlParameter("@TechnicianId", technicianId));
             paramList.Add(new MySqlParameter("@CustomerId", customerId));
             paramList.Add(new MySqlParameter("@StationId", stationId));
+            paramList.Add(new MySqlParameter("@OrderStatus", orderStatus));
+
+            return executeSqlCommandNoQuery(sqlCommand, paramList);
+        }
+
+        //public int orderCreate(String id, String failureDescription, String imgUrl, int createUserId, int customerId, int stationId)
+        //{
+        //    String sqlCommand = "insert into orderinfo values (@Id, @FailureDescription, @ImgUrl, now(), null, @CreateUserId, @CustomerId, @StationId, 1)";
+
+        //    List<MySqlParameter> paramList = new List<MySqlParameter>();
+        //    paramList.Add(new MySqlParameter("@Id", id));
+        //    paramList.Add(new MySqlParameter("@FailureDescription", failureDescription));
+        //    paramList.Add(new MySqlParameter("@ImgUrl", imgUrl));
+        //    paramList.Add(new MySqlParameter("@CreateUserId", createUserId));
+        //    paramList.Add(new MySqlParameter("@CustomerId", customerId));
+        //    paramList.Add(new MySqlParameter("@StationId", stationId));
+
+        //    return executeSqlCommandNoQuery(sqlCommand, paramList);
+        //}
+
+        public int orderUpdate(String id, String failureDescription, String imgUrl, int workType, int createUserId, int technicianId, int adminId, int customerId, int stationId, int orderStatus)
+        {
+            String sqlCommand = "update orderinfo set FailureDescription = @FailureDescription, ImgUrl = @ImgUrl, WorkType = @WorkType, CreateUserId = @CreateUserId, TechnicianId = @TechnicianId, AdminId = @AdminId, CustomerId = @CustomerId, StationId = @StationId, OrderStatus = @OrderStatus, UpdateTime = now() where Id = @Id";
+
+            List<MySqlParameter> paramList = new List<MySqlParameter>();
+            paramList.Add(new MySqlParameter("@FailureDescription", failureDescription));
+            paramList.Add(new MySqlParameter("@ImgUrl", imgUrl));
+            paramList.Add(new MySqlParameter("@WorkType", workType));
+            paramList.Add(new MySqlParameter("@CreateUserId", createUserId));
+            paramList.Add(new MySqlParameter("@TechnicianId", technicianId));
+            paramList.Add(new MySqlParameter("@AdminId", adminId));
+            paramList.Add(new MySqlParameter("@CustomerId", customerId));
+            paramList.Add(new MySqlParameter("@StationId", stationId));
+            paramList.Add(new MySqlParameter("@OrderStatus", orderStatus));
+            paramList.Add(new MySqlParameter("@Id", id));
 
             return executeSqlCommandNoQuery(sqlCommand, paramList);
         }
@@ -42,9 +77,26 @@ namespace DCSMS.DAL
             return executeSqlCommandDataSet(sqlCommand, param);
         }
 
-        public DataSet orderListQueryVaguely(String orderId, int customerId, String productName, String serialNumber, int stationId, int orderStatus)
+        public DataSet orderQueryByTask(int userId, Boolean isAdmin)
         {
-            String sqlCommand = "select orderinfo.Id as OrderId, CustomerName, ProductName, SerialNumber, StationName, FailureDescription, OrderStatus from orderinfo " +
+            String sqlCommand = "select * from orderinfo ";
+            if (isAdmin)
+            {
+                sqlCommand += "where AdminId in (0, @UserId) and orderStatus in (1, 3, 4, 7)";
+            }
+            else
+            {
+                sqlCommand += "where TechnicianId = @UserId and orderStatus in (2, 5, 6)";
+            }
+
+            MySqlParameter param = new MySqlParameter("@UserId", userId);
+            return executeSqlCommandDataSet(sqlCommand, param);
+        }
+
+        public DataSet orderListQueryVaguely(String orderId, int workType, int technicianId, int customerId, String productName, String serialNumber, int stationId, int orderStatus)
+        {
+            String sqlCommand = "select orderinfo.Id as OrderId, WorkType, UserName, CustomerName, ProductName, SerialNumber, StationName, FailureDescription, OrderStatus from orderinfo " +
+    "inner join userinfo on orderinfo.technicianId = userinfo.Id " +
     "inner join customerinfo on orderinfo.customerId = customerinfo.Id " +
     "inner join productinfo on orderinfo.Id = productinfo.OrderId " +
     "inner join stationinfo on orderinfo.stationId = stationinfo.Id " +
@@ -56,6 +108,26 @@ namespace DCSMS.DAL
             {
                 sqlCommand += "orderinfo.Id like @OrderId ";
                 paramList.Add(new MySqlParameter("@OrderId", orderId + "%"));
+            }
+
+            if (workType != 0)
+            {
+                if (paramList.Count > 0)
+                {
+                    sqlCommand += "and ";
+                }
+                sqlCommand += "WorkType = @WorkType ";
+                paramList.Add(new MySqlParameter("@WorkType", workType));
+            }
+
+            if (technicianId != 0)
+            {
+                if (paramList.Count > 0)
+                {
+                    sqlCommand += "and ";
+                }
+                sqlCommand += "TechnicianId = @TechnicianId ";
+                paramList.Add(new MySqlParameter("@TechnicianId", technicianId));
             }
 
             if (customerId != 0)
@@ -111,7 +183,7 @@ namespace DCSMS.DAL
             return executeSqlCommandDataSet(sqlCommand, paramList);
         }
 
-
+        /*
         public int orderTaskCreate(String orderId, int userId, int formerStatus)
         {
             String sqlCommand = "insert into orderlog values (null, @OrderId, @UserId, @FormerStatus, null, now(), null)";
@@ -134,15 +206,26 @@ namespace DCSMS.DAL
 
             return executeSqlCommandNoQuery(sqlCommand, paramList);
         }
+         */
 
-        //如果需要取消工单，使用修改UserId的update
+        public int orderLogCreate(String orderId, int userId, int formerStatus, int newStatus) {
+            String sqlCommand = "insert into orderlog values (null, @OrderId, @UserId, @FormerStatus, @NewStatus, now())";
 
-        public DataSet orderTaskQuery(int userId)
-        {
-            String sqlCommand = "select * from orderlog where UserId = @UserId and NewStatus is null";
-            MySqlParameter param = new MySqlParameter("@UserId", userId);
-            return executeSqlCommandDataSet(sqlCommand, param);
+            List<MySqlParameter> paramList = new List<MySqlParameter>();
+            paramList.Add(new MySqlParameter("@OrderId", orderId));
+            paramList.Add(new MySqlParameter("@UserId", userId));
+            paramList.Add(new MySqlParameter("@FormerStatus", formerStatus));
+            paramList.Add(new MySqlParameter("@NewStatus", newStatus));
+
+            return executeSqlCommandNoQuery(sqlCommand, paramList);
         }
+
+        //public DataSet orderTaskQuery(int userId)
+        //{
+        //    String sqlCommand = "select * from orderlog where UserId = @UserId and NewStatus is null";
+        //    MySqlParameter param = new MySqlParameter("@UserId", userId);
+        //    return executeSqlCommandDataSet(sqlCommand, param);
+        //}
 
         public DataSet orderLogQuery(String orderId)
         {
