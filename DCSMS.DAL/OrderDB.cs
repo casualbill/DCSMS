@@ -9,12 +9,13 @@ namespace DCSMS.DAL
 {
     public class OrderDB : DBHelper
     {
-        public int orderCreate(String id, int workType, int createUserId, int technicianId, int customerId, int stationId, int orderStatus)
+        public int orderCreate(String id, String remark, int workType, int createUserId, int technicianId, int customerId, int stationId, int orderStatus)
         {
-            String sqlCommand = "insert into orderinfo values (@Id, null, null, @WorkType, now(), null, @CreateUserId, @TechnicianId, null, @CustomerId, @StationId, @OrderStatus)";
+            String sqlCommand = "insert into orderinfo values (@Id, null, null, @Remark, @WorkType, now(), null, @CreateUserId, @TechnicianId, null, @CustomerId, @StationId, @OrderStatus)";
 
             List<MySqlParameter> paramList = new List<MySqlParameter>();
             paramList.Add(new MySqlParameter("@Id", id));
+            paramList.Add(new MySqlParameter("@Remark", remark));
             paramList.Add(new MySqlParameter("@WorkType", workType));
             paramList.Add(new MySqlParameter("@CreateUserId", createUserId));
             paramList.Add(new MySqlParameter("@TechnicianId", technicianId));
@@ -40,13 +41,14 @@ namespace DCSMS.DAL
         //    return executeSqlCommandNoQuery(sqlCommand, paramList);
         //}
 
-        public int orderUpdate(String id, String failureDescription, String imgUrl, int workType, int createUserId, int technicianId, int adminId, int customerId, int stationId, int orderStatus)
+        public int orderUpdate(String id, String failureDescription, String imgUrl, String remark, int workType, int createUserId, int technicianId, int adminId, int customerId, int stationId, int orderStatus)
         {
-            String sqlCommand = "update orderinfo set FailureDescription = @FailureDescription, ImgUrl = @ImgUrl, WorkType = @WorkType, CreateUserId = @CreateUserId, TechnicianId = @TechnicianId, AdminId = @AdminId, CustomerId = @CustomerId, StationId = @StationId, OrderStatus = @OrderStatus, UpdateTime = now() where Id = @Id";
+            String sqlCommand = "update orderinfo set FailureDescription = @FailureDescription, ImgUrl = @ImgUrl, Remark = @Remark, WorkType = @WorkType, CreateUserId = @CreateUserId, TechnicianId = @TechnicianId, AdminId = @AdminId, CustomerId = @CustomerId, StationId = @StationId, OrderStatus = @OrderStatus, UpdateTime = now() where Id = @Id";
 
             List<MySqlParameter> paramList = new List<MySqlParameter>();
             paramList.Add(new MySqlParameter("@FailureDescription", failureDescription));
             paramList.Add(new MySqlParameter("@ImgUrl", imgUrl));
+            paramList.Add(new MySqlParameter("@Remark", remark));
             paramList.Add(new MySqlParameter("@WorkType", workType));
             paramList.Add(new MySqlParameter("@CreateUserId", createUserId));
             paramList.Add(new MySqlParameter("@TechnicianId", technicianId));

@@ -12,7 +12,7 @@ namespace DCSMS.BLL
         protected OrderDB orderDb = new OrderDB();
 
         //新建工单
-        public int createOrder(int workType, List<String> customerInfo, int customerId, int createUserId, int technicianId, int stationId)
+        public int createOrder(String remark, int workType, List<String> customerInfo, int customerId, int createUserId, int technicianId, int stationId)
         {
             int orderStatus = 2;
 
@@ -39,7 +39,7 @@ namespace DCSMS.BLL
                 }
             }
 
-            if (orderDb.orderCreate(orderId, workType, createUserId, technicianId, customerId, stationId, orderStatus) != 1)
+            if (orderDb.orderCreate(orderId, remark, workType, createUserId, technicianId, customerId, stationId, orderStatus) != 1)
             {
                 return -2;
             }
@@ -99,7 +99,7 @@ namespace DCSMS.BLL
         }
          */
 
-        //工单状态更新（完成一项任务）
+        
         //orderStatus状态说明：
         //1 收到工具 等待客户审核（随工单创建的客户）
         //2 客户审核完成 等待工单检查（技术员）
@@ -109,6 +109,15 @@ namespace DCSMS.BLL
         //6 备件到齐 等待维修（技术员）
         //7 维修完成 等待发货
         //8 发货完成
+
+        //工单完全修改
+        public int orderTotallyUpdate(String id, String failureDescription, String imgUrl, String remark, int workType, int createUserId, int technicianId, int adminId, int customerId, int stationId, int orderStatus)
+        {
+            return orderDb.orderUpdate(id, failureDescription, imgUrl, remark, workType, createUserId, technicianId, adminId, customerId, stationId, orderStatus);
+        }
+
+
+        //工单状态更新（完成一项任务）
         public int orderStatusUpdate(String orderId, int orderStatus, int userId)
         {
             if (orderDb.orderStatusUpdate(orderId, orderStatus) != 1)
@@ -187,9 +196,9 @@ namespace DCSMS.BLL
         }
 
         //工单模糊查询
-        public DataTable orderListQueryVaguely(String orderId, int customerId, String productName, String serialNumber, int stationId, int orderStatus)
+        public DataTable orderListQueryVaguely(String orderId, int workType, int technicianId, int customerId, String productName, String serialNumber, int stationId, int orderStatus)
         {
-            DataSet ds = orderDb.orderListQueryVaguely(orderId, customerId, productName, serialNumber, stationId, orderStatus);
+            DataSet ds = orderDb.orderListQueryVaguely(orderId, workType, technicianId, customerId, productName, serialNumber, stationId, orderStatus);
             if (ds.Tables[0].Rows.Count > 0)
             {
                 return addOrderStatusText(ds.Tables[0]);
