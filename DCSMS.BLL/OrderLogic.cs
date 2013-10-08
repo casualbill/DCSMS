@@ -110,30 +110,96 @@ namespace DCSMS.BLL
         //7 维修完成 等待发货
         //8 发货完成
 
-        //工单完全修改
-        public int orderTotallyUpdate(String id, String failureDescription, String imgUrl, String remark, int workType, int createUserId, int technicianId, int adminId, int customerId, int stationId, int orderStatus)
+        //工单完全修改（不包括工具、备件）
+        public int orderTotallyUpdate(String id, String failureDescription, String imgUrl, String remark, int workType, int createUserId, int technicianId, int adminId, int customerId, int stationId, int formerStatus, int newStatus, int operateUserId)
         {
-            return orderDb.orderUpdate(id, failureDescription, imgUrl, remark, workType, createUserId, technicianId, adminId, customerId, stationId, orderStatus);
+            if (orderDb.orderTotallyUpdate(id, failureDescription, imgUrl, remark, workType, createUserId, technicianId, adminId, customerId, stationId, newStatus) == 1)
+            {
+                if (orderDb.orderLogCreate(id, operateUserId, formerStatus, newStatus) == 1)
+                {
+                    return 1;
+                }
+                else
+                {
+                    return -2;
+                }
+            }
+            else
+            {
+                return -1;
+            }
         }
 
-
-        //工单状态更新（完成一项任务）
-        public int orderStatusUpdate(String orderId, int orderStatus, int userId)
+        //工单修改：技术员完成工单检查
+        public int orderCheckByTechnician(String id, String failureDescription, String imgUrl, String remark, List<String> productInfo, List<List<String>> sparePartInfoList, int operateUserId)
         {
-            if (orderDb.orderStatusUpdate(orderId, orderStatus) != 1)
+            ProductDB productDb = new ProductDB();
+            SparePartDB sparePartDb = new SparePartDB();
+
+            if (productDb.productCreate(productInfo, id) != 1)
             {
                 return -1;
             }
 
-            if (orderDb.orderTaskComplete(orderId, orderStatus) != 1) { return -2; }
-
-            if (orderStatus < 8)
+            int sparePartCreateCount = 0;
+            foreach (List<String> sparePartInfo in sparePartInfoList)
             {
-                if (orderDb.orderTaskCreate(orderId, userId, orderStatus) != 1) { return -3; }
+                if (sparePartDb.sparePartCreate(sparePartInfo, id) == 1)
+                {
+                    sparePartCreateCount++;
+                }
+            }
+            if (sparePartCreateCount < sparePartInfoList.Count)
+            {
+                return -2;
+            }
+
+            if (orderDb.orderCheckUpdate(id, failureDescription, imgUrl, remark, 3) != 1)
+            {
+                return -3;
+            }
+
+            if (orderDb.orderLogCreate(id, operateUserId, 2, 3) != 1)
+            {
+
+                return -4;
             }
 
             return 1;
         }
+
+        //工单修改：管理员添加备注
+        public int orderRemarkUpdate(String id, String remark, int formerStatus, int newStatus, int operateUserId) {
+            if (orderDb.orderRemarkUpdate(id, remark, newStatus) != 1)
+            {
+                return -1;
+            }
+
+            if (orderDb.orderLogCreate(id, operateUserId, formerStatus, newStatus) != 1)
+            {
+                return -2;
+            }
+
+            return 1;
+        }
+
+        //工单状态更新（完成一项任务）
+        //public int orderStatusUpdate(String orderId, int orderStatus, int userId)
+        //{
+        //    if (orderDb.orderStatusUpdate(orderId, orderStatus) != 1)
+        //    {
+        //        return -1;
+        //    }
+
+        //    if (orderDb.orderTaskComplete(orderId, orderStatus) != 1) { return -2; }
+
+        //    if (orderStatus < 8)
+        //    {
+        //        if (orderDb.orderTaskCreate(orderId, userId, orderStatus) != 1) { return -3; }
+        //    }
+
+        //    return 1;
+        //}
 
         //工单查询 根据工单号 返回DataSet：tabel 0为工单 1客户 2工具 3备件 4维修站 5工单记录 6当前任务人 7创建人
         public DataSet orderQueryByOrderId(String orderId)

@@ -41,7 +41,7 @@ namespace DCSMS.DAL
         //    return executeSqlCommandNoQuery(sqlCommand, paramList);
         //}
 
-        public int orderUpdate(String id, String failureDescription, String imgUrl, String remark, int workType, int createUserId, int technicianId, int adminId, int customerId, int stationId, int orderStatus)
+        public int orderTotallyUpdate(String id, String failureDescription, String imgUrl, String remark, int workType, int createUserId, int technicianId, int adminId, int customerId, int stationId, int orderStatus)
         {
             String sqlCommand = "update orderinfo set FailureDescription = @FailureDescription, ImgUrl = @ImgUrl, Remark = @Remark, WorkType = @WorkType, CreateUserId = @CreateUserId, TechnicianId = @TechnicianId, AdminId = @AdminId, CustomerId = @CustomerId, StationId = @StationId, OrderStatus = @OrderStatus, UpdateTime = now() where Id = @Id";
 
@@ -61,12 +61,49 @@ namespace DCSMS.DAL
             return executeSqlCommandNoQuery(sqlCommand, paramList);
         }
 
+        public int orderCheckUpdate(String id, String failureDescription, String imgUrl, String remark, int orderStatus)
+        {
+            String sqlCommand = "update orderinfo set FailureDescription = @FailureDescription, ImgUrl = @ImgUrl, Remark = @Remark, OrderStatus = @OrderStatus, UpdateTime = now() where Id = @Id";
+
+            List<MySqlParameter> paramList = new List<MySqlParameter>();
+            paramList.Add(new MySqlParameter("@FailureDescription", failureDescription));
+            paramList.Add(new MySqlParameter("@ImgUrl", imgUrl));
+            paramList.Add(new MySqlParameter("@Remark", remark));
+            paramList.Add(new MySqlParameter("@OrderStatus", orderStatus));
+            paramList.Add(new MySqlParameter("@Id", id));
+
+            return executeSqlCommandNoQuery(sqlCommand, paramList);
+        }
+
+        public int orderRemarkUpdate(String id, String remark, int orderStatus)
+        {
+            String sqlCommand = "update orderinfo set Remark = @Remark, OrderStatus = @OrderStatus, UpdateTime = now() where Id = @Id";
+
+            List<MySqlParameter> paramList = new List<MySqlParameter>();
+            paramList.Add(new MySqlParameter("@Remark", remark));
+            paramList.Add(new MySqlParameter("@OrderStatus", orderStatus));
+            paramList.Add(new MySqlParameter("@Id", id));
+
+            return executeSqlCommandNoQuery(sqlCommand, paramList);
+        }
+
         public int orderStatusUpdate(String id, int orderStatus)
         {
             String sqlCommand = "update orderinfo set OrderStatus = @OrderStatus, UpdateTime = now() where Id = @Id";
 
             List<MySqlParameter> paramList = new List<MySqlParameter>();
             paramList.Add(new MySqlParameter("@OrderStatus", orderStatus));
+            paramList.Add(new MySqlParameter("@Id", id));
+
+            return executeSqlCommandNoQuery(sqlCommand, paramList);
+        }
+
+        public int orderAdminUpdate(String id, int adminId)
+        {
+            String sqlCommand = "update orderinfo set AdminId = @AdminId where Id = @Id";
+
+            List<MySqlParameter> paramList = new List<MySqlParameter>();
+            paramList.Add(new MySqlParameter("@AdminId", adminId));
             paramList.Add(new MySqlParameter("@Id", id));
 
             return executeSqlCommandNoQuery(sqlCommand, paramList);
