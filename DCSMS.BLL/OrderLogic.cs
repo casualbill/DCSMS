@@ -12,6 +12,43 @@ namespace DCSMS.BLL
         protected OrderDB orderDb = new OrderDB();
 
         //新建工单
+        public int createOrder(int workType, List<String> customerInfo, int customerId, int createUserId, int technicianId, int stationId)
+        {
+            int orderStatus = 2;
+
+            String year = DateTime.Now.ToString("yy");
+            int orderIdNum = Convert.ToInt16(orderDb.orderIdCount(year)) + 1;
+            StationDB stationDb = new StationDB();
+            String stationCode = stationDb.stationQueryByStationId(stationId).Tables[0].Rows[0]["StationCode"].ToString();
+            String orderId = stationCode + year + orderIdNum.ToString("00000");
+
+            //判读客户是否为新建的（需审核）
+            if (customerId == -1)
+            {
+                orderStatus = 1;
+
+                CustomerDB customerDb = new CustomerDB();
+                if (customerDb.customerCreate(customerInfo, false) == 1)
+                {
+                    DataSet ds = customerDb.customerQueryByCustomerName(customerInfo[0]);
+                    customerId = Convert.ToInt16(ds.Tables[0].Rows[0][0]);
+                }
+                else
+                {
+                    return -1;
+                }
+            }
+
+            if (orderDb.orderCreate(orderId, workType, createUserId, technicianId, customerId, stationId, orderStatus) != 1)
+            {
+                return -2;
+            }
+
+            return 1;
+        }
+
+
+        /*
         public int createOrder(String failureDescription, String imgUrl, List<String> productInfo, List<List<String>> sparePartInfoList, List<String> customerInfo, int customerId, int createUserId, int stationId, int taskUserId)
         {
             ProductDB productDb = new ProductDB();
@@ -60,6 +97,7 @@ namespace DCSMS.BLL
 
             return 1;
         }
+         */
 
         //工单状态更新（完成一项任务）
         //orderStatus状态说明：

@@ -183,6 +183,13 @@ namespace DCSMS.DAL
             return executeSqlCommandDataSet(sqlCommand, paramList);
         }
 
+        public String orderIdCount(String year)
+        {
+            String sqlCommand = "select count(*) where Id like @Year";
+            MySqlParameter param = new MySqlParameter("@Year", year + "%");
+            return  executeSqlCommandScalar(sqlCommand, param);
+        }
+
         /*
         public int orderTaskCreate(String orderId, int userId, int formerStatus)
         {
