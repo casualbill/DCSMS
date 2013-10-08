@@ -31,6 +31,7 @@ namespace DCSMS.Web.customer
             customerInfo.Add(tb_contactperson.Text.Trim());
             customerInfo.Add(tb_telephone.Text.Trim());
             customerInfo.Add(tb_mobile.Text.Trim());
+            customerInfo.Add(tb_address.Text.Trim());
             customerInfo.Add(tb_postcode.Text.Trim());
             customerInfo.Add(tb_remark.Text);
 
@@ -75,8 +76,9 @@ namespace DCSMS.Web.customer
                     tb_contactperson.Text = customerInfo[3];
                     tb_telephone.Text = customerInfo[4];
                     tb_mobile.Text = customerInfo[5];
-                    tb_postcode.Text = customerInfo[6];
-                    tb_remark.Text = customerInfo[7];
+                    tb_address.Text = customerInfo[6];
+                    tb_postcode.Text = customerInfo[7];
+                    tb_remark.Text = customerInfo[8];
                 }
                 else
                 {
