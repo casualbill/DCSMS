@@ -63,13 +63,14 @@ namespace DCSMS.BLL
 
         //工单状态更新（完成一项任务）
         //orderStatus状态说明：
-        //1 收到工具 等待检查
-        //2 检查完成 等待报价
-        //3 报价完成 等待客户确认
-        //4 确认完成 等待备件到齐
-        //5 备件到齐 等待维修
-        //6 维修完成 等待发货
-        //7 发货完成
+        //1 收到工具 等待客户审核（随工单创建的客户）
+        //2 客户审核完成 等待工单检查（技术员）
+        //3 工单检查完成 等待报价
+        //4 报价完成 等待客户确认
+        //5 确认完成 等待备件到齐（技术员）
+        //6 备件到齐 等待维修（技术员）
+        //7 维修完成 等待发货
+        //8 发货完成
         public int orderStatusUpdate(String orderId, int orderStatus, int userId)
         {
             if (orderDb.orderStatusUpdate(orderId, orderStatus) != 1)
@@ -79,7 +80,7 @@ namespace DCSMS.BLL
 
             if (orderDb.orderTaskComplete(orderId, orderStatus) != 1) { return -2; }
 
-            if (orderStatus < 7)
+            if (orderStatus < 8)
             {
                 if (orderDb.orderTaskCreate(orderId, userId, orderStatus) != 1) { return -3; }
             }
