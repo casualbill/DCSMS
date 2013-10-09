@@ -49,13 +49,13 @@ namespace DCSMS.Web.order {
         protected global::System.Web.UI.WebControls.Label lb_imgurl;
         
         /// <summary>
-        /// lb_reamrk 控件。
+        /// lb_order_remark 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lb_reamrk;
+        protected global::System.Web.UI.WebControls.Label lb_order_remark;
         
         /// <summary>
         /// lb_createtime 控件。

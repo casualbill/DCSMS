@@ -6,7 +6,7 @@
     工作类型：<asp:Label ID="lb_worktype" runat="server"></asp:Label><br />
     故障描述：<asp:Label ID="lb_failure_description" runat="server"></asp:Label><br />
     图片：<asp:Label ID="lb_imgurl" runat="server"></asp:Label><br />
-    备注：<asp:Label ID="lb_reamrk" runat="server"></asp:Label><br />
+    备注：<asp:Label ID="lb_order_remark" runat="server"></asp:Label><br />
     创建时间：<asp:Label ID="lb_createtime" runat="server"></asp:Label><br />
     状态更新时间：<asp:Label ID="lb_updatetime" runat="server"></asp:Label><br />
     当前状态：<asp:Label ID="lb_orderstatus" runat="server"></asp:Label><br />

@@ -39,7 +39,7 @@ namespace DCSMS.Web.order
                     lb_orderid.Text = ds.Tables[0].Rows[0]["Id"].ToString();
                     lb_failure_description.Text = ds.Tables[0].Rows[0]["FailureDescription"].ToString();
                     lb_imgurl.Text = ds.Tables[0].Rows[0]["ImgUrl"].ToString();
-                    lb_reamrk.Text = ds.Tables[0].Rows[0]["Remark"].ToString();
+                    lb_order_remark.Text = ds.Tables[0].Rows[0]["Remark"].ToString();
                     lb_createtime.Text = ds.Tables[0].Rows[0]["CreateTime"].ToString();
                     lb_updatetime.Text = ds.Tables[0].Rows[0]["UpdateTime"].ToString();
                     lb_orderstatus.Text = ds.Tables[0].Rows[0]["OrderStatusStr"].ToString();
@@ -80,7 +80,7 @@ namespace DCSMS.Web.order
                 }
                 else
                 {
-                    Response.Write("<script type=\"text/javascript\">alert (\"该订单不存在！\"); window.location.href=\"orderQuery.aspx\";</script>");
+                    Response.Write("<script type=\"text/javascript\">alert (\"该工单不存在！\"); window.location.href=\"orderQuery.aspx\";</script>");
                 }
 
             }

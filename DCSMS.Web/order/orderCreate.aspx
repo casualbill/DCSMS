@@ -47,7 +47,7 @@
     跟单技术员：<asp:DropDownList ID="ddl_technician" AutoPostBack="true" OnSelectedIndexChanged="ddl_technician_changed" runat="server"></asp:DropDownList><br />
     <asp:HiddenField ID="hf_technicianid" Value="" runat="server" /><br />
 
-    备注：<asp:TextBox ID="tb_remark" runat="server" MaxLength="300" TextMode="MultiLine"></asp:TextBox><br />
+    备注：<asp:TextBox ID="tb_remark" runat="server" MaxLength="500" TextMode="MultiLine"></asp:TextBox><br />
 
     <br /><br />
 
