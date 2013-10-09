@@ -222,11 +222,11 @@ namespace DCSMS.DAL
             return executeSqlCommandDataSet(sqlCommand, paramList);
         }
 
-        public String orderIdCount(String year)
+        public String orderIdCount(String stationCode, String year)
         {
-            String sqlCommand = "select count(*) where Id like @Year";
-            MySqlParameter param = new MySqlParameter("@Year", year + "%");
-            return  executeSqlCommandScalar(sqlCommand, param);
+            String sqlCommand = "select count(*) from orderinfo where Id like @Type";
+            MySqlParameter param = new MySqlParameter("@Type", stationCode + year + "%");
+            return executeSqlCommandScalar(sqlCommand, param);
         }
 
         /*

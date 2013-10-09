@@ -40,6 +40,8 @@ namespace DCSMS.Web.order
                 tb_mobile.Enabled = false;
                 tb_address.Enabled = false;
                 tb_postcode.Enabled = false;
+
+                ddl_customer.Enabled = true;
             }
             else
             {
@@ -59,6 +61,8 @@ namespace DCSMS.Web.order
                 tb_address.Text = "";
                 tb_postcode.Text = "";
 
+                ddl_customer.Enabled = false;
+
                 hf_customerid.Value = "";
             }
         }
@@ -69,7 +73,7 @@ namespace DCSMS.Web.order
 
             if (customerId == "0")
             {
-                hf_stationid.Value = "";
+                hf_customerid.Value = "";
             }
             else
             {
@@ -113,7 +117,7 @@ namespace DCSMS.Web.order
             }
         }
 
-        protected void ddl_task_user_changed(object sender, EventArgs e)
+        protected void ddl_technician_changed(object sender, EventArgs e)
         {
             String userId = ddl_technician.SelectedValue;
 
@@ -207,6 +211,7 @@ namespace DCSMS.Web.order
                 customerInfo.Add(tb_mobile.Text.Trim());
                 customerInfo.Add(tb_address.Text.Trim());
                 customerInfo.Add(tb_postcode.Text.Trim());
+                customerInfo.Add("");   //Remark
 
                 customerId = -1;
             }
@@ -223,7 +228,7 @@ namespace DCSMS.Web.order
             productInfo.Add(tb_firmwareversion.Text.Trim());
             productInfo.Add(tb_product_remark.Text.Trim());
 
-            if (orderLogic.createOrder(tb_remark.Text.Trim(), workType, customerInfo, customerId, createUserId, technicianId, stationId) != 1)
+            if (orderLogic.createOrder(tb_remark.Text.Trim(), workType, customerInfo, customerId, productInfo, createUserId, technicianId, stationId) != 1)
             {
                 Response.Write("<script type=\"text/javascript\">alert (\"系统错误！\");</script>");
             }

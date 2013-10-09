@@ -12,14 +12,15 @@ namespace DCSMS.BLL
         protected OrderDB orderDb = new OrderDB();
 
         //新建工单
-        public int createOrder(String remark, int workType, List<String> customerInfo, int customerId, int createUserId, int technicianId, int stationId)
+        public int createOrder(String remark, int workType, List<String> customerInfo, int customerId, List<String> productInfo, int createUserId, int technicianId, int stationId)
         {
             int orderStatus = 2;
+            ProductDB productDb = new ProductDB();
 
             String year = DateTime.Now.ToString("yy");
-            int orderIdNum = Convert.ToInt16(orderDb.orderIdCount(year)) + 1;
             StationDB stationDb = new StationDB();
             String stationCode = stationDb.stationQueryByStationId(stationId).Tables[0].Rows[0]["StationCode"].ToString();
+            int orderIdNum = Convert.ToInt16(orderDb.orderIdCount(stationCode, year)) + 1;
             String orderId = stationCode + year + orderIdNum.ToString("00000");
 
             //判读客户是否为新建的（需审核）
@@ -39,9 +40,14 @@ namespace DCSMS.BLL
                 }
             }
 
-            if (orderDb.orderCreate(orderId, remark, workType, createUserId, technicianId, customerId, stationId, orderStatus) != 1)
+            if (productDb.productCreate(productInfo, orderId) != 1)
             {
                 return -2;
+            }
+
+            if (orderDb.orderCreate(orderId, remark, workType, createUserId, technicianId, customerId, stationId, orderStatus) != 1)
+            {
+                return -3;
             }
 
             return 1;

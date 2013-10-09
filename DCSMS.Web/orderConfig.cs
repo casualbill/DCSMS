@@ -37,7 +37,7 @@ namespace DCSMS.Web
             {
                 foreach (DataRow dr in dt.Rows)
                 {
-                    ddl_station.Items.Add(new ListItem(dr["StationNameSimple"].ToString(), dr["Id"].ToString()));
+                    ddl_station.Items.Add(new ListItem(dr["StationCode"].ToString(), dr["Id"].ToString()));
                 }
             }
         }
