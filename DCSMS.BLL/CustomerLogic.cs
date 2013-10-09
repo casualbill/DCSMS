@@ -29,6 +29,19 @@ namespace DCSMS.BLL
             return customerDb.customerVerify(id);
         }
 
+        //所有客户查询
+        public DataTable customerQuery()
+        {
+            DataSet ds = customerDb.customerQuery();
+            if (ds.Tables[0].Rows.Count > 0)
+            {
+                return ds.Tables[0];
+            }
+            else
+            {
+                return null;
+            }
+        }
 
         //已审核客户查询
         public DataTable verifiedCustomerQuery()

@@ -28,7 +28,7 @@ namespace DCSMS.Web.order
         {
             if (urlQueryId == null)
             {
-                Response.Write("<script type=\"text/javascript\">alert (\"该订单不存在！\"); window.location.href=\"orderQuery.aspx\";</script>");
+                Response.Write("<script type=\"text/javascript\">alert (\"该工单不存在！\"); window.location.href=\"orderQuery.aspx\";</script>");
             }
             else
             {

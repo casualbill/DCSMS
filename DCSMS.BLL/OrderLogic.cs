@@ -289,13 +289,14 @@ namespace DCSMS.BLL
             {
                 switch (dr["OrderStatus"].ToString())
                 {
-                    case "1": orderTable.Rows[index]["OrderStatusStr"] = "等待检查"; break;
-                    case "2": orderTable.Rows[index]["OrderStatusStr"] = "等待报价"; break;
-                    case "3": orderTable.Rows[index]["OrderStatusStr"] = "等待客户确认"; break;
-                    case "4": orderTable.Rows[index]["OrderStatusStr"] = "等待备件到齐"; break;
-                    case "5": orderTable.Rows[index]["OrderStatusStr"] = "等待维修"; break;
-                    case "6": orderTable.Rows[index]["OrderStatusStr"] = "等待发货"; break;
-                    case "7": orderTable.Rows[index]["OrderStatusStr"] = "完成"; break;
+                    case "1": orderTable.Rows[index]["OrderStatusStr"] = "等待客户审核"; break;
+                    case "2": orderTable.Rows[index]["OrderStatusStr"] = "等待检查"; break;
+                    case "3": orderTable.Rows[index]["OrderStatusStr"] = "等待报价"; break;
+                    case "4": orderTable.Rows[index]["OrderStatusStr"] = "等待客户确认"; break;
+                    case "5": orderTable.Rows[index]["OrderStatusStr"] = "等待备件到齐"; break;
+                    case "6": orderTable.Rows[index]["OrderStatusStr"] = "等待维修"; break;
+                    case "7": orderTable.Rows[index]["OrderStatusStr"] = "等待发货"; break;
+                    case "8": orderTable.Rows[index]["OrderStatusStr"] = "完成"; break;
                 }
                 index++;
             }

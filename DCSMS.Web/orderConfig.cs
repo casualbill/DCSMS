@@ -10,13 +10,25 @@ namespace DCSMS.Web
 {
     public class orderConfig
     {
-        public void loadCustomerList(DropDownList ddl_customer)
+        public void loadCustomerList(DropDownList ddl_customer, Boolean IsOnlyVerified, Boolean addDefaultItem)
         {
             CustomerLogic customerLogic = new CustomerLogic();
-            DataTable dt = customerLogic.verifiedCustomerQuery();
+            DataTable dt;
+            if (IsOnlyVerified == true)
+            {
+                dt=customerLogic.verifiedCustomerQuery();
+            }
+            else
+            {
+                dt = customerLogic.customerQuery();
+            }
 
             ddl_customer.Items.Clear();
-            ddl_customer.Items.Add(new ListItem("请选择客户", "0"));
+
+            if (addDefaultItem == true)
+            {
+                ddl_customer.Items.Add(new ListItem("请选择客户", "0"));
+            }
             if (dt != null)
             {
                 foreach (DataRow dr in dt.Rows)
@@ -42,7 +54,7 @@ namespace DCSMS.Web
             }
         }
 
-        public void loadUserList(DropDownList ddl_task_user, Boolean isTechnician)
+        public void loadUserList(DropDownList ddl_task_user, Boolean isTechnician, Boolean addDefaultItem)
         {
             UserLogic userLogic = new UserLogic();
             DataTable dt;
@@ -56,7 +68,12 @@ namespace DCSMS.Web
             }
 
             ddl_task_user.Items.Clear();
-            ddl_task_user.Items.Add(new ListItem("请选择用户", "0"));
+
+            if (addDefaultItem == true)
+            {
+                ddl_task_user.Items.Add(new ListItem("请选择用户", "0"));
+            }
+
             if (dt != null)
             {
                 foreach (DataRow dr in dt.Rows)

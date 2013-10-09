@@ -17,9 +17,9 @@ namespace DCSMS.Web.order
             if (!IsPostBack)
             {
                 orderConfig orderCfg = new orderConfig();
-                orderCfg.loadCustomerList(ddl_customer);
+                orderCfg.loadCustomerList(ddl_customer, true, true);
                 orderCfg.loadStationList(ddl_station);
-                orderCfg.loadUserList(ddl_technician, true);
+                orderCfg.loadUserList(ddl_technician, true, true);
             }
         }
 

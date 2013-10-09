@@ -52,6 +52,12 @@ namespace DCSMS.DAL
             return executeSqlCommandNoQuery(sqlCommand, param);
         }
 
+        public DataSet customerQuery()
+        {
+            String sqlCommand = "select * from customerinfo";
+            return executeSqlCommandDataSet(sqlCommand);
+        }
+
         public DataSet verifiedCustomerQuery()
         {
             String sqlCommand = "select * from customerinfo where Verified = 1";
