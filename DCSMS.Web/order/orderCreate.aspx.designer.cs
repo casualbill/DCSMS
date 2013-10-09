@@ -13,6 +13,24 @@ namespace DCSMS.Web.order {
     public partial class orderCreate {
         
         /// <summary>
+        /// ddl_worktype 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddl_worktype;
+        
+        /// <summary>
+        /// hf_worktype 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hf_worktype;
+        
+        /// <summary>
         /// rbl_customer 控件。
         /// </summary>
         /// <remarks>
@@ -148,42 +166,6 @@ namespace DCSMS.Web.order {
         protected global::System.Web.UI.WebControls.TextBox tb_product_remark;
         
         /// <summary>
-        /// tb_sparepartname 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tb_sparepartname;
-        
-        /// <summary>
-        /// tb_sparepart_orderingnumber 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tb_sparepart_orderingnumber;
-        
-        /// <summary>
-        /// tb_sparepart_amount 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tb_sparepart_amount;
-        
-        /// <summary>
-        /// tb_sparepart_remark 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tb_sparepart_remark;
-        
-        /// <summary>
         /// ddl_station 控件。
         /// </summary>
         /// <remarks>
@@ -202,40 +184,31 @@ namespace DCSMS.Web.order {
         protected global::System.Web.UI.WebControls.HiddenField hf_stationid;
         
         /// <summary>
-        /// tb_failure_description 控件。
+        /// ddl_technician 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tb_failure_description;
+        protected global::System.Web.UI.WebControls.DropDownList ddl_technician;
         
         /// <summary>
-        /// tb_imgurl 控件。
+        /// hf_technicianid 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tb_imgurl;
+        protected global::System.Web.UI.WebControls.HiddenField hf_technicianid;
         
         /// <summary>
-        /// ddl_task_user 控件。
+        /// tb_remark 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddl_task_user;
-        
-        /// <summary>
-        /// hf_taskuserid 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField hf_taskuserid;
+        protected global::System.Web.UI.WebControls.TextBox tb_remark;
         
         /// <summary>
         /// btn_submit 控件。

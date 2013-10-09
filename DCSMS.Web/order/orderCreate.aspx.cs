@@ -25,7 +25,7 @@ namespace DCSMS.Web.order
                 orderConfig orderCfg = new orderConfig();
                 orderCfg.loadCustomerList(ddl_customer);
                 orderCfg.loadStationList(ddl_station);
-                orderCfg.loadUserList(ddl_task_user);
+                orderCfg.loadUserList(ddl_technician, true);
             }
         }
 
@@ -85,6 +85,20 @@ namespace DCSMS.Web.order
             }
         }
 
+        protected void ddl_worktype_changed(object sender, EventArgs e)
+        {
+            String workType = ddl_worktype.SelectedValue;
+
+            if (workType == "0")
+            {
+                hf_worktype.Value = "";
+            }
+            else
+            {
+                hf_worktype.Value = workType;
+            }
+        }
+
         protected void ddl_station_changed(object sender, EventArgs e)
         {
             String stationId = ddl_station.SelectedValue;
@@ -101,24 +115,25 @@ namespace DCSMS.Web.order
 
         protected void ddl_task_user_changed(object sender, EventArgs e)
         {
-            String userId = ddl_task_user.SelectedValue;
+            String userId = ddl_technician.SelectedValue;
 
             if (userId == "0")
             {
-                hf_taskuserid.Value = "";
+                hf_technicianid.Value = "";
             }
             else
             {
-                hf_taskuserid.Value = userId;
+                hf_technicianid.Value = userId;
             }
         }
 
         protected void btn_submit_Click(object sender, EventArgs e)
         {
+            int workType;
             int customerId;
             int createUserId;
             int stationId;
-            int taskUserId;
+            int technicianId;
 
             if (Session["userid"] == null)
             {
@@ -148,13 +163,17 @@ namespace DCSMS.Web.order
                 return;
             }
 
-            if (tb_sparepartname.Text.Trim().Length < 1 || tb_sparepart_orderingnumber.Text.Trim().Length < 1 || tb_sparepart_amount.Text.Trim().Length < 1)
+            //前端验证tb_sparepart_amount为数字
+
+            if (hf_worktype.Value == "")
             {
-                Response.Write("<script type=\"text/javascript\">alert (\"请完整输入备件信息！\");</script>");
+                Response.Write("<script type=\"text/javascript\">alert (\"请选择工作类型！\");</script>");
                 return;
             }
-
-            //前端验证tb_sparepart_amount为数字
+            else
+            {
+                workType = Convert.ToInt16(hf_worktype.Value);
+            }
 
             if (hf_stationid.Value == "")
             {
@@ -166,14 +185,14 @@ namespace DCSMS.Web.order
                 stationId = Convert.ToInt16(hf_stationid.Value);
             }
 
-            if (hf_taskuserid.Value == "")
+            if (hf_technicianid.Value == "")
             {
                 Response.Write("<script type=\"text/javascript\">alert (\"请选择检查用户！\");</script>");
                 return;
             }
             else
             {
-                taskUserId = Convert.ToInt16(hf_taskuserid.Value);
+                technicianId = Convert.ToInt16(hf_technicianid.Value);
             }
 
 
@@ -204,15 +223,7 @@ namespace DCSMS.Web.order
             productInfo.Add(tb_firmwareversion.Text.Trim());
             productInfo.Add(tb_product_remark.Text.Trim());
 
-            List<List<String>> sparePartInfoList = new List<List<String>>();
-            List<String> sparePartInfo = new List<String>();
-            sparePartInfo.Add(tb_sparepartname.Text.Trim());
-            sparePartInfo.Add(tb_sparepart_orderingnumber.Text.Trim());
-            sparePartInfo.Add(tb_sparepart_amount.Text.Trim());
-            sparePartInfo.Add(tb_sparepart_remark.Text.Trim());
-            sparePartInfoList.Add(sparePartInfo);
-
-            if (orderLogic.createOrder(tb_failure_description.Text.Trim(), tb_imgurl.Text.Trim(), productInfo, sparePartInfoList, customerInfo, customerId, createUserId, stationId, taskUserId) != 1)
+            if (orderLogic.createOrder(tb_remark.Text.Trim(), workType, customerInfo, customerId, createUserId, technicianId, stationId) != 1)
             {
                 Response.Write("<script type=\"text/javascript\">alert (\"系统错误！\");</script>");
             }
