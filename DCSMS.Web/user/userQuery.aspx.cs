@@ -21,7 +21,7 @@ namespace DCSMS.Web.user
         protected void btn_submit_Click(object sender, EventArgs e)
         {
             String queryText = tb_query_text.Text.Trim().ToLower();
-            DataTable dt = userLogic.userQueryByUserNameVaguely(queryText);
+            DataTable dt = userLogic.userQueryByUserNameVaguely(queryText, false);
             if (dt != null)
             {
                 lb_tips.Text = "";

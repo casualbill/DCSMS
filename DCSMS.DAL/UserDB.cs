@@ -91,5 +91,11 @@ namespace DCSMS.DAL
             return executeSqlCommandDataSet(sqlCommand, param);
         }
 
+        public DataSet userQueryByUserType(int userType)
+        {
+            String sqlCommand = "select * from userinfo where UserType = @UserType";
+            MySqlParameter param = new MySqlParameter("@UserType", userType);
+            return executeSqlCommandDataSet(sqlCommand, param);
+        }
     }
 }

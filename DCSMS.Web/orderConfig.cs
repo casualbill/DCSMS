@@ -42,10 +42,18 @@ namespace DCSMS.Web
             }
         }
 
-        public void loadUserList(DropDownList ddl_task_user)
+        public void loadUserList(DropDownList ddl_task_user, Boolean isTechnician)
         {
             UserLogic userLogic = new UserLogic();
-            DataTable dt = userLogic.userQuery();
+            DataTable dt;
+            if (isTechnician == true)
+            {
+                dt = userLogic.userQueryByUserType(2);
+            }
+            else
+            {
+                dt = userLogic.userQuery();
+            }
 
             ddl_task_user.Items.Clear();
             ddl_task_user.Items.Add(new ListItem("请选择用户", "0"));

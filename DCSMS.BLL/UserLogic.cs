@@ -54,6 +54,20 @@ namespace DCSMS.BLL
             }
         }
 
+        //用户查询 根据用户类别
+        public DataTable userQueryByUserType(int userType)
+        {
+            DataSet ds = userDb.userQueryByUserType(userType);
+            if (ds.Tables[0].Rows.Count > 0)
+            {
+                return ds.Tables[0];
+            }
+            else
+            {
+                return null;
+            }
+        }
+
         //用户查询 根据用户名模糊查询 （包含技术员信息）
         public DataTable userQueryByUserNameVaguely(String queryStr, Boolean isTechnician)
         {
