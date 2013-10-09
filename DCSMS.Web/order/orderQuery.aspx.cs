@@ -19,12 +19,18 @@ namespace DCSMS.Web.order
                 orderConfig orderCfg = new orderConfig();
                 orderCfg.loadCustomerList(ddl_customer);
                 orderCfg.loadStationList(ddl_station);
+                orderCfg.loadUserList(ddl_technician, true);
             }
         }
 
         protected void ddl_customer_changed(object sender, EventArgs e)
         {
             hf_customerid.Value = ddl_customer.SelectedValue;
+        }
+
+        protected void ddl_technician_changed(object sender, EventArgs e)
+        {
+            hf_technicianid.Value = ddl_technician.SelectedValue;
         }
 
         protected void ddl_station_changed(object sender, EventArgs e)
@@ -37,6 +43,11 @@ namespace DCSMS.Web.order
             hf_orderstatus.Value = ddl_orderstatus.SelectedValue;
         }
 
+        protected void ddl_worktype_changed(object sender, EventArgs e)
+        {
+            hf_worktype.Value = ddl_worktype.SelectedValue;
+        }
+
 
         protected void btn_submit_Click(object sender, EventArgs e)
         {
@@ -46,6 +57,8 @@ namespace DCSMS.Web.order
             String serialNumber = tb_serialnumber.Text.Trim();
             int stationId = Convert.ToInt16(hf_stationid.Value);
             int orderStatuts = Convert.ToInt16(hf_orderstatus.Value);
+            int workType = Convert.ToInt16(hf_worktype.Value);
+            int technicianId = Convert.ToInt16(hf_technicianid.Value);
 
             if (orderId.Length < 3 && customerId == 0 && productName.Length < 3 && serialNumber.Length < 3 && stationId == 0 && orderStatuts == 0)
             {
@@ -54,7 +67,7 @@ namespace DCSMS.Web.order
             }
             else
             {
-                rpt_orderinfo.DataSource = orderLogic.orderListQueryVaguely(orderId, customerId, productName, serialNumber, stationId, orderStatuts);
+                rpt_orderinfo.DataSource = orderLogic.orderListQueryVaguely(orderId, workType, technicianId, customerId, productName, serialNumber, stationId, orderStatuts);
                 rpt_orderinfo.DataBind();
             }
         }

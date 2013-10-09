@@ -9,6 +9,14 @@
     工具序列号：<asp:TextBox ID="tb_serialnumber" MaxLength="30" runat="server"></asp:TextBox><br />
     工作站：<asp:DropDownList ID="ddl_station" AutoPostBack="true" OnSelectedIndexChanged="ddl_station_changed" runat="server"></asp:DropDownList><br />
     <asp:HiddenField ID="hf_stationid" Value="0" runat="server" />
+    工作类型：<asp:DropDownList ID="ddl_worktype" AutoPostBack="true" OnSelectedIndexChanged="ddl_worktype_changed" runat="server">
+        <asp:ListItem Text="请选择工作类型" Value="0"></asp:ListItem>
+        <asp:ListItem Text="质保" Value="1"></asp:ListItem>
+        <asp:ListItem Text="客户付费" Value="2"></asp:ListItem>
+        <asp:ListItem Text="Demo工具维修" Value="3"></asp:ListItem>
+        <asp:ListItem Text="项目维修" Value="4"></asp:ListItem>
+    </asp:DropDownList><br />
+    <asp:HiddenField ID="hf_worktype" Value="" runat="server" />
     工单状态：<asp:DropDownList ID="ddl_orderstatus" AutoPostBack="true" OnSelectedIndexChanged="ddl_orderstatus_changed" runat="server">
         <asp:ListItem Text="请选择状态" Value="0"></asp:ListItem>
         <asp:ListItem Text="等待检查" Value="1"></asp:ListItem>
@@ -20,7 +28,8 @@
         <asp:ListItem Text="完成" Value="7"></asp:ListItem>
     </asp:DropDownList><br />
     <asp:HiddenField ID="hf_orderstatus" Value="0" runat="server" />
-
+    跟单技术员：<asp:DropDownList ID="ddl_technician" AutoPostBack="true" OnSelectedIndexChanged="ddl_technician_changed" runat="server"></asp:DropDownList><br />
+    <asp:HiddenField ID="hf_technicianid" Value="0" runat="server" /><br />
     <br />
 
     <asp:Button ID="btn_submit" runat="server" Text="Submit" OnClick="btn_submit_Click" />
