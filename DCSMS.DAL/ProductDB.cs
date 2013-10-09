@@ -25,9 +25,9 @@ namespace DCSMS.DAL
             return executeSqlCommandNoQuery(sqlCommand, paramList);
         }
 
-        public int productUpdate(List<String> productInfo, int id)
+        public int productUpdate(List<String> productInfo, String orderId)
         {
-            String sqlCommand = "update productinfo set ProductName = @ProductName, SerialNumber = @SerialNumber, OrderingNumber = @OrderingNumber, CycleCounters = @CycleCounters, FirmwareVersion = @FirmwareVersion, Remark = @Remark where Id = @Id";
+            String sqlCommand = "update productinfo set ProductName = @ProductName, SerialNumber = @SerialNumber, OrderingNumber = @OrderingNumber, CycleCounters = @CycleCounters, FirmwareVersion = @FirmwareVersion, Remark = @Remark where OrderId = @OrderId";
 
             List<MySqlParameter> paramList = new List<MySqlParameter>();
             paramList.Add(new MySqlParameter("@ProductName", productInfo[0]));
@@ -36,7 +36,7 @@ namespace DCSMS.DAL
             paramList.Add(new MySqlParameter("@CycleCounters", productInfo[3]));
             paramList.Add(new MySqlParameter("@FirmwareVersion", productInfo[4]));
             paramList.Add(new MySqlParameter("@Remark", productInfo[5]));
-            paramList.Add(new MySqlParameter("@Id", id));
+            paramList.Add(new MySqlParameter("@OrderId", orderId));
 
             return executeSqlCommandNoQuery(sqlCommand, paramList);
         }

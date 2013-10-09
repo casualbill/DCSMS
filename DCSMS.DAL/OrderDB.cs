@@ -11,7 +11,7 @@ namespace DCSMS.DAL
     {
         public int orderCreate(String id, String remark, int workType, int createUserId, int technicianId, int customerId, int stationId, int orderStatus)
         {
-            String sqlCommand = "insert into orderinfo values (@Id, null, null, @Remark, @WorkType, now(), null, @CreateUserId, @TechnicianId, null, @CustomerId, @StationId, @OrderStatus)";
+            String sqlCommand = "insert into orderinfo values (@Id, null, null, @Remark, @WorkType, now(), null, @CreateUserId, @TechnicianId, 0, @CustomerId, @StationId, @OrderStatus)";
 
             List<MySqlParameter> paramList = new List<MySqlParameter>();
             paramList.Add(new MySqlParameter("@Id", id));

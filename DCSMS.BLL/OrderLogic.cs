@@ -116,24 +116,25 @@ namespace DCSMS.BLL
         //7 维修完成 等待发货
         //8 发货完成
 
-        //工单完全修改（不包括工具、备件）
-        public int orderTotallyUpdate(String id, String failureDescription, String imgUrl, String remark, int workType, int createUserId, int technicianId, int adminId, int customerId, int stationId, int formerStatus, int newStatus, int operateUserId)
+        //工单完全修改（不包括备件）
+        public int orderTotallyUpdate(String id, List<String> productInfo, String failureDescription, String imgUrl, String remark, int workType, int createUserId, int technicianId, int adminId, int customerId, int stationId, int formerStatus, int newStatus, int operateUserId)
         {
-            if (orderDb.orderTotallyUpdate(id, failureDescription, imgUrl, remark, workType, createUserId, technicianId, adminId, customerId, stationId, newStatus) == 1)
-            {
-                if (orderDb.orderLogCreate(id, operateUserId, formerStatus, newStatus) == 1)
-                {
-                    return 1;
-                }
-                else
-                {
-                    return -2;
-                }
-            }
-            else
+            ProductDB productDb = new ProductDB();
+            if (productDb.productUpdate(productInfo, id) != 1)
             {
                 return -1;
             }
+
+            if (orderDb.orderTotallyUpdate(id, failureDescription, imgUrl, remark, workType, createUserId, technicianId, adminId, customerId, stationId, newStatus) == 1)
+            {
+                return -2;
+            }
+            if (orderDb.orderLogCreate(id, operateUserId, formerStatus, newStatus) == 1)
+            {
+                return -3;
+            }
+
+            return 1;
         }
 
         //工单修改：技术员完成工单检查
@@ -207,7 +208,7 @@ namespace DCSMS.BLL
         //    return 1;
         //}
 
-        //工单查询 根据工单号 返回DataSet：tabel 0为工单 1客户 2工具 3备件 4维修站 5工单记录 6当前任务人 7创建人
+        //工单查询 根据工单号 返回DataSet：tabel 0为工单 1客户 2工具 3备件 4维修站 5工单记录 6跟单技术员 7创建人 8管理者
         public DataSet orderQueryByOrderId(String orderId)
         {
             DataSet orderInfoDataSet = new DataSet();
@@ -221,6 +222,8 @@ namespace DCSMS.BLL
             int customerId = Convert.ToInt16(dt.Rows[0]["CustomerId"]);
             int stationId = Convert.ToInt16(dt.Rows[0]["StationId"]);
             int createUserId = Convert.ToInt16(dt.Rows[0]["CreateUserId"]);
+            int technicianId = Convert.ToInt16(dt.Rows[0]["TechnicianId"]);
+            int adminId = Convert.ToInt16(dt.Rows[0]["AdminId"]);
 
             CustomerDB customerDb = new CustomerDB();
             dt = customerDb.customerQueryByCustomerId(customerId).Tables[0];
@@ -247,21 +250,16 @@ namespace DCSMS.BLL
             orderInfoDataSet.Tables.Add(dt.Copy());
 
             UserDB userDb = new UserDB();
-            DataTable taskUserTable;
-            if (dt.Rows[dt.Rows.Count - 1]["NewStatus"].ToString() == "")
-            {
-                int taskUserId = Convert.ToInt16(dt.Rows[dt.Rows.Count - 1]["UserId"]);
-                taskUserTable = userDb.userQueryByUserId(taskUserId).Tables[0];
-            }
-            else
-            {
-                taskUserTable = null;
-            }
-            taskUserTable.TableName = "TaskUserTable";
-            orderInfoDataSet.Tables.Add(taskUserTable.Copy());
+            dt = userDb.userQueryByUserId(technicianId).Tables[0];
+            dt.TableName = "TechnicianTable";
+            orderInfoDataSet.Tables.Add(dt.Copy());
 
             dt = userDb.userQueryByUserId(createUserId).Tables[0];
             dt.TableName = "CreateUserTable";
+            orderInfoDataSet.Tables.Add(dt.Copy());
+
+            dt = userDb.userQueryByUserId(adminId).Tables[0];
+            dt.TableName = "AdminTable";
             orderInfoDataSet.Tables.Add(dt.Copy());
 
             return orderInfoDataSet;

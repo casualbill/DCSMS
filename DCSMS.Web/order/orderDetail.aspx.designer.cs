@@ -10,7 +10,7 @@
 namespace DCSMS.Web.order {
     
     
-    public partial class orderDetailQuery {
+    public partial class orderDetail {
         
         /// <summary>
         /// lb_orderid 控件。
@@ -20,6 +20,15 @@ namespace DCSMS.Web.order {
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lb_orderid;
+        
+        /// <summary>
+        /// lb_worktype 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lb_worktype;
         
         /// <summary>
         /// lb_failure_description 控件。
@@ -38,6 +47,15 @@ namespace DCSMS.Web.order {
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lb_imgurl;
+        
+        /// <summary>
+        /// lb_reamrk 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lb_reamrk;
         
         /// <summary>
         /// lb_createtime 控件。
@@ -76,13 +94,22 @@ namespace DCSMS.Web.order {
         protected global::System.Web.UI.WebControls.Label lb_createuser;
         
         /// <summary>
-        /// lb_taskuser 控件。
+        /// lb_technician 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lb_taskuser;
+        protected global::System.Web.UI.WebControls.Label lb_technician;
+        
+        /// <summary>
+        /// lb_admin 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lb_admin;
         
         /// <summary>
         /// lb_customername 控件。
