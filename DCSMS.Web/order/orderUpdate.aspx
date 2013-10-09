@@ -43,6 +43,7 @@
     <br /><br />
 
     当前状态：<asp:Label ID="lb_orderstatus" runat="server"></asp:Label><br />
+    <asp:HiddenField ID="hd_formerstatus" runat="server" />
     更新状态：<asp:DropDownList ID="ddl_orderstatus" runat="server">
         <asp:ListItem Text="等待客户审核" Value="1"></asp:ListItem>
         <asp:ListItem Text="等待检查" Value="2"></asp:ListItem>
@@ -53,6 +54,10 @@
         <asp:ListItem Text="等待发货" Value="7"></asp:ListItem>
         <asp:ListItem Text="完成" Value="8"></asp:ListItem>
     </asp:DropDownList><br />
+
+    <asp:CheckBox ID="cb_manageorder" runat="server" Text="由我管理这个工单" />
+    <asp:HiddenField ID="hf_adminid" runat="server" />
+    <br /><br />
 
     <asp:Button ID="btn_submit" runat="server" Text="Submit" OnClick="btn_submit_Click" />
     <asp:Label ID="lb_tips" runat="server"></asp:Label>

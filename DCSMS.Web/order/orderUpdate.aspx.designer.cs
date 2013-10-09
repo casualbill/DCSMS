@@ -166,6 +166,15 @@ namespace DCSMS.Web.order {
         protected global::System.Web.UI.WebControls.Label lb_orderstatus;
         
         /// <summary>
+        /// hd_formerstatus 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hd_formerstatus;
+        
+        /// <summary>
         /// ddl_orderstatus 控件。
         /// </summary>
         /// <remarks>
@@ -173,6 +182,24 @@ namespace DCSMS.Web.order {
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddl_orderstatus;
+        
+        /// <summary>
+        /// cb_manageorder 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox cb_manageorder;
+        
+        /// <summary>
+        /// hf_adminid 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hf_adminid;
         
         /// <summary>
         /// btn_submit 控件。
