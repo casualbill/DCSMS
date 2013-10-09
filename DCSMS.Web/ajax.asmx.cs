@@ -19,14 +19,14 @@ namespace DCSMS.Web
     public class ajax : System.Web.Services.WebService
     {
         [WebMethod]
-        public String userQuery(String queryStr)
+        public String userQuery(String queryStr, Boolean isTechnician)
         {
             UserLogic userLogic = new UserLogic();
             if (queryStr.Length < 1)
             {
                 return "[]";
             }
-            DataTable dt = userLogic.userQueryByUserNameVaguely(queryStr);
+            DataTable dt = userLogic.userQueryByUserNameVaguely(queryStr, isTechnician);
             String str = "[";
             if (dt != null)
             {
@@ -59,7 +59,7 @@ namespace DCSMS.Web
                 {
                     str += "{";
                     str += "\"id\":" + dr["Id"] + ",";
-                    str += "\"customerName\":\"" + dr["customerName"] + "\"";
+                    str += "\"customerName\":\"" + dr["CustomerName"] + "\"";
                     str += "},";
                 }
                 str = str.Substring(0, str.Length - 1);
@@ -73,5 +73,6 @@ namespace DCSMS.Web
             CustomerLogic customerLogic = new CustomerLogic();
             return customerLogic.customerVerify(id);
         }
+
     }
 }

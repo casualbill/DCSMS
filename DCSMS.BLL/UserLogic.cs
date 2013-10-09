@@ -55,9 +55,9 @@ namespace DCSMS.BLL
         }
 
         //用户查询 根据用户名模糊查询 （包含技术员信息）
-        public DataTable userQueryByUserNameVaguely(String queryStr)
+        public DataTable userQueryByUserNameVaguely(String queryStr, Boolean isTechnician)
         {
-            DataSet ds = userDb.userQueryByUserNameVaguely(queryStr);
+            DataSet ds = userDb.userQueryByUserNameVaguely(queryStr, isTechnician);
             if (ds.Tables[0].Rows.Count > 0)
             {
                 ds.Tables[0].Columns.Add("UserTypeStr", Type.GetType("System.String"));
