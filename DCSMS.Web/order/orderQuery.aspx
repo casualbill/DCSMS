@@ -16,16 +16,17 @@
         <asp:ListItem Text="Demo工具维修" Value="3"></asp:ListItem>
         <asp:ListItem Text="项目维修" Value="4"></asp:ListItem>
     </asp:DropDownList><br />
-    <asp:HiddenField ID="hf_worktype" Value="" runat="server" />
+    <asp:HiddenField ID="hf_worktype" Value="0" runat="server" />
     工单状态：<asp:DropDownList ID="ddl_orderstatus" AutoPostBack="true" OnSelectedIndexChanged="ddl_orderstatus_changed" runat="server">
         <asp:ListItem Text="请选择状态" Value="0"></asp:ListItem>
-        <asp:ListItem Text="等待检查" Value="1"></asp:ListItem>
-        <asp:ListItem Text="等待报价" Value="2"></asp:ListItem>
-        <asp:ListItem Text="等待客户确认" Value="3"></asp:ListItem>
-        <asp:ListItem Text="等待备件到齐" Value="4"></asp:ListItem>
-        <asp:ListItem Text="等待维修" Value="5"></asp:ListItem>
-        <asp:ListItem Text="等待发货" Value="6"></asp:ListItem>
-        <asp:ListItem Text="完成" Value="7"></asp:ListItem>
+        <asp:ListItem Text="等待客户审核" Value="1"></asp:ListItem>
+        <asp:ListItem Text="等待检查" Value="2"></asp:ListItem>
+        <asp:ListItem Text="等待报价" Value="3"></asp:ListItem>
+        <asp:ListItem Text="等待客户确认" Value="4"></asp:ListItem>
+        <asp:ListItem Text="等待备件到齐" Value="5"></asp:ListItem>
+        <asp:ListItem Text="等待维修" Value="6"></asp:ListItem>
+        <asp:ListItem Text="等待发货" Value="7"></asp:ListItem>
+        <asp:ListItem Text="完成" Value="8"></asp:ListItem>
     </asp:DropDownList><br />
     <asp:HiddenField ID="hf_orderstatus" Value="0" runat="server" />
     跟单技术员：<asp:DropDownList ID="ddl_technician" AutoPostBack="true" OnSelectedIndexChanged="ddl_technician_changed" runat="server"></asp:DropDownList><br />
