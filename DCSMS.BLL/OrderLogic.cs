@@ -269,6 +269,30 @@ namespace DCSMS.BLL
             return orderInfoDataSet;
         }
 
+        //工单任务查询
+        public DataTable orderQueryByTask(int userId, int userType)
+        {
+            Boolean isAdmin;
+            if (userType > 2)
+            {
+                isAdmin = true;
+            }
+            else
+            {
+                isAdmin = false;
+            }
+
+            DataSet ds = orderDb.orderQueryByTask(userId, isAdmin);
+            if (ds.Tables[0].Rows.Count > 0)
+            {
+                return addOrderStatusText(ds.Tables[0]);
+            }
+            else
+            {
+                return null;
+            }
+        }
+
         //工单模糊查询
         public DataTable orderListQueryVaguely(String orderId, int workType, int technicianId, int customerId, String productName, String serialNumber, int stationId, int orderStatus)
         {

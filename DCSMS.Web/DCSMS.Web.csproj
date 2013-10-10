@@ -55,6 +55,8 @@
     <Content Include="index.aspx" />
     <Content Include="js\jquery-1.10.2.min.js" />
     <Content Include="login.aspx" />
+    <Content Include="myTask.aspx" />
+    <Content Include="myTaskDetail.aspx" />
     <Content Include="order\orderCreate.aspx" />
     <Content Include="order\orderDetail.aspx" />
     <Content Include="order\orderQuery.aspx" />
@@ -126,6 +128,20 @@
     </Compile>
     <Compile Include="main.Master.designer.cs">
       <DependentUpon>main.Master</DependentUpon>
+    </Compile>
+    <Compile Include="myTask.aspx.cs">
+      <DependentUpon>myTask.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="myTask.aspx.designer.cs">
+      <DependentUpon>myTask.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="myTaskDetail.aspx.cs">
+      <DependentUpon>myTaskDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="myTaskDetail.aspx.designer.cs">
+      <DependentUpon>myTaskDetail.aspx</DependentUpon>
     </Compile>
     <Compile Include="orderConfig.cs" />
     <Compile Include="order\orderCreate.aspx.cs">
