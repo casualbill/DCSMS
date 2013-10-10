@@ -127,6 +127,10 @@ namespace DCSMS.Web.order
                     tb_remark.Text = ds.Tables[0].Rows[0]["Remark"].ToString();
 
                     hd_formerstatus.Value = ds.Tables[0].Rows[0]["OrderStatus"].ToString();
+                    if (hd_formerstatus.Value == "8")
+                    {
+                        ddl_orderstatus.Enabled = false;
+                    }
                     lb_orderstatus.Text = ds.Tables[0].Rows[0]["OrderStatusStr"].ToString();
 
                     ddl_worktype.Items.FindByValue(ds.Tables[0].Rows[0]["WorkType"].ToString()).Selected = true;
