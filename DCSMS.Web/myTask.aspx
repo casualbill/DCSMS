@@ -21,7 +21,7 @@
                 <td><%# Eval("Remark")%></td>
                 <td><%# Eval("OrderStatusStr")%></td>
                 <td>
-                    <a href="mayTaskDetail.aspx?id=<%# Eval("Id") %>">查看详情</a>
+                    <a href="myTaskDetail.aspx?id=<%# Eval("Id") %>">查看详情</a>
                 </td>
             </tr>
             
