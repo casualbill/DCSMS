@@ -222,7 +222,7 @@ namespace DCSMS.BLL
                 return null;
             }
             dt.TableName = "OrderInfoTable";
-            orderInfoDataSet.Tables.Add(addOrderStatusText(dt.Copy()));
+            orderInfoDataSet.Tables.Add(addWorkTypeText(addOrderStatusText(dt.Copy(), true)));
             int customerId = Convert.ToInt16(dt.Rows[0]["CustomerId"]);
             int stationId = Convert.ToInt16(dt.Rows[0]["StationId"]);
             int createUserId = Convert.ToInt16(dt.Rows[0]["CreateUserId"]);
@@ -307,10 +307,40 @@ namespace DCSMS.BLL
             }
         }
 
+
+        //为工单表加入工作类型文字说明
+        protected DataTable addWorkTypeText(DataTable orderTable)
+        {
+            orderTable.Columns.Add("WorkTypeStr", Type.GetType("System.String"));
+
+            int index = 0;
+            foreach (DataRow dr in orderTable.Rows)
+            {
+                switch (dr["WorkType"].ToString())
+                {
+                    case "1": orderTable.Rows[index]["WorkTypeStr"] = "质保"; break;
+                    case "2": orderTable.Rows[index]["WorkTypeStr"] = "客户付费"; break;
+                    case "3": orderTable.Rows[index]["WorkTypeStr"] = "Demo工具维修"; break;
+                    case "4": orderTable.Rows[index]["WorkTypeStr"] = "项目维修"; break;
+                }
+                index++;
+            }
+            return orderTable;
+        }
+
         //为工单表加入工单状态文字说明
         protected DataTable addOrderStatusText(DataTable orderTable)
         {
+            return addOrderStatusText(orderTable, false);
+        }
+
+        protected DataTable addOrderStatusText(DataTable orderTable, Boolean showFinishTask)
+        {
             orderTable.Columns.Add("OrderStatusStr", Type.GetType("System.String"));
+            if (showFinishTask == true)
+            {
+                orderTable.Columns.Add("TaskFinishText", Type.GetType("System.String"));
+            }
 
             int index = 0;
             foreach (DataRow dr in orderTable.Rows)
@@ -325,6 +355,20 @@ namespace DCSMS.BLL
                     case "6": orderTable.Rows[index]["OrderStatusStr"] = "等待维修"; break;
                     case "7": orderTable.Rows[index]["OrderStatusStr"] = "等待发货"; break;
                     case "8": orderTable.Rows[index]["OrderStatusStr"] = "完成"; break;
+                }
+
+                if (showFinishTask == true)
+                {
+                    switch (dr["OrderStatus"].ToString())
+                    {
+                        case "1": orderTable.Rows[index]["TaskFinishText"] = "客户审核完成"; break;
+                        case "2": orderTable.Rows[index]["TaskFinishText"] = "工单检查完成"; break;
+                        case "3": orderTable.Rows[index]["TaskFinishText"] = "报价完成"; break;
+                        case "4": orderTable.Rows[index]["TaskFinishText"] = "客户已确认"; break;
+                        case "5": orderTable.Rows[index]["TaskFinishText"] = "备件已到齐"; break;
+                        case "6": orderTable.Rows[index]["TaskFinishText"] = "维修完成"; break;
+                        case "7": orderTable.Rows[index]["TaskFinishText"] = "发货完成"; break;
+                    }
                 }
                 index++;
             }
