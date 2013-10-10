@@ -27,7 +27,7 @@ namespace DCSMS.Web
             {
                 Session["userId"] = userInfoStr[0];
                 Session["userName"] = userInfoStr[1];
-                Session["userType"] = userInfoStr[3];
+                Session["userType"] = userInfoStr[7];
 
                 //登录成功后跳转。。。
                 lb_loginfo.Text = "ok！";
