@@ -141,52 +141,48 @@ namespace DCSMS.BLL
             return 1;
         }
 
-        //工单修改：技术员完成工单检查
-        public int orderCheckByTechnician(String id, String failureDescription, String imgUrl, String remark, List<String> productInfo, List<List<String>> sparePartInfoList, int operateUserId)
+        //工单修改：技术员操作
+        public int orderTaskOperateByTechnician(String id, String failureDescription, String imgUrl, String remark, int formerStatus, List<List<String>> sparePartInfoList, int operateUserId)
         {
             ProductDB productDb = new ProductDB();
             SparePartDB sparePartDb = new SparePartDB();
 
-            if (productDb.productCreate(productInfo, id) != 1)
-            {
-                return -1;
-            }
+            //int sparePartCreateCount = 0;
+            //foreach (List<String> sparePartInfo in sparePartInfoList)
+            //{
+            //    if (sparePartDb.sparePartCreate(sparePartInfo, id) == 1)
+            //    {
+            //        sparePartCreateCount++;
+            //    }
+            //}
+            //if (sparePartCreateCount < sparePartInfoList.Count)
+            //{
+            //    return -1;
+            //}
 
-            int sparePartCreateCount = 0;
-            foreach (List<String> sparePartInfo in sparePartInfoList)
-            {
-                if (sparePartDb.sparePartCreate(sparePartInfo, id) == 1)
-                {
-                    sparePartCreateCount++;
-                }
-            }
-            if (sparePartCreateCount < sparePartInfoList.Count)
+            if (orderDb.orderCheckUpdate(id, failureDescription, imgUrl, remark, formerStatus + 1) != 1)
             {
                 return -2;
             }
 
-            if (orderDb.orderCheckUpdate(id, failureDescription, imgUrl, remark, 3) != 1)
+            if (orderDb.orderLogCreate(id, operateUserId, formerStatus, formerStatus + 1) != 1)
             {
+
                 return -3;
-            }
-
-            if (orderDb.orderLogCreate(id, operateUserId, 2, 3) != 1)
-            {
-
-                return -4;
             }
 
             return 1;
         }
 
-        //工单修改：管理员添加备注
-        public int orderRemarkUpdate(String id, String remark, int formerStatus, int newStatus, int operateUserId) {
-            if (orderDb.orderRemarkUpdate(id, remark, newStatus) != 1)
+        //工单修改：管理员操作
+        public int orderTaskOperateByAdmin(String id, String remark, int formerStatus, int operateUserId, int adminId)
+        {
+            if (orderDb.orderRemarkUpdate(id, remark, adminId, formerStatus + 1) != 1)
             {
                 return -1;
             }
 
-            if (orderDb.orderLogCreate(id, operateUserId, formerStatus, newStatus) != 1)
+            if (orderDb.orderLogCreate(id, operateUserId, formerStatus, formerStatus + 1) != 1)
             {
                 return -2;
             }

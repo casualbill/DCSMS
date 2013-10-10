@@ -73,12 +73,13 @@ namespace DCSMS.DAL
             return executeSqlCommandNoQuery(sqlCommand, paramList);
         }
 
-        public int orderRemarkUpdate(String id, String remark, int orderStatus)
+        public int orderRemarkUpdate(String id, String remark, int adminId, int orderStatus)
         {
-            String sqlCommand = "update orderinfo set Remark = @Remark, OrderStatus = @OrderStatus, UpdateTime = now() where Id = @Id";
+            String sqlCommand = "update orderinfo set Remark = @Remark, AdminId = @AdminId, OrderStatus = @OrderStatus, UpdateTime = now() where Id = @Id";
 
             List<MySqlParameter> paramList = new List<MySqlParameter>();
             paramList.Add(new MySqlParameter("@Remark", remark));
+            paramList.Add(new MySqlParameter("@AdminId", adminId));
             paramList.Add(new MySqlParameter("@OrderStatus", orderStatus));
             paramList.Add(new MySqlParameter("@Id", id));
 

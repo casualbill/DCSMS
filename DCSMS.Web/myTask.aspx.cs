@@ -16,8 +16,8 @@ namespace DCSMS.Web
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            int userId = 10;    //测试用，记得用Session代替！！！！！！！！
-            int userType = 2;
+            int userId = 13;    //测试用，记得用Session代替！！！！！！！！
+            int userType = 3;
 
             DataTable dt = orderLogic.orderQueryByTask(userId, userType);
 
