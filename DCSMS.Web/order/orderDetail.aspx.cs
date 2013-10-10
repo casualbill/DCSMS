@@ -23,6 +23,10 @@ namespace DCSMS.Web.order
             }
         }
 
+        protected void btn_update_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("orderUpdate.aspx?id=" + lb_orderid.Text);
+        }
 
         protected void getOrderDetails()
         {

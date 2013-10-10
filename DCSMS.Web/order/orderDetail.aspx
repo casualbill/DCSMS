@@ -35,4 +35,7 @@
     <br />
     维修站：<asp:Label ID="lb_stationname" runat="server"></asp:Label><br />
 
+    <br />
+    <asp:Button ID="btn_update" runat="server" Text="工单修改" OnClick="btn_update_Click" />
+
 </asp:Content>
