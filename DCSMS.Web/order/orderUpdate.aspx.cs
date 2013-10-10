@@ -119,7 +119,7 @@ namespace DCSMS.Web.order
             {
                 //tabel 0为工单 1客户 2工具 3备件 4维修站 5工单记录 6跟单技术员 7创建人 8管理者
                 DataSet ds = orderLogic.orderQueryByOrderId(urlQueryId);
-                if (ds.Tables.Count > 0)
+                if (ds != null)
                 {
                     lb_orderid.Text = ds.Tables[0].Rows[0]["Id"].ToString();
                     tb_failure_description.Text = ds.Tables[0].Rows[0]["FailureDescription"].ToString();
@@ -144,7 +144,8 @@ namespace DCSMS.Web.order
                     {
                         cb_manageorder.Enabled = false;
                     }
-                    if (adminId.ToString() == Session["userid"].ToString()) {
+                    if (adminId.ToString() == Session["userid"].ToString())
+                    {
                         cb_manageorder.Checked = true;
                     }
 
