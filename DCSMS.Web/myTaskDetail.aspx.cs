@@ -17,6 +17,7 @@ namespace DCSMS.Web
         protected int adminId;
         protected int userId;
         protected int userType;
+        protected int customerId;
 
         protected String failureDescription;
         protected String imgUrl;
@@ -52,6 +53,10 @@ namespace DCSMS.Web
             }
 
             if (userType > 2) {
+                if (formerStatus == 1) {
+                    CustomerLogic customerLogic = new CustomerLogic();
+                    customerLogic.customerVerify(customerId);
+                }
 
                 if (adminId == 0 && cb_manageorder.Checked == true)
                 {
@@ -112,6 +117,16 @@ namespace DCSMS.Web
                     {
                         cb_manageorder.Checked = true;
                     }
+
+                    customerId = Convert.ToInt16(ds.Tables[1].Rows[0]["Id"]);
+
+                    lb_customername.Text = ds.Tables[1].Rows[0]["CustomerName"].ToString();
+                    lb_endcustomername.Text = ds.Tables[1].Rows[0]["EndCustomerName"].ToString();
+                    lb_contactperson.Text = ds.Tables[1].Rows[0]["ContactPerson"].ToString();
+                    lb_customer_telephone.Text = ds.Tables[1].Rows[0]["Telephone"].ToString();
+                    lb_customer_mobile.Text = ds.Tables[1].Rows[0]["Mobile"].ToString();
+                    lb_customer_address.Text = ds.Tables[1].Rows[0]["Address"].ToString();
+                    lb_customer_postcode.Text = ds.Tables[1].Rows[0]["PostCode"].ToString();
 
                     lb_productname.Text = ds.Tables[2].Rows[0]["ProductName"].ToString();
                     lb_serialnumber.Text = ds.Tables[2].Rows[0]["SerialNumber"].ToString();

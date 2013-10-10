@@ -6,6 +6,14 @@
     工作类型：<asp:Label ID="lb_worktype" runat="server"></asp:Label><br />
     维修站：<asp:Label ID="lb_stationname" runat="server"></asp:Label><br />
     <br />
+    CustomerName：<asp:Label ID="lb_customername" runat="server"></asp:Label><br />
+    EndCustomerName：<asp:Label ID="lb_endcustomername" runat="server"></asp:Label><br />
+    ContactPerson：<asp:Label ID="lb_contactperson" runat="server"></asp:Label><br />
+    Telephone：<asp:Label ID="lb_customer_telephone" runat="server"></asp:Label><br />
+    Mobile：<asp:Label ID="lb_customer_mobile" runat="server"></asp:Label><br />
+    Address：<asp:Label ID="lb_customer_address" runat="server"></asp:Label><br />
+    PostCode：<asp:Label ID="lb_customer_postcode" runat="server"></asp:Label><br />
+    <br />
     工具型号：<asp:Label ID="lb_productname" runat="server"></asp:Label><br />
     工具序列号：<asp:Label ID="lb_serialnumber" runat="server"></asp:Label><br />
     工具订货号：<asp:Label ID="lb_product_orderingnumber" runat="server"></asp:Label><br />
