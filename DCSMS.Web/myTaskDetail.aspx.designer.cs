@@ -40,49 +40,49 @@ namespace DCSMS.Web {
         protected global::System.Web.UI.WebControls.Label lb_stationname;
         
         /// <summary>
-        /// tb_productname 控件。
+        /// lb_productname 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tb_productname;
+        protected global::System.Web.UI.WebControls.Label lb_productname;
         
         /// <summary>
-        /// tb_serialnumber 控件。
+        /// lb_serialnumber 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tb_serialnumber;
+        protected global::System.Web.UI.WebControls.Label lb_serialnumber;
         
         /// <summary>
-        /// tb_product_orderingnumber 控件。
+        /// lb_product_orderingnumber 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tb_product_orderingnumber;
+        protected global::System.Web.UI.WebControls.Label lb_product_orderingnumber;
         
         /// <summary>
-        /// tb_product_firmware 控件。
+        /// lb_product_firmware 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tb_product_firmware;
+        protected global::System.Web.UI.WebControls.Label lb_product_firmware;
         
         /// <summary>
-        /// tb_product_remark 控件。
+        /// lb_product_remark 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tb_product_remark;
+        protected global::System.Web.UI.WebControls.Label lb_product_remark;
         
         /// <summary>
         /// tb_failure_description 控件。

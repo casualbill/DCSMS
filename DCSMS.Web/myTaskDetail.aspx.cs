@@ -44,6 +44,17 @@ namespace DCSMS.Web
                 DataSet ds = orderLogic.orderQueryByOrderId(urlQueryId);
                 if (ds != null)
                 {
+                    int technicianId = Convert.ToInt16(ds.Tables[0].Rows[0]["TechnicianId"]);
+                    formerStatus = Convert.ToInt16(ds.Tables[0].Rows[0]["OrderStatus"]);
+
+                    if (formerStatus == 8) {
+                        Response.Write("<script type=\"text/javascript\">alert (\"该工单已完成！\"); window.location.href=\"myTask.aspx\";</script>");
+                    }
+                    if (userType < 3 && userId != technicianId) { noPermission(); }
+                    if (userType < 3 && (formerStatus != 2 && formerStatus != 5 && formerStatus != 6)) { noPermission(); }
+                    if (userType > 2 && (formerStatus == 2 || formerStatus == 5 || formerStatus == 6)) { noPermission(); }
+
+
                     lb_orderid.Text = ds.Tables[0].Rows[0]["Id"].ToString();
                     lb_worktype.Text = ds.Tables[0].Rows[0]["WorkTypeStr"].ToString();
                     lb_stationname.Text = ds.Tables[4].Rows[0]["StationName"].ToString();
@@ -52,7 +63,6 @@ namespace DCSMS.Web
                     tb_imgurl.Text = ds.Tables[0].Rows[0]["ImgUrl"].ToString();
                     tb_remark.Text = ds.Tables[0].Rows[0]["Remark"].ToString();
 
-                    formerStatus = Convert.ToInt16(ds.Tables[0].Rows[0]["OrderStatus"]);
                     lb_orderstatus.Text = ds.Tables[0].Rows[0]["OrderStatusStr"].ToString();
                     btn_submit.Text = ds.Tables[0].Rows[0]["TaskFinishText"].ToString();
 
@@ -66,17 +76,23 @@ namespace DCSMS.Web
                         cb_manageorder.Checked = true;
                     }
 
-                    tb_productname.Text = ds.Tables[2].Rows[0]["ProductName"].ToString();
-                    tb_serialnumber.Text = ds.Tables[2].Rows[0]["SerialNumber"].ToString();
-                    tb_product_orderingnumber.Text = ds.Tables[2].Rows[0]["OrderingNumber"].ToString();
-                    tb_product_firmware.Text = ds.Tables[2].Rows[0]["FirmwareVersion"].ToString();
-                    tb_product_remark.Text = ds.Tables[2].Rows[0]["Remark"].ToString();
+                    lb_productname.Text = ds.Tables[2].Rows[0]["ProductName"].ToString();
+                    lb_serialnumber.Text = ds.Tables[2].Rows[0]["SerialNumber"].ToString();
+                    lb_product_orderingnumber.Text = ds.Tables[2].Rows[0]["OrderingNumber"].ToString();
+                    lb_product_firmware.Text = ds.Tables[2].Rows[0]["FirmwareVersion"].ToString();
+                    lb_product_remark.Text = ds.Tables[2].Rows[0]["Remark"].ToString();
 
                     //lb_sparepartname.Text = ds.Tables[3].Rows[0]["SparePartName"].ToString();
                     //lb_sparepart_orderingnumber.Text = ds.Tables[3].Rows[0]["OrderingNumber"].ToString();
                     //lb_sparepart_amount.Text = ds.Tables[3].Rows[0]["Amount"].ToString();
                     //lb_sparepart_remark.Text = ds.Tables[3].Rows[0]["Remark"].ToString();
 
+
+                    if (formerStatus != 2 || formerStatus != 5 || formerStatus != 6)
+                    {
+                        tb_failure_description.Enabled = false;
+                        tb_imgurl.Enabled = false;
+                    }
 
                 }
                 else
@@ -85,6 +101,11 @@ namespace DCSMS.Web
                 }
 
             }
+        }
+
+        protected void noPermission()
+        {
+            Response.Write("<script type=\"text/javascript\">alert (\"您没有操作权限！\"); window.location.href=\"myTask.aspx\";</script>");
         }
         
     }
