@@ -7,17 +7,46 @@
         sparePartTemplate.push('    <td><input type="text" title="sparePartAmount" maxlength="10" /></td>');
         sparePartTemplate.push('    <td><input type="text" title="sparePartRemark" maxlength="300" /></td>');
         sparePartTemplate.push('    <td><input type="button" value="添加备件" title="sparePartAdd" />');
-        sparePartTemplate.push('    <input type="button" value="删除备件" title="sparePartRemove" disabled="disabled" /></td></tr>');
+        sparePartTemplate.push('    <input type="button" value="删除备件" title="sparePartRemove" disabled="disabled" />');
+        sparePartTemplate.push('    <input type="hidden" value="0" title="sparePartId" /></td></tr>');
 
         $(function () {
-            $('[title="sparePartTable"]').delegate('[title="sparePartAdd"]', 'click', function () {
+            var orderId = $('[title="orderId"]').html();
+            var sparePartTable = $('[title="sparePartTable"]');
+            $.ajax({
+                url: '/ajax.asmx/spraePartQuery',
+                data: '{orderId:"' + orderId + '"}',
+                type: "POST",
+                dataType: "json",
+                contentType: "application/json",
+                success: function (r) {
+                    var result = JSON.parse(r.d);
+                    var spartPartCollection;
+
+                    for (var i = 0; i < result.length; i++) {
+                        var temp = $(sparePartTemplate.join(''));
+                        temp.find('[title="sparePartName"]').val(result[i].sparePartName);
+                        temp.find('[title="orderingNumber"]').val(result[i].orderingNumber);
+                        temp.find('[title="sparePartAmount"]').val(result[i].amount);
+                        temp.find('[title="sparePartRemark"]').val(result[i].remark);
+                        temp.find('[title="sparePartId"]').val(result[i].id);
+                        temp.find('input').attr('disabled', true);
+                        temp.find('[title="sparePartRemove"]').removeAttr('disabled');
+
+                        sparePartTable.append(temp);
+                    }
+
+                    sparePartTable.append(sparePartTemplate.join(''));
+                }
+            });
+
+            sparePartTable.delegate('[title="sparePartAdd"]', 'click', function () {
                 var self = $(this);
                 var sparePartInfo = self.parent().parent();
                 var sparePartName = sparePartInfo.find('[title="sparePartName"]').val();
                 var orderingNumber = sparePartInfo.find('[title="orderingNumber"]').val();
                 var sparePartAmount = sparePartInfo.find('[title="sparePartAmount"]').val();
                 var sparePartRemark = sparePartInfo.find('[title="sparePartRemark"]').val();
-                var orderId = $('[title="orderId"]').html();
 
                 if (sparePartName.length < 1 || orderingNumber.length < 1 || sparePartAmount.length < 1 || isNaN(sparePartAmount)) {
                     alert('请完整填写备件信息');
@@ -39,7 +68,7 @@
                                 sparePartInfo.find('input').attr('disabled', true);
                                 sparePartInfo.find('[title="sparePartRemove"]').removeAttr('disabled');
                                 self.val('已添加');
-                                sparePartInfo.parent().append(sparePartTemplate.join(''));
+                                sparePartTable.append(sparePartTemplate.join(''));
                             }
                         }
                     });
@@ -82,17 +111,6 @@
                 <th>数量</th>
                 <th>备注</th>
                 <th>操作</th>
-            </tr>
-
-            <tr>
-                <td><input type="text" title="sparePartName" maxlength="50" /></td>
-                <td><input type="text" title="orderingNumber" maxlength="30" /></td>
-                <td><input type="text" title="sparePartAmount" maxlength="10" /></td>
-                <td><input type="text" title="sparePartRemark" maxlength="300" /></td>
-                <td>
-                    <input type="button" value="添加备件" title="sparePartAdd" />
-                    <input type="button" value="删除备件" title="sparePartRemove" disabled="disabled" />
-                </td>
             </tr>
         </tbody>
     </table>
