@@ -16,7 +16,7 @@ namespace DCSMS.DAL
             List<MySqlParameter> paramList = new List<MySqlParameter>();
             paramList.Add(new MySqlParameter("@SparePartName", sparePartInfo[0]));
             paramList.Add(new MySqlParameter("@OrderingNumber", sparePartInfo[1]));
-            paramList.Add(new MySqlParameter("@Amount", sparePartInfo[2]));
+            paramList.Add(new MySqlParameter("@Amount", Convert.ToInt16(sparePartInfo[2])));
             paramList.Add(new MySqlParameter("@Remark", sparePartInfo[3]));
             paramList.Add(new MySqlParameter("@OrderId", orderId));
 
@@ -30,7 +30,7 @@ namespace DCSMS.DAL
             List<MySqlParameter> paramList = new List<MySqlParameter>();
             paramList.Add(new MySqlParameter("@SparePartName", sparePartInfo[0]));
             paramList.Add(new MySqlParameter("@OrderingNumber", sparePartInfo[1]));
-            paramList.Add(new MySqlParameter("@Amount", sparePartInfo[2]));
+            paramList.Add(new MySqlParameter("@Amount", Convert.ToInt16(sparePartInfo[2])));
             paramList.Add(new MySqlParameter("@Remark", sparePartInfo[3]));
             paramList.Add(new MySqlParameter("@Id", id));
 
