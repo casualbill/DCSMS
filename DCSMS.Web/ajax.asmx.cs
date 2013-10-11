@@ -104,7 +104,7 @@ namespace DCSMS.Web
         public int sparePartAdd(String sparePartName, String orderingNumber, int amount, String remark, String orderId)
         {
             OrderLogic orderLogic = new OrderLogic();
-            int permissionFlag = orderOperatePermission(orderId);
+            int permissionFlag = orderLogic.orderOperatePermission(orderId, Convert.ToInt16(Session["userId"]), Convert.ToInt16(Session["userType"]));
             if (permissionFlag != 1) { return permissionFlag; }
 
             return orderLogic.sparePartAdd(sparePartName, orderingNumber, amount, remark, orderId);
@@ -114,7 +114,7 @@ namespace DCSMS.Web
         public int sparePartUpdate(String sparePartName, String orderingNumber, int amount, String remark, String orderId, int id)
         {
             OrderLogic orderLogic = new OrderLogic();
-            int permissionFlag = orderOperatePermission(orderId);
+            int permissionFlag = orderLogic.orderOperatePermission(orderId, Convert.ToInt16(Session["userId"]), Convert.ToInt16(Session["userType"]));
             if (permissionFlag != 1) { return permissionFlag; }
 
             return orderLogic.sparePartUpdate(sparePartName, orderingNumber, amount, remark, id);
@@ -124,18 +124,10 @@ namespace DCSMS.Web
         public int sparePartRemove(String orderId, int id)
         {
             OrderLogic orderLogic = new OrderLogic();
-            int permissionFlag = orderOperatePermission(orderId);
+            int permissionFlag = orderLogic.orderOperatePermission(orderId, Convert.ToInt16(Session["userId"]), Convert.ToInt16(Session["userType"]));
             if (permissionFlag != 1) { return permissionFlag; }
 
             return orderLogic.sparePartRemove(id);
-        }
-
-        protected int orderOperatePermission(String orderId)
-        {
-            OrderLogic orderLogic = new OrderLogic();
-            int userId = Convert.ToInt16(Session["userId"]);
-            int userType = Convert.ToInt16(Session["userType"]);
-            return orderLogic.orderOperatePermission(orderId, userId, userType);
         }
     }
 }
