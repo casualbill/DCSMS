@@ -37,6 +37,13 @@ namespace DCSMS.DAL
             return executeSqlCommandNoQuery(sqlCommand, paramList);
         }
 
+        public int sparePartDelete(int id)
+        {
+            String sqlCommand = "delete from sparepartinfo where Id = @Id";
+            MySqlParameter param = new MySqlParameter("@Id", id);
+            return executeSqlCommandNoQuery(sqlCommand, param);
+        }
+
         public DataSet sparePartQuery(String orderId) {
             String sqlCommand = "select * from sparepartinfo where orderId = @OrderId";
             MySqlParameter param = new MySqlParameter("@OrderId", orderId);

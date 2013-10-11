@@ -211,6 +211,11 @@ namespace DCSMS.BLL
         //工单查询 根据工单号 返回DataSet：tabel 0为工单 1客户 2工具 3备件 4维修站 5工单记录 6跟单技术员 7创建人 8管理者
         public DataSet orderQueryByOrderId(String orderId)
         {
+            return orderQueryByOrderId(orderId, false);
+        }
+
+        public DataSet orderQueryByOrderId(String orderId, Boolean isOnlyOrderInfo)
+        {
             DataSet orderInfoDataSet = new DataSet();
             DataTable dt = orderDb.orderQueryByOrderId(orderId).Tables[0];
             if (dt.Rows.Count == 0)
@@ -219,6 +224,9 @@ namespace DCSMS.BLL
             }
             dt.TableName = "OrderInfoTable";
             orderInfoDataSet.Tables.Add(addWorkTypeText(addOrderStatusText(dt.Copy(), true)));
+
+            if (isOnlyOrderInfo == true) { return orderInfoDataSet; }
+
             int customerId = Convert.ToInt16(dt.Rows[0]["CustomerId"]);
             int stationId = Convert.ToInt16(dt.Rows[0]["StationId"]);
             int createUserId = Convert.ToInt16(dt.Rows[0]["CreateUserId"]);
@@ -303,6 +311,66 @@ namespace DCSMS.BLL
             }
         }
 
+        //工单操作权限 适用于Ajax备件操作  返回：1可操作 -1无可操作订单 -2无权限
+        public int orderOperatePermission(String orderId, int userId, int userType)
+        {
+            DataSet ds = orderQueryByOrderId(orderId, true);
+            if (ds == null) { return -1; }
+
+            int orderStatus = Convert.ToInt16(ds.Tables[0].Rows[0]["OrderStatus"]);
+            if (orderStatus == 8) { return -1; }
+
+            int technicianId = Convert.ToInt16(ds.Tables[0].Rows[0]["TechnicianId"]);
+            if (userType < 2) { return -2; }
+            else if (userType == 2)
+            {
+                if (userId != technicianId) { return -2; }
+                if (orderStatus != 2 && orderStatus != 5 && orderStatus != 6) { return -2; }
+            }
+            return 1;
+        }
+
+
+        //添加备件
+        public int sparePartAdd(String sparePartName, String orderingNumber, int amount, String remark, String orderId)
+        {
+            if (sparePartName == "" || sparePartName == null) { return -1; }
+            if (orderingNumber == "" || orderingNumber == null) { return -1; }
+            if (amount < 1 || amount == null) { return -1; }
+
+            SparePartDB sparePartDb = new SparePartDB();
+            List<String> sparePartInfo = new List<String>();
+            sparePartInfo.Add(sparePartName);
+            sparePartInfo.Add(orderingNumber);
+            sparePartInfo.Add(amount.ToString());
+            sparePartInfo.Add(remark);
+
+            return sparePartDb.sparePartCreate(sparePartInfo, orderId);
+        }
+
+        //修改备件
+        public int sparePartUpdate(String sparePartName, String orderingNumber, int amount, String remark, int id)
+        {
+            if (sparePartName == "" || sparePartName == null) { return -1; }
+            if (orderingNumber == "" || orderingNumber == null) { return -1; }
+            if (amount < 1 || amount == null) { return -1; }
+
+            SparePartDB sparePartDb = new SparePartDB();
+            List<String> sparePartInfo = new List<String>();
+            sparePartInfo.Add(sparePartName);
+            sparePartInfo.Add(orderingNumber);
+            sparePartInfo.Add(amount.ToString());
+            sparePartInfo.Add(remark);
+
+            return sparePartDb.sparePartUpdate(sparePartInfo, id);
+        }
+
+        //删除备件
+        public int sparePartRemove(int id) {
+            SparePartDB sparePartDb = new SparePartDB();
+            return sparePartDb.sparePartDelete(id);
+        }
+        
 
         //为工单表加入工作类型文字说明
         protected DataTable addWorkTypeText(DataTable orderTable)
