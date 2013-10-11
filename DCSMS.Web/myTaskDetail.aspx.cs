@@ -55,7 +55,7 @@ namespace DCSMS.Web
             if (userType > 2) {
                 if (formerStatus == 1) {
                     CustomerLogic customerLogic = new CustomerLogic();
-                    customerLogic.customerVerify(customerId);
+                    customerLogic.customerVerify(customerId, userType);
                 }
 
                 if (adminId == 0 && cb_manageorder.Checked == true)
