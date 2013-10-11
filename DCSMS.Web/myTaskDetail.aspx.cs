@@ -25,8 +25,11 @@ namespace DCSMS.Web
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            userId = 13; //Session["userId"]   测试测试！！！！！！！！！！！！！！！
-            userType = 3;    //Session["userType"]
+            Session["userId"] = 13; //测试测试！！！！！！！！！！！！！！！
+            Session["userType"] = 3;
+
+            userId = Convert.ToInt16(Session["userId"]);
+            userType = Convert.ToInt16(Session["userType"]);
 
             urlQueryId = Request.QueryString["id"];
 
@@ -86,6 +89,8 @@ namespace DCSMS.Web
                 DataSet ds = orderLogic.orderQueryByOrderId(urlQueryId);
                 if (ds != null)
                 {
+                    hf_usertype.Value = userType.ToString();
+
                     int technicianId = Convert.ToInt16(ds.Tables[0].Rows[0]["TechnicianId"]);
                     formerStatus = Convert.ToInt16(ds.Tables[0].Rows[0]["OrderStatus"]);
 
