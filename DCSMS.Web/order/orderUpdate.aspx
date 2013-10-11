@@ -7,7 +7,6 @@
         sparePartTemplate.push('    <td><input type="text" title="sparePartAmount" maxlength="10" /></td>');
         sparePartTemplate.push('    <td><input type="text" title="sparePartRemark" maxlength="300" /></td>');
         sparePartTemplate.push('    <td><input type="button" value="添加备件" title="sparePartAdd" />');
-        sparePartTemplate.push('    <input type="button" value="删除备件" title="sparePartRemove" disabled="disabled" />');
         sparePartTemplate.push('    <input type="hidden" value="0" title="sparePartId" /></td></tr>');
 
         $(function () {
@@ -31,7 +30,8 @@
                         temp.find('[title="sparePartRemark"]').val(result[i].remark);
                         temp.find('[title="sparePartId"]').val(result[i].id);
                         temp.find('input').attr('disabled', true);
-                        temp.find('[title="sparePartRemove"]').removeAttr('disabled');
+                        temp.find('[title="sparePartAdd"]').remove()
+                        temp.children().last().append('<input type="button" value="删除备件" title="sparePartRemove" />');
 
                         sparePartTable.append(temp);
                     }
@@ -66,10 +66,30 @@
                                 alert('工单不存在！')
                             } else if (result == 1) {
                                 sparePartInfo.find('input').attr('disabled', true);
-                                sparePartInfo.find('[title="sparePartRemove"]').removeAttr('disabled');
                                 self.val('已添加');
                                 sparePartTable.append(sparePartTemplate.join(''));
-                            }
+                            } else { alert('系统错误'); }
+                        }
+                    });
+                }
+            });
+
+            sparePartTable.delegate('[title="sparePartRemove"]', 'click', function () {
+                if (confirm('确定删除此备件？')) {
+                    var sparePartInfo = $(this).parent().parent();
+                    var id = sparePartInfo.find('[title="sparePartId"]').val();
+                    $.ajax({
+                        url: '/ajax.asmx/sparePartRemove',
+                        data: '{orderId:"' + orderId + '", id:"' + id + '"}',
+                        type: "POST",
+                        dataType: "json",
+                        contentType: "application/json",
+                        success: function (r) {
+                            var result = JSON.parse(r.d);
+
+                            if (result == 1) {
+                                sparePartInfo.remove();
+                            } else { alert('系统错误'); }
                         }
                     });
                 }
