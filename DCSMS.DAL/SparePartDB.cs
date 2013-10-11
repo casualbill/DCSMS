@@ -45,7 +45,7 @@ namespace DCSMS.DAL
         }
 
         public DataSet sparePartQuery(String orderId) {
-            String sqlCommand = "select * from sparepartinfo where orderId = @OrderId";
+            String sqlCommand = "select * from sparepartinfo where orderId = @OrderId order by Id";
             MySqlParameter param = new MySqlParameter("@OrderId", orderId);
             return executeSqlCommandDataSet(sqlCommand, param);
         }
