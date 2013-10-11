@@ -76,6 +76,30 @@ namespace DCSMS.Web
             return customerLogic.customerVerify(id, userType);
         }
 
+        [WebMethod]
+        public String spraePartQuery(String orderId)
+        {
+            OrderLogic orderLogic = new OrderLogic();
+            DataTable dt = orderLogic.sparePartQuery(orderId);
+            String str = "[";
+            if (dt != null)
+            {
+                foreach (DataRow dr in dt.Rows)
+                {
+                    str += "{";
+                    str += "\"id\":" + dr["Id"] + ",";
+                    str += "\"sparePartName\":\"" + dr["SparePartName"] + "\",";
+                    str += "\"orderingNumber\":\"" + dr["OrderingNumber"] + "\",";
+                    str += "\"amount\":\"" + dr["Amount"] + "\",";
+                    str += "\"remark\":\"" + dr["Remark"] + "\"";
+                    str += "},";
+                }
+                str = str.Substring(0, str.Length - 1);
+            }
+            str += "]";
+            return str;
+        }
+
         [WebMethod(EnableSession = true)]
         public int sparePartAdd(String sparePartName, String orderingNumber, int amount, String remark, String orderId)
         {

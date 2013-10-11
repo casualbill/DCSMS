@@ -330,6 +330,20 @@ namespace DCSMS.BLL
             return 1;
         }
 
+        //备件查询 根据工单号
+        public DataTable sparePartQuery(String orderId)
+        {
+            SparePartDB sparePartDb = new SparePartDB();
+            DataSet ds = sparePartDb.sparePartQuery(orderId);
+            if (ds.Tables[0].Rows.Count > 0)
+            {
+                return ds.Tables[0];
+            }
+            else
+            {
+                return null;
+            }
+        }
 
         //添加备件
         public int sparePartAdd(String sparePartName, String orderingNumber, int amount, String remark, String orderId)
