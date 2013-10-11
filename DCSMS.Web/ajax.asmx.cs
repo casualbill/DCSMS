@@ -69,6 +69,14 @@ namespace DCSMS.Web
         }
 
         [WebMethod(EnableSession = true)]
+        public int customerVerify(int id)
+        {
+            CustomerLogic customerLogic = new CustomerLogic();
+            int userType = Convert.ToInt16(Session["userType"]);
+            return customerLogic.customerVerify(id, userType);
+        }
+
+        [WebMethod(EnableSession = true)]
         public int sparePartAdd(String sparePartName, String orderingNumber, int amount, String remark, String orderId)
         {
             OrderLogic orderLogic = new OrderLogic();

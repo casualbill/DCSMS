@@ -24,9 +24,13 @@ namespace DCSMS.BLL
         }
 
         //客户审核通过
-        public int customerVerify(int id)
+        public int customerVerify(int id, int userType)
         {
-            return customerDb.customerVerify(id);
+            if (userType < 3) { return -1; }
+            else
+            {
+                return customerDb.customerVerify(id);
+            }
         }
 
         //所有客户查询
