@@ -61,7 +61,6 @@ namespace DCSMS.Web.order
                         lb_admin.Text = "无";
                     }
 
-
                     lb_customername.Text = ds.Tables[1].Rows[0]["CustomerName"].ToString();
                     lb_endcustomername.Text = ds.Tables[1].Rows[0]["EndCustomerName"].ToString();
                     lb_contactperson.Text = ds.Tables[1].Rows[0]["ContactPerson"].ToString();
@@ -76,10 +75,8 @@ namespace DCSMS.Web.order
                     lb_product_firmware.Text = ds.Tables[2].Rows[0]["FirmwareVersion"].ToString();
                     lb_product_remark.Text = ds.Tables[2].Rows[0]["Remark"].ToString();
 
-                    //lb_sparepartname.Text = ds.Tables[3].Rows[0]["SparePartName"].ToString();
-                    //lb_sparepart_orderingnumber.Text = ds.Tables[3].Rows[0]["OrderingNumber"].ToString();
-                    //lb_sparepart_amount.Text = ds.Tables[3].Rows[0]["Amount"].ToString();
-                    //lb_sparepart_remark.Text = ds.Tables[3].Rows[0]["Remark"].ToString();
+                    rpt_sparepart.DataSource = ds.Tables[3];
+                    rpt_sparepart.DataBind();
 
                     lb_stationname.Text = ds.Tables[4].Rows[0]["StationName"].ToString();
                 }

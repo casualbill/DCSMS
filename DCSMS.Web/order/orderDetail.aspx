@@ -28,10 +28,28 @@
     固件版本：<asp:Label ID="lb_product_firmware" runat="server"></asp:Label><br />
     备注：<asp:Label ID="lb_product_remark" runat="server"></asp:Label><br />
     <br />
-    备件名：<asp:Label ID="lb_sparepartname" runat="server"></asp:Label><br />
-    备件订单号：<asp:Label ID="lb_sparepart_orderingnumber" runat="server"></asp:Label><br />
-    备件数量：<asp:Label ID="lb_sparepart_amount" runat="server"></asp:Label><br />
-    备注：<asp:Label ID="lb_sparepart_remark" runat="server"></asp:Label><br />
+
+    <table>
+        <tr>
+            <th>备件名称</th>
+            <th>订货号</th>
+            <th>数量</th>
+            <th>备注</th>
+        </tr>
+    <asp:Repeater ID="rpt_sparepart" runat="server">
+        <ItemTemplate>
+
+            <tr>
+                <td><%# Eval("SparePartName")%></td>
+                <td><%# Eval("OrderingNumber")%></td>
+                <td><%# Eval("Amount")%></td>
+                <td><%# Eval("Remark")%></td>
+            </tr>
+            
+        </ItemTemplate>
+    </asp:Repeater>
+    </table>
+
     <br />
     维修站：<asp:Label ID="lb_stationname" runat="server"></asp:Label><br />
 
