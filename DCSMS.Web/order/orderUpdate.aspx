@@ -1,9 +1,58 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/main.Master" AutoEventWireup="true" CodeBehind="orderUpdate.aspx.cs" Inherits="DCSMS.Web.order.orderUpdate" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <script type="text/javascript">
+        var sparePartTemplate = [];
+        sparePartTemplate.push('<tr><td><input type="text" title="sparePartName" maxlength="50" /></td>');
+        sparePartTemplate.push('    <td><input type="text" title="orderingNumber" maxlength="30" /></td>');
+        sparePartTemplate.push('    <td><input type="text" title="sparePartAmount" maxlength="10" /></td>');
+        sparePartTemplate.push('    <td><input type="text" title="sparePartRemark" maxlength="300" /></td>');
+        sparePartTemplate.push('    <td><input type="button" value="添加备件" title="sparePartAdd" />');
+        sparePartTemplate.push('    <input type="button" value="删除备件" title="sparePartRemove" disabled="disabled" /></td></tr>');
+
+        $(function () {
+            $('[title="sparePartTable"]').delegate('[title="sparePartAdd"]', 'click', function () {
+                var self = $(this);
+                var sparePartInfo = self.parent().parent();
+                var sparePartName = sparePartInfo.find('[title="sparePartName"]').val();
+                var orderingNumber = sparePartInfo.find('[title="orderingNumber"]').val();
+                var sparePartAmount = sparePartInfo.find('[title="sparePartAmount"]').val();
+                var sparePartRemark = sparePartInfo.find('[title="sparePartRemark"]').val();
+                var orderId = $('[title="orderId"]').html();
+
+                if (sparePartName.length < 1 || orderingNumber.length < 1 || sparePartAmount.length < 1 || isNaN(sparePartAmount)) {
+                    alert('请完整填写备件信息');
+                } else {
+                    $.ajax({
+                        url: '/ajax.asmx/sparePartAdd',
+                        data: '{sparePartName:"' + sparePartName + '", orderingNumber:"' + orderingNumber + '", amount:"' + sparePartAmount + '", remark:"' + sparePartRemark + '", orderId:"' + orderId + '"}',
+                        type: "POST",
+                        dataType: "json",
+                        contentType: "application/json",
+                        success: function (r) {
+                            var result = JSON.parse(r.d);
+
+                            if (result == -2) {
+                                alert('你没有操作权限！');
+                            } else if (result == -1) {
+                                alert('工单不存在！')
+                            } else if (result == 1) {
+                                sparePartInfo.find('input').attr('disabled', true);
+                                sparePartInfo.find('[title="sparePartRemove"]').removeAttr('disabled');
+                                self.val('已添加');
+                                sparePartInfo.parent().append(sparePartTemplate.join(''));
+                            }
+                        }
+                    });
+                }
+            });
+        });
+    
+    </script>
+
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContentPlaceHolder" runat="server">
     
-    工单号：<asp:Label ID="lb_orderid" runat="server"></asp:Label><br />
+    工单号：<asp:Label ID="lb_orderid" title="orderId" runat="server"></asp:Label><br />
     工作类型：<asp:DropDownList ID="ddl_worktype" runat="server">
         <asp:ListItem Text="质保" Value="1"></asp:ListItem>
         <asp:ListItem Text="客户付费" Value="2"></asp:ListItem>
@@ -25,10 +74,28 @@
 
     <br /><br />
 
-    备件名称：<asp:TextBox ID="tb_sparepartname" MaxLength="50" runat="server"></asp:TextBox><br />
-    订货号：<asp:TextBox ID="tb_sparepart_orderingnumber" MaxLength="50" runat="server"></asp:TextBox><br />
-    数量：<asp:TextBox ID="tb_sparepart_amount" MaxLength="50" runat="server"></asp:TextBox><br />
-    备注：<asp:TextBox ID="tb_sparepart_remark" MaxLength="300" TextMode="MultiLine" runat="server"></asp:TextBox><br />
+    <table>
+        <tbody title="sparePartTable">
+            <tr>
+                <th>备件名称</th>
+                <th>订货号</th>
+                <th>数量</th>
+                <th>备注</th>
+                <th>操作</th>
+            </tr>
+
+            <tr>
+                <td><input type="text" title="sparePartName" maxlength="50" /></td>
+                <td><input type="text" title="orderingNumber" maxlength="30" /></td>
+                <td><input type="text" title="sparePartAmount" maxlength="10" /></td>
+                <td><input type="text" title="sparePartRemark" maxlength="300" /></td>
+                <td>
+                    <input type="button" value="添加备件" title="sparePartAdd" />
+                    <input type="button" value="删除备件" title="sparePartRemove" disabled="disabled" />
+                </td>
+            </tr>
+        </tbody>
+    </table>
 
     <br /><br />
 

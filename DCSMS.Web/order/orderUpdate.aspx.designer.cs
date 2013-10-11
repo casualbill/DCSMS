@@ -85,42 +85,6 @@ namespace DCSMS.Web.order {
         protected global::System.Web.UI.WebControls.TextBox tb_product_remark;
         
         /// <summary>
-        /// tb_sparepartname 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tb_sparepartname;
-        
-        /// <summary>
-        /// tb_sparepart_orderingnumber 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tb_sparepart_orderingnumber;
-        
-        /// <summary>
-        /// tb_sparepart_amount 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tb_sparepart_amount;
-        
-        /// <summary>
-        /// tb_sparepart_remark 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tb_sparepart_remark;
-        
-        /// <summary>
         /// tb_failure_description 控件。
         /// </summary>
         /// <remarks>
