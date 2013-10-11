@@ -32,11 +32,11 @@ CREATE TABLE `customerinfo` (
   `Remark` varchar(300) DEFAULT NULL,
   `Verified` bit(1) DEFAULT NULL,
   PRIMARY KEY (`Id`)
-) ENGINE=MyISAM AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=16 DEFAULT CHARSET=utf8;
 
 /*Data for the table `customerinfo` */
 
-insert  into `customerinfo`(`Id`,`CustomerName`,`EndCustomerName`,`ContactPerson`,`Telephone`,`Mobile`,`Address`,`PostCode`,`Remark`,`Verified`) values (1,'cn','ecn','cp','66666666','12345678901',NULL,'200001','adfarg ae5y hhwhtht',''),(2,'cnnnn','ecn','cp','232323','124','','100002','testeset remak','\0'),(3,'1','','1','','',NULL,'','',''),(4,'2','','1','','',NULL,'','',''),(5,'111','','1','','',NULL,'','','\0'),(6,'IS-7','','1','4234324','',NULL,'','tk',''),(7,'T29','','1','','',NULL,'','tk',''),(8,'Foch 155','','1','','17616',NULL,'','tk',''),(9,'Maus','','1','2646','',NULL,'','tk',''),(10,'T-62A','','1','','',NULL,'','tk','\0'),(12,'FCM50t','franch','fcm','1232123232','2626','YQ2adfdfd','00332','tk',''),(13,'customerNew','','newps','','','','','','\0'),(14,'customerNew','','newps','','','','','','\0');
+insert  into `customerinfo`(`Id`,`CustomerName`,`EndCustomerName`,`ContactPerson`,`Telephone`,`Mobile`,`Address`,`PostCode`,`Remark`,`Verified`) values (1,'cn','ecn','cp','66666666','12345678901',NULL,'200001','adfarg ae5y hhwhtht',''),(2,'cnnnn','ecn','cp','232323','124','','100002','testeset remak','\0'),(3,'1','','1','','',NULL,'','',''),(4,'2','','1','','',NULL,'','',''),(5,'111','','1','','',NULL,'','','\0'),(6,'IS-7','','1','4234324','',NULL,'','tk',''),(7,'T29','','1','','',NULL,'','tk',''),(8,'Foch 155','','1','','17616',NULL,'','tk',''),(9,'Maus','','1','2646','',NULL,'','tk',''),(10,'T-62A','','1','','',NULL,'','tk','\0'),(12,'FCM50t','franch','fcm','1232123232','2626','YQ2adfdfd','00332','tk',''),(13,'customerNew','','newps','','','','','','\0'),(15,'cusNew','','1634','','','','','','');
 
 /*Table structure for table `orderinfo` */
 
@@ -61,7 +61,7 @@ CREATE TABLE `orderinfo` (
 
 /*Data for the table `orderinfo` */
 
-insert  into `orderinfo`(`Id`,`FailureDescription`,`ImgUrl`,`Remark`,`WorkType`,`CreateTime`,`UpdateTime`,`CreateUserId`,`TechnicianId`,`AdminId`,`CustomerId`,`StationId`,`OrderStatus`) values ('OS1300001','','','remark1..log',1,'2013-10-09 14:51:15','2013-10-09 18:32:21',13,15,1,12,1,7),('OS1300002',NULL,NULL,'',2,'2013-10-09 15:04:00',NULL,13,10,0,13,1,1),('OS1300003',NULL,NULL,'',2,'2013-10-09 15:19:04',NULL,13,10,0,9,1,2),('OS1300004',NULL,NULL,'',2,'2013-10-09 15:29:56',NULL,13,10,0,9,1,2),('SH1300002',NULL,NULL,'',2,'2013-10-09 15:30:16',NULL,13,11,0,9,2,2);
+insert  into `orderinfo`(`Id`,`FailureDescription`,`ImgUrl`,`Remark`,`WorkType`,`CreateTime`,`UpdateTime`,`CreateUserId`,`TechnicianId`,`AdminId`,`CustomerId`,`StationId`,`OrderStatus`) values ('OS1300001','','','remark1..log',1,'2013-10-09 14:51:15','2013-10-10 10:29:40',13,15,1,12,1,8),('OS1300005',NULL,NULL,'',3,'2013-10-10 17:22:49','2013-10-10 17:29:34',13,18,0,15,1,3),('OS1300002','failure description22','imgurl','22222 bzbz\r\n客户确认了\r\n到期 维修完成~~\r\n\r\nok',4,'2013-10-09 15:04:00','2013-10-10 16:38:31',13,10,13,13,1,8),('OS1300003','desc','','r',2,'2013-10-09 15:19:04','2013-10-11 17:54:50',13,10,0,9,1,3),('OS1300004',NULL,NULL,'',2,'2013-10-09 15:29:56',NULL,13,10,0,9,1,2),('SH1300002',NULL,NULL,'',2,'2013-10-09 15:30:16',NULL,13,11,0,9,2,2);
 
 /*Table structure for table `orderlog` */
 
@@ -75,11 +75,11 @@ CREATE TABLE `orderlog` (
   `NewStatus` tinyint(3) DEFAULT NULL,
   `OperateTime` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
   PRIMARY KEY (`Id`)
-) ENGINE=MyISAM AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=29 DEFAULT CHARSET=utf8;
 
 /*Data for the table `orderlog` */
 
-insert  into `orderlog`(`Id`,`OrderId`,`UserId`,`FormerStatus`,`NewStatus`,`OperateTime`) values (9,'OS1300001',13,2,7,'2013-10-09 18:32:21');
+insert  into `orderlog`(`Id`,`OrderId`,`UserId`,`FormerStatus`,`NewStatus`,`OperateTime`) values (16,'OS1300002',13,5,4,'2013-10-10 16:16:15'),(15,'OS1300002',13,4,5,'2013-10-10 16:15:43'),(14,'OS1300002',13,3,4,'2013-10-10 16:14:57'),(13,'OS1300002',10,2,3,'2013-10-10 16:13:17'),(12,'OS1300002',13,1,2,'2013-10-10 16:07:31'),(11,'OS1300001',13,2,8,'2013-10-10 10:29:40'),(10,'OS1300001',13,7,2,'2013-10-10 10:21:22'),(9,'OS1300001',13,2,7,'2013-10-09 18:32:21'),(17,'OS1300002',13,4,5,'2013-10-10 16:17:06'),(18,'OS1300002',13,5,3,'2013-10-10 16:20:03'),(20,'OS1300002',13,3,4,'2013-10-10 16:32:48'),(21,'OS1300002',13,4,5,'2013-10-10 16:34:54'),(22,'OS1300002',10,5,6,'2013-10-10 16:36:02'),(23,'OS1300002',10,6,7,'2013-10-10 16:36:58'),(24,'OS1300002',13,7,8,'2013-10-10 16:38:31'),(25,'OS1300005',13,1,2,'2013-10-10 17:29:34'),(26,'OS1300003',10,2,3,'2013-10-11 17:40:50'),(27,'OS1300003',13,3,2,'2013-10-11 17:45:22'),(28,'OS1300003',10,2,3,'2013-10-11 17:54:50');
 
 /*Table structure for table `productinfo` */
 
@@ -95,11 +95,11 @@ CREATE TABLE `productinfo` (
   `Remark` varchar(300) DEFAULT NULL,
   `OrderId` varchar(20) NOT NULL DEFAULT '0',
   PRIMARY KEY (`Id`)
-) ENGINE=MyISAM AUTO_INCREMENT=16 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=17 DEFAULT CHARSET=utf8;
 
 /*Data for the table `productinfo` */
 
-insert  into `productinfo`(`Id`,`ProductName`,`SerialNumber`,`OrderingNumber`,`CycleCounters`,`FirmwareVersion`,`Remark`,`OrderId`) values (13,'Product-A2','PA2-002','ORDERPA2002','','2.4','','OS1300003'),(12,'Product-A2','PA2-001','ORDERPA2001','','2.4','','OS1300002'),(9,'Product-A2','PA2-001','ORDERPA2001','','2.6','','OS1300001'),(14,'Product-A2','PA2-002','ORDERPA2003','','2.4','','OS1300004'),(15,'Product-A3','PA3-001','ORDERPA3001','','2.4','','SH1300002');
+insert  into `productinfo`(`Id`,`ProductName`,`SerialNumber`,`OrderingNumber`,`CycleCounters`,`FirmwareVersion`,`Remark`,`OrderId`) values (13,'Product-A2','PA2-002','ORDERPA2002','','2.4','','OS1300003'),(12,'Product-A2','PA2-001','ORDERPA2001','','2.4','','OS1300002'),(16,'Product-A3','PA3-001','ORDERPA3002','','','','OS1300005'),(9,'Product-A2','PA2-001','ORDERPA2001','','2.6','','OS1300001'),(14,'Product-A2','PA2-002','ORDERPA2003','','2.4','','OS1300004'),(15,'Product-A3','PA3-001','ORDERPA3001','','2.4','','SH1300002');
 
 /*Table structure for table `repairlog` */
 
@@ -128,9 +128,11 @@ CREATE TABLE `sparepartinfo` (
   `Remark` varchar(300) DEFAULT NULL,
   `OrderId` varchar(20) NOT NULL DEFAULT '0',
   PRIMARY KEY (`Id`)
-) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=19 DEFAULT CHARSET=utf8;
 
 /*Data for the table `sparepartinfo` */
+
+insert  into `sparepartinfo`(`Id`,`SparePartName`,`OrderingNumber`,`Amount`,`Remark`,`OrderId`) values (16,'spspsp','asdfdf',2,'ddd','OS1300003'),(14,'SP-B2','SPB2001',63,'','OS1300003'),(13,'SP-B1','SPB1001',2,'','OS1300003'),(12,'SP-A4','SPA4001',1,'','OS1300003'),(10,'SP-A2','SPA2001',5,'a2','OS1300003'),(9,'SP-A1','SPA1001',3,'','OS1300003');
 
 /*Table structure for table `stationinfo` */
 
