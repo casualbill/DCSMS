@@ -5,36 +5,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
+    <link href="/css/global.css" rel="Stylesheet" type="text/css" />
     <script src="js/jquery-1.10.2.min.js"></script>
+    <script src="js/common.js"></script>
     <script>
         $(function () {
 
-            $('#userQuery').keyup(function () {
-                var queryStr = $(this).val();
-                $.ajax({
-                    //url: 'ajax.asmx/userQuery',
-                    url: 'ajax.asmx/customerQuery',
-                    data: '{queryStr:"' + queryStr + '"}',
-                    type: "POST",
-                    dataType: "json",
-                    contentType: "application/json",
-                    success: function (r) {
-                        console.log(r.d);
-                        var result = JSON.parse(r.d);
-                        console.log(result);
-                        var str = '';
-                        if (result) {
-                            for (var i = 0; i < result.length; i++) {
-                                //str += result[i].userName + ' ';
-                                str += result[i].customerName + ' ';
-                            }
-                            $('#userQueryResult').html(str);
-                        } else {
-                            $('#userQueryResult').html('');
-                        }
-                    }
-                });
-            });
+            ajaxTextbox($(userQuery));
 
 
         });

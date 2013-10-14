@@ -82,7 +82,7 @@ namespace DCSMS.DAL
 
         public DataSet userQueryByUserNameVaguely(String userName, Boolean isTechnician)
         {
-            String sqlCommand = "select * from userinfo where UserName like @userName";
+            String sqlCommand = "select * from userinfo where UserName like @userName limit 10";
             if (isTechnician == true)
             {
                 sqlCommand += " and UserType = 2";

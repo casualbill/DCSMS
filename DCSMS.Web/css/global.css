@@ -167,3 +167,4 @@ h5 .fontgray {font-weight:normal;}
 #main .container { width:920px; padding:20px 40px; background:url("/images/bg_main_middle.png") repeat-y;}
 #main .main-bottom { height:20px; background:url("/images/bg_main_bottom.png") no-repeat;}
                   
+.ajax-list { position:absolute;}
