@@ -17,34 +17,47 @@
     <div id="wrapper">
 
         <div id="header">
-            <div class="header-logo">
-                <a href="index.aspx"><img src="/images/logo.png" alt="" /></a>
-            </div>
+            <div class="header-inner">
+                <div class="header-top clearfix">
+                    <div class="header-logo">
+                        <a href="/myTask.aspx"><img src="/images/logo.png" alt="" /></a>
+                    </div>
 
-            <div class="header-menu">
-                <ul>
-                    <li><a href="/myTask.aspx">我的任务</a></li>
-                    <li><a href="/order/orderQuery.aspx">查询工单</a></li>
-                    <li><a href="/order/orderCreate.aspx">新建工单</a></li>
-                    <li><dl>
-                        <dt>客户管理</dt>
-                        <dd><a href="/customer/customerQuery.aspx">客户查询</a></dd>
-                        <dd><a href="/customer/customerCreate.aspx">客户添加</a></dd>
-                        <dd><a href="/customer/customerQuery.aspx">客户修改</a></dd>
-                        <dd><a href="/customer/customerVerify.aspx">审核列表</a></dd>
-                    </dl></li>
-                    <li><dl>
-                        <dt>用户管理</dt>
-                        <dd><a href="/user/userQuery.aspx">用户查询</a></dd>
-                        <dd><a href="/user/userCreate.aspx">用户添加</a></dd>
-                        <dd><a href="/user/userQuery.aspx">用户修改</a></dd>
-                    </dl></li>
-                </ul>
-            </div>
+                    <div class="header-content">
+                        <div class="header-user">
+                            <asp:Label ID="lb_username" runat="server" Text="TEST" CssClass="header-border-right"></asp:Label>
+                            <a class="header-border-right" href="javascript:;">收藏本站</a>
+                            <asp:LinkButton ID="lb_logout" Text="退出" runat="server" OnClick="lb_logout_click"></asp:LinkButton>
+                        </div>
+                        <div class="header-title">Desoutter CC China Service Management System</div>
+                    </div>
+                </div>
 
-            <div id="main" class="clearfix">
-                <asp:ContentPlaceHolder ID="MainContentPlaceHolder" runat="server"></asp:ContentPlaceHolder>
+                <div class="header-menu clearfix">
+                    <ul>
+                        <li><a href="/myTask.aspx">我的任务</a></li>
+                        <li><a href="/order/orderQuery.aspx">查询工单</a></li>
+                        <li><a href="/order/orderCreate.aspx">新建工单</a></li>
+                        <li><dl>
+                            <dt>客户管理</dt>
+                            <dd><a href="/customer/customerQuery.aspx">客户查询</a></dd>
+                            <dd><a href="/customer/customerCreate.aspx">客户添加</a></dd>
+                            <dd><a href="/customer/customerQuery.aspx">客户修改</a></dd>
+                            <dd><a href="/customer/customerVerify.aspx">审核列表</a></dd>
+                        </dl></li>
+                        <li><dl>
+                            <dt>用户管理</dt>
+                            <dd><a href="/user/userQuery.aspx">用户查询</a></dd>
+                            <dd><a href="/user/userCreate.aspx">用户添加</a></dd>
+                            <dd><a href="/user/userQuery.aspx">用户修改</a></dd>
+                        </dl></li>
+                    </ul>
+                </div>
             </div>
+        </div>
+
+        <div id="main" class="clearfix">
+            <asp:ContentPlaceHolder ID="MainContentPlaceHolder" runat="server"></asp:ContentPlaceHolder>
         </div>
     </div>
 </div>
