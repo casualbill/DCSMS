@@ -53,7 +53,12 @@
     <Content Include="customer\customerQuery.aspx" />
     <Content Include="customer\customerUpdate.aspx" />
     <Content Include="customer\customerVerify.aspx" />
+    <Content Include="images\bg_main_bottom.png" />
+    <Content Include="images\bg_main_middle.png" />
+    <Content Include="images\bg_main_top.png" />
     <Content Include="images\logo.png" />
+    <Content Include="js\common.js" />
+    <Content Include="js\jquery-1.10.2.js" />
     <Content Include="js\jquery-1.10.2.min.js" />
     <Content Include="login.aspx" />
     <Content Include="myTask.aspx" />

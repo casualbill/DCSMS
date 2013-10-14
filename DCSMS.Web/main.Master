@@ -58,7 +58,11 @@
         </div>
 
         <div id="main" class="clearfix">
-            <asp:ContentPlaceHolder ID="MainContentPlaceHolder" runat="server"></asp:ContentPlaceHolder>
+            <div class="main-top"></div>
+            <div class="container">
+                <asp:ContentPlaceHolder ID="MainContentPlaceHolder" runat="server"></asp:ContentPlaceHolder>
+            </div>
+            <div class="main-bottom"></div>
         </div>
     </div>
 </div>
