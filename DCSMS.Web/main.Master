@@ -5,6 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>Desoutter CC China Online Service Management System</title>
+    <link href="/css/global.css" rel="Stylesheet" type="text/css" />
     <script type="text/javascript" src="/js/jquery-1.10.2.js"></script> <!-- 开发时用 记得改回压缩版 -->
 
     <asp:ContentPlaceHolder ID="head" runat="server"></asp:ContentPlaceHolder>
