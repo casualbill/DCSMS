@@ -18,7 +18,7 @@ namespace DCSMS.BLL
             }
             else
             {
-                String encryptedPwd = getMD5HashCode(userInfo[1]);
+                userInfo[1] = getMD5HashCode(userInfo[1]);
                 return userDb.userCreate(userInfo, userType);
             }
         }
