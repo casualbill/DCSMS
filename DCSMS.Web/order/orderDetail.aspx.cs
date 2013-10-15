@@ -75,8 +75,15 @@ namespace DCSMS.Web.order
                     lb_product_firmware.Text = ds.Tables[2].Rows[0]["FirmwareVersion"].ToString();
                     lb_product_remark.Text = ds.Tables[2].Rows[0]["Remark"].ToString();
 
-                    rpt_sparepart.DataSource = ds.Tables[3];
-                    rpt_sparepart.DataBind();
+                    if (ds.Tables[3].Rows.Count > 0)
+                    {
+                        rpt_sparepart.DataSource = ds.Tables[3];
+                        rpt_sparepart.DataBind();
+                        pn_table.Visible = true;
+                    }
+                    else {
+                        pn_table.Visible = false;
+                    }
 
                     lb_stationname.Text = ds.Tables[4].Rows[0]["StationName"].ToString();
                 }
