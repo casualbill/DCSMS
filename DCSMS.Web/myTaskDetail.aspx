@@ -103,47 +103,50 @@
     </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContentPlaceHolder" runat="server">
-    <asp:HiddenField ID="hf_usertype" runat="server" />
-    工单号：<asp:Label ID="lb_orderid" title="orderId" runat="server"></asp:Label><br />
-    工作类型：<asp:Label ID="lb_worktype" runat="server"></asp:Label><br />
-    维修站：<asp:Label ID="lb_stationname" runat="server"></asp:Label><br />
-    <br />
-    CustomerName：<asp:Label ID="lb_customername" runat="server"></asp:Label><br />
-    EndCustomerName：<asp:Label ID="lb_endcustomername" runat="server"></asp:Label><br />
-    ContactPerson：<asp:Label ID="lb_contactperson" runat="server"></asp:Label><br />
-    Telephone：<asp:Label ID="lb_customer_telephone" runat="server"></asp:Label><br />
-    Mobile：<asp:Label ID="lb_customer_mobile" runat="server"></asp:Label><br />
-    Address：<asp:Label ID="lb_customer_address" runat="server"></asp:Label><br />
-    PostCode：<asp:Label ID="lb_customer_postcode" runat="server"></asp:Label><br />
-    <br />
-    工具型号：<asp:Label ID="lb_productname" runat="server"></asp:Label><br />
-    工具序列号：<asp:Label ID="lb_serialnumber" runat="server"></asp:Label><br />
-    工具订货号：<asp:Label ID="lb_product_orderingnumber" runat="server"></asp:Label><br />
-    固件版本：<asp:Label ID="lb_product_firmware" runat="server"></asp:Label><br />
-    备注：<asp:Label ID="lb_product_remark" runat="server"></asp:Label><br />
-    <br />
+    <div class="main-content">
+        <div class="content-list"><ul>
+            <asp:HiddenField ID="hf_usertype" runat="server" />
+            <li><label>工单号：</label><asp:Label ID="lb_orderid" title="orderId" runat="server"></asp:Label></li>
+            <li><label>工作类型：</label><asp:Label ID="lb_worktype" runat="server"></asp:Label></li>
+            <li class="margin-bottom"><label>维修站：</label><asp:Label ID="lb_stationname" runat="server"></asp:Label></li>
+            
+            <li><label>客户名称：</label><asp:Label ID="lb_customername" runat="server"></asp:Label></li>
+            <li><label>终客户名称：</label><asp:Label ID="lb_endcustomername" runat="server"></asp:Label></li>
+            <li><label>联系人：</label><asp:Label ID="lb_contactperson" runat="server"></asp:Label></li>
+            <li><label>电话：</label><asp:Label ID="lb_customer_telephone" runat="server"></asp:Label></li>
+            <li><label>手机：</label><asp:Label ID="lb_customer_mobile" runat="server"></asp:Label></li>
+            <li><label>地址：</label><asp:Label ID="lb_customer_address" runat="server"></asp:Label></li>
+            <li class="margin-bottom"><label>邮编：</label><asp:Label ID="lb_customer_postcode" runat="server"></asp:Label></li>
+            
+            <li><label>工具型号：</label><asp:Label ID="lb_productname" runat="server"></asp:Label></li>
+            <li><label>工具序列号：</label><asp:Label ID="lb_serialnumber" runat="server"></asp:Label></li>
+            <li><label>工具订货号：</label><asp:Label ID="lb_product_orderingnumber" runat="server"></asp:Label></li>
+            <li><label>固件版本：</label><asp:Label ID="lb_product_firmware" runat="server"></asp:Label></li>
+            <li class="margin-bottom"><label>备注：</label><asp:Label ID="lb_product_remark" runat="server"></asp:Label></li>
+        </ul>
 
-    <table>
-        <tbody title="sparePartTable">
-            <tr>
-                <th>备件名称</th>
-                <th>订货号</th>
-                <th>数量</th>
-                <th>备注</th>
-                <th>操作</th>
-            </tr>
-        </tbody>
-    </table>
+                <table>
+                    <tbody title="sparePartTable">
+                        <tr>
+                            <th>备件名称</th>
+                            <th>订货号</th>
+                            <th>数量</th>
+                            <th>备注</th>
+                            <th>操作</th>
+                        </tr>
+                    </tbody>
+                </table>
+         <ul>
+            
+            <li><label>故障描述：</label><asp:TextBox ID="tb_failure_description" runat="server" MaxLength="300" TextMode="MultiLine"></asp:TextBox></li>
+            <li><label>照片选择：</label><asp:TextBox ID="tb_imgurl" MaxLength="300" runat="server"></asp:TextBox></li>
+            <li><label>备注：</label><asp:TextBox ID="tb_remark" MaxLength="500" TextMode="MultiLine" runat="server"></asp:TextBox></li>
+            
+            <li><label>当前状态：</label><asp:Label ID="lb_orderstatus" runat="server"></asp:Label></li>
 
-    <br />
-    故障描述：<asp:TextBox ID="tb_failure_description" runat="server" MaxLength="300" TextMode="MultiLine"></asp:TextBox><br />
-    照片选择：<asp:TextBox ID="tb_imgurl" MaxLength="300" runat="server"></asp:TextBox><br />
-    备注：<asp:TextBox ID="tb_remark" MaxLength="500" TextMode="MultiLine" runat="server"></asp:TextBox><br />
-    <br />
-    当前状态：<asp:Label ID="lb_orderstatus" runat="server"></asp:Label><br />
+            <li><label></label><asp:CheckBox ID="cb_manageorder" runat="server" Text="由我管理这个工单" CssClass="checkbox" /></li>
 
-    <asp:CheckBox ID="cb_manageorder" runat="server" Text="由我管理这个工单" /><br />
-
-    <asp:Button ID="btn_submit" runat="server" Text="Submit" OnClick="btn_submit_Click" />
-
+            <li><label></label><asp:Button ID="btn_submit" runat="server" Text="Submit" OnClick="btn_submit_Click" /></li>
+        </ul></div>
+    </div>
 </asp:Content>
