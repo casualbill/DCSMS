@@ -2,30 +2,37 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContentPlaceHolder" runat="server">
-    
-    <asp:Label ID="lb_tips" runat="server"></asp:Label>
-    <table>
-        <tr>
-            <th>工单号</th>
-            <th>故障描述</th>
-            <th>备注</th>
-            <th>工单状态</th>
-            <th>操作</th>
-        </tr>
-    <asp:Repeater ID="rpt_orderinfo" runat="server">
-        <ItemTemplate>
+    <div class="main-title">
+        我的任务
+    </div>
 
-            <tr>
-                <td><%# Eval("Id")%></td>
-                <td><%# Eval("FailureDescription")%></td>
-                <td><%# Eval("Remark")%></td>
-                <td><%# Eval("OrderStatusStr")%></td>
-                <td>
-                    <a href="myTaskDetail.aspx?id=<%# Eval("Id") %>">查看详情</a>
-                </td>
-            </tr>
+    <div class="main-content">
+        <asp:Label ID="lb_tips" runat="server" CssClass="content-tips" Visible="false"></asp:Label>
+        <asp:Panel ID="pn_table" runat="server" Visible="false">
+            <table>
+                <tr>
+                    <th>工单号</th>
+                    <th>故障描述</th>
+                    <th>备注</th>
+                    <th>工单状态</th>
+                    <th>操作</th>
+                </tr>
+            <asp:Repeater ID="rpt_orderinfo" runat="server">
+                <ItemTemplate>
+
+                    <tr>
+                        <td><%# Eval("Id")%></td>
+                        <td><%# Eval("FailureDescription")%></td>
+                        <td><%# Eval("Remark")%></td>
+                        <td><%# Eval("OrderStatusStr")%></td>
+                        <td>
+                            <a href="myTaskDetail.aspx?id=<%# Eval("Id") %>">查看详情</a>
+                        </td>
+                    </tr>
             
-        </ItemTemplate>
-    </asp:Repeater>
-    </table>
+                </ItemTemplate>
+            </asp:Repeater>
+            </table>
+        </asp:Panel>
+    </div>
 </asp:Content>

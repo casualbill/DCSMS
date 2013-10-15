@@ -24,12 +24,16 @@ namespace DCSMS.Web
             if (dt != null)
             {
                 lb_tips.Text = "";
+                lb_tips.Visible = false;
                 rpt_orderinfo.DataSource = dt;
                 rpt_orderinfo.DataBind();
+                pn_table.Visible = true;
             }
             else
             {
-                lb_tips.Text = "Empty";
+                lb_tips.Text = "当前没有任务";
+                lb_tips.Visible = true;
+                pn_table.Visible = false;
             }
         }
     }
