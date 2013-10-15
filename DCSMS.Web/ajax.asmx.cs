@@ -77,7 +77,7 @@ namespace DCSMS.Web
                         str += "\"telephone\":\"" + dr["Telephone"] + "\",";
                         str += "\"mobile\":\"" + dr["Mobile"] + "\",";
                         str += "\"address\":\"" + dr["Address"] + "\",";
-                        str += "\"postCode\":\"" + dr["PostCode"] + "\"";
+                        str += "\"postcode\":\"" + dr["PostCode"] + "\"";
                         str += "},";
                     }
                 }

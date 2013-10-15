@@ -82,9 +82,10 @@ var customerAjaxSelector = function (textbox, isOnlyId) {
             dataType: "json",
             contentType: "application/json",
             success: function (r) {
-                $('.ajax-list').remove();
+                $('#customerSelectorList').remove();
                 var data = JSON.parse(r.d);
                 if (data.length > 0) {
+                    console.log(data);
                     showList(data);
                 }
             }
@@ -93,7 +94,7 @@ var customerAjaxSelector = function (textbox, isOnlyId) {
 
     textbox.on('blur', function () {
         setTimeout(function () {
-            //$('#customerSelectorList').remove();
+            $('#customerSelectorList').remove();
         }, 100);
     });
 
@@ -103,6 +104,15 @@ var customerAjaxSelector = function (textbox, isOnlyId) {
         textbox.val(customerName);
         customerIdField.val(customerId);
         $(this).parent().parent().remove();
+
+        if (!isOnlyId) {
+            $('[title="endCustomerName"]').val($(this).attr('endCustomerName'));
+            $('[title="contactPerson"]').val($(this).attr('contactPerson'));
+            $('[title="telephone"]').val($(this).attr('telephone'));
+            $('[title="mobile"]').val($(this).attr('mobile'));
+            $('[title="address"]').val($(this).attr('address'));
+            $('[title="postcode"]').val($(this).attr('postcode'));
+        }
     });
 
     function showList(data) {
@@ -115,6 +125,17 @@ var customerAjaxSelector = function (textbox, isOnlyId) {
             item.attr({
                 'customerId': data[i].id
             });
+
+            if (!isOnlyId) {
+                item.attr({
+                    'endCustomerName': data[i].endCustomerName,
+                    'contactPerson': data[i].contactPerson,
+                    'telephone': data[i].telephone,
+                    'mobile': data[i].mobile,
+                    'address': data[i].address,
+                    'postcode': data[i].postcode
+                });
+            }
 
             template.children().append(item);
         }

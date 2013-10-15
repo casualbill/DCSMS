@@ -24,7 +24,7 @@ namespace DCSMS.BLL
             String orderId = stationCode + year + orderIdNum.ToString("00000");
 
             //判读客户是否为新建的（需审核）
-            if (customerId == -1)
+            if (customerId == 0)
             {
                 orderStatus = 1;
 

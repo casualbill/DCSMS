@@ -86,6 +86,7 @@ body {_zoom:expression(function(x){document.execCommand('BackgroundImageCache', 
 #main .main-content .content-list li label { display:inline-block; width:300px; margin-right:20px; text-align:right; vertical-align:top;}
 #main .main-content .content-list li span { display:inline-block; width:600px;}
 #main .main-content .content-list li input[type=text] { width:300px; height:25px;}
+#main .main-content .content-list li input[disabled=disabled] { background-color:#EEE;}
 #main .main-content .content-list li textarea { width:295px; height:60px;}
 #main .main-content .content-list li input[type=button], #main .main-content input[type=submit] { width:300px; height:40px;}
 #main .main-content .content-list .checkbox input { vertical-align:top;}

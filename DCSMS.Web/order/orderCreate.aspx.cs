@@ -23,9 +23,7 @@ namespace DCSMS.Web.order
             if (!IsPostBack)
             {
                 orderConfig orderCfg = new orderConfig();
-                orderCfg.loadCustomerList(ddl_customer, true, true);
                 orderCfg.loadStationList(ddl_station);
-                orderCfg.loadUserList(ddl_technician, true, true);
             }
         }
 
@@ -33,19 +31,15 @@ namespace DCSMS.Web.order
         {
             if (rbl_customer.SelectedValue == "0")
             {
-                tb_customername.Enabled = false;
                 tb_endcustomername.Enabled = false;
                 tb_contactperson.Enabled = false;
                 tb_telephone.Enabled = false;
                 tb_mobile.Enabled = false;
                 tb_address.Enabled = false;
                 tb_postcode.Enabled = false;
-
-                ddl_customer.Enabled = true;
             }
             else
             {
-                tb_customername.Enabled = true;
                 tb_endcustomername.Enabled = true;
                 tb_contactperson.Enabled = true;
                 tb_telephone.Enabled = true;
@@ -61,31 +55,7 @@ namespace DCSMS.Web.order
                 tb_address.Text = "";
                 tb_postcode.Text = "";
 
-                ddl_customer.Enabled = false;
-
-                hf_customerid.Value = "";
-            }
-        }
-
-        protected void ddl_customer_changed(object sender, EventArgs e)
-        {
-            String customerId = ddl_customer.SelectedValue;
-
-            if (customerId == "0")
-            {
-                hf_customerid.Value = "";
-            }
-            else
-            {
-                List<String> customerInfo = customerLogic.customerQueryByCustomerId(Convert.ToInt16(customerId));
-                hf_customerid.Value = customerInfo[0];
-                tb_customername.Text = customerInfo[1];
-                tb_endcustomername.Text = customerInfo[2];
-                tb_contactperson.Text = customerInfo[3];
-                tb_telephone.Text = customerInfo[4];
-                tb_mobile.Text = customerInfo[5];
-                tb_address.Text = customerInfo[6];
-                tb_postcode.Text = customerInfo[7];
+                hf_customerid.Value = "0";
             }
         }
 
@@ -117,20 +87,6 @@ namespace DCSMS.Web.order
             }
         }
 
-        protected void ddl_technician_changed(object sender, EventArgs e)
-        {
-            String userId = ddl_technician.SelectedValue;
-
-            if (userId == "0")
-            {
-                hf_technicianid.Value = "";
-            }
-            else
-            {
-                hf_technicianid.Value = userId;
-            }
-        }
-
         protected void btn_submit_Click(object sender, EventArgs e)
         {
             int workType;
@@ -149,7 +105,7 @@ namespace DCSMS.Web.order
                 createUserId = Convert.ToInt16(Session["userid"]);
             }
 
-            if (rbl_customer.SelectedValue == "0" && ddl_customer.SelectedValue == "0")
+            if (rbl_customer.SelectedValue == "0" && hf_customerid.Value == "0")
             {
                 Response.Write("<script type=\"text/javascript\">alert (\"请选择客户！\");</script>");
                 return;
@@ -189,9 +145,9 @@ namespace DCSMS.Web.order
                 stationId = Convert.ToInt16(hf_stationid.Value);
             }
 
-            if (hf_technicianid.Value == "")
+            if (hf_technicianid.Value == "0")
             {
-                Response.Write("<script type=\"text/javascript\">alert (\"请选择检查用户！\");</script>");
+                Response.Write("<script type=\"text/javascript\">alert (\"请选择跟单技术员！\");</script>");
                 return;
             }
             else
@@ -201,8 +157,7 @@ namespace DCSMS.Web.order
 
 
             List<String> customerInfo = new List<String>();
-            //HiddenField客户ID值为空时新建客户（需审核）
-            if (hf_customerid.Value == "")
+            if (rbl_customer.SelectedValue == "1")
             {
                 customerInfo.Add(tb_customername.Text.Trim());
                 customerInfo.Add(tb_endcustomername.Text.Trim());
@@ -213,7 +168,7 @@ namespace DCSMS.Web.order
                 customerInfo.Add(tb_postcode.Text.Trim());
                 customerInfo.Add("");   //Remark
 
-                customerId = -1;
+                customerId = 0;
             }
             else
             {

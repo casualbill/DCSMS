@@ -40,13 +40,13 @@ namespace DCSMS.Web.order {
         protected global::System.Web.UI.WebControls.RadioButtonList rbl_customer;
         
         /// <summary>
-        /// ddl_customer 控件。
+        /// tb_customername 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddl_customer;
+        protected global::System.Web.UI.WebControls.TextBox tb_customername;
         
         /// <summary>
         /// hf_customerid 控件。
@@ -56,15 +56,6 @@ namespace DCSMS.Web.order {
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
         protected global::System.Web.UI.WebControls.HiddenField hf_customerid;
-        
-        /// <summary>
-        /// tb_customername 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tb_customername;
         
         /// <summary>
         /// tb_endcustomername 控件。
@@ -184,13 +175,13 @@ namespace DCSMS.Web.order {
         protected global::System.Web.UI.WebControls.HiddenField hf_stationid;
         
         /// <summary>
-        /// ddl_technician 控件。
+        /// tb_technician 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddl_technician;
+        protected global::System.Web.UI.WebControls.TextBox tb_technician;
         
         /// <summary>
         /// hf_technicianid 控件。
