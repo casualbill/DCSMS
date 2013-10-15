@@ -10,7 +10,7 @@
     });
 });
 
-var ajaxTextbox = function (textbox) {
+var ajaxTextbox = function (textbox, hiddenField) {
     textbox.on('keyup', function () {
         var queryStr = $(this).val();
         $.ajax({
@@ -30,7 +30,15 @@ var ajaxTextbox = function (textbox) {
     });
 
     textbox.on('blur', function () {
-        //$('.ajax-list').remove();
+        $('.ajax-list').remove();
+    });
+
+    $('body').delegate('.ajax-list li', 'click', function () {
+        var userId = $(this).attr('userId');
+        var userName = $(this).html();
+        textbox.val(userName);
+        hiddenField.val(userId);
+        $(this).parent().parent().remove();
     });
 
     function showList(data) {
@@ -40,14 +48,14 @@ var ajaxTextbox = function (textbox) {
         var template = $('<div class="ajax-list"><ul></ul></div>');
 
         for (var i = 0; i < data.length; i++) {
-            template.append('<li>' + data[i].userName + '</li>');
+            template.children().append('<li userId="' + data[i].id + '">' + data[i].userName + '</li>');
             //str += result[i].customerName + ' ';
         }
         $('body').append(template);
         template.css({
-            width: textbox.width(),
+            width: textbox.innerWidth(),
             left: offset.left,
-            top: offset.top + 20,
+            top: offset.top + 20
         });
     }
 };

@@ -31,7 +31,7 @@ ul, ol {list-style-type:none;}
 
 fieldset {padding:.833em;margin:0 0 .833em;border:1px solid #ccc;}
 legend {font-weight:700;font-size:1.17em;_margin:0px -8px 16px 0;_padding:0;}
-input[type=text], input[type=password], textarea, select {background-color:#fff;border:1px solid #bbb;font-size:100%;font-family:arial;}
+input[type=text], input[type=password], textarea, select {margin:0;background-color:#fff;border:1px solid #bbb;font-size:100%;font-family:arial;}
 input[type=text]:focus, input[type=password]:focus, textarea:focus, select:focus {border-color:#7eb1d5;}
 input[type=text], input[type=password] {padding-left:5px;}
 textarea {padding:5px;overflow:auto;resize:none;}
@@ -164,7 +164,23 @@ h5 .fontgray {font-weight:normal;}
 
 #main { width:1000px; margin:0 auto; margin-top:20px; margin-bottom:20px;}
 #main .main-top { height:20px; background:url("/images/bg_main_top.png") no-repeat;}
-#main .container { width:920px; padding:20px 40px; background:url("/images/bg_main_middle.png") repeat-y;}
+#main .container { width:920px; padding:20px 40px; background:url("/images/bg_main_middle.png") repeat-y; text-align:left;}
 #main .main-bottom { height:20px; background:url("/images/bg_main_bottom.png") no-repeat;}
-                  
-.ajax-list { position:absolute;}
+
+#main .main-title { margin-bottom:20px; font-size:30px; text-align:center;}
+#main .main-content { margin-bottom:20px;}
+#main .main-content .content-list { margin-bottom:20px;}
+#main .main-content .content-list li { height:40px; margin:5px 0; font-size:16px;}
+#main .main-content .content-list label { display:inline-block; width:300px; margin-right:20px; text-align:right;}
+#main .main-content .content-list span { display:inline-block; width:600px;}
+#main .main-content .content-list input[type=text] { width:300px; height:25px;}
+#main .main-content .content-list input[type=button], #main .main-content input[type=submit] { width:300px; height:40px;}
+#main .main-content .content-tips { font-size:20px;}
+#main .main-content table { border: 1px solid #888888; border-collapse: collapse; table-layout:fixed;}
+#main .main-content table th { background-color: #CCCCCC; border: 1px solid #888888; padding: 5px 15px 5px 5px; text-align:center; vertical-align:middle; font-weight:bold;}
+#main .main-content table td { background-color: #EFEFEF; border: 1px solid #AAAAAA; padding: 5px 15px 5px 5px; text-align:center; vertical-align:middle;}
+
+.ajax-list { position:absolute; border:1px solid #444; text-align:left;}
+.ajax-list li { padding: 3px 10px;}
+.ajax-list li:hover { background-color:#CCC; font-weight:bold; cursor:pointer;}
+

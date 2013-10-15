@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using DCSMS.BLL;
+using System.Data;
 
 namespace DCSMS.Web.order
 {
@@ -67,8 +68,21 @@ namespace DCSMS.Web.order
             }
             else
             {
-                rpt_orderinfo.DataSource = orderLogic.orderListQueryVaguely(orderId, workType, technicianId, customerId, productName, serialNumber, stationId, orderStatuts);
-                rpt_orderinfo.DataBind();
+                DataTable dt = orderLogic.orderListQueryVaguely(orderId, workType, technicianId, customerId, productName, serialNumber, stationId, orderStatuts);
+                if (dt == null)
+                {
+                    pn_table.Visible = false;
+                    lb_tips.Text = "没有符合条件的工单";
+                    lb_tips.Visible = true;
+                }
+                else
+                {
+                    rpt_orderinfo.DataSource = dt;
+                    rpt_orderinfo.DataBind();
+                    pn_table.Visible = true;
+                    lb_tips.Text = "";
+                    lb_tips.Visible = false;
+                }
             }
         }
 
