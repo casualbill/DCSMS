@@ -21,10 +21,6 @@ namespace DCSMS.Web.order
 
             if (!IsPostBack)
             {
-                orderConfig orderCfg = new orderConfig();
-                orderCfg.loadCustomerList(ddl_customer, false, false);
-                orderCfg.loadUserList(ddl_technician, true, false);
-
                 urlQueryId = Request.QueryString["id"];
                 getOrderDetails();
             }
@@ -34,6 +30,9 @@ namespace DCSMS.Web.order
         protected void btn_submit_Click(object sender, EventArgs e)
         {
             int operateUserId;
+
+            int customerId = Convert.ToInt16(hf_customerid.Value);
+            int technicianId = Convert.ToInt16(hf_technicianid.Value);
 
             if (Session["userid"] == null)
             {
@@ -45,9 +44,14 @@ namespace DCSMS.Web.order
                 operateUserId = Convert.ToInt16(Session["userid"]);
             }
 
-            if (ddl_customer.SelectedValue == "0")
+            if (customerId == 0)
             {
                 Response.Write("<script type=\"text/javascript\">alert (\"请选择客户！\");</script>");
+                return;
+            }
+
+            if (technicianId == 0) {
+                Response.Write("<script type=\"text/javascript\">alert (\"请选择跟单技术员！\");</script>");
                 return;
             }
 
@@ -57,15 +61,8 @@ namespace DCSMS.Web.order
                 return;
             }
 
-            //if (tb_sparepartname.Text.Trim().Length < 1 || tb_sparepart_orderingnumber.Text.Trim().Length < 1 || tb_sparepart_amount.Text.Trim().Length < 1)
-            //{
-            //    Response.Write("<script type=\"text/javascript\">alert (\"请完整输入备件信息！\");</script>");
-            //    return;
-            //}
-
             int workType = Convert.ToInt16(ddl_worktype.SelectedValue);
             int newStatus = Convert.ToInt16(ddl_orderstatus.SelectedValue);
-            int technicianId = Convert.ToInt16(ddl_technician.SelectedValue);
             int formerStatus = Convert.ToInt16(hd_formerstatus.Value);
             int adminId;
             if (hf_adminid.Value == "0" && cb_manageorder.Checked == true)
@@ -78,7 +75,6 @@ namespace DCSMS.Web.order
             }
 
             List<String> customerInfo = new List<String>();
-            int customerId = Convert.ToInt16(ddl_customer.SelectedValue);
 
             List<String> productInfo = new List<String>();
             productInfo.Add(tb_productname.Text.Trim());
@@ -87,16 +83,6 @@ namespace DCSMS.Web.order
             productInfo.Add("");    //CycleCounters
             productInfo.Add(tb_product_firmware.Text.Trim());
             productInfo.Add(tb_product_remark.Text.Trim());
-
-            //List<List<String>> sparePartInfoList = new List<List<String>>();
-            //List<String> sparePartInfo = new List<String>();
-            //sparePartInfo.Add(tb_sparepartname.Text.Trim());
-            //sparePartInfo.Add(tb_sparepart_orderingnumber.Text.Trim());
-            //sparePartInfo.Add(tb_sparepart_amount.Text.Trim());
-            //sparePartInfo.Add(tb_sparepart_remark.Text.Trim());
-            //sparePartInfoList.Add(sparePartInfo);
-
-
 
             if (orderLogic.orderTotallyUpdate(lb_orderid.Text, productInfo, tb_failure_description.Text.Trim(), tb_imgurl.Text.Trim(), tb_remark.Text.Trim(), workType, technicianId, adminId, customerId, formerStatus, newStatus, operateUserId) != 1)
             {
@@ -136,8 +122,11 @@ namespace DCSMS.Web.order
 
                     ddl_worktype.Items.FindByValue(ds.Tables[0].Rows[0]["WorkType"].ToString()).Selected = true;
                     ddl_orderstatus.Items.FindByValue(ds.Tables[0].Rows[0]["OrderStatus"].ToString()).Selected = true;
-                    ddl_customer.Items.FindByValue(ds.Tables[1].Rows[0]["Id"].ToString()).Selected = true;
-                    ddl_technician.Items.FindByValue(ds.Tables[6].Rows[0]["Id"].ToString()).Selected = true;
+
+                    tb_technician.Text = ds.Tables[6].Rows[0]["UserName"].ToString();
+                    hf_technicianid.Value = ds.Tables[6].Rows[0]["Id"].ToString();
+                    tb_customer.Text = ds.Tables[1].Rows[0]["CustomerName"].ToString();
+                    hf_customerid.Value = ds.Tables[1].Rows[0]["Id"].ToString();
 
                     hf_adminid.Value = ds.Tables[0].Rows[0]["AdminId"].ToString();
                     int adminId = Convert.ToInt16(ds.Tables[0].Rows[0]["AdminId"]);
@@ -156,10 +145,6 @@ namespace DCSMS.Web.order
                     tb_product_firmware.Text = ds.Tables[2].Rows[0]["FirmwareVersion"].ToString();
                     tb_product_remark.Text = ds.Tables[2].Rows[0]["Remark"].ToString();
 
-                    //lb_sparepartname.Text = ds.Tables[3].Rows[0]["SparePartName"].ToString();
-                    //lb_sparepart_orderingnumber.Text = ds.Tables[3].Rows[0]["OrderingNumber"].ToString();
-                    //lb_sparepart_amount.Text = ds.Tables[3].Rows[0]["Amount"].ToString();
-                    //lb_sparepart_remark.Text = ds.Tables[3].Rows[0]["Remark"].ToString();
                 }
                 else
                 {

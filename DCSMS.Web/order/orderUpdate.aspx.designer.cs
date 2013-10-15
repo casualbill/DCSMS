@@ -31,13 +31,22 @@ namespace DCSMS.Web.order {
         protected global::System.Web.UI.WebControls.DropDownList ddl_worktype;
         
         /// <summary>
-        /// ddl_customer 控件。
+        /// tb_customer 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddl_customer;
+        protected global::System.Web.UI.WebControls.TextBox tb_customer;
+        
+        /// <summary>
+        /// hf_customerid 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hf_customerid;
         
         /// <summary>
         /// tb_productname 控件。
@@ -112,13 +121,22 @@ namespace DCSMS.Web.order {
         protected global::System.Web.UI.WebControls.TextBox tb_remark;
         
         /// <summary>
-        /// ddl_technician 控件。
+        /// tb_technician 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddl_technician;
+        protected global::System.Web.UI.WebControls.TextBox tb_technician;
+        
+        /// <summary>
+        /// hf_technicianid 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hf_technicianid;
         
         /// <summary>
         /// lb_orderstatus 控件。

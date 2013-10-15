@@ -94,6 +94,9 @@
                     });
                 }
             });
+
+            userAjaxSelector($('[title="technicianSelector"]'), true);
+            customerAjaxSelector($('[title="customerSelector"]'), true);
         });
     
     </script>
@@ -114,7 +117,8 @@
                 <asp:ListItem Text="项目维修" Value="4"></asp:ListItem>
             </asp:DropDownList></li>
 
-            <li><label>客户：</label><asp:DropDownList ID="ddl_customer" runat="server"></asp:DropDownList></li>
+            <li><label>客户：</label><asp:TextBox ID="tb_customer" runat="server" title="customerSelector"></asp:TextBox>
+                <asp:HiddenField ID="hf_customerid" Value="0" runat="server" /></li>
 
             <li><label>工具型号：</label><asp:TextBox ID="tb_productname" MaxLength="50" runat="server"></asp:TextBox></li>
             <li><label>序列号：</label><asp:TextBox ID="tb_serialnumber" MaxLength="30" runat="server"></asp:TextBox></li>
@@ -140,7 +144,8 @@
             <li><label>故障描述：</label><asp:TextBox ID="tb_failure_description" runat="server" MaxLength="300" TextMode="MultiLine"></asp:TextBox></li>
             <li><label>照片选择：</label><asp:TextBox ID="tb_imgurl" MaxLength="300" runat="server"></asp:TextBox></li>
             <li><label>备注：</label><asp:TextBox ID="tb_remark" MaxLength="500" TextMode="MultiLine" runat="server"></asp:TextBox></li>
-            <li><label>跟单技术员：</label><asp:DropDownList ID="ddl_technician" runat="server"></asp:DropDownList></li>
+            <li><label>跟单技术员：</label><asp:TextBox ID="tb_technician" runat="server" title="technicianSelector"></asp:TextBox>
+                <asp:HiddenField ID="hf_technicianid" Value="0" runat="server" /></li>
             <li><label>当前状态：</label><asp:Label ID="lb_orderstatus" runat="server"></asp:Label>
                 <asp:HiddenField ID="hd_formerstatus" runat="server" /></li>
             <li><label>更新状态：</label><asp:DropDownList ID="ddl_orderstatus" runat="server">
