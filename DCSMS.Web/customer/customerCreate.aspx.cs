@@ -31,18 +31,18 @@ namespace DCSMS.Web.customer
 
             if (customerInfo[0].Length < 1 || customerInfo[2].Length < 1)
             {
-                lb_tips.Text = "error";
+                lb_tips.Text = "请完整输入客户信息！";
             }
             else
             {
                 int retVal = customerLogic.customerCreate(customerInfo, true);
                 if (retVal == 1)
                 {
-                    lb_tips.Text = "success";
+                    lb_tips.Text = "新建成功！";
                 }
                 else
                 {
-                    lb_tips.Text = "fail";
+                    lb_tips.Text = "系统错误！";
                 }
             }
         }
