@@ -38,7 +38,7 @@ namespace DCSMS.Web.customer
                 int retVal = customerLogic.customerCreate(customerInfo, true);
                 if (retVal == 1)
                 {
-                    lb_tips.Text = "新建成功！";
+                    lb_tips.Text = "客户添加成功！";
                 }
                 else
                 {

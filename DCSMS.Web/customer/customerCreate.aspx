@@ -3,8 +3,8 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContentPlaceHolder" runat="server">
     <div class="main-title">
-            新建客户
-        </div>
+        客户添加
+    </div>
 
     <div class="main-content">
         <div class="content-list"><ul>
