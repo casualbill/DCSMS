@@ -146,7 +146,7 @@
 
             <li><label></label><asp:CheckBox ID="cb_manageorder" runat="server" Text="由我管理这个工单" CssClass="checkbox" /></li>
 
-            <li><label></label><asp:Button ID="btn_submit" runat="server" Text="Submit" OnClick="btn_submit_Click" /></li>
+            <li><label></label><asp:Button ID="btn_submit" runat="server" Text="确定" OnClick="btn_submit_Click" /></li>
         </ul></div>
     </div>
 </asp:Content>
