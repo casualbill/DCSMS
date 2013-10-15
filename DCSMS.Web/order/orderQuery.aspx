@@ -1,5 +1,10 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/main.Master" AutoEventWireup="true" CodeBehind="orderQuery.aspx.cs" Inherits="DCSMS.Web.order.orderQuery" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <script type="text/javascript">
+        $(function () {
+            userAjaxSelector($('#tb_technician'), true);
+        });
+    </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContentPlaceHolder" runat="server">
     <div class="main-title">
@@ -35,10 +40,10 @@
                 <asp:ListItem Text="完成" Value="8"></asp:ListItem>
             </asp:DropDownList></li>
             <asp:HiddenField ID="hf_orderstatus" Value="0" runat="server" />
-            <li><label>跟单技术员：</label><asp:DropDownList ID="ddl_technician" AutoPostBack="true" OnSelectedIndexChanged="ddl_technician_changed" runat="server"></asp:DropDownList></li>
-            <asp:HiddenField ID="hf_technicianid" Value="0" runat="server" />
+            <li><label>跟单技术员：</label><input type="text" id="tb_technician" />
+            <asp:HiddenField ID="hf_technicianid" Value="0" runat="server" /></li>
 
-            <li><label></label><asp:Button ID="btn_submit" runat="server" Text="Submit" OnClick="btn_submit_Click" /></li>
+            <li><label></label><asp:Button ID="btn_submit" runat="server" Text="确定" OnClick="btn_submit_Click" /></li>
         </ul></div>
         <asp:Label ID="lb_tips" runat="server" Visible="false" CssClass="content-tips"></asp:Label>
 

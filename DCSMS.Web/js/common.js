@@ -10,19 +10,24 @@
     });
 });
 
-var ajaxTextbox = function (textbox, hiddenField) {
-    textbox.on('keyup', function () {
+var userAjaxSelector = function (textbox, isTechnician) {
+    textbox.attr('autocomplete', 'off');
+    var userIdField = textbox.next('[type="hidden"]');
+
+    textbox.on('keyup focus', function () {
+        userIdField.val('0');
         var queryStr = $(this).val();
         $.ajax({
-            url: 'ajax.asmx/userQuery',
+            url: '/ajax.asmx/userQuery',
             //url: 'ajax.asmx/customerQuery',
             data: '{queryStr:"' + queryStr + '", isTechnician: false}',
             type: "POST",
             dataType: "json",
             contentType: "application/json",
             success: function (r) {
+                $('.ajax-list').remove();
                 var data = JSON.parse(r.d);
-                if (data) {
+                if (data.length > 0) {
                     showList(data);
                 }
             }
@@ -30,21 +35,21 @@ var ajaxTextbox = function (textbox, hiddenField) {
     });
 
     textbox.on('blur', function () {
-        $('.ajax-list').remove();
+        setTimeout(function () {
+            $('.ajax-list').remove();
+        }, 100);
     });
 
     $('body').delegate('.ajax-list li', 'click', function () {
         var userId = $(this).attr('userId');
         var userName = $(this).html();
         textbox.val(userName);
-        hiddenField.val(userId);
+        userIdField.val(userId);
         $(this).parent().parent().remove();
     });
 
     function showList(data) {
-        $('.ajax-list').remove();
         var offset = textbox.offset();
-        console.log(offset);
         var template = $('<div class="ajax-list"><ul></ul></div>');
 
         for (var i = 0; i < data.length; i++) {
@@ -55,7 +60,7 @@ var ajaxTextbox = function (textbox, hiddenField) {
         template.css({
             width: textbox.innerWidth(),
             left: offset.left,
-            top: offset.top + 20
+            top: offset.top + textbox.innerHeight()
         });
     }
 };

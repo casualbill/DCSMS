@@ -180,7 +180,7 @@ h5 .fontgray {font-weight:normal;}
 #main .main-content table th { background-color: #CCCCCC; border: 1px solid #888888; padding: 5px 15px 5px 5px; text-align:center; vertical-align:middle; font-weight:bold;}
 #main .main-content table td { background-color: #EFEFEF; border: 1px solid #AAAAAA; padding: 5px 15px 5px 5px; text-align:center; vertical-align:middle;}
 
-.ajax-list { position:absolute; border:1px solid #444; text-align:left;}
+.ajax-list { position:absolute; background-color:#FFF; border:1px solid #444; text-align:left;}
 .ajax-list li { padding: 3px 10px;}
 .ajax-list li:hover { background-color:#CCC; font-weight:bold; cursor:pointer;}
 

@@ -20,18 +20,12 @@ namespace DCSMS.Web.order
                 orderConfig orderCfg = new orderConfig();
                 orderCfg.loadCustomerList(ddl_customer, true, true);
                 orderCfg.loadStationList(ddl_station);
-                orderCfg.loadUserList(ddl_technician, true, true);
             }
         }
 
         protected void ddl_customer_changed(object sender, EventArgs e)
         {
             hf_customerid.Value = ddl_customer.SelectedValue;
-        }
-
-        protected void ddl_technician_changed(object sender, EventArgs e)
-        {
-            hf_technicianid.Value = ddl_technician.SelectedValue;
         }
 
         protected void ddl_station_changed(object sender, EventArgs e)
@@ -61,9 +55,10 @@ namespace DCSMS.Web.order
             int workType = Convert.ToInt16(hf_worktype.Value);
             int technicianId = Convert.ToInt16(hf_technicianid.Value);
 
-            if (orderId.Length < 3 && customerId == 0 && productName.Length < 3 && serialNumber.Length < 3 && stationId == 0 && orderStatuts == 0)
+            if (orderId.Length < 3 && customerId == 0 && productName.Length < 3 && serialNumber.Length < 3 && stationId == 0 && orderStatuts == 0 && technicianId == 0)
             {
-                lb_tips.Text = "请填写至少一项";
+                lb_tips.Text = "请填写至少一项查询条件";
+                lb_tips.Visible = true;
                 return;
             }
             else
