@@ -44,7 +44,7 @@ namespace DCSMS.Web
         }
 
         [WebMethod]
-        public String customerQuery(String queryStr)
+        public String customerQuery(String queryStr, Boolean isOnlyId)
         {
             CustomerLogic customerLogic = new CustomerLogic();
             if (queryStr.Length < 1)
@@ -55,12 +55,31 @@ namespace DCSMS.Web
             String str = "[";
             if (dt != null)
             {
-                foreach (DataRow dr in dt.Rows)
+                if (isOnlyId == true)
                 {
-                    str += "{";
-                    str += "\"id\":" + dr["Id"] + ",";
-                    str += "\"customerName\":\"" + dr["CustomerName"] + "\"";
-                    str += "},";
+                    foreach (DataRow dr in dt.Rows)
+                    {
+                        str += "{";
+                        str += "\"id\":" + dr["Id"] + ",";
+                        str += "\"customerName\":\"" + dr["CustomerName"] + "\"";
+                        str += "},";
+                    }
+                }
+                else
+                {
+                    foreach (DataRow dr in dt.Rows)
+                    {
+                        str += "{";
+                        str += "\"id\":" + dr["Id"] + ",";
+                        str += "\"customerName\":\"" + dr["CustomerName"] + "\",";
+                        str += "\"endCustomerName\":\"" + dr["EndCustomerName"] + "\",";
+                        str += "\"contactPerson\":\"" + dr["ContactPerson"] + "\",";
+                        str += "\"telephone\":\"" + dr["Telephone"] + "\",";
+                        str += "\"mobile\":\"" + dr["Mobile"] + "\",";
+                        str += "\"address\":\"" + dr["Address"] + "\",";
+                        str += "\"postCode\":\"" + dr["PostCode"] + "\"";
+                        str += "},";
+                    }
                 }
                 str = str.Substring(0, str.Length - 1);
             }

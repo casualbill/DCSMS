@@ -3,6 +3,7 @@
     <script type="text/javascript">
         $(function () {
             userAjaxSelector($('#tb_technician'), true);
+            customerAjaxSelector($('#tb_customer'), true);
         });
     </script>
 </asp:Content>
@@ -14,8 +15,8 @@
     <div class="main-content">
         <div class="content-list"><ul>
             <li><label>工单号：</label><asp:TextBox ID="tb_orderid" MaxLength="15" runat="server"></asp:TextBox></li>
-            <li><label>客户名称：</label><asp:DropDownList ID="ddl_customer" AutoPostBack="true" OnSelectedIndexChanged="ddl_customer_changed" runat="server"></asp:DropDownList></li>
-            <asp:HiddenField ID="hf_customerid" Value="0" runat="server" />
+            <li><label>客户名称：</label><input type="text" id="tb_customer" />
+            <asp:HiddenField ID="hf_customerid" Value="0" runat="server" /></li>
             <li><label>工具型号：</label><asp:TextBox ID="tb_productname" MaxLength="30" runat="server"></asp:TextBox></li>
             <li><label>工具序列号：</label><asp:TextBox ID="tb_serialnumber" MaxLength="30" runat="server"></asp:TextBox></li>
             <li><label>工作站：</label><asp:DropDownList ID="ddl_station" AutoPostBack="true" OnSelectedIndexChanged="ddl_station_changed" runat="server"></asp:DropDownList></li>

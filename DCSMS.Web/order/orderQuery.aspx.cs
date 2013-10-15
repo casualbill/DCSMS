@@ -18,14 +18,8 @@ namespace DCSMS.Web.order
             if (!IsPostBack)
             {
                 orderConfig orderCfg = new orderConfig();
-                orderCfg.loadCustomerList(ddl_customer, true, true);
                 orderCfg.loadStationList(ddl_station);
             }
-        }
-
-        protected void ddl_customer_changed(object sender, EventArgs e)
-        {
-            hf_customerid.Value = ddl_customer.SelectedValue;
         }
 
         protected void ddl_station_changed(object sender, EventArgs e)
