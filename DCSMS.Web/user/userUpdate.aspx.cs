@@ -28,10 +28,11 @@ namespace DCSMS.Web.user
             int userId = Convert.ToInt16(lb_userid.Text);
             String userName = tb_username.Text.Trim().ToLower();
             int userType = Convert.ToInt16(rbl_usertype.SelectedValue);
+            lb_tips.Visible = true;
 
             if (userName.Length < 4)
             {
-                lb_tips.Text = "error";
+                lb_tips.Text = "请完整填写用户信息！";
             }
             else
             {
@@ -44,11 +45,11 @@ namespace DCSMS.Web.user
 
                 if (userLogic.userUpdate(userInfo, userId, userType) == 1)
                 {
-                    lb_tips.Text = "success";
+                    lb_tips.Text = "修改成功！";
                 }
                 else
                 {
-                    lb_tips.Text = "fail";
+                    lb_tips.Text = "系统错误！";
                 }
             }
         }
