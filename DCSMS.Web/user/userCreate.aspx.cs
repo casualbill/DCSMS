@@ -23,10 +23,11 @@ namespace DCSMS.Web.user
             String password = tb_password.Text;
             String passwordRepeat = tb_password_repeat.Text;
             int userType = Convert.ToInt16(rbl_usertype.SelectedValue);
+            lb_tips.Visible = true;
 
             if (userName.Length < 4 || password.Length < 6 || password != passwordRepeat)
             {
-                lb_tips.Text = "error";
+                lb_tips.Text = "请完整填写用户信息！";
             }
             else
             {
@@ -44,15 +45,15 @@ namespace DCSMS.Web.user
                 
                 if (retVal == 1)
                 {
-                    lb_tips.Text = "success";
+                    lb_tips.Text = "添加成功！";
                 }
                 else if (retVal == -1)
                 {
-                    lb_tips.Text = "user exist";
+                    lb_tips.Text = "用户名已存在！";
                 }
                 else
                 {
-                    lb_tips.Text = "fail";
+                    lb_tips.Text = "系统错误！";
                 }
             }
         }
