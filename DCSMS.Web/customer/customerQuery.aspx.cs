@@ -25,12 +25,16 @@ namespace DCSMS.Web.customer
             if (dt != null)
             {
                 lb_tips.Text = "";
+                lb_tips.Visible = false;
                 rpt_customerinfo.DataSource = dt;
                 rpt_customerinfo.DataBind();
+                pn_table.Visible = true;
             }
             else
             {
-                lb_tips.Text = "Empty";
+                lb_tips.Text = "没有符合条件的客户";
+                lb_tips.Visible = true;
+                pn_table.Visible = false;
             }
         }
     }
