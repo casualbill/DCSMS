@@ -15,7 +15,7 @@
             </li>
         </ul></div>
     
-        <asp:Panel ID="pn_table" runat="server" Visible="false">
+        <asp:Panel ID="pn_table" runat="server">
             <table>
                 <tr>
                     <th>用户ID</th>
@@ -46,6 +46,19 @@
                 </ItemTemplate>
             </asp:Repeater>
             </table>
+
+            <asp:Label ID="lb_totalamount" runat="server" Visible="false"></asp:Label>
+            <div id="pagination_wrapper">
+                <span id="pagination_pageindex" runat="server"></span>
+                <span id="pagination_pageamount" runat="server"></span>
+                <div id="pagination_frame" runat="server" visible="false" style="display:inline;">
+                    <span id="pagination_prev" runat="server"></span>
+                    <span id="pagination_next" runat="server"></span>
+                    转到第<asp:TextBox ID="tb_pageindex" runat="server" Width="20"></asp:TextBox>页
+                    <asp:Button ID="btn_turntopage" OnClick="btn_turntopage_click" runat="server" Text="确定" />
+                </div>
+            </div>
+
         </asp:Panel>
 
         <asp:Label ID="lb_tips" runat="server" CssClass="content-tips" Visible="false"></asp:Label>

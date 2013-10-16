@@ -8,6 +8,7 @@ namespace DCSMS.BLL
     public class UserLogic : Utility
     {
         protected UserDB userDb = new UserDB();
+        protected const int pageSize = 50;
 
         //新建用户  返回： -1用户已存在，0失败，1成功
         public int userCreate(List<String> userInfo, int userType)
@@ -41,12 +42,17 @@ namespace DCSMS.BLL
         }
 
         //用户查询（所有）
-        public DataTable userQuery()
+        public DataTable userQuery(int page, out int pageAmount)
         {
-            DataSet ds = userDb.userQuery();
+
+            int offset = (page - 1) * pageSize;
+            int amount;
+            DataSet ds = userDb.userQuery(offset, pageSize, out amount);
+            pageAmount = amount / pageSize + 1;
+            
             if (ds.Tables[0].Rows.Count > 0)
             {
-                return ds.Tables[0];
+                return addUserStatusText(ds.Tables[0]);
             }
             else
             {
@@ -74,22 +80,7 @@ namespace DCSMS.BLL
             DataSet ds = userDb.userQueryByUserNameVaguely(queryStr, isTechnician);
             if (ds.Tables[0].Rows.Count > 0)
             {
-                ds.Tables[0].Columns.Add("UserTypeStr", Type.GetType("System.String"));
-
-                int index = 0;
-                foreach (DataRow dr in ds.Tables[0].Rows)
-                {
-                    switch (dr["UserType"].ToString())
-                    {
-                        case "1": ds.Tables[0].Rows[index]["UserTypeStr"] = "Guest"; break;
-                        case "2": ds.Tables[0].Rows[index]["UserTypeStr"] = "Technician"; break;
-                        case "3": ds.Tables[0].Rows[index]["UserTypeStr"] = "Admin"; break;
-                        case "4": ds.Tables[0].Rows[index]["UserTypeStr"] = "Manager"; break;
-                        case "5": ds.Tables[0].Rows[index]["UserTypeStr"] = "Super Manager"; break;
-                    }
-                    index++;
-                }
-                return ds.Tables[0];
+                return addUserStatusText(ds.Tables[0]);
             }
             else
             {
@@ -127,6 +118,28 @@ namespace DCSMS.BLL
             }
 
             return userInfoStr;
+        }
+
+
+        //为用户表加入用户类型文字说明
+        protected DataTable addUserStatusText(DataTable userTable)
+        {
+            userTable.Columns.Add("UserTypeStr", Type.GetType("System.String"));
+
+            int index = 0;
+            foreach (DataRow dr in userTable.Rows)
+            {
+                switch (dr["UserTypeStr"].ToString())
+                {
+                    case "1": userTable.Rows[index]["UserTypeStr"] = "Guest"; break;
+                    case "2": userTable.Rows[index]["UserTypeStr"] = "Technician"; break;
+                    case "3": userTable.Rows[index]["UserTypeStr"] = "Admin"; break;
+                    case "4": userTable.Rows[index]["UserTypeStr"] = "Manager"; break;
+                    case "5": userTable.Rows[index]["UserTypeStr"] = "Super Manager"; break;
+                }
+                index++;
+            }
+            return userTable;
         }
     }
 }

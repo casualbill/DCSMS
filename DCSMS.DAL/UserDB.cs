@@ -60,10 +60,15 @@ namespace DCSMS.DAL
             return executeSqlCommandNoQuery(sqlCommand, paramList);
         }
 
-        public DataSet userQuery()
+        public DataSet userQuery(int offset, int rows, out int amount)
         {
-            String sqlCommand = "select * from userinfo";
-            return executeSqlCommandDataSet(sqlCommand);
+            String sqlCommand = "select * from userinfo limit @Offset, @Rows";
+            String sqlCount = "select count(*) from userinfo";
+            List<MySqlParameter> paramList = new List<MySqlParameter>();
+            paramList.Add(new MySqlParameter("@Offset", offset));
+            paramList.Add(new MySqlParameter("@Rows", rows));
+            amount = Convert.ToInt16(executeSqlCommandScalar(sqlCount));
+            return executeSqlCommandDataSet(sqlCommand, paramList);
         }
 
         public DataSet userQueryByUserId(int id)
