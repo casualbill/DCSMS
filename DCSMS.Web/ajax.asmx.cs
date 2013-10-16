@@ -91,6 +91,7 @@ namespace DCSMS.Web
         public int customerVerify(int id)
         {
             CustomerLogic customerLogic = new CustomerLogic();
+            if (Session["userType"] == null) { return -2; }
             int userType = Convert.ToInt16(Session["userType"]);
             return customerLogic.customerVerify(id, userType);
         }
