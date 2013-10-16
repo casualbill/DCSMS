@@ -37,18 +37,21 @@ namespace DCSMS.Web.customer
 
             if (customerInfo[0].Length < 1 || customerInfo[2].Length < 1)
             {
-                lb_tips.Text = "error";
+                lb_tips.Text = "请完整输入客户信息！";
+                lb_tips.Visible = true;
             }
             else
             {
                 int retVal = customerLogic.customerUpdate(customerId, customerInfo);
                 if (retVal == 1)
                 {
-                    lb_tips.Text = "success";
+                    lb_tips.Text = "修改成功！";
+                    lb_tips.Visible = true;
                 }
                 else
                 {
-                    lb_tips.Text = "fail";
+                    lb_tips.Text = "系统错误！";
+                    lb_tips.Visible = true;
                 }
             }
 
@@ -63,7 +66,7 @@ namespace DCSMS.Web.customer
             }
             else if (!int.TryParse(urlQueryId, out customerId))
             {
-                Response.Write("<script type=\"text/javascript\">alert (\"非法ID！\"); window.location.href=\"customerQuery.aspx\";</script>");
+                Response.Write("<script type=\"text/javascript\">alert (\"非法客户ID！\"); window.location.href=\"customerQuery.aspx\";</script>");
             }
             else
             {

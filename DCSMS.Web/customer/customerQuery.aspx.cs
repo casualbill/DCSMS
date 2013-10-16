@@ -32,7 +32,7 @@ namespace DCSMS.Web.customer
             }
             else
             {
-                lb_tips.Text = "没有符合条件的客户";
+                lb_tips.Text = "没有符合条件的客户！";
                 lb_tips.Visible = true;
                 pn_table.Visible = false;
             }
