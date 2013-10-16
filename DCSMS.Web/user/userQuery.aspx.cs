@@ -25,12 +25,16 @@ namespace DCSMS.Web.user
             if (dt != null)
             {
                 lb_tips.Text = "";
+                lb_tips.Visible = false;
                 rpt_userinfo.DataSource = dt;
                 rpt_userinfo.DataBind();
+                pn_table.Visible = true;
             }
             else
             {
-                lb_tips.Text = "Empty";
+                lb_tips.Text = "没有符合条件的用户！";
+                lb_tips.Visible = true;
+                pn_table.Visible = false;
             }
         }
 
