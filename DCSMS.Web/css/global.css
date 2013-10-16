@@ -70,7 +70,7 @@ body {_zoom:expression(function(x){document.execCommand('BackgroundImageCache', 
 #header .header-menu li a { display:block; color:#FFF; width:100%; height:20px; padding:5px 0; cursor:pointer;}
 #header .header-menu li a:hover { background:#FFF; color:#000; font-weight:bold; text-decoration:none;}
 #header .header-menu li dl { position:relative; width:198px; background:#000; border:1px solid #000;}
-#header .header-menu li dl dt { position:absolute; height:20px; width:198px; left:-1px; top:-1px; padding:4px 0; border:1px solid #000; background:#000; color:#FFF;}
+#header .header-menu li dl dt { position:relative; height:18px; width:198px; left:-1px; top:-1px; padding:4px 0; border:1px solid #000; background:#000; color:#FFF;}
 #header .header-menu li dl dd { height:30px; background:#000; color:#FFF; display:none;}
 
 #main { width:1000px; margin:0 auto; margin-top:20px; margin-bottom:20px;}
