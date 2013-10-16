@@ -14,6 +14,7 @@ namespace DCSMS.Web.user
         protected UserLogic userLogic = new UserLogic();
         protected String pageStr;
         protected int pageIndex;
+        protected int pageAmount;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -35,7 +36,6 @@ namespace DCSMS.Web.user
                 pageIndex = 1;
             }
 
-            int pageAmount;
             rpt_userinfo.DataSource = userLogic.userQuery(pageIndex, out pageAmount);
             rpt_userinfo.DataBind();
             pageController(pageIndex, pageAmount);
@@ -49,7 +49,7 @@ namespace DCSMS.Web.user
         protected void btn_submit_Click(object sender, EventArgs e)
         {
             String queryText = tb_query_text.Text.Trim().ToLower();
-            DataTable dt = userLogic.userQueryByUserNameVaguely(queryText, false);
+            DataTable dt = userLogic.userQueryByUserNameVaguely(queryText, false, pageIndex, out pageAmount);
             if (dt != null)
             {
                 lb_tips.Text = "";
@@ -57,6 +57,7 @@ namespace DCSMS.Web.user
                 rpt_userinfo.DataSource = dt;
                 rpt_userinfo.DataBind();
                 pn_table.Visible = true;
+                pageController(pageIndex, pageAmount);
             }
             else
             {

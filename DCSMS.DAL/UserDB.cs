@@ -85,8 +85,7 @@ namespace DCSMS.DAL
             return executeSqlCommandDataSet(sqlCommand, param);
         }
 
-        public DataSet userQueryByUserNameVaguely(String userName, Boolean isTechnician)
-        {
+        public DataSet userQueryByUserNameVaguely(String userName, Boolean isTechnician){
             String sqlCommand = "select * from userinfo where UserName like @userName";
             if (isTechnician == true)
             {
@@ -95,6 +94,23 @@ namespace DCSMS.DAL
             sqlCommand += " limit 10";
             MySqlParameter param = new MySqlParameter("@UserName", userName + "%");
             return executeSqlCommandDataSet(sqlCommand, param);
+        }
+        public DataSet userQueryByUserNameVaguely(String userName, Boolean isTechnician, int offset, int rows, out int amount)
+        {
+            String sqlCommand = "select * from userinfo where UserName like @userName";
+            String sqlCount = "select count(*) from userinfo where UserName like @userName";
+            if (isTechnician == true)
+            {
+                sqlCommand += " and UserType = 2";
+                sqlCount += " and UserType = 2";
+            }
+            sqlCommand += " limit @Offset, @Rows";
+            List<MySqlParameter> paramList = new List<MySqlParameter>();
+            paramList.Add(new MySqlParameter("@UserName", userName + "%"));
+            paramList.Add(new MySqlParameter("@Offset", offset));
+            paramList.Add(new MySqlParameter("@Rows", rows));
+            amount = Convert.ToInt16(executeSqlCommandScalar(sqlCount, paramList));
+            return executeSqlCommandDataSet(sqlCommand, paramList);
         }
 
         public DataSet userQueryByUserType(int userType)

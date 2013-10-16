@@ -44,7 +44,6 @@ namespace DCSMS.BLL
         //用户查询（所有）
         public DataTable userQuery(int page, out int pageAmount)
         {
-
             int offset = (page - 1) * pageSize;
             int amount;
             DataSet ds = userDb.userQuery(offset, pageSize, out amount);
@@ -78,6 +77,24 @@ namespace DCSMS.BLL
         public DataTable userQueryByUserNameVaguely(String queryStr, Boolean isTechnician)
         {
             DataSet ds = userDb.userQueryByUserNameVaguely(queryStr, isTechnician);
+            if (ds.Tables[0].Rows.Count > 0)
+            {
+                return addUserStatusText(ds.Tables[0]);
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        //用户查询 根据用户名模糊查询 （包含技术员信息） 分页
+        public DataTable userQueryByUserNameVaguely(String queryStr, Boolean isTechnician, int page, out int pageAmount)
+        {
+            int offset = (page - 1) * pageSize;
+            int amount;
+            DataSet ds = userDb.userQueryByUserNameVaguely(queryStr, isTechnician, offset, pageSize, out amount);
+            pageAmount = amount / pageSize + 1;
+
             if (ds.Tables[0].Rows.Count > 0)
             {
                 return addUserStatusText(ds.Tables[0]);
