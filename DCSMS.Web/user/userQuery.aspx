@@ -49,14 +49,14 @@
             </table>
 
             <asp:Label ID="lb_totalamount" runat="server" Visible="false"></asp:Label>
-            <div id="pagination_wrapper">
+            <div class="pagination-wrapper">
                 <asp:Label id="lb_pageindex" runat="server"></asp:Label>
                 <asp:Label id="lb_pageamount" runat="server"></asp:Label>
                 <asp:HiddenField ID="hf_pageindex" runat="server" />
                 <div id="pagination_frame" runat="server" visible="false" style="display:inline;">
                     <asp:LinkButton ID="link_pagination_prev" runat="server" OnClick="link_pagination_prev_click" Text="上一页"></asp:LinkButton>
                     <asp:LinkButton ID="link_pagination_next" runat="server" OnClick="link_pagination_next_click" Text="下一页"></asp:LinkButton>
-                    转到第<asp:TextBox ID="tb_pageindex" runat="server" Width="5"></asp:TextBox>页
+                    转到第<asp:TextBox ID="tb_pageindex" runat="server" MaxLength="3"></asp:TextBox>页
                     <asp:Button ID="btn_turntopage" OnClick="btn_turntopage_click" runat="server" Text="确定" />
                 </div>
             </div>

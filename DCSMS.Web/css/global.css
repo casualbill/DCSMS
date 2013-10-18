@@ -88,7 +88,7 @@ body {_zoom:expression(function(x){document.execCommand('BackgroundImageCache', 
 #main .main-content .content-list li input[type=text], #main .main-content .content-list li input[type=password] { width:300px; height:25px;}
 #main .main-content .content-list li input[disabled=disabled] { background-color:#EEE;}
 #main .main-content .content-list li textarea { width:295px; height:60px;}
-#main .main-content .content-list li input[type=button], #main .main-content input[type=submit] { width:300px; height:40px;}
+#main .main-content .content-list li input[type=button], #main .main-content .content-list li input[type=submit] { width:300px; height:40px;}
 #main .main-content .content-list li input.small-button { width:100px; height:30px; margin-left:20px;}
 #main .main-content .content-list .checkbox input { vertical-align:top;}
 #main .main-content .content-list .checkbox label { text-align:left;}
@@ -100,6 +100,9 @@ body {_zoom:expression(function(x){document.execCommand('BackgroundImageCache', 
 #main .main-content table { margin-bottom:30px; border:1px solid #888888; border-collapse:collapse; table-layout:fixed;}
 #main .main-content table th { background-color:#CCCCCC; border:1px solid #888888; padding:5px 15px 5px 5px; text-align:center; vertical-align:middle; font-weight:bold;}
 #main .main-content table td { background-color:#EFEFEF; border:1px solid #AAAAAA; padding:5px 15px 5px 5px; text-align:center; vertical-align:middle;}
+#main .main-content .pagination-wrapper { float:right;}
+#main .main-content .pagination-wrapper span, #main .main-content .pagination-wrapper a { margin-right: 5px;}
+#main .main-content .pagination-wrapper input[type=text] { width:20px; margin:0 5px;}
 
 .ajax-list { position:absolute; background-color:#FFF; border:1px solid #444; text-align:left;}
 .ajax-list li { padding: 3px 10px;}
