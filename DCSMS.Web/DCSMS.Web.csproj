@@ -53,6 +53,7 @@
     <Content Include="customer\customerQuery.aspx" />
     <Content Include="customer\customerUpdate.aspx" />
     <Content Include="customer\customerVerify.aspx" />
+    <Content Include="Global.asax" />
     <Content Include="images\bg_main_bottom.png" />
     <Content Include="images\bg_main_middle.png" />
     <Content Include="images\bg_main_top.png" />
@@ -113,6 +114,9 @@
     </Compile>
     <Compile Include="customer\customerVerify.aspx.designer.cs">
       <DependentUpon>customerVerify.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="login.aspx.cs">
       <DependentUpon>login.aspx</DependentUpon>
@@ -203,6 +207,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="errorlog\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DCSMS.BLL\DCSMS.BLL.csproj">
