@@ -10,6 +10,7 @@ namespace DCSMS.BLL
     public class CustomerLogic
     {
         protected CustomerDB customerDb = new CustomerDB();
+        protected const int pageSize = 50;
 
         //新建客户 返回：0失败，1成功
         public int customerCreate(List<String> customerInfo, Boolean verify)
@@ -34,9 +35,13 @@ namespace DCSMS.BLL
         }
 
         //所有客户查询
-        public DataTable customerQuery()
+        public DataTable customerQuery(int page, out int pageAmount)
         {
-            DataSet ds = customerDb.customerQuery();
+            int offset = (page - 1) * pageSize;
+            int amount;
+            DataSet ds = customerDb.customerQuery(offset, pageSize, out amount);
+            pageAmount = amount / pageSize + 1;
+            
             if (ds.Tables[0].Rows.Count > 0)
             {
                 return ds.Tables[0];
@@ -91,6 +96,24 @@ namespace DCSMS.BLL
         public DataTable customerQueryByCustomerNameVaguely(String queryStr)
         {
             DataSet ds = customerDb.customerQueryByCustomerNameVaguely(queryStr);
+            if (ds.Tables[0].Rows.Count > 0)
+            {
+                return ds.Tables[0];
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        //客户查询 根据客户名模糊查询 （包含技术员信息） 分页
+        public DataTable customerQueryByCustomerNameVaguely(String queryStr, int page, out int pageAmount)
+        {
+            int offset = (page - 1) * pageSize;
+            int amount;
+            DataSet ds = customerDb.customerQueryByCustomerNameVaguely(queryStr, offset, pageSize, out amount);
+            pageAmount = amount / pageSize + 1;
+
             if (ds.Tables[0].Rows.Count > 0)
             {
                 return ds.Tables[0];

@@ -52,10 +52,15 @@ namespace DCSMS.DAL
             return executeSqlCommandNoQuery(sqlCommand, param);
         }
 
-        public DataSet customerQuery()
+        public DataSet customerQuery(int offset, int rows, out int amount)
         {
-            String sqlCommand = "select * from customerinfo";
-            return executeSqlCommandDataSet(sqlCommand);
+            String sqlCommand = "select * from customerinfo limit @Offset, @Rows";
+            String sqlCount = "select count(*) from customerinfo";
+            List<MySqlParameter> paramList = new List<MySqlParameter>();
+            paramList.Add(new MySqlParameter("@Offset", offset));
+            paramList.Add(new MySqlParameter("@Rows", rows));
+            amount = Convert.ToInt16(executeSqlCommandScalar(sqlCount));
+            return executeSqlCommandDataSet(sqlCommand, paramList);
         }
 
         public DataSet verifiedCustomerQuery()
@@ -83,6 +88,18 @@ namespace DCSMS.DAL
             String sqlCommand = "select * from customerinfo where CustomerName like @customerName";
             MySqlParameter param = new MySqlParameter("@customerName", customerName + "%");
             return executeSqlCommandDataSet(sqlCommand, param);
+        }
+
+        public DataSet customerQueryByCustomerNameVaguely(String customerName, int offset, int rows, out int amount)
+        {
+            String sqlCommand = "select * from customerinfo where CustomerName like @customerName limit @Offset, @Rows";
+            String sqlCount = "select count(*) from customerinfo where CustomerName like @customerName";
+            List<MySqlParameter> paramList = new List<MySqlParameter>();
+            paramList.Add(new MySqlParameter("@customerName", customerName + "%"));
+            paramList.Add(new MySqlParameter("@Offset", offset));
+            paramList.Add(new MySqlParameter("@Rows", rows));
+            amount = Convert.ToInt16(executeSqlCommandScalar(sqlCount, paramList));
+            return executeSqlCommandDataSet(sqlCommand, paramList);
         }
 
         public DataSet customerQueryByVerified(Boolean verify)
