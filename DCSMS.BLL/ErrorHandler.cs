@@ -24,6 +24,7 @@ namespace DCSMS.BLL
                 }
                 streamWriter = new StreamWriter(@logFile, true, System.Text.UnicodeEncoding.Unicode);
                 streamWriter.WriteLine(System.DateTime.Now.ToString() + "   " + logStr);
+                streamWriter.WriteLine("");
             }
             catch (UnauthorizedAccessException uae)
             {
