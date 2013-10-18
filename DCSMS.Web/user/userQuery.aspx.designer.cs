@@ -22,6 +22,15 @@ namespace DCSMS.Web.user {
         protected global::System.Web.UI.WebControls.TextBox tb_query_text;
         
         /// <summary>
+        /// hf_query_text 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hf_query_text;
+        
+        /// <summary>
         /// btn_submit 控件。
         /// </summary>
         /// <remarks>
@@ -58,22 +67,31 @@ namespace DCSMS.Web.user {
         protected global::System.Web.UI.WebControls.Label lb_totalamount;
         
         /// <summary>
-        /// pagination_pageindex 控件。
+        /// lb_pageindex 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl pagination_pageindex;
+        protected global::System.Web.UI.WebControls.Label lb_pageindex;
         
         /// <summary>
-        /// pagination_pageamount 控件。
+        /// lb_pageamount 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl pagination_pageamount;
+        protected global::System.Web.UI.WebControls.Label lb_pageamount;
+        
+        /// <summary>
+        /// hf_pageindex 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hf_pageindex;
         
         /// <summary>
         /// pagination_frame 控件。
@@ -85,22 +103,22 @@ namespace DCSMS.Web.user {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl pagination_frame;
         
         /// <summary>
-        /// pagination_prev 控件。
+        /// link_pagination_prev 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl pagination_prev;
+        protected global::System.Web.UI.WebControls.LinkButton link_pagination_prev;
         
         /// <summary>
-        /// pagination_next 控件。
+        /// link_pagination_next 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl pagination_next;
+        protected global::System.Web.UI.WebControls.LinkButton link_pagination_next;
         
         /// <summary>
         /// tb_pageindex 控件。

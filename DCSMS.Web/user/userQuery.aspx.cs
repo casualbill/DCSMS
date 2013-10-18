@@ -15,10 +15,12 @@ namespace DCSMS.Web.user
         protected String pageStr;
         protected int pageIndex;
         protected int pageAmount;
+        protected String queryText;
 
         protected void Page_Load(object sender, EventArgs e)
         {
             pageStr = Request.QueryString["page"];
+            queryText = Request.QueryString["str"];
             int pageInt;
             if (int.TryParse(pageStr, out pageInt))
             {
@@ -36,20 +38,16 @@ namespace DCSMS.Web.user
                 pageIndex = 1;
             }
 
-            rpt_userinfo.DataSource = userLogic.userQuery(pageIndex, out pageAmount);
-            rpt_userinfo.DataBind();
-            pageController(pageIndex, pageAmount);
-        }
+            DataTable dt;
+            if (queryText == null || queryText.Length == 0)
+            {
+                dt = userLogic.userQuery(pageIndex, out pageAmount);
+            }
+            else
+            {
+                dt = userLogic.userQueryByUserNameVaguely(HttpUtility.UrlDecode(queryText), false, pageIndex, out pageAmount);
+            }
 
-        protected void btn_turntopage_click(object sender, EventArgs e)
-        {
-            Response.Redirect("userQuery.aspx?page=" + tb_pageindex.Text);
-        }
-
-        protected void btn_submit_Click(object sender, EventArgs e)
-        {
-            String queryText = tb_query_text.Text.Trim().ToLower();
-            DataTable dt = userLogic.userQueryByUserNameVaguely(queryText, false, pageIndex, out pageAmount);
             if (dt != null)
             {
                 lb_tips.Text = "";
@@ -58,6 +56,9 @@ namespace DCSMS.Web.user
                 rpt_userinfo.DataBind();
                 pn_table.Visible = true;
                 pageController(pageIndex, pageAmount);
+
+                hf_query_text.Value = HttpUtility.UrlDecode(queryText);
+                hf_pageindex.Value = pageIndex.ToString();
             }
             else
             {
@@ -67,12 +68,37 @@ namespace DCSMS.Web.user
             }
         }
 
+        protected void btn_turntopage_click(object sender, EventArgs e)
+        {
+            queryText = HttpUtility.HtmlEncode(hf_query_text.Value);
+            Response.Redirect("userQuery.aspx?str=" + queryText + "&page=" + tb_pageindex.Text);
+        }
+
+        protected void btn_submit_Click(object sender, EventArgs e)
+        {
+            queryText = HttpUtility.HtmlEncode(tb_query_text.Text.Trim().ToLower());
+            Response.Redirect("userQuery.aspx?str=" + queryText);
+        }
+
+        protected void link_pagination_prev_click(object sender, EventArgs e)
+        {
+            queryText = HttpUtility.HtmlEncode(hf_query_text.Value);
+            Response.Redirect("userQuery.aspx?str=" + queryText + "&page=" + (Convert.ToInt16(hf_pageindex.Value) - 1).ToString());
+        }
+
+        protected void link_pagination_next_click(object sender, EventArgs e)
+        {
+            queryText = HttpUtility.HtmlEncode(hf_query_text.Value);
+            Response.Redirect("userQuery.aspx?str=" + queryText + "&page=" + (Convert.ToInt16(hf_pageindex.Value) + 1).ToString());
+        }
+        
+
         protected void pageController(int pageIndex, int pageAmount)
         {
-            pagination_pageindex.Visible = true;
-            pagination_pageamount.Visible = true;
-            pagination_pageindex.InnerHtml = "第" + pageIndex + "页";
-            pagination_pageamount.InnerHtml = "共" + pageAmount + "页";
+            lb_pageindex.Visible = true;
+            lb_pageamount.Visible = true;
+            lb_pageindex.Text = "第" + pageIndex + "页";
+            lb_pageamount.Text = "共" + pageAmount + "页";
 
             if (pageAmount > 1)
             {
@@ -80,18 +106,11 @@ namespace DCSMS.Web.user
 
                 if (pageIndex == 1)
                 {
-                    pagination_prev.InnerHtml = "";
-                    pagination_next.InnerHtml = "<a href=\"userQuery.aspx?page=" + (pageIndex + 1).ToString() + "\">下一页</a>";
+                    link_pagination_prev.Visible = false;
                 }
                 if (pageIndex == pageAmount)
                 {
-                    pagination_prev.InnerHtml = "<a href=\"userQuery.aspx?page=" + (pageIndex - 1).ToString() + "\">上一页</a>";
-                    pagination_next.InnerHtml = "";
-                }
-                if (pageIndex > 1 && pageIndex < pageAmount)
-                {
-                    pagination_prev.InnerHtml = "<a href=\"userQuery.aspx?page=" + (pageIndex - 1).ToString() + "\">上一页</a>";
-                    pagination_next.InnerHtml = "<a href=\"userQuery.aspx?page=" + (pageIndex + 1).ToString() + "\">下一页</a>";
+                    link_pagination_next.Visible = false;
                 }
             }
             else

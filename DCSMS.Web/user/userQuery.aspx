@@ -11,6 +11,7 @@
             <li>
                 <label>用户名称：</label>
                 <asp:TextBox ID="tb_query_text" runat="server" MaxLength="50"></asp:TextBox>
+                <asp:HiddenField ID="hf_query_text" runat="server" />
                 <asp:Button ID="btn_submit" runat="server" Text="确定" OnClick="btn_submit_Click" CssClass="small-button" />
             </li>
         </ul></div>
@@ -49,12 +50,13 @@
 
             <asp:Label ID="lb_totalamount" runat="server" Visible="false"></asp:Label>
             <div id="pagination_wrapper">
-                <span id="pagination_pageindex" runat="server"></span>
-                <span id="pagination_pageamount" runat="server"></span>
+                <asp:Label id="lb_pageindex" runat="server"></asp:Label>
+                <asp:Label id="lb_pageamount" runat="server"></asp:Label>
+                <asp:HiddenField ID="hf_pageindex" runat="server" />
                 <div id="pagination_frame" runat="server" visible="false" style="display:inline;">
-                    <span id="pagination_prev" runat="server"></span>
-                    <span id="pagination_next" runat="server"></span>
-                    转到第<asp:TextBox ID="tb_pageindex" runat="server" Width="20"></asp:TextBox>页
+                    <asp:LinkButton ID="link_pagination_prev" runat="server" OnClick="link_pagination_prev_click" Text="上一页"></asp:LinkButton>
+                    <asp:LinkButton ID="link_pagination_next" runat="server" OnClick="link_pagination_next_click" Text="下一页"></asp:LinkButton>
+                    转到第<asp:TextBox ID="tb_pageindex" runat="server" Width="5"></asp:TextBox>页
                     <asp:Button ID="btn_turntopage" OnClick="btn_turntopage_click" runat="server" Text="确定" />
                 </div>
             </div>
