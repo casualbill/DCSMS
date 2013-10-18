@@ -1,6 +1,7 @@
 ﻿using System;
 using DCSMS.BLL;
 using System.Collections.Generic;
+using System.Web;
 
 namespace DCSMS.Web
 {
@@ -32,6 +33,39 @@ namespace DCSMS.Web
             doubleListTest(listArray);
             
         }
+
+        protected void bt_upload_Click(object sender, EventArgs e)
+        {
+            if (FileUpload1.PostedFile.FileName == "" && FileUpload2.PostedFile.FileName == "" && FileUpload3.PostedFile.FileName == "")
+            {
+                lb_info.Text = "请选择文件！";
+            }
+            else
+            {
+                HttpFileCollection myfiles = Request.Files;
+                for (int i = 0; i < myfiles.Count; i++)
+                {
+                    HttpPostedFile mypost = myfiles[i];
+                    try
+                    {
+                        if (mypost.ContentLength > 0)
+                        {
+                            string filepath = mypost.FileName;//C:\Documents and Settings\Administrator\My Documents\My Pictures\20022775_m.jpg 
+                            string filename = filepath.Substring(filepath.LastIndexOf("\\") + 1);//20022775_m.jpg 
+                            string serverpath = Server.MapPath("/uploads/") + filename;//C:\Inetpub\wwwroot\WebSite2\images\20022775_m.jpg 
+                            mypost.SaveAs(serverpath);
+                            this.lb_info.Text = "上传成功！";
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        lb_info.Text = "上传发生错误！原因：" + ex.Message.ToString();
+                    }
+                }
+            }
+        } 
+
+
 
         protected void onButtonClick(object sender, EventArgs e)
         {

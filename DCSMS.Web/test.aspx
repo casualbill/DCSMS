@@ -26,6 +26,13 @@
 
         <input id="userQuery" type="text" />
         <div id="userQueryResult"></div>
+
+        <asp:FileUpload ID="FileUpload1" runat="server" Width="475px" /> 
+        <asp:FileUpload ID="FileUpload2" runat="server" Width="475px" /> 
+        <asp:FileUpload ID="FileUpload3" runat="server" Width="475px" /> 
+        <asp:Button ID="bt_upload" runat="server" OnClick="bt_upload_Click" Text="一起上传" /> 
+        <asp:Label ID="lb_info" runat="server" ForeColor="Red" Width="448px"></asp:Label></td> 
+
     </div>
     </form>
 </body>
