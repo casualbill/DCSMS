@@ -45,6 +45,7 @@
   <ItemGroup>
     <Compile Include="CustomerDB.cs" />
     <Compile Include="DBHelper.cs" />
+    <Compile Include="ImageDB.cs" />
     <Compile Include="OrderDB.cs" />
     <Compile Include="ProductDB.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

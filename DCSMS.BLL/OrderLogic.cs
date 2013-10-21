@@ -384,7 +384,20 @@ namespace DCSMS.BLL
             SparePartDB sparePartDb = new SparePartDB();
             return sparePartDb.sparePartDelete(id);
         }
-        
+
+        //添加照片
+        public int imageAdd(String imgUrl, String orderId)
+        {
+            ImageDB imageDb = new ImageDB();
+            return imageDb.imageCreate(imgUrl, orderId);
+        }
+
+        //删除照片
+        public int imageRemove(int id)
+        {
+            ImageDB imageDb = new ImageDB();
+            return imageDb.imageDelete(id);
+        }
 
         //为工单表加入工作类型文字说明
         protected DataTable addWorkTypeText(DataTable orderTable)

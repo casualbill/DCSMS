@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.IO;
+using DCSMS.BLL;
 
 namespace DCSMS.Web
 {
@@ -14,7 +15,8 @@ namespace DCSMS.Web
             context.Response.Charset = "utf-8";
 
             HttpPostedFile file = context.Request.Files["Filedata"];
-            String uploadPath = HttpContext.Current.Server.MapPath("uploads\\" + @context.Request["orderId"]) + "\\";
+            String orderId = @context.Request["orderId"];
+            String uploadPath = HttpContext.Current.Server.MapPath("uploads\\" + orderId) + "\\";
 
             if (file != null && file.ContentLength <= 2097152)
             {
@@ -23,9 +25,10 @@ namespace DCSMS.Web
                     Directory.CreateDirectory(uploadPath);
                 }
                 file.SaveAs(uploadPath + file.FileName);
+                OrderLogic orderLogic = new OrderLogic();
+                orderLogic.imageAdd((uploadPath + file.FileName).Replace("\\", "/"), orderId);
 
                 context.Response.Write("1");
-
             }
             else
             {
