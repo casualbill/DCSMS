@@ -6,14 +6,26 @@
 <head runat="server">
     <title></title>
     <link href="/css/global.css" rel="Stylesheet" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="js/uploadify/uploadify.css" />
     <script src="js/jquery-1.10.2.min.js"></script>
+    <script src="js/uploadify/jquery.uploadify.min.js"></script>
     <script src="js/common.js"></script>
     <script>
         $(function () {
 
-            ajaxTextbox($(userQuery));
+            //ajaxTextbox($(userQuery));
 
-
+            $("#uploadify").uploadify({
+                'swf': 'js/uploadify/uploadify.swf',
+                'uploader': 'uploadHandler.ashx',
+                'buttonClass': '',
+                'buttonText': 'UPLOAD IMAGE',
+                'queueID': 'fileQueue',
+                //'auto': false,
+                'multi': true,
+                'queueSizeLimit': 10,
+                'uploadLimit': 10
+            });
         });
     </script>
 </head>
@@ -31,7 +43,14 @@
         <asp:FileUpload ID="FileUpload2" runat="server" Width="475px" /> 
         <asp:FileUpload ID="FileUpload3" runat="server" Width="475px" /> 
         <asp:Button ID="bt_upload" runat="server" OnClick="bt_upload_Click" Text="一起上传" /> 
-        <asp:Label ID="lb_info" runat="server" ForeColor="Red" Width="448px"></asp:Label></td> 
+        <asp:Label ID="lb_info" runat="server" ForeColor="Red" Width="448px"></asp:Label>
+
+        <div id="fileQueue"></div>
+        <input type="file" name="uploadify" id="uploadify" />
+<%--        <p>
+            <a href="javascript:$('#uploadify').uploadifyUpload()">上传</a>| 
+            <a href="javascript:$('#uploadify').uploadifyClearQueue()">取消上传</a>
+        </p>--%>
 
     </div>
     </form>
