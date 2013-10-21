@@ -1,5 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/main.Master" AutoEventWireup="true" CodeBehind="myTaskDetail.aspx.cs" Inherits="DCSMS.Web.myTaskDetail" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <link rel="stylesheet" type="text/css" href="js/uploadify/uploadify.css" />
+    <script src="js/uploadify/jquery.uploadify.js"></script>
     <script type="text/javascript">
         var sparePartTemplate = [];
         sparePartTemplate.push('<tr><td><input type="text" title="sparePartName" maxlength="50" /></td>');
@@ -98,6 +100,21 @@
                     });
                 }
             });
+
+            $("#uploadify").uploadify({
+                'swf': 'js/uploadify/uploadify.swf',
+                'uploader': 'uploadHandler.ashx',
+                'buttonClass': '',
+                'buttonText': 'UPLOAD IMAGE',
+                'fileSizeLimit': 2048,
+                'fileTypeDesc': 'Image Files',
+                'fileTypeExts': '*.jpg; *.png; *.gif',
+                'formData': { 'orderId': 'SH1300001' },
+                'queueID': 'fileQueue',
+                'multi': true,
+                'queueSizeLimit': 10,
+                'uploadLimit': 10
+            });
         });
     
     </script>
@@ -139,7 +156,7 @@
          <ul>
             
             <li><label>故障描述：</label><asp:TextBox ID="tb_failure_description" runat="server" MaxLength="300" TextMode="MultiLine"></asp:TextBox></li>
-            <li><label>照片选择：</label><asp:TextBox ID="tb_imgurl" MaxLength="300" runat="server"></asp:TextBox></li>
+            <li><label>照片选择：</label><div id="fileQueue"></div><input type="file" name="uploadify" id="uploadify" /></li>
             <li><label>备注：</label><asp:TextBox ID="tb_remark" MaxLength="500" TextMode="MultiLine" runat="server"></asp:TextBox></li>
             
             <li><label>当前状态：</label><asp:Label ID="lb_orderstatus" runat="server"></asp:Label></li>

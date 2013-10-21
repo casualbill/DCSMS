@@ -20,7 +20,6 @@ namespace DCSMS.Web
         protected int customerId;
 
         protected String failureDescription;
-        protected String imgUrl;
         protected String remark;
 
         protected void Page_Load(object sender, EventArgs e)
@@ -45,7 +44,7 @@ namespace DCSMS.Web
         protected void btn_submit_Click(object sender, EventArgs e)
         {
             if (userType == 2) {
-                if (orderLogic.orderTaskOperateByTechnician(urlQueryId, tb_failure_description.Text.Trim(), tb_imgurl.Text.Trim(), tb_remark.Text.Trim(), formerStatus, null, userId) != 1)
+                if (orderLogic.orderTaskOperateByTechnician(urlQueryId, tb_failure_description.Text.Trim(), tb_remark.Text.Trim(), formerStatus, null, userId) != 1)
                 {
                     Response.Write("<script type=\"text/javascript\">alert (\"系统错误！\");</script>");
                 }
@@ -107,7 +106,6 @@ namespace DCSMS.Web
                     lb_stationname.Text = ds.Tables[4].Rows[0]["StationName"].ToString();
 
                     failureDescription = ds.Tables[0].Rows[0]["FailureDescription"].ToString();
-                    imgUrl = ds.Tables[0].Rows[0]["ImgUrl"].ToString();
                     remark = ds.Tables[0].Rows[0]["Remark"].ToString();
 
                     lb_orderstatus.Text = ds.Tables[0].Rows[0]["OrderStatusStr"].ToString();
@@ -152,7 +150,6 @@ namespace DCSMS.Web
                     if (formerStatus != 2 && formerStatus != 5 && formerStatus != 6)
                     {
                         tb_failure_description.Enabled = false;
-                        tb_imgurl.Enabled = false;
                     }
 
                 }
@@ -167,7 +164,6 @@ namespace DCSMS.Web
         protected void fillOrderDetailsIntoTextBox()
         {
             tb_failure_description.Text = failureDescription;
-            tb_imgurl.Text = imgUrl;
             tb_remark.Text = remark;
         }
 
