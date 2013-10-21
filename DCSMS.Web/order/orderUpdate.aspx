@@ -142,7 +142,7 @@
 
         <ul>
             <li><label>故障描述：</label><asp:TextBox ID="tb_failure_description" runat="server" MaxLength="300" TextMode="MultiLine"></asp:TextBox></li>
-            <li><label>照片选择：</label><asp:TextBox ID="tb_imgurl" MaxLength="300" runat="server"></asp:TextBox></li>
+            <li><label>照片选择：</label>                       </li>
             <li><label>备注：</label><asp:TextBox ID="tb_remark" MaxLength="500" TextMode="MultiLine" runat="server"></asp:TextBox></li>
             <li><label>跟单技术员：</label><asp:TextBox ID="tb_technician" runat="server" title="technicianSelector"></asp:TextBox>
                 <asp:HiddenField ID="hf_technicianid" Value="0" runat="server" /></li>

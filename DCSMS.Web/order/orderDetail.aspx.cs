@@ -42,7 +42,6 @@ namespace DCSMS.Web.order
                 {
                     lb_orderid.Text = ds.Tables[0].Rows[0]["Id"].ToString();
                     lb_failure_description.Text = ds.Tables[0].Rows[0]["FailureDescription"].ToString();
-                    lb_imgurl.Text = ds.Tables[0].Rows[0]["ImgUrl"].ToString();
                     lb_order_remark.Text = ds.Tables[0].Rows[0]["Remark"].ToString();
                     lb_worktype.Text = ds.Tables[0].Rows[0]["WorkTypeStr"].ToString();
                     lb_createtime.Text = ds.Tables[0].Rows[0]["CreateTime"].ToString();

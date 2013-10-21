@@ -84,7 +84,7 @@ namespace DCSMS.Web.order
             productInfo.Add(tb_product_firmware.Text.Trim());
             productInfo.Add(tb_product_remark.Text.Trim());
 
-            if (orderLogic.orderTotallyUpdate(lb_orderid.Text, productInfo, tb_failure_description.Text.Trim(), tb_imgurl.Text.Trim(), tb_remark.Text.Trim(), workType, technicianId, adminId, customerId, formerStatus, newStatus, operateUserId) != 1)
+            if (orderLogic.orderTotallyUpdate(lb_orderid.Text, productInfo, tb_failure_description.Text.Trim(), tb_remark.Text.Trim(), workType, technicianId, adminId, customerId, formerStatus, newStatus, operateUserId) != 1)
             {
                 Response.Write("<script type=\"text/javascript\">alert (\"系统错误！\");</script>");
             }
@@ -110,7 +110,6 @@ namespace DCSMS.Web.order
                 {
                     lb_orderid.Text = ds.Tables[0].Rows[0]["Id"].ToString();
                     tb_failure_description.Text = ds.Tables[0].Rows[0]["FailureDescription"].ToString();
-                    tb_imgurl.Text = ds.Tables[0].Rows[0]["ImgUrl"].ToString();
                     tb_remark.Text = ds.Tables[0].Rows[0]["Remark"].ToString();
 
                     hd_formerstatus.Value = ds.Tables[0].Rows[0]["OrderStatus"].ToString();

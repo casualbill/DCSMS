@@ -10,7 +10,7 @@
         <div class="content-list"><ul>
             <li><label>工作类型：</label><asp:Label ID="lb_worktype" runat="server"></asp:Label></li>
             <li><label>故障描述：</label><asp:Label ID="lb_failure_description" runat="server"></asp:Label></li>
-            <li><label>图片：</label><asp:Label ID="lb_imgurl" runat="server"></asp:Label></li>
+            <li><label>图片：</label>                       </li>
             <li><label>备注：</label><asp:Label ID="lb_order_remark" runat="server"></asp:Label></li>
             <li><label>创建时间：</label><asp:Label ID="lb_createtime" runat="server"></asp:Label></li>
             <li><label>状态更新时间：</label><asp:Label ID="lb_updatetime" runat="server"></asp:Label></li>

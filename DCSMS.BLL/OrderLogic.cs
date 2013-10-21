@@ -117,7 +117,7 @@ namespace DCSMS.BLL
         //8 发货完成
 
         //工单完全修改（不包括备件）
-        public int orderTotallyUpdate(String id, List<String> productInfo, String failureDescription, String imgUrl, String remark, int workType, int technicianId, int adminId, int customerId, int formerStatus, int newStatus, int operateUserId)
+        public int orderTotallyUpdate(String id, List<String> productInfo, String failureDescription, String remark, int workType, int technicianId, int adminId, int customerId, int formerStatus, int newStatus, int operateUserId)
         {
             ProductDB productDb = new ProductDB();
             if (productDb.productUpdate(productInfo, id) != 1)
@@ -125,7 +125,7 @@ namespace DCSMS.BLL
                 return -1;
             }
 
-            if (orderDb.orderTotallyUpdate(id, failureDescription, imgUrl, remark, workType, technicianId, adminId, customerId, newStatus) != 1)
+            if (orderDb.orderTotallyUpdate(id, failureDescription, remark, workType, technicianId, adminId, customerId, newStatus) != 1)
             {
                 return -2;
             }
@@ -142,7 +142,7 @@ namespace DCSMS.BLL
         }
 
         //工单修改：技术员操作
-        public int orderTaskOperateByTechnician(String id, String failureDescription, String imgUrl, String remark, int formerStatus, List<List<String>> sparePartInfoList, int operateUserId)
+        public int orderTaskOperateByTechnician(String id, String failureDescription, String remark, int formerStatus, List<List<String>> sparePartInfoList, int operateUserId)
         {
             ProductDB productDb = new ProductDB();
             SparePartDB sparePartDb = new SparePartDB();
@@ -160,7 +160,7 @@ namespace DCSMS.BLL
             //    return -1;
             //}
 
-            if (orderDb.orderCheckUpdate(id, failureDescription, imgUrl, remark, formerStatus + 1) != 1)
+            if (orderDb.orderCheckUpdate(id, failureDescription, remark, formerStatus + 1) != 1)
             {
                 return -2;
             }
@@ -213,7 +213,6 @@ namespace DCSMS.BLL
         {
             return orderQueryByOrderId(orderId, false);
         }
-
         public DataSet orderQueryByOrderId(String orderId, Boolean isOnlyOrderInfo)
         {
             DataSet orderInfoDataSet = new DataSet();
