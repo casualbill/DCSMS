@@ -8,7 +8,7 @@
     <link href="/css/global.css" rel="Stylesheet" type="text/css" />
     <link rel="stylesheet" type="text/css" href="js/uploadify/uploadify.css" />
     <script src="js/jquery-1.10.2.min.js"></script>
-    <script src="js/uploadify/jquery.uploadify.min.js"></script>
+    <script src="js/uploadify/jquery.uploadify.js"></script>
     <script src="js/common.js"></script>
     <script>
         $(function () {
@@ -20,8 +20,11 @@
                 'uploader': 'uploadHandler.ashx',
                 'buttonClass': '',
                 'buttonText': 'UPLOAD IMAGE',
+                'fileSizeLimit': 2048,
+                'fileTypeDesc': 'Image Files', 
+                'fileTypeExts':'*.jpg; *.png; *.gif',
+                'formData': { 'orderId': 'SH1300001' },
                 'queueID': 'fileQueue',
-                //'auto': false,
                 'multi': true,
                 'queueSizeLimit': 10,
                 'uploadLimit': 10

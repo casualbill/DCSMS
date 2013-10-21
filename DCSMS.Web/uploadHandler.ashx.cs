@@ -14,9 +14,9 @@ namespace DCSMS.Web
             context.Response.Charset = "utf-8";
 
             HttpPostedFile file = context.Request.Files["Filedata"];
-            String uploadPath = HttpContext.Current.Server.MapPath("uploads") + "\\";
+            String uploadPath = HttpContext.Current.Server.MapPath("uploads\\" + @context.Request["orderId"]) + "\\";
 
-            if (file != null)
+            if (file != null && file.ContentLength <= 2097152)
             {
                 if (!Directory.Exists(uploadPath))
                 {
@@ -25,11 +25,12 @@ namespace DCSMS.Web
                 file.SaveAs(uploadPath + file.FileName);
 
                 context.Response.Write("1");
+
             }
             else
             {
                 context.Response.Write("0");
-            }  
+            }
         }
 
         public bool IsReusable
