@@ -61,6 +61,15 @@
     <Content Include="js\common.js" />
     <Content Include="js\jquery-1.10.2.js" />
     <Content Include="js\jquery-1.10.2.min.js" />
+    <Content Include="js\uploadify\Change Log.txt" />
+    <Content Include="js\uploadify\jquery.uploadify.js" />
+    <Content Include="js\uploadify\jquery.uploadify.min.js" />
+    <Content Include="js\uploadify\license.txt" />
+    <Content Include="js\uploadify\uploadify-cancel.png" />
+    <Content Include="js\uploadify\uploadify.css" />
+    <Content Include="js\uploadify\uploadify.swf" />
+    <Content Include="js\uploadify\__MACOSX\._Change Log.txt" />
+    <Content Include="js\uploadify\__MACOSX\._uploadify.swf" />
     <Content Include="login.aspx" />
     <Content Include="myTask.aspx" />
     <Content Include="myTaskDetail.aspx" />
@@ -183,6 +192,9 @@
     <Compile Include="test.aspx.designer.cs">
       <DependentUpon>test.aspx</DependentUpon>
     </Compile>
+    <Compile Include="uploadHandler.ashx.cs">
+      <DependentUpon>uploadHandler.ashx</DependentUpon>
+    </Compile>
     <Compile Include="user\userCreate.aspx.cs">
       <DependentUpon>userCreate.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -208,6 +220,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="errorlog\" />
+    <Folder Include="uploads\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DCSMS.BLL\DCSMS.BLL.csproj">
@@ -217,6 +230,14 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="main.Master" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="uploadHandler.ashx" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="js\uploadify\check-exists.php" />
+    <None Include="js\uploadify\index.php" />
+    <None Include="js\uploadify\uploadify.php" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
