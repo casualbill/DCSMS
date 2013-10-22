@@ -95,14 +95,15 @@ var sparePartHandler = function () {
     });
 }
 
-var imageHandler = function (isUpload) {
+var imageHandler = function (isControllable) {
     var orderId = getQueryStringByName('id');
     var imageContainer = $('#imageContainer');
     imageContainer.parent().parent().removeClass('hide');
 
     imageShow();
-    if (isUpload) {
+    if (isControllable) {
         imageUpload();
+        removeButtonEvent();
     }
 
     function imageShow() {
@@ -121,7 +122,23 @@ var imageHandler = function (isUpload) {
                 }
                 imageItem += '</dl>';
                 imageContainer.html(imageItem);
+
+                if (isControllable) {
+                    imageContainer.find('dd').each(function () {
+                        $(this).prepend('<a class="btn-remove" style="display:none;"></a>');
+                    });
+                }
             }
+        });
+    }
+
+    function removeButtonEvent() {
+        imageContainer.delegate('dd', 'mouseenter', function () {
+            $(this).children('.btn-remove').show();
+        });
+
+        imageContainer.delegate('dd', 'mouseleave', function () {
+            $(this).children('.btn-remove').hide();
         });
     }
 
