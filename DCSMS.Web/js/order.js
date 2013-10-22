@@ -7,7 +7,7 @@ sparePartTemplate.push('    <td><input type="button" value="添加备件" title=
 sparePartTemplate.push('    <input type="hidden" value="0" title="sparePartId" /></td></tr>');
 
 var sparePartHandler = function () {
-    var orderId = $('[title="orderId"]').html();
+    var orderId = getQueryStringByName('id');
     var sparePartTable = $('[title="sparePartTable"]');
     sparePartTable.parent().removeClass('hide');
 
@@ -118,7 +118,7 @@ var imageHandler = function (isControllable) {
 
                 var imageItem = '<dl>';
                 for (var i = 0; i < result.length; i++) {
-                    imageItem += '<dd><a href="' + result[i].fileUrl + '" target="_blank"><img imageId="' + result[i].id + '" src="' + result[i].fileUrl + '" /></a></dd>';
+                    imageItem += '<dd imageId="' + result[i].id + '"><a href="' + result[i].fileUrl + '" target="_blank"><img src="' + result[i].fileUrl + '" /></a></dd>';
                 }
                 imageItem += '</dl>';
                 imageContainer.html(imageItem);
@@ -139,6 +139,27 @@ var imageHandler = function (isControllable) {
 
         imageContainer.delegate('dd', 'mouseleave', function () {
             $(this).children('.btn-remove').hide();
+        });
+
+        imageContainer.delegate('dd', 'click', function () {
+            if (confirm('确定删除此照片？')) {
+                var self = $(this);
+                var id = self.attr('imageId');
+                $.ajax({
+                    url: '/ajax.asmx/imageRemove',
+                    data: '{orderId:"' + orderId + '", id:"' + id + '"}',
+                    type: "POST",
+                    dataType: "json",
+                    contentType: "application/json",
+                    success: function (r) {
+                        var result = JSON.parse(r.d);
+
+                        if (result == 1) {
+                            self.remove();
+                        } else { alert('系统错误'); }
+                    }
+                });
+            }
         });
     }
 
