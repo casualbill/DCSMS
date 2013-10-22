@@ -62,7 +62,13 @@
          <ul>
             
             <li><label>故障描述：</label><asp:TextBox ID="tb_failure_description" runat="server" MaxLength="300" TextMode="MultiLine"></asp:TextBox></li>
-            <li><label>照片选择：</label><div id="fileQueue"></div><input type="file" name="uploadify" id="uploadify" /></li>
+            <li class="clearfix">
+                <label>照片选择：</label>
+                <div class="image-frame">
+                    <div id="imageContainer"></div>
+                    <div id="fileQueue"></div><input type="file" name="uploadify" id="uploadify" />
+                </div>
+            </li>
             <li><label>备注：</label><asp:TextBox ID="tb_remark" MaxLength="500" TextMode="MultiLine" runat="server"></asp:TextBox></li>
             
             <li><label>当前状态：</label><asp:Label ID="lb_orderstatus" runat="server"></asp:Label></li>

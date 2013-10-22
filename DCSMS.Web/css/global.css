@@ -53,6 +53,7 @@ body {_zoom:expression(function(x){document.execCommand('BackgroundImageCache', 
 .clearfix, .container {*display:inline-block;}
 * html .clearfix, * html .container, * html .vcard, * html .common-block, * html .event-block {height:1%;}
 
+/*---------- page details ----------*/
 #page { background-color:#FFF;}
 #wrapper { margin:0 auto; text-align:center; background-color:#FFF;}
 #header { background-color:#000;}
@@ -90,6 +91,7 @@ body {_zoom:expression(function(x){document.execCommand('BackgroundImageCache', 
 #main .main-content .content-list li textarea { width:295px; height:60px;}
 #main .main-content .content-list li input[type=button], #main .main-content .content-list li input[type=submit] { width:300px; height:40px;}
 #main .main-content .content-list li input.small-button { width:100px; height:30px; margin-left:20px;}
+#main .main-content .content-list li .image-frame { float:right; width:590px;}
 #main .main-content .content-list .checkbox input { vertical-align:top;}
 #main .main-content .content-list .checkbox label { text-align:left;}
 #main .main-content .content-list .radiobox { width:250px;}
