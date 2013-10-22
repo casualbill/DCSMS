@@ -98,3 +98,49 @@ var sparePartHandler = function (adminHide) {
         }
     });
 }
+
+var imageHandler = function () {
+    var orderId = $('[title="orderId"]').html();
+    var imageContainer = $('#imageContainer');
+
+    imageShow();
+    imageUpload();
+
+    function imageShow() {
+        $.ajax({
+            url: '/ajax.asmx/imageShow',
+            data: '{orderId:"' + orderId + '"}',
+            type: "POST",
+            dataType: "json",
+            contentType: "application/json",
+            success: function (r) {
+                var result = JSON.parse(r.d);
+
+                var imageItem = '<ul>';
+                for (var i = 0; i < result.length; i++) {
+                    imageItem += '<li><img imageId="' + result[i].id + '" src="' + result[i].fileUrl + '" /></li>';
+                }
+                imageItem += '</ul>';
+                console.log(imageItem);
+                imageContainer.html(imageItem);
+            }
+        });
+    }
+
+    function imageUpload() {
+        $("#uploadify").uploadify({
+            'swf': 'js/uploadify/uploadify.swf',
+            'uploader': 'uploadHandler.ashx',
+            'buttonClass': '',
+            'buttonText': 'UPLOAD IMAGE',
+            'fileSizeLimit': 2048,
+            'fileTypeDesc': 'Image Files',
+            'fileTypeExts': '*.jpg; *.png; *.gif',
+            'formData': { 'orderId': orderId },
+            'queueID': 'fileQueue',
+            'multi': true,
+            'queueSizeLimit': 10,
+            'uploadLimit': 10
+        });
+    }
+}

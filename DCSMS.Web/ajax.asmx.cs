@@ -162,7 +162,7 @@ namespace DCSMS.Web
                 {
                     str += "{";
                     str += "\"id\":" + dr["Id"] + ",";
-                    str += "\"fileUrl\":\"" + dr["FileUrl"] + "\",";
+                    str += "\"fileUrl\":\"" + dr["FileUrl"] + "\"";
                     str += "},";
                 }
                 str = str.Substring(0, str.Length - 1);

@@ -6,21 +6,7 @@
     <script type="text/javascript">
         $(function () {
             sparePartHandler(true);
-
-            $("#uploadify").uploadify({
-                'swf': 'js/uploadify/uploadify.swf',
-                'uploader': 'uploadHandler.ashx',
-                'buttonClass': '',
-                'buttonText': 'UPLOAD IMAGE',
-                'fileSizeLimit': 2048,
-                'fileTypeDesc': 'Image Files',
-                'fileTypeExts': '*.jpg; *.png; *.gif',
-                'formData': { 'orderId': 'SH1300001' },
-                'queueID': 'fileQueue',
-                'multi': true,
-                'queueSizeLimit': 10,
-                'uploadLimit': 10
-            });
+            imageHandler();
         });
     
     </script>
@@ -48,19 +34,19 @@
             <li class="margin-bottom"><label>备注：</label><asp:Label ID="lb_product_remark" runat="server"></asp:Label></li>
         </ul>
 
-                <table>
-                    <tbody title="sparePartTable">
-                        <tr>
-                            <th>备件名称</th>
-                            <th>订货号</th>
-                            <th>数量</th>
-                            <th>备注</th>
-                            <th>操作</th>
-                        </tr>
-                    </tbody>
-                </table>
-         <ul>
-            
+        <table>
+            <tbody title="sparePartTable">
+                <tr>
+                    <th>备件名称</th>
+                    <th>订货号</th>
+                    <th>数量</th>
+                    <th>备注</th>
+                    <th>操作</th>
+                </tr>
+            </tbody>
+        </table>
+
+        <ul>
             <li><label>故障描述：</label><asp:TextBox ID="tb_failure_description" runat="server" MaxLength="300" TextMode="MultiLine"></asp:TextBox></li>
             <li class="clearfix">
                 <label>照片选择：</label>
@@ -70,11 +56,8 @@
                 </div>
             </li>
             <li><label>备注：</label><asp:TextBox ID="tb_remark" MaxLength="500" TextMode="MultiLine" runat="server"></asp:TextBox></li>
-            
             <li><label>当前状态：</label><asp:Label ID="lb_orderstatus" runat="server"></asp:Label></li>
-
             <li><label></label><asp:CheckBox ID="cb_manageorder" runat="server" Text="由我管理这个工单" CssClass="checkbox" /></li>
-
             <li><label></label><asp:Button ID="btn_submit" runat="server" Text="确定" OnClick="btn_submit_Click" /></li>
         </ul></div>
     </div>
