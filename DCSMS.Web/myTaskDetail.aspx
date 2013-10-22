@@ -51,7 +51,7 @@
             <li class="clearfix">
                 <label>照片选择：</label>
                 <div class="image-frame">
-                    <div id="imageContainer"></div>
+                    <div id="imageContainer" class="clearfix"></div>
                     <div id="fileQueue"></div><input type="file" name="uploadify" id="uploadify" />
                 </div>
             </li>

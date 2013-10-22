@@ -116,12 +116,11 @@ var imageHandler = function () {
             success: function (r) {
                 var result = JSON.parse(r.d);
 
-                var imageItem = '<ul>';
+                var imageItem = '<dl>';
                 for (var i = 0; i < result.length; i++) {
-                    imageItem += '<li><img imageId="' + result[i].id + '" src="' + result[i].fileUrl + '" /></li>';
+                    imageItem += '<dd><a href="' + result[i].fileUrl + '" target="_blank"><img imageId="' + result[i].id + '" src="' + result[i].fileUrl + '" /></a></dd>';
                 }
-                imageItem += '</ul>';
-                console.log(imageItem);
+                imageItem += '</dl>';
                 imageContainer.html(imageItem);
             }
         });
@@ -140,7 +139,8 @@ var imageHandler = function () {
             'queueID': 'fileQueue',
             'multi': true,
             'queueSizeLimit': 10,
-            'uploadLimit': 10
+            'uploadLimit': 10,
+            'onQueueComplete': imageShow
         });
     }
 }
