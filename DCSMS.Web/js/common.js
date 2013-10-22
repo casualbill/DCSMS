@@ -10,6 +10,14 @@
     });
 });
 
+var getQueryStringByName = function (name) {
+    var result = location.search.match(new RegExp("[\?\&]" + name + "=([^\&]+)", "i"));
+    if (result == null || result.length < 1) {
+        return "";
+    }
+    return result[1];
+}
+
 var userAjaxSelector = function (textbox, isTechnician) {
     textbox.attr('autocomplete', 'off');
     var userIdField = textbox.next('[type="hidden"]');
