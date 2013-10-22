@@ -26,7 +26,7 @@ namespace DCSMS.Web
                 }
                 file.SaveAs(uploadPath + file.FileName);
                 OrderLogic orderLogic = new OrderLogic();
-                orderLogic.imageAdd((uploadPath + file.FileName).Replace("\\", "/"), orderId);
+                orderLogic.imageAdd("/uploads/" + orderId + "/" + file.FileName, orderId);
 
                 context.Response.Write("1");
             }
