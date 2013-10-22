@@ -57,6 +57,8 @@
     <Content Include="images\bg_main_bottom.png" />
     <Content Include="images\bg_main_middle.png" />
     <Content Include="images\bg_main_top.png" />
+    <Content Include="images\ico_remove_hover.png" />
+    <Content Include="images\ico_remove.png" />
     <Content Include="images\logo.png" />
     <Content Include="js\common.js" />
     <Content Include="js\jquery-1.10.2.js" />
