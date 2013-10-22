@@ -388,7 +388,7 @@ namespace DCSMS.BLL
         public DataTable imageQuery(String orderId)
         {
             ImageDB imageDb = new ImageDB();
-            DataSet ds = imageDb.imageQuery(orderId);
+            DataSet ds = imageDb.imageQueryByOrderId(orderId);
             if (ds.Tables[0].Rows.Count > 0)
             {
                 return ds.Tables[0];
@@ -397,6 +397,13 @@ namespace DCSMS.BLL
             {
                 return null;
             }
+        }
+
+        //图片URL查询 根据图片ID
+        public String imageUrlQuery(int id)
+        {
+            ImageDB imageDb = new ImageDB();
+            return imageDb.imageUrlQueryById(id);
         }
 
         //添加图片

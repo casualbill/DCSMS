@@ -27,11 +27,18 @@ namespace DCSMS.DAL
             return executeSqlCommandNoQuery(sqlCommand, param);
         }
 
-        public DataSet imageQuery(String orderId)
+        public DataSet imageQueryByOrderId(String orderId)
         {
             String sqlCommand = "select * from imageinfo where orderId = @OrderId order by Id";
             MySqlParameter param = new MySqlParameter("@OrderId", orderId);
             return executeSqlCommandDataSet(sqlCommand, param);
+        }
+
+        public String imageUrlQueryById(int id)
+        {
+            String sqlCommand = "select FileUrl from imageinfo where Id = @Id";
+            MySqlParameter param = new MySqlParameter("@Id", id);
+            return executeSqlCommandScalar(sqlCommand, param);
         }
     }
 }

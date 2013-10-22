@@ -178,6 +178,10 @@ namespace DCSMS.Web
             int permissionFlag = orderLogic.orderOperatePermission(orderId, Convert.ToInt16(Session["userId"]), Convert.ToInt16(Session["userType"]));
             if (permissionFlag != 1) { return permissionFlag; }
 
+            String filePath = HttpContext.Current.Server.MapPath(orderLogic.imageUrlQuery(id));
+            System.IO.FileInfo file = new System.IO.FileInfo(filePath);
+            file.Delete();
+
             return orderLogic.imageRemove(id);
         }
     }
