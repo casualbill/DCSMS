@@ -5,8 +5,10 @@
     <script type="text/javascript" src="/js/order.js"></script>
     <script type="text/javascript">
         $(function () {
-            sparePartHandler(true);
-            imageHandler();
+            if (parseInt($('#ctl00_MainContentPlaceHolder_hf_usertype').val()) == 2) {
+                sparePartHandler();
+                imageHandler(true);
+            }
         });
     
     </script>
@@ -34,7 +36,7 @@
             <li class="margin-bottom"><label>备注：</label><asp:Label ID="lb_product_remark" runat="server"></asp:Label></li>
         </ul>
 
-        <table>
+        <table class="hide">
             <tbody title="sparePartTable">
                 <tr>
                     <th>备件名称</th>
@@ -48,7 +50,7 @@
 
         <ul>
             <li><label>故障描述：</label><asp:TextBox ID="tb_failure_description" runat="server" MaxLength="300" TextMode="MultiLine"></asp:TextBox></li>
-            <li class="clearfix">
+            <li class="clearfix hide">
                 <label>照片选择：</label>
                 <div class="image-frame">
                     <div id="imageContainer" class="clearfix"></div>

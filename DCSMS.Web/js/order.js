@@ -6,9 +6,11 @@ sparePartTemplate.push('    <td><input type="text" title="sparePartRemark" maxle
 sparePartTemplate.push('    <td><input type="button" value="添加备件" title="sparePartAdd" />');
 sparePartTemplate.push('    <input type="hidden" value="0" title="sparePartId" /></td></tr>');
 
-var sparePartHandler = function (adminHide) {
+var sparePartHandler = function () {
     var orderId = $('[title="orderId"]').html();
     var sparePartTable = $('[title="sparePartTable"]');
+    sparePartTable.parent().removeClass('hide');
+
     $.ajax({
         url: '/ajax.asmx/spraePartQuery',
         data: '{orderId:"' + orderId + '"}',
@@ -34,12 +36,6 @@ var sparePartHandler = function (adminHide) {
             }
 
             sparePartTable.append(sparePartTemplate.join(''));
-
-            if (adminHide) {
-                if (parseInt($('#ctl00_MainContentPlaceHolder_hf_usertype').val()) != 2) {
-                    sparePartTable.parent().hide();
-                }
-            }
         }
     });
 
@@ -99,12 +95,15 @@ var sparePartHandler = function (adminHide) {
     });
 }
 
-var imageHandler = function () {
+var imageHandler = function (isUpload) {
     var orderId = $('[title="orderId"]').html();
     var imageContainer = $('#imageContainer');
+    imageContainer.parent().parent().removeClass('hide');
 
     imageShow();
-    imageUpload();
+    if (isUpload) {
+        imageUpload();
+    }
 
     function imageShow() {
         $.ajax({
