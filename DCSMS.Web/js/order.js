@@ -127,8 +127,8 @@ var imageHandler = function (isUpload) {
 
     function imageUpload() {
         $("#uploadify").uploadify({
-            'swf': 'js/uploadify/uploadify.swf',
-            'uploader': 'uploadHandler.ashx',
+            'swf': '/js/uploadify/uploadify.swf',
+            'uploader': '/uploadHandler.ashx',
             'buttonClass': '',
             'buttonText': 'UPLOAD IMAGE',
             'fileSizeLimit': 2048,
