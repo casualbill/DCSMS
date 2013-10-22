@@ -149,5 +149,36 @@ namespace DCSMS.Web
 
             return orderLogic.sparePartRemove(id);
         }
+
+        [WebMethod]
+        public String imageShow(String orderId)
+        {
+            OrderLogic orderLogic = new OrderLogic();
+            DataTable dt = orderLogic.imageQuery(orderId);
+            String str = "[";
+            if (dt != null)
+            {
+                foreach (DataRow dr in dt.Rows)
+                {
+                    str += "{";
+                    str += "\"id\":" + dr["Id"] + ",";
+                    str += "\"fileUrl\":\"" + dr["FileUrl"] + "\",";
+                    str += "},";
+                }
+                str = str.Substring(0, str.Length - 1);
+            }
+            str += "]";
+            return str;
+        }
+
+        [WebMethod(EnableSession = true)]
+        public int imageRemove(String orderId, int id)
+        {
+            OrderLogic orderLogic = new OrderLogic();
+            int permissionFlag = orderLogic.orderOperatePermission(orderId, Convert.ToInt16(Session["userId"]), Convert.ToInt16(Session["userType"]));
+            if (permissionFlag != 1) { return permissionFlag; }
+
+            return orderLogic.imageRemove(id);
+        }
     }
 }

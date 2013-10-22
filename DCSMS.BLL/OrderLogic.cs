@@ -384,14 +384,29 @@ namespace DCSMS.BLL
             return sparePartDb.sparePartDelete(id);
         }
 
-        //添加照片
+        //图片查询 根据工单号
+        public DataTable imageQuery(String orderId)
+        {
+            ImageDB imageDb = new ImageDB();
+            DataSet ds = imageDb.imageQuery(orderId);
+            if (ds.Tables[0].Rows.Count > 0)
+            {
+                return ds.Tables[0];
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        //添加图片
         public int imageAdd(String imgUrl, String orderId)
         {
             ImageDB imageDb = new ImageDB();
             return imageDb.imageCreate(imgUrl, orderId);
         }
 
-        //删除照片
+        //删除图片
         public int imageRemove(int id)
         {
             ImageDB imageDb = new ImageDB();
