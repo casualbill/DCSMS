@@ -1,5 +1,11 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/main.Master" AutoEventWireup="true" CodeBehind="orderDetail.aspx.cs" Inherits="DCSMS.Web.order.orderDetail" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <script type="text/javascript" src="/js/order.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            imageHandler();
+        });
+    </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContentPlaceHolder" runat="server">
     <div class="main-title">
@@ -10,7 +16,12 @@
         <div class="content-list"><ul>
             <li><label>工作类型：</label><asp:Label ID="lb_worktype" runat="server"></asp:Label></li>
             <li><label>故障描述：</label><asp:Label ID="lb_failure_description" runat="server"></asp:Label></li>
-            <li><label>图片：</label>                       </li>
+            <li class="clearfix">
+                <label>照片：</label>
+                <div class="image-frame">
+                    <div id="imageContainer" class="clearfix"></div>
+                </div>
+            </li>
             <li><label>备注：</label><asp:Label ID="lb_order_remark" runat="server"></asp:Label></li>
             <li><label>创建时间：</label><asp:Label ID="lb_createtime" runat="server"></asp:Label></li>
             <li><label>状态更新时间：</label><asp:Label ID="lb_updatetime" runat="server"></asp:Label></li>

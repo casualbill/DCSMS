@@ -96,7 +96,7 @@ var sparePartHandler = function () {
 }
 
 var imageHandler = function (isUpload) {
-    var orderId = $('[title="orderId"]').html();
+    var orderId = getQueryStringByName('id');
     var imageContainer = $('#imageContainer');
     imageContainer.parent().parent().removeClass('hide');
 
