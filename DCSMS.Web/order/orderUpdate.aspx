@@ -1,9 +1,12 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/main.Master" AutoEventWireup="true" CodeBehind="orderUpdate.aspx.cs" Inherits="DCSMS.Web.order.orderUpdate" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <link rel="stylesheet" type="text/css" href="/js/uploadify/uploadify.css" />
+    <script type="text/javascript" src="/js/uploadify/jquery.uploadify.js"></script>
     <script type="text/javascript" src="/js/order.js"></script>
     <script type="text/javascript">
         $(function () {
-            sparePartHandler(false);
+            sparePartHandler();
+            imageHandler(true);
 
             userAjaxSelector($('[title="technicianSelector"]'), true);
             customerAjaxSelector($('[title="customerSelector"]'), true);
@@ -37,21 +40,27 @@
 
         </ul>
 
-            <table>
-                <tbody title="sparePartTable">
-                    <tr>
-                        <th>备件名称</th>
-                        <th>订货号</th>
-                        <th>数量</th>
-                        <th>备注</th>
-                        <th>操作</th>
-                    </tr>
-                </tbody>
-            </table>
+        <table>
+            <tbody title="sparePartTable">
+                <tr>
+                    <th>备件名称</th>
+                    <th>订货号</th>
+                    <th>数量</th>
+                    <th>备注</th>
+                    <th>操作</th>
+                </tr>
+            </tbody>
+        </table>
 
         <ul>
             <li><label>故障描述：</label><asp:TextBox ID="tb_failure_description" runat="server" MaxLength="300" TextMode="MultiLine"></asp:TextBox></li>
-            <li><label>照片选择：</label>                       </li>
+            <li class="clearfix">
+                <label>照片选择：</label>
+                <div class="image-frame">
+                    <div id="imageContainer" class="clearfix"></div>
+                    <div id="fileQueue"></div><input type="file" name="uploadify" id="uploadify" />
+                </div>
+            </li>
             <li><label>备注：</label><asp:TextBox ID="tb_remark" MaxLength="500" TextMode="MultiLine" runat="server"></asp:TextBox></li>
             <li><label>跟单技术员：</label><asp:TextBox ID="tb_technician" runat="server" title="technicianSelector"></asp:TextBox>
                 <asp:HiddenField ID="hf_technicianid" Value="0" runat="server" /></li>
