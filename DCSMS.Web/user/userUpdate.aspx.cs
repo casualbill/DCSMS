@@ -28,7 +28,6 @@ namespace DCSMS.Web.user
             int userId = Convert.ToInt16(lb_userid.Text);
             String userName = tb_username.Text.Trim().ToLower();
             int userType = Convert.ToInt16(rbl_usertype.SelectedValue);
-            lb_tips.Visible = true;
 
             if (userName.Length < 4)
             {
