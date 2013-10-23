@@ -111,6 +111,12 @@ body {_zoom:expression(function(x){document.execCommand('BackgroundImageCache', 
 #main .main-content .pagination-wrapper span, #main .main-content .pagination-wrapper a { margin-right: 5px;}
 #main .main-content .pagination-wrapper input[type=text] { width:20px; margin:0 5px;}
 
+#main .login-table { width:750px; margin:0 auto; color:#666;}
+#main .login-table tr { height:45px;}
+#main .login-table input { width:200px; height:30px;}
+#main .login-table input[type=submit] { height:40px;}
+#main .login-table .login-item-text { padding-right:15px; text-align:right; font-size:14px;}
+
 .ajax-list { position:absolute; background-color:#FFF; border:1px solid #444; text-align:left;}
 .ajax-list li { padding: 3px 10px;}
 .ajax-list li:hover { background-color:#CCC; font-weight:bold; cursor:pointer;}
