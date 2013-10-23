@@ -38,7 +38,6 @@ namespace DCSMS.Web.customer
             if (customerInfo[0].Length < 1 || customerInfo[2].Length < 1)
             {
                 lb_tips.Text = "请完整输入客户信息！";
-                lb_tips.Visible = true;
             }
             else
             {
@@ -46,12 +45,10 @@ namespace DCSMS.Web.customer
                 if (retVal == 1)
                 {
                     lb_tips.Text = "修改成功！";
-                    lb_tips.Visible = true;
                 }
                 else
                 {
                     lb_tips.Text = "系统错误！";
-                    lb_tips.Visible = true;
                 }
             }
 
