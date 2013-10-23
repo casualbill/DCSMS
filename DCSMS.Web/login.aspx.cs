@@ -29,7 +29,14 @@ namespace DCSMS.Web
                 Session["userName"] = userInfoStr[1];
                 Session["userType"] = userInfoStr[7];
 
-                Response.Redirect("/myTask.aspx");
+                if (userInfoStr[7] == "1")
+                {
+                    Response.Redirect("/order/orderQuery.aspx");
+                }
+                else
+                {
+                    Response.Redirect("/myTask.aspx");
+                }
             }
             else
             {
