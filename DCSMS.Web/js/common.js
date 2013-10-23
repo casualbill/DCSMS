@@ -155,3 +155,13 @@ var customerAjaxSelector = function (textbox, isOnlyId) {
         });
     }
 };
+
+var textValidate = function (textbox, minLength) {
+    if (!minLength) {
+        minLength = 1;
+    }
+    if (textbox.val().length < minLength) {
+        return false;
+    }
+    return true;
+}

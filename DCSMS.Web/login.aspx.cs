@@ -29,8 +29,7 @@ namespace DCSMS.Web
                 Session["userName"] = userInfoStr[1];
                 Session["userType"] = userInfoStr[7];
 
-                //登录成功后跳转。。。
-                lb_loginfo.Text = "ok！";
+                Response.Redirect("/myTask.aspx");
             }
             else
             {

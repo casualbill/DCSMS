@@ -6,6 +6,23 @@
 <head runat="server">
     <title></title>
     <link href="/css/global.css" rel="Stylesheet" type="text/css" />
+    <script type="text/javascript" src="/js/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="/js/common.js"></script>
+    <script type="text/javascript">
+        function btn_submit_client_click() {
+            if (!textValidate($('#tb_username'))) {
+                $('#lb_loginfo').html('用户名不能为空！');
+                return false;
+            }
+
+            if (!textValidate($('#tb_password'), 6)) {
+                $('#lb_loginfo').html('密码至少6位！');
+                return false;
+            }
+            $('#lb_loginfo').html('');
+            return true;
+        }
+    </script>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -21,7 +38,7 @@
             </tr>
             <tr>
                 <td class="login-item-text"></td>
-                <td><asp:Button ID="btn_submit" OnClick="btn_submit_Click" runat="server" Text="登录" /></td>
+                <td><asp:Button ID="btn_submit" OnClientClick="return btn_submit_client_click();" OnClick="btn_submit_Click" runat="server" Text="登录" /></td>
             </tr>
             <tr>
                 <td class="login-item-text"></td>
