@@ -165,3 +165,8 @@ var textValidate = function (textbox, minLength) {
     }
     return true;
 }
+
+var telephoneValidate = function (textbox) {
+    var regExp = new RegExp('^[\\s\\d\\.\\*,+-]{5,}$');
+    return regExp.test(textbox.val());
+}
