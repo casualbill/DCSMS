@@ -23,7 +23,6 @@ namespace DCSMS.Web.user
             String password = tb_password.Text;
             String passwordRepeat = tb_password_repeat.Text;
             int userType = Convert.ToInt16(rbl_usertype.SelectedValue);
-            lb_tips.Visible = true;
 
             if (userName.Length < 4 || password.Length < 6 || password != passwordRepeat)
             {

@@ -10,13 +10,13 @@
     <script type="text/javascript" src="/js/common.js"></script>
     <script type="text/javascript">
         function btn_submit_client_click() {
-            if (!textValidate($('#tb_username'))) {
-                $('#lb_loginfo').html('用户名不能为空！');
+            if (!textValidate($('#tb_username'), 4)) {
+                $('#lb_loginfo').html('用户名必须不少于4个字符！');
                 return false;
             }
 
             if (!textValidate($('#tb_password'), 6)) {
-                $('#lb_loginfo').html('密码至少6位！');
+                $('#lb_loginfo').html('密码必须不少于6个字符！');
                 return false;
             }
             $('#lb_loginfo').html('');
