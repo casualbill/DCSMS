@@ -2,7 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <script type="text/javascript">
         function btn_submit_client_click() {
-            if (!textValidate($('#ctl00_MainContentPlaceHolder_tb_username'))) {
+            if (!textValidate($('#ctl00_MainContentPlaceHolder_tb_username')), 4) {
                 $('.content-tips').html('用户名必须不少于4个字符！');
                 return false;
             }
@@ -54,7 +54,7 @@
                 <asp:ListItem Text="Super Manager" Value="5"></asp:ListItem>
             </asp:RadioButtonList></li>
 
-            <li><label></label><asp:Button ID="btn_submit" OnClientClick="return btn_submit_client_click();" runat="server" Text="确定" OnClick="btn_submit_Click" /></li>
+            <li><label></label><asp:Button ID="btn_submit" runat="server" Text="确定" OnClientClick="return btn_submit_client_click();" OnClick="btn_submit_Click" /></li>
         </ul></div>
         <asp:Label ID="lb_tips" runat="server" CssClass="content-tips"></asp:Label>
     </div>
