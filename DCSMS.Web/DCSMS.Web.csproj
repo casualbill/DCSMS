@@ -238,6 +238,7 @@
     <Content Include="uploadHandler.ashx" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="js\jquery-1.10.2.min.map" />
     <None Include="js\uploadify\check-exists.php" />
     <None Include="js\uploadify\index.php" />
     <None Include="js\uploadify\uploadify.php" />
