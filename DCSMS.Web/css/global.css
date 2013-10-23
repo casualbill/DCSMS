@@ -85,6 +85,7 @@ body {_zoom:expression(function(x){document.execCommand('BackgroundImageCache', 
 #main .main-content .content-list li { margin:10px 0; font-size:16px;}
 #main .main-content .content-list li.margin-bottom { margin-bottom: 40px;}
 #main .main-content .content-list li label { display:inline-block; width:300px; margin-right:20px; text-align:right; vertical-align:top;}
+#main .main-content .content-list li em { margin-right:5px; color:#F00;}
 #main .main-content .content-list li span { display:inline-block; width:600px;}
 #main .main-content .content-list li input[type=text], #main .main-content .content-list li input[type=password] { width:300px; height:25px;}
 #main .main-content .content-list li input[disabled=disabled] { background-color:#EEE;}

@@ -39,14 +39,14 @@
 
     <div class="main-content">
         <div class="content-list"><ul>
-            <li><label>用户名：</label><asp:TextBox ID="tb_username" runat="server" MaxLength="50"></asp:TextBox></li>
-            <li><label>密码：</label><asp:TextBox ID="tb_password" runat="server" TextMode="Password" MaxLength="32"></asp:TextBox></li>
-            <li><label>重复密码：</label><asp:TextBox ID="tb_password_repeat" runat="server" TextMode="Password" MaxLength="32"></asp:TextBox></li>
-            <li><label>姓名：</label><asp:TextBox ID="tb_realname" runat="server" MaxLength="50"></asp:TextBox></li>
+            <li><label><em>*</em>用户名：</label><asp:TextBox ID="tb_username" runat="server" MaxLength="50"></asp:TextBox></li>
+            <li><label><em>*</em>密码：</label><asp:TextBox ID="tb_password" runat="server" TextMode="Password" MaxLength="32"></asp:TextBox></li>
+            <li><label><em>*</em>重复密码：</label><asp:TextBox ID="tb_password_repeat" runat="server" TextMode="Password" MaxLength="32"></asp:TextBox></li>
+            <li><label><em>*</em>姓名：</label><asp:TextBox ID="tb_realname" runat="server" MaxLength="50"></asp:TextBox></li>
             <li><label>工号：</label><asp:TextBox ID="tb_empcode" runat="server" MaxLength="20"></asp:TextBox></li>
             <li><label>电话：</label><asp:TextBox ID="tb_telephone" runat="server" MaxLength="20"></asp:TextBox></li>
             <li><label>Email：</label><asp:TextBox ID="tb_email" runat="server" MaxLength="50"></asp:TextBox></li>
-            <li><label>用户类型：</label><asp:RadioButtonList ID="rbl_usertype" runat="server" RepeatLayout="Flow" RepeatDirection="Vertical" CssClass="radiobox-vertical">
+            <li><label><em>*</em>用户类型：</label><asp:RadioButtonList ID="rbl_usertype" runat="server" RepeatLayout="Flow" RepeatDirection="Vertical" CssClass="radiobox-vertical">
                 <asp:ListItem Text="Guest" Value="1"></asp:ListItem>
                 <asp:ListItem Text="Technician" Value="2"></asp:ListItem>
                 <asp:ListItem Text="Admin" Value="3"></asp:ListItem>
