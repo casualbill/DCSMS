@@ -29,7 +29,7 @@
 
                     <div class="header-content">
                         <div class="header-user">
-                            <asp:Label ID="lb_username" runat="server" Text="TEST" CssClass="header-border-right"></asp:Label>
+                            <asp:Label ID="lb_username" runat="server" CssClass="header-border-right"></asp:Label>
                             <a class="header-border-right" href="javascript:;">收藏本站</a>
                             <asp:LinkButton ID="lb_logout" Text="退出" runat="server" OnClick="lb_logout_click"></asp:LinkButton>
                         </div>

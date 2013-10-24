@@ -13,10 +13,12 @@ namespace DCSMS.Web
         {
             if (!IsPostBack)
             {
-                if (Session["userid"] == null)
+                if (Session["userId"] == null)
                 {
                     Response.Redirect("/login.aspx");
                 }
+
+                lb_username.Text = Session["userName"].ToString();
             }
         }
 
