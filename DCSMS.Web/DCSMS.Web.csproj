@@ -190,6 +190,9 @@
     <Compile Include="order\orderUpdate.aspx.designer.cs">
       <DependentUpon>orderUpdate.aspx</DependentUpon>
     </Compile>
+    <Compile Include="permissionVerify.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="test.aspx.cs">
       <DependentUpon>test.aspx</DependentUpon>
