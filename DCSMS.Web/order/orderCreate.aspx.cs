@@ -65,7 +65,7 @@ namespace DCSMS.Web.order
 
             if (workType == "0")
             {
-                hf_worktype.Value = "";
+                hf_worktype.Value = "0";
             }
             else
             {
@@ -125,7 +125,7 @@ namespace DCSMS.Web.order
 
             //前端验证tb_sparepart_amount为数字
 
-            if (hf_worktype.Value == "")
+            if (hf_worktype.Value == "0")
             {
                 Response.Write("<script type=\"text/javascript\">alert (\"请选择工作类型！\");</script>");
                 return;
