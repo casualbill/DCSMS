@@ -15,6 +15,8 @@ namespace DCSMS.Web.customer
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            permissionVerify pv = new permissionVerify(3);
+
             DataTable dt = customerLogic.unverifiedCustomerQuery();
             if (dt != null)
             {

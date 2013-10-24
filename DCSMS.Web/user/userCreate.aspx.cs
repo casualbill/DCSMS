@@ -14,7 +14,7 @@ namespace DCSMS.Web.user
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            permissionVerify pv = new permissionVerify(4);
         }
 
         protected void btn_submit_Click(object sender, EventArgs e)

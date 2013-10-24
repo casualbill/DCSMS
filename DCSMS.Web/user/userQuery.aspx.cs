@@ -19,6 +19,8 @@ namespace DCSMS.Web.user
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            permissionVerify pv = new permissionVerify(4);
+
             pageStr = Request.QueryString["page"];
             queryText = Request.QueryString["str"];
             int pageInt;
