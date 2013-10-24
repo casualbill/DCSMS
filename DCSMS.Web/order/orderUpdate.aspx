@@ -11,6 +11,36 @@
             userAjaxSelector($('[title="technicianSelector"]'), true);
             customerAjaxSelector($('[title="customerSelector"]'), true);
         });
+
+        function btn_submit_client_click() {
+            if ($('#ctl00_MainContentPlaceHolder_hf_customerid').val() == "0") {
+                $('.content-tips').html('请选择客户！');
+                return false;
+            }
+
+            if (!textValidate($('#ctl00_MainContentPlaceHolder_tb_productname'))) {
+                $('.content-tips').html('请输入工具型号！');
+                return false;
+            }
+
+            if (!textValidate($('#ctl00_MainContentPlaceHolder_tb_serialnumber'))) {
+                $('.content-tips').html('请输入工具序列号！');
+                return false;
+            }
+
+            if (!textValidate($('#ctl00_MainContentPlaceHolder_tb_product_orderingnumber'))) {
+                $('.content-tips').html('请输入工具订货号！');
+                return false;
+            }
+
+            if ($('#ctl00_MainContentPlaceHolder_hf_technicianid').val() == "0") {
+                $('.content-tips').html('请选择跟单技术员！');
+                return false;
+            }
+
+            $('.content-tips').html('');
+            return true;
+        }
     </script>
 
 </asp:Content>
@@ -80,8 +110,8 @@
             <li><label></label><asp:CheckBox ID="cb_manageorder" runat="server" Text="由我管理这个工单" CssClass="checkbox" />
                 <asp:HiddenField ID="hf_adminid" runat="server" /></li>
 
-            <li><label></label><asp:Button ID="btn_submit" runat="server" Text="确定" OnClick="btn_submit_Click" /></li>
+            <li><label></label><asp:Button ID="btn_submit" runat="server" Text="确定" OnClientClick="return btn_submit_client_click();" OnClick="btn_submit_Click" /></li>
         </ul></div>
+        <asp:Label ID="lb_tips" runat="server" CssClass="content-tips"></asp:Label>
     </div>
-    <asp:Label ID="lb_tips" runat="server" CssClass="content-tips"></asp:Label>
 </asp:Content>
