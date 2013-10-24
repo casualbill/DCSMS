@@ -9,7 +9,7 @@
     <script type="text/javascript" src="/js/jquery-1.10.2.js"></script> <!-- 开发时用 记得改回压缩版 -->
     <script type="text/javascript" src="/js/common.js"></script>
     <script type="text/javascript">
-        $(function () { mainMenuListHover(); })
+        $(function () { mainMenuListHandler(<% =Session["userType"]%>); })
     </script>
 
     <asp:ContentPlaceHolder ID="head" runat="server"></asp:ContentPlaceHolder>
@@ -39,17 +39,17 @@
 
                 <div class="header-menu clearfix">
                     <ul>
-                        <li><a href="/myTask.aspx">我的任务</a></li>
-                        <li><a href="/order/orderQuery.aspx">查询工单</a></li>
-                        <li><a href="/order/orderCreate.aspx">新建工单</a></li>
-                        <li><dl>
+                        <li id="menuTask"><a href="/myTask.aspx">我的任务</a></li>
+                        <li id="menuOrderQuery"><a href="/order/orderQuery.aspx">查询工单</a></li>
+                        <li id="menuOrderCreate"><a href="/order/orderCreate.aspx">新建工单</a></li>
+                        <li id="menuCustomer"><dl>
                             <dt>客户管理</dt>
                             <dd><a href="/customer/customerQuery.aspx">客户查询</a></dd>
                             <dd><a href="/customer/customerCreate.aspx">客户添加</a></dd>
                             <dd><a href="/customer/customerQuery.aspx">客户修改</a></dd>
                             <dd><a href="/customer/customerVerify.aspx">审核列表</a></dd>
                         </dl></li>
-                        <li><dl>
+                        <li id="menuUser"><dl>
                             <dt>用户管理</dt>
                             <dd><a href="/user/userQuery.aspx">用户查询</a></dd>
                             <dd><a href="/user/userCreate.aspx">用户添加</a></dd>

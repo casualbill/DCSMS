@@ -1,13 +1,36 @@
-﻿var mainMenuListHover = function () {
-    $('.header-menu dl').on('mouseenter', function () {
-        $(this).children('dt').css({ 'border-left': '1px solid #FFF', 'border-right': '1px solid #FFF', 'border-top': '1px solid #FFF' });
-        $(this).children('dd').show();
-    });
+﻿var mainMenuListHandler = function (userType) {
+    if (userType >= 4) {
+        $('#menuUser dl').on('mouseenter', function () {
+            $(this).children('dt').css({ 'border-left': '1px solid #FFF', 'border-right': '1px solid #FFF', 'border-top': '1px solid #FFF' });
+            $(this).children('dd').show();
+        });
 
-    $('.header-menu dl').on('mouseleave', function () {
-        $(this).children('dt').css({ 'border-left': '1px solid #000', 'border-right': '1px solid #000', 'border-top': '1px solid #000' });
-        $(this).children('dd').hide();
-    });
+        $('#menuUser dl').on('mouseleave', function () {
+            $(this).children('dt').css({ 'border-left': '1px solid #000', 'border-right': '1px solid #000', 'border-top': '1px solid #000' });
+            $(this).children('dd').hide();
+        });
+    } else {
+        $('#menuUser').addClass('disabled');
+    }
+
+    if (userType >= 3) {
+        $('#menuCustomer dl').on('mouseenter', function () {
+            $(this).children('dt').css({ 'border-left': '1px solid #FFF', 'border-right': '1px solid #FFF', 'border-top': '1px solid #FFF' });
+            $(this).children('dd').show();
+        });
+
+        $('#menuCustomer dl').on('mouseleave', function () {
+            $(this).children('dt').css({ 'border-left': '1px solid #000', 'border-right': '1px solid #000', 'border-top': '1px solid #000' });
+            $(this).children('dd').hide();
+        });
+    } else {
+        $('#menuCustomer').addClass('disabled');
+    }
+
+    if (userType == 1) {
+        $('#menuTask').addClass('disabled').children().removeAttr('href');
+        $('#menuOrderCreate').addClass('disabled').children().removeAttr('href');
+    }
 }
 
 var getQueryStringByName = function (name) {
