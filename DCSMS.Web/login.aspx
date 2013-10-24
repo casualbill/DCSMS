@@ -26,25 +26,33 @@
 </head>
 <body>
     <form id="form1" runat="server">
-    <div id="main">
-        <table cellpadding="0" cellspacing="0" class="login-table">
-            <tr>
-                <td width="40%" class="login-item-text">用户名：</td>
-                <td width="60%"><asp:TextBox ID="tb_username" runat="server" MaxLength="32"></asp:TextBox></td>
-            </tr>
-            <tr>
-                <td class="login-item-text">密码：</td>
-                <td><asp:TextBox ID="tb_password" runat="server" TextMode="Password" MaxLength="32"></asp:TextBox></td>
-            </tr>
-            <tr>
-                <td class="login-item-text"></td>
-                <td><asp:Button ID="btn_submit" OnClientClick="return btn_submit_client_click();" OnClick="btn_submit_Click" runat="server" Text="登录" /></td>
-            </tr>
-            <tr>
-                <td class="login-item-text"></td>
-                <td><asp:Label ID="lb_loginfo" runat="server" Text=""></asp:Label></td>
-            </tr>
-        </table>
+    <div id="page">
+        <div id="wrapper">
+            <div id="main">
+                <div class="main-title">
+                    <img src="/images/img_logo_big.png" />
+                </div>
+
+                <table cellpadding="0" cellspacing="0" class="login-table">
+                    <tr>
+                        <td width="40%" class="login-item-text">用户名：</td>
+                        <td width="60%"><asp:TextBox ID="tb_username" runat="server" MaxLength="32"></asp:TextBox></td>
+                    </tr>
+                    <tr>
+                        <td class="login-item-text">密码：</td>
+                        <td><asp:TextBox ID="tb_password" runat="server" TextMode="Password" MaxLength="32"></asp:TextBox></td>
+                    </tr>
+                    <tr>
+                        <td class="login-item-text"></td>
+                        <td><asp:Button ID="btn_submit" OnClientClick="return btn_submit_client_click();" OnClick="btn_submit_Click" runat="server" Text="登录" /></td>
+                    </tr>
+                    <tr>
+                        <td class="login-item-text"></td>
+                        <td><asp:Label ID="lb_loginfo" runat="server" Text=""></asp:Label></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
     </div>
     </form>
 </body>
