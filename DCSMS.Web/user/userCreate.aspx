@@ -2,7 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <script type="text/javascript">
         function btn_submit_client_click() {
-            if (!textValidate($('#ctl00_MainContentPlaceHolder_tb_username')), 4) {
+            if (!textValidate($('#ctl00_MainContentPlaceHolder_tb_username'), 4)) {
                 $('.content-tips').html('用户名必须不少于4个字符！');
                 return false;
             }
