@@ -94,14 +94,14 @@ namespace DCSMS.Web.order
             int stationId;
             int technicianId;
 
-            if (Session["userid"] == null)
+            if (Session["userId"] == null)
             {
                 Response.Write("<script type=\"text/javascript\">alert (\"登录已超时，请重新登录！\");</script>");
                 return;
             }
             else
             {
-                createUserId = Convert.ToInt16(Session["userid"]);
+                createUserId = Convert.ToInt16(Session["userId"]);
             }
 
             if (rbl_customer.SelectedValue == "0" && hf_customerid.Value == "0")

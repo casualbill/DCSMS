@@ -33,14 +33,14 @@ namespace DCSMS.Web.order
             int customerId = Convert.ToInt16(hf_customerid.Value);
             int technicianId = Convert.ToInt16(hf_technicianid.Value);
 
-            if (Session["userid"] == null)
+            if (Session["userId"] == null)
             {
                 Response.Write("<script type=\"text/javascript\">alert (\"登录已超时，请重新登录！\");</script>");
                 return;
             }
             else
             {
-                operateUserId = Convert.ToInt16(Session["userid"]);
+                operateUserId = Convert.ToInt16(Session["userId"]);
             }
 
             if (customerId == 0)
@@ -132,7 +132,7 @@ namespace DCSMS.Web.order
                     {
                         cb_manageorder.Enabled = false;
                     }
-                    if (adminId.ToString() == Session["userid"].ToString())
+                    if (adminId.ToString() == Session["userId"].ToString())
                     {
                         cb_manageorder.Checked = true;
                     }

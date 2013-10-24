@@ -9,7 +9,7 @@ namespace DCSMS.Web
     {
         public permissionVerify(int allowUserType)
         {
-            if (Session["userid"] == null)
+            if (Session["userId"] == null)
             {
                 System.Web.HttpContext.Current.Response.Write("<script type=\"text/javascript\">alert (\"登录已超时，请重新登录！\"); window.location.href=\"/login.aspx\";</script>");
                 return;
