@@ -16,8 +16,8 @@ namespace DCSMS.Web
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            int userId = 13;    //测试用，记得用Session代替！！！！！！！！
-            int userType = 3;
+            int userId = Convert.ToInt16(Session["userId"]);
+            int userType = Convert.ToInt16(Session["userType"]);
 
             DataTable dt = orderLogic.orderQueryByTask(userId, userType);
 

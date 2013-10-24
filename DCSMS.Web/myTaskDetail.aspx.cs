@@ -24,8 +24,6 @@ namespace DCSMS.Web
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            Session["userId"] = 13; //测试测试！！！！！！！！！！！！！！！
-            Session["userType"] = 3;
 
             userId = Convert.ToInt16(Session["userId"]);
             userType = Convert.ToInt16(Session["userType"]);

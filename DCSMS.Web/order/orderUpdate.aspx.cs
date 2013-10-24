@@ -16,8 +16,7 @@ namespace DCSMS.Web.order
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            Session["userId"] = "13";   //测试用，记得删除！！！！！！！！！！！！！
-            Session["userType"] = "3";
+            
 
             if (!IsPostBack)
             {
