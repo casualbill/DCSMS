@@ -7,11 +7,11 @@ namespace DCSMS.Web
 {
     public class permissionVerify : System.Web.UI.Page
     {
-        public void permissionVerify(int allowUserType)
+        public permissionVerify(int allowUserType)
         {
             if (Session["userid"] == null)
             {
-                Response.Write("<script type=\"text/javascript\">alert (\"登录已超时，请重新登录！\"); window.location.href=\"/login.aspx\";</script>");
+                System.Web.HttpContext.Current.Response.Write("<script type=\"text/javascript\">alert (\"登录已超时，请重新登录！\"); window.location.href=\"/login.aspx\";</script>");
                 return;
             }
 
@@ -19,7 +19,7 @@ namespace DCSMS.Web
 
             if (userType < allowUserType)
             {
-                Response.Redirect("/error.aspx");
+                System.Web.HttpContext.Current.Response.Redirect("/error.html");
             }
         }
     }
