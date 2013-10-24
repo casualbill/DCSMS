@@ -24,6 +24,7 @@ namespace DCSMS.Web
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            permissionVerify pv = new permissionVerify(2);
 
             userId = Convert.ToInt16(Session["userId"]);
             userType = Convert.ToInt16(Session["userType"]);
