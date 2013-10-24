@@ -16,7 +16,7 @@ namespace DCSMS.Web.order
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+            permissionVerify pv = new permissionVerify(3);
 
             if (!IsPostBack)
             {

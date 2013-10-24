@@ -85,6 +85,11 @@ namespace DCSMS.Web.order
                     }
 
                     lb_stationname.Text = ds.Tables[4].Rows[0]["StationName"].ToString();
+
+                    if (Convert.ToInt16(Session["userType"]) < 3)
+                    {
+                        btn_update.Enabled = false;
+                    }
                 }
                 else
                 {
