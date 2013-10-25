@@ -50,6 +50,11 @@ namespace DCSMS.BLL
                 return -3;
             }
 
+            if (orderDb.orderLogCreate(orderId, createUserId, 0, orderStatus) != 1)
+            {
+                return -4;
+            }
+
             return 1;
         }
 
