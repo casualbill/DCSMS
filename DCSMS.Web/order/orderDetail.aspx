@@ -45,28 +45,28 @@
             <li class="margin-bottom"><label>备注：</label><asp:Label ID="lb_product_remark" runat="server"></asp:Label></li>
         </ul>
             
-            <asp:Panel ID="pn_table" runat="server" Visible="false">
-                <table>
-                    <tr>
-                        <th>备件名称</th>
-                        <th>订货号</th>
-                        <th>数量</th>
-                        <th>备注</th>
-                    </tr>
-                <asp:Repeater ID="rpt_sparepart" runat="server">
-                    <ItemTemplate>
+        <asp:Panel ID="pn_table" runat="server" Visible="false">
+            <table>
+                <tr>
+                    <th>备件名称</th>
+                    <th>订货号</th>
+                    <th>数量</th>
+                    <th>备注</th>
+                </tr>
+            <asp:Repeater ID="rpt_sparepart" runat="server">
+                <ItemTemplate>
 
-                        <tr>
-                            <td><%# Eval("SparePartName")%></td>
-                            <td><%# Eval("OrderingNumber")%></td>
-                            <td><%# Eval("Amount")%></td>
-                            <td><%# Eval("Remark")%></td>
-                        </tr>
+                    <tr>
+                        <td><%# Eval("SparePartName")%></td>
+                        <td><%# Eval("OrderingNumber")%></td>
+                        <td><%# Eval("Amount")%></td>
+                        <td><%# Eval("Remark")%></td>
+                    </tr>
             
-                    </ItemTemplate>
-                </asp:Repeater>
-                </table>
-            </asp:Panel>
+                </ItemTemplate>
+            </asp:Repeater>
+            </table>
+        </asp:Panel>
 
         <ul>
             <li><label>维修站：</label><asp:Label ID="lb_stationname" runat="server"></asp:Label></li>

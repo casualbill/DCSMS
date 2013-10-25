@@ -47,7 +47,6 @@
     <Compile Include="OrderLogic.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StationLogic.cs" />
-    <Compile Include="TestLogic.cs" />
     <Compile Include="UserLogic.cs" />
     <Compile Include="Utility.cs" />
   </ItemGroup>

@@ -15,8 +15,7 @@ namespace DCSMS.BLL
         }
 
         //加密密码 （MD5 Hash32位截取16）
-        //test删除后改为private！！！！！！
-        public String getMD5HashCode(String sourceStr)
+        protected String getMD5HashCode(String sourceStr)
         {
             return FormsAuthentication.HashPasswordForStoringInConfigFile(sourceStr, "MD5").ToLower().Substring(8, 16);
         }

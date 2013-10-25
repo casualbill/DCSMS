@@ -136,11 +136,6 @@ namespace DCSMS.Web
                     lb_product_firmware.Text = ds.Tables[2].Rows[0]["FirmwareVersion"].ToString();
                     lb_product_remark.Text = ds.Tables[2].Rows[0]["Remark"].ToString();
 
-                    //lb_sparepartname.Text = ds.Tables[3].Rows[0]["SparePartName"].ToString();
-                    //lb_sparepart_orderingnumber.Text = ds.Tables[3].Rows[0]["OrderingNumber"].ToString();
-                    //lb_sparepart_amount.Text = ds.Tables[3].Rows[0]["Amount"].ToString();
-                    //lb_sparepart_remark.Text = ds.Tables[3].Rows[0]["Remark"].ToString();
-
                     if (userType < 3) {
                         cb_manageorder.Visible = false;
                         cb_manageorder.Enabled = false;
