@@ -274,7 +274,7 @@ namespace DCSMS.DAL
         {
             String sqlCommand = "select orderlog.Id as Id, OrderId, UserId, UserName, FormerStatus, NewStatus, OperateTime from orderlog " +
             "inner join userinfo on orderlog.UserId = userinfo.Id " +
-            "where OrderId = @OrderId";
+            "where OrderId = @OrderId order by OperateTime";
             MySqlParameter param = new MySqlParameter("@OrderId", orderId);
             return executeSqlCommandDataSet(sqlCommand, param);
         }
