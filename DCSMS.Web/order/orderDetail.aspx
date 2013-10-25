@@ -72,6 +72,7 @@
             <li><label>维修站：</label><asp:Label ID="lb_stationname" runat="server"></asp:Label></li>
 
             <li><label></label><asp:Button ID="btn_update" runat="server" Text="修改该工单" OnClick="btn_update_Click" /></li>
+            <li><label></label><asp:Button ID="btn_orderlog" runat="server" Text="查看工单操作记录" OnClick="btn_orderlog_Click" /></li>
         </ul></div>
     </div>
 </asp:Content>

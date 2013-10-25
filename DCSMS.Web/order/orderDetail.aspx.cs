@@ -28,6 +28,11 @@ namespace DCSMS.Web.order
             Response.Redirect("orderUpdate.aspx?id=" + lb_orderid.Text);
         }
 
+        protected void btn_orderlog_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("orderLog.aspx?id=" + lb_orderid.Text);
+        }
+
         protected void getOrderDetails()
         {
             if (urlQueryId == null)
@@ -89,6 +94,7 @@ namespace DCSMS.Web.order
                     if (Convert.ToInt16(Session["userType"]) < 3)
                     {
                         btn_update.Enabled = false;
+                        btn_orderlog.Visible = false;
                     }
                 }
                 else
