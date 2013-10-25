@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using DCSMS.DAL;
 using System.Data;
+using DCSMS.DAL;
 
 namespace DCSMS.BLL
 {

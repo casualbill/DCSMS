@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using DCSMS.BLL;
+﻿using System.Data;
 using System.Web.UI.WebControls;
-using System.Data;
+using DCSMS.BLL;
 
 namespace DCSMS.Web
 {

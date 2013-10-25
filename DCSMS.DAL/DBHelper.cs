@@ -1,8 +1,8 @@
-﻿using MySql.Data.MySqlClient;
+﻿using System;
+using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
-using System;
-using System.Collections.Generic;
+using MySql.Data.MySqlClient;
 
 namespace DCSMS.DAL
 {
