@@ -272,7 +272,9 @@ namespace DCSMS.DAL
 
         public DataSet orderLogQuery(String orderId)
         {
-            String sqlCommand = "select * from orderlog where OrderId = @OrderId";
+            String sqlCommand = "select orderlog.Id as Id, OrderId, UserId, UserName, FormerStatus, NewStatus, OperateTime from orderlog " +
+            "inner join userinfo on orderlog.UserId = userinfo.Id " +
+            "where OrderId = @OrderId";
             MySqlParameter param = new MySqlParameter("@OrderId", orderId);
             return executeSqlCommandDataSet(sqlCommand, param);
         }

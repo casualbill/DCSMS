@@ -420,6 +420,54 @@ namespace DCSMS.BLL
             return imageDb.imageDelete(id);
         }
 
+        //工单操作记录查询
+        public DataTable orderLogQuery(String orderId)
+        {
+            DataTable dt = orderDb.orderLogQuery(orderId).Tables[0];
+            if (dt.Rows.Count > 0)
+            {
+                dt.Columns.Add("FormerStatusStr", Type.GetType("System.String"));
+                dt.Columns.Add("NewStatusStr", Type.GetType("System.String"));
+
+                int index = 0;
+                foreach (DataRow dr in dt.Rows)
+                {
+                    switch (dr["FormerStatus"].ToString())
+                    {
+                        case "1": dt.Rows[index]["FormerStatusStr"] = "等待客户审核"; break;
+                        case "2": dt.Rows[index]["FormerStatusStr"] = "等待检查"; break;
+                        case "3": dt.Rows[index]["FormerStatusStr"] = "等待报价"; break;
+                        case "4": dt.Rows[index]["FormerStatusStr"] = "等待客户确认"; break;
+                        case "5": dt.Rows[index]["FormerStatusStr"] = "等待备件到齐"; break;
+                        case "6": dt.Rows[index]["FormerStatusStr"] = "等待维修"; break;
+                        case "7": dt.Rows[index]["FormerStatusStr"] = "等待发货"; break;
+                        case "8": dt.Rows[index]["FormerStatusStr"] = "完成"; break;
+                    }
+
+                    switch (dr["NewStatus"].ToString())
+                    {
+                        case "1": dt.Rows[index]["NewStatusStr"] = "等待客户审核"; break;
+                        case "2": dt.Rows[index]["NewStatusStr"] = "等待检查"; break;
+                        case "3": dt.Rows[index]["NewStatusStr"] = "等待报价"; break;
+                        case "4": dt.Rows[index]["NewStatusStr"] = "等待客户确认"; break;
+                        case "5": dt.Rows[index]["NewStatusStr"] = "等待备件到齐"; break;
+                        case "6": dt.Rows[index]["NewStatusStr"] = "等待维修"; break;
+                        case "7": dt.Rows[index]["NewStatusStr"] = "等待发货"; break;
+                        case "8": dt.Rows[index]["NewStatusStr"] = "完成"; break;
+                    }
+
+                    index++;
+                }
+
+                return dt;
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+
         //为工单表加入工作类型文字说明
         protected DataTable addWorkTypeText(DataTable orderTable)
         {
