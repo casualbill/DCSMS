@@ -7,27 +7,24 @@
     </div>
 
     <div class="main-content">
-        <asp:Label ID="lb_tips" runat="server" CssClass="content-tips" Visible="false"></asp:Label>
-        <asp:Panel ID="pn_table" runat="server" Visible="false">
-            <table>
+        <table>
+            <tr>
+                <th>操作人</th>
+                <th>操作前状态</th>
+                <th>操作后状态</th>
+                <th>操作时间</th>
+            </tr>
+        <asp:Repeater ID="rpt_orderlog" runat="server">
+            <ItemTemplate>
                 <tr>
-                    <th>操作人</th>
-                    <th>操作前状态</th>
-                    <th>操作后状态</th>
-                    <th>操作时间</th>
+                    <td><%# Eval("UserName")%></td>
+                    <td><%# Eval("FormerStatusStr")%></td>
+                    <td><%# Eval("NewStatusStr")%></td>
+                    <td><%# Eval("OperateTime")%></td>
                 </tr>
-            <asp:Repeater ID="rpt_orderlog" runat="server">
-                <ItemTemplate>
-                    <tr>
-                        <td><%# Eval("UserName")%></td>
-                        <td><%# Eval("FormerStatusStr")%></td>
-                        <td><%# Eval("NewStatusStr")%></td>
-                        <td><%# Eval("OperateTime")%></td>
-                    </tr>
             
-                </ItemTemplate>
-            </asp:Repeater>
-            </table>
-        </asp:Panel>
+            </ItemTemplate>
+        </asp:Repeater>
+        </table>
     </div>
 </asp:Content>

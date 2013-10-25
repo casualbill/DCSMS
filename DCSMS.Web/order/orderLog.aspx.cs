@@ -37,14 +37,10 @@ namespace DCSMS.Web.order
                 {
                     rpt_orderlog.DataSource = dt;
                     rpt_orderlog.DataBind();
-                    lb_tips.Visible = false;
-                    pn_table.Visible = true;
                 }
                 else
                 {
-                    pn_table.Visible = false;
-                    lb_tips.Text = "没有工单操作记录！";
-                    lb_tips.Visible = true;
+                    Response.Write("<script type=\"text/javascript\">alert (\"该工单不存在！\"); window.location.href=\"orderQuery.aspx\";</script>");
                 }
             }
         }
