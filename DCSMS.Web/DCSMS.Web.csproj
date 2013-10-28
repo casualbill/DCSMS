@@ -60,7 +60,6 @@
     <Content Include="images\img_logo_big.png" />
     <Content Include="index.aspx" />
     <Content Include="js\common.js" />
-    <Content Include="js\jquery-1.10.2.js" />
     <Content Include="js\jquery-1.10.2.min.js" />
     <Content Include="js\order.js" />
     <Content Include="js\uploadify\Change Log.txt" />
@@ -247,7 +246,6 @@
     <Content Include="uploadHandler.ashx" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="js\jquery-1.10.2.min.map" />
     <None Include="js\uploadify\check-exists.php" />
     <None Include="js\uploadify\index.php" />
     <None Include="js\uploadify\uploadify.php" />
