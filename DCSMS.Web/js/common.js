@@ -33,6 +33,23 @@
     }
 }
 
+var addToFavorite = function (url, title) {
+    var ua = navigator.userAgent.toLowerCase();
+    if (ua.indexOf("msie 8") > -1) {
+        external.AddToFavoritesBar(url, title, "");
+    } else {
+        try {
+            window.external.addFavorite(url, title);
+        } catch (e) {
+            try {
+                window.sidebar.addPanel(title, url, "");
+            } catch (e) {
+                alert("您的浏览器不支持自动添加至收藏夹，请使用\"Ctrl+D\"进行手动添加！");
+            }
+        }
+    }
+}
+
 var getQueryStringByName = function (name) {
     var result = location.search.match(new RegExp("[\?\&]" + name + "=([^\&]+)", "i"));
     if (result == null || result.length < 1) {
