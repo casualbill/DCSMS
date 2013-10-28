@@ -48,6 +48,7 @@
     <Content Include="customer\customerUpdate.aspx" />
     <Content Include="customer\customerVerify.aspx" />
     <Content Include="error.html" />
+    <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="images\bg_main_bottom.png" />
     <Content Include="images\bg_main_middle.png" />
