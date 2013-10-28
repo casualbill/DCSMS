@@ -55,7 +55,7 @@
     <Content Include="images\bg_main_top.png" />
     <Content Include="images\ico_remove_hover.png" />
     <Content Include="images\ico_remove.png" />
-    <Content Include="images\img_error.jpg" />
+    <Content Include="images\img_error.png" />
     <Content Include="images\img_logo.png" />
     <Content Include="images\img_logo_big.png" />
     <Content Include="index.aspx" />
