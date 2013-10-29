@@ -15,9 +15,10 @@ namespace DCSMS.Web.order
         {
             permissionVerify pv = new permissionVerify(3);
 
+            urlQueryId = Request.QueryString["id"];
+
             if (!IsPostBack)
             {
-                urlQueryId = Request.QueryString["id"];
                 getOrderDetails();
             }
         }
@@ -86,7 +87,7 @@ namespace DCSMS.Web.order
             }
             else
             {
-                Response.Write("<script type=\"text/javascript\">alert (\"工单修改成功！\");</script>");
+                Response.Write("<script type=\"text/javascript\">alert (\"工单修改成功！\"); window.location.href=\"orderDetail.aspx?id=" + urlQueryId + "\";</script>");
             }
         }
 
