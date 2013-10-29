@@ -39,7 +39,7 @@ namespace DCSMS.Web.order
             {
                 //tabel 0为工单 1客户 2工具 3备件 4维修站 5工单记录 6跟单技术员 7创建人 8管理者
                 DataSet ds = orderLogic.orderQueryByOrderId(urlQueryId);
-                if (ds.Tables.Count > 0)
+                if (ds != null && ds.Tables.Count > 0)
                 {
                     lb_orderid.Text = ds.Tables[0].Rows[0]["Id"].ToString();
                     lb_failure_description.Text = ds.Tables[0].Rows[0]["FailureDescription"].ToString();
@@ -82,7 +82,8 @@ namespace DCSMS.Web.order
                         rpt_sparepart.DataBind();
                         pn_table.Visible = true;
                     }
-                    else {
+                    else
+                    {
                         pn_table.Visible = false;
                     }
 
