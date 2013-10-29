@@ -53,6 +53,7 @@
     <Content Include="images\bg_main_bottom.png" />
     <Content Include="images\bg_main_middle.png" />
     <Content Include="images\bg_main_top.png" />
+    <Content Include="images\bg_progressbar.png" />
     <Content Include="images\ico_remove_hover.png" />
     <Content Include="images\ico_remove.png" />
     <Content Include="images\img_error.png" />

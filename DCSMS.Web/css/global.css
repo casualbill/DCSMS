@@ -115,6 +115,10 @@ body {_zoom:expression(function(x){document.execCommand('BackgroundImageCache', 
 #main .main-content .pagination-wrapper { float:right;}
 #main .main-content .pagination-wrapper span, #main .main-content .pagination-wrapper a { margin-right: 5px;}
 #main .main-content .pagination-wrapper input[type=text] { width:20px; margin:0 5px;}
+#main .main-content .order-progress-bar { margin-bottom:30px;}
+#main .main-content .order-progress-bar li { float:left; height:27px; margin:0; padding:3px 10px 0 10px; border-right:4px solid #FFF; background-color:#EEE; font-size:16px;}
+#main .main-content .order-progress-bar li.finished { border-left:4px solid #FFF; border-right:0; background-color:#000; color:#FFF;}
+#main .main-content .order-progress-bar li.current-progress { width:5px; border:0; background:url(../images/bg_progressbar.png) no-repeat;}
 
 #main .login-table { width:750px; margin:0 auto; color:#666;}
 #main .login-table tr { height:45px;}

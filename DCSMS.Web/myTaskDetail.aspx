@@ -15,6 +15,18 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContentPlaceHolder" runat="server">
     <div class="main-content">
+        <div class="order-progress-bar clearfix"><ul>
+            <li class="finished">等待客户审核</li>
+            <li class="finished">等待工单检查</li>
+            <li class="current-progress"></li>
+            <li>等待报价</li>
+            <li>等待客户确认</li>
+            <li>等待备件到齐</li>
+            <li>等待维修</li>
+            <li>等待发货</li>
+            <li>工单完成</li>
+        </ul></div>
+
         <div class="content-list"><ul>
             <asp:HiddenField ID="hf_usertype" runat="server" />
             <li><label>工单号：</label><asp:Label ID="lb_orderid" title="orderId" runat="server"></asp:Label></li>
