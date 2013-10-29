@@ -10,7 +10,7 @@
             $(this).children('dd').hide();
         });
     } else {
-        $('#menuUser').addClass('disabled');
+        $('#menuUser').hide();
     }
 
     if (userType >= 3) {
@@ -24,12 +24,12 @@
             $(this).children('dd').hide();
         });
     } else {
-        $('#menuCustomer').addClass('disabled');
+        $('#menuCustomer').hide();
     }
 
     if (userType == 1) {
-        $('#menuTask').addClass('disabled').children().removeAttr('href');
-        $('#menuOrderCreate').addClass('disabled').children().removeAttr('href');
+        $('#menuTask').hide();
+        $('#menuOrderCreate').hide();
     }
 }
 
