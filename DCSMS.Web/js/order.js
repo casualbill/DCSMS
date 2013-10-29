@@ -181,3 +181,14 @@ var imageHandler = function (isControllable) {
         });
     }
 }
+
+var orderProgressBar = function (orderStatus) {
+    var progressBar = $('.order-progress-bar').children();
+    for (var i = 0; i < orderStatus; i++) {
+        progressBar.children().eq(i).addClass('finished');
+    }
+
+    if (orderStatus < 8 && orderStatus > 0) {
+        progressBar.children().eq(orderStatus - 1).after('<li class="current-progress"></li>');
+    }
+}

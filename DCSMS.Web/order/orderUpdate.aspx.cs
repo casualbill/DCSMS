@@ -9,6 +9,7 @@ namespace DCSMS.Web.order
     {
         OrderLogic orderLogic = new OrderLogic();
         protected String urlQueryId;
+        protected int orderStatus;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -107,6 +108,7 @@ namespace DCSMS.Web.order
                     tb_failure_description.Text = ds.Tables[0].Rows[0]["FailureDescription"].ToString();
                     tb_remark.Text = ds.Tables[0].Rows[0]["Remark"].ToString();
 
+                    orderStatus = Convert.ToInt16(ds.Tables[0].Rows[0]["OrderStatus"]);
                     hd_formerstatus.Value = ds.Tables[0].Rows[0]["OrderStatus"].ToString();
                     if (hd_formerstatus.Value == "8")
                     {

@@ -4,6 +4,7 @@
     <script type="text/javascript">
         $(function () {
             imageHandler();
+            orderProgressBar(<% =orderStatus %>);
         });
     </script>
 </asp:Content>
@@ -13,6 +14,17 @@
     </div>
 
     <div class="main-content">
+        <div class="order-progress-bar clearfix"><ul>
+            <li>等待客户审核</li>
+            <li>等待工单检查</li>
+            <li>等待报价</li>
+            <li>等待客户确认</li>
+            <li>等待备件到齐</li>
+            <li>等待维修</li>
+            <li>等待发货</li>
+            <li>工单完成</li>
+        </ul></div>
+
         <div class="content-list"><ul>
             <li><label>工作类型：</label><asp:Label ID="lb_worktype" runat="server"></asp:Label></li>
             <li><label>故障描述：</label><asp:Label ID="lb_failure_description" runat="server"></asp:Label></li>

@@ -8,6 +8,7 @@ namespace DCSMS.Web.order
     {
         OrderLogic orderLogic = new OrderLogic();
         protected String urlQueryId;
+        protected int orderStatus;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -47,6 +48,7 @@ namespace DCSMS.Web.order
                     lb_createtime.Text = ds.Tables[0].Rows[0]["CreateTime"].ToString();
                     lb_updatetime.Text = ds.Tables[0].Rows[0]["UpdateTime"].ToString();
                     lb_orderstatus.Text = ds.Tables[0].Rows[0]["OrderStatusStr"].ToString();
+                    orderStatus = Convert.ToInt16(ds.Tables[0].Rows[0]["OrderStatus"]);
 
                     lb_technician.Text = ds.Tables[6].Rows[0]["UserName"].ToString();
                     lb_createuser.Text = ds.Tables[7].Rows[0]["UserName"].ToString();

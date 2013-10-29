@@ -7,6 +7,7 @@
         $(function () {
             sparePartHandler();
             imageHandler(true);
+            orderProgressBar(<% =orderStatus %>);
 
             userAjaxSelector($('[title="technicianSelector"]'), true);
             customerAjaxSelector($('[title="customerSelector"]'), true);
@@ -50,6 +51,17 @@
     </div>
 
     <div class="main-content">
+        <div class="order-progress-bar clearfix"><ul>
+            <li>等待客户审核</li>
+            <li>等待工单检查</li>
+            <li>等待报价</li>
+            <li>等待客户确认</li>
+            <li>等待备件到齐</li>
+            <li>等待维修</li>
+            <li>等待发货</li>
+            <li>工单完成</li>
+        </ul></div>
+
         <div class="content-list"><ul>
 
             <li><label>工作类型：</label><asp:DropDownList ID="ddl_worktype" runat="server">
