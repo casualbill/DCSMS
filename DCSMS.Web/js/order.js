@@ -141,10 +141,10 @@ var imageHandler = function (isControllable) {
             $(this).children('.btn-remove').hide();
         });
 
-        imageContainer.delegate('dd', 'click', function () {
+        imageContainer.delegate('.btn-remove', 'click', function () {
             if (confirm('确定删除此照片？')) {
-                var self = $(this);
-                var id = self.attr('imageId');
+                var imageItem = $(this).parent();
+                var id = imageItem.attr('imageId');
                 $.ajax({
                     url: '/ajax.asmx/imageRemove',
                     data: '{orderId:"' + orderId + '", id:"' + id + '"}',
@@ -155,7 +155,7 @@ var imageHandler = function (isControllable) {
                         var result = JSON.parse(r.d);
 
                         if (result == 1) {
-                            self.remove();
+                            imageItem.remove();
                         } else { alert('系统错误'); }
                     }
                 });
