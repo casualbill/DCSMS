@@ -5,10 +5,8 @@
     <script type="text/javascript" src="/js/order.js"></script>
     <script type="text/javascript">
         $(function () {
-            if (parseInt($('#ctl00_MainContentPlaceHolder_hf_usertype').val()) == 2) {
-                sparePartHandler();
-                imageHandler(true);
-            }
+            sparePartHandler();
+            imageHandler(true);
 
             orderProgressBar(<% =formerStatus %>);
         });
