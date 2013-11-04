@@ -135,5 +135,19 @@ namespace DCSMS.BLL
                 return null;
             }
         }
+
+        //获取省份列表
+        public DataTable provinceListQuery()
+        {
+            RegionDB regionDb = new RegionDB();
+            return regionDb.provinceListQuery().Tables[0];
+        }
+
+        //获取城市列表
+        public DataTable cityListQuery(int provinceId)
+        {
+            RegionDB regionDb = new RegionDB();
+            return regionDb.cityListQuery(provinceId).Tables[0];
+        }
     }
 }

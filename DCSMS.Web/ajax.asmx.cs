@@ -191,5 +191,51 @@ namespace DCSMS.Web
 
             return orderLogic.imageRemove(id);
         }
+
+        [WebMethod]
+        //省份列表
+        public String provinceList()
+        {
+            CustomerLogic customerLogic = new CustomerLogic();
+
+            DataTable dt = customerLogic.provinceListQuery();
+            String str = "[";
+            if (dt != null)
+            {
+                foreach (DataRow dr in dt.Rows)
+                {
+                    str += "{";
+                    str += "\"id\":" + dr["Id"] + ",";
+                    str += "\"province\":\"" + dr["Province"] + "\"";
+                    str += "},";
+                }
+                str = str.Substring(0, str.Length - 1);
+            }
+            str += "]";
+            return str;
+        }
+
+        [WebMethod]
+        //城市列表
+        public String cityList(int provinceId)
+        {
+            CustomerLogic customerLogic = new CustomerLogic();
+
+            DataTable dt = customerLogic.cityListQuery(provinceId);
+            String str = "[";
+            if (dt != null)
+            {
+                foreach (DataRow dr in dt.Rows)
+                {
+                    str += "{";
+                    str += "\"id\":" + dr["Id"] + ",";
+                    str += "\"userName\":\"" + dr["City"] + "\"";
+                    str += "},";
+                }
+                str = str.Substring(0, str.Length - 1);
+            }
+            str += "]";
+            return str;
+        }
     }
 }
