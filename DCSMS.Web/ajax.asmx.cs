@@ -17,6 +17,7 @@ namespace DCSMS.Web
     public class ajax : System.Web.Services.WebService
     {
         [WebMethod]
+        //用户查询匹配
         public String userQuery(String queryStr, Boolean isTechnician)
         {
             UserLogic userLogic = new UserLogic();
@@ -42,6 +43,7 @@ namespace DCSMS.Web
         }
 
         [WebMethod]
+        //客户查询匹配
         public String customerQuery(String queryStr, Boolean isOnlyId)
         {
             CustomerLogic customerLogic = new CustomerLogic();
@@ -86,6 +88,7 @@ namespace DCSMS.Web
         }
 
         [WebMethod(EnableSession = true)]
+        //客户验证
         public int customerVerify(int id)
         {
             CustomerLogic customerLogic = new CustomerLogic();
@@ -95,6 +98,7 @@ namespace DCSMS.Web
         }
 
         [WebMethod]
+        //备件查询
         public String spraePartQuery(String orderId)
         {
             OrderLogic orderLogic = new OrderLogic();
@@ -119,6 +123,7 @@ namespace DCSMS.Web
         }
 
         [WebMethod(EnableSession = true)]
+        //备件添加
         public int sparePartAdd(String sparePartName, String orderingNumber, int amount, String remark, String orderId)
         {
             OrderLogic orderLogic = new OrderLogic();
@@ -129,6 +134,7 @@ namespace DCSMS.Web
         }
 
         [WebMethod(EnableSession = true)]
+        //备件更改
         public int sparePartUpdate(String sparePartName, String orderingNumber, int amount, String remark, String orderId, int id)
         {
             OrderLogic orderLogic = new OrderLogic();
@@ -139,6 +145,7 @@ namespace DCSMS.Web
         }
 
         [WebMethod(EnableSession = true)]
+        //备件删除
         public int sparePartRemove(String orderId, int id)
         {
             OrderLogic orderLogic = new OrderLogic();
@@ -149,6 +156,7 @@ namespace DCSMS.Web
         }
 
         [WebMethod]
+        //图片显示
         public String imageShow(String orderId)
         {
             OrderLogic orderLogic = new OrderLogic();
@@ -170,6 +178,7 @@ namespace DCSMS.Web
         }
 
         [WebMethod(EnableSession = true)]
+        //图片删除
         public int imageRemove(String orderId, int id)
         {
             OrderLogic orderLogic = new OrderLogic();
