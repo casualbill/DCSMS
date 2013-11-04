@@ -88,6 +88,7 @@ namespace DCSMS.Web.order
             int createUserId;
             int stationId;
             int technicianId;
+            Boolean isPublic;
 
             if (Session["userId"] == null)
             {
@@ -177,7 +178,16 @@ namespace DCSMS.Web.order
             productInfo.Add(tb_firmwareversion.Text.Trim());
             productInfo.Add(tb_product_remark.Text.Trim());
 
-            if (orderLogic.createOrder(tb_remark.Text.Trim(), workType, customerInfo, customerId, productInfo, createUserId, technicianId, stationId) != 1)
+            if (rbl_ispublic.SelectedValue == "0")
+            {
+                isPublic = false;
+            }
+            else
+            {
+                isPublic = true;
+            }
+
+            if (orderLogic.createOrder(tb_remark.Text.Trim(), workType, isPublic, customerInfo, customerId, productInfo, createUserId, technicianId, stationId) != 1)
             {
                 Response.Write("<script type=\"text/javascript\">alert (\"系统错误！\");</script>");
             }

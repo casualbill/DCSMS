@@ -10,7 +10,7 @@ namespace DCSMS.BLL
         protected OrderDB orderDb = new OrderDB();
 
         //新建工单
-        public int createOrder(String remark, int workType, List<String> customerInfo, int customerId, List<String> productInfo, int createUserId, int technicianId, int stationId)
+        public int createOrder(String remark, int workType, Boolean isPublic, List<String> customerInfo, int customerId, List<String> productInfo, int createUserId, int technicianId, int stationId)
         {
             int orderStatus = 2;
             ProductDB productDb = new ProductDB();
@@ -43,7 +43,7 @@ namespace DCSMS.BLL
                 return -2;
             }
 
-            if (orderDb.orderCreate(orderId, remark, workType, createUserId, technicianId, customerId, stationId, orderStatus) != 1)
+            if (orderDb.orderCreate(orderId, remark, workType, createUserId, technicianId, customerId, stationId, orderStatus, isPublic) != 1)
             {
                 return -3;
             }

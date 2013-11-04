@@ -125,6 +125,10 @@
             <asp:HiddenField ID="hf_technicianid" Value="0" runat="server" /></li>
 
             <li><label>备注：</label><asp:TextBox ID="tb_remark" runat="server" MaxLength="500" TextMode="MultiLine"></asp:TextBox></li>
+            <li><label>访客可见故障描述及备注：</label><asp:RadioButtonList ID="rbl_ispublic" runat="server" RepeatLayout="Flow" RepeatDirection="Horizontal" AutoPostBack="true" CssClass="radiobox">
+                <asp:ListItem Text="是" Value="1" Selected="True"></asp:ListItem>
+                <asp:ListItem Text="否" Value="0"></asp:ListItem>
+            </asp:RadioButtonList></li>
 
             <li><label></label><asp:Button ID="btn_submit" runat="server" Text="确定" OnClientClick="return btn_submit_client_click();" OnClick="btn_submit_Click" /></li>
         </ul></div>

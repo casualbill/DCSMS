@@ -7,9 +7,9 @@ namespace DCSMS.DAL
 {
     public class OrderDB : DBHelper
     {
-        public int orderCreate(String id, String remark, int workType, int createUserId, int technicianId, int customerId, int stationId, int orderStatus)
+        public int orderCreate(String id, String remark, int workType, int createUserId, int technicianId, int customerId, int stationId, int orderStatus, Boolean isPublic)
         {
-            String sqlCommand = "insert into orderinfo values (@Id, null, @Remark, @WorkType, now(), null, @CreateUserId, @TechnicianId, 0, @CustomerId, @StationId, @OrderStatus)";
+            String sqlCommand = "insert into orderinfo values (@Id, null, @Remark, @WorkType, now(), null, @CreateUserId, @TechnicianId, 0, @CustomerId, @StationId, @OrderStatus, @IsPublic)";
 
             List<MySqlParameter> paramList = new List<MySqlParameter>();
             paramList.Add(new MySqlParameter("@Id", id));
@@ -20,6 +20,7 @@ namespace DCSMS.DAL
             paramList.Add(new MySqlParameter("@CustomerId", customerId));
             paramList.Add(new MySqlParameter("@StationId", stationId));
             paramList.Add(new MySqlParameter("@OrderStatus", orderStatus));
+            paramList.Add(new MySqlParameter("@IsPublic", isPublic));
 
             return executeSqlCommandNoQuery(sqlCommand, paramList);
         }
