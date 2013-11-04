@@ -31,6 +31,15 @@ namespace DCSMS.Web.order {
         protected global::System.Web.UI.WebControls.Label lb_worktype;
         
         /// <summary>
+        /// li_failure_description 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl li_failure_description;
+        
+        /// <summary>
         /// lb_failure_description 控件。
         /// </summary>
         /// <remarks>
@@ -38,6 +47,15 @@ namespace DCSMS.Web.order {
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lb_failure_description;
+        
+        /// <summary>
+        /// li_order_remark 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl li_order_remark;
         
         /// <summary>
         /// lb_order_remark 控件。

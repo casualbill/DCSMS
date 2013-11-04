@@ -42,8 +42,20 @@ namespace DCSMS.Web.order
                 if (ds != null && ds.Tables.Count > 0)
                 {
                     lb_orderid.Text = ds.Tables[0].Rows[0]["Id"].ToString();
-                    lb_failure_description.Text = ds.Tables[0].Rows[0]["FailureDescription"].ToString();
-                    lb_order_remark.Text = ds.Tables[0].Rows[0]["Remark"].ToString();
+
+                    if (Convert.ToInt16(Session["userType"]) == 1 && ds.Tables[0].Rows[0]["IsPublic"].ToString() == "0")
+                    {
+                        lb_failure_description.Visible = false;
+                        lb_order_remark.Visible = false;
+                        li_failure_description.Visible = false;
+                        li_order_remark.Visible = false;
+                    }
+                    else
+                    {
+                        lb_failure_description.Text = ds.Tables[0].Rows[0]["FailureDescription"].ToString();
+                        lb_order_remark.Text = ds.Tables[0].Rows[0]["Remark"].ToString();
+                    }
+
                     lb_worktype.Text = ds.Tables[0].Rows[0]["WorkTypeStr"].ToString();
                     lb_createtime.Text = ds.Tables[0].Rows[0]["CreateTime"].ToString();
                     lb_updatetime.Text = ds.Tables[0].Rows[0]["UpdateTime"].ToString();
