@@ -53,34 +53,6 @@ namespace DCSMS.Web.order
             }
         }
 
-        protected void ddl_worktype_changed(object sender, EventArgs e)
-        {
-            String workType = ddl_worktype.SelectedValue;
-
-            if (workType == "0")
-            {
-                hf_worktype.Value = "0";
-            }
-            else
-            {
-                hf_worktype.Value = workType;
-            }
-        }
-
-        protected void ddl_station_changed(object sender, EventArgs e)
-        {
-            String stationId = ddl_station.SelectedValue;
-
-            if (stationId == "0")
-            {
-                hf_stationid.Value = "";
-            }
-            else
-            {
-                hf_stationid.Value = stationId;
-            }
-        }
-
         protected void btn_submit_Click(object sender, EventArgs e)
         {
             int workType;
@@ -120,24 +92,24 @@ namespace DCSMS.Web.order
 
             //前端验证tb_sparepart_amount为数字
 
-            if (hf_worktype.Value == "0")
+            if (ddl_worktype.SelectedValue == "0")
             {
                 Response.Write("<script type=\"text/javascript\">alert (\"请选择工作类型！\");</script>");
                 return;
             }
             else
             {
-                workType = Convert.ToInt16(hf_worktype.Value);
+                workType = Convert.ToInt16(ddl_worktype.SelectedValue);
             }
 
-            if (hf_stationid.Value == "")
+            if (ddl_station.SelectedValue == "0")
             {
                 Response.Write("<script type=\"text/javascript\">alert (\"请选择工作站！\");</script>");
                 return;
             }
             else
             {
-                stationId = Convert.ToInt16(hf_stationid.Value);
+                stationId = Convert.ToInt16(ddl_station.SelectedValue);
             }
 
             if (hf_technicianid.Value == "0")

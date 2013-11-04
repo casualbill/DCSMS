@@ -87,15 +87,13 @@
 
     <div class="main-content">
         <div class="content-list"><ul>
-            <li><label><em>*</em>工作类型：</label><asp:DropDownList ID="ddl_worktype" AutoPostBack="true" OnSelectedIndexChanged="ddl_worktype_changed" runat="server">
+            <li><label><em>*</em>工作类型：</label><asp:DropDownList ID="ddl_worktype" runat="server">
                 <asp:ListItem Text="请选择工作类型" Value="0"></asp:ListItem>
                 <asp:ListItem Text="质保" Value="1"></asp:ListItem>
                 <asp:ListItem Text="客户付费" Value="2"></asp:ListItem>
                 <asp:ListItem Text="Demo工具维修" Value="3"></asp:ListItem>
                 <asp:ListItem Text="项目维修" Value="4"></asp:ListItem>
-            </asp:DropDownList>
-            <asp:HiddenField ID="hf_worktype" Value="0" runat="server" /></li>
-            
+            </asp:DropDownList>            
 
             <li><label><em>*</em>客户：</label>
             <asp:RadioButtonList ID="rbl_customer" runat="server" RepeatLayout="Flow" RepeatDirection="Horizontal" AutoPostBack="true" OnSelectedIndexChanged="rbl_customer_change" CssClass="radiobox">
@@ -118,14 +116,13 @@
             <li><label>固件版本：</label><asp:TextBox ID="tb_firmwareversion" MaxLength="20" runat="server"></asp:TextBox></li>
             <li class="margin-bottom"><label>备注：</label><asp:TextBox ID="tb_product_remark" MaxLength="300" TextMode="MultiLine" runat="server"></asp:TextBox></li>
 
-            <li><label><em>*</em>工作站：</label><asp:DropDownList ID="ddl_station" AutoPostBack="true" OnSelectedIndexChanged="ddl_station_changed" runat="server"></asp:DropDownList>
-            <asp:HiddenField ID="hf_stationid" Value="" runat="server" /></li>
+            <li><label><em>*</em>工作站：</label><asp:DropDownList ID="ddl_station" runat="server"></asp:DropDownList>
 
             <li><label><em>*</em>跟单技术员：</label><asp:TextBox ID="tb_technician" runat="server" title="technicianSelector"></asp:TextBox>
             <asp:HiddenField ID="hf_technicianid" Value="0" runat="server" /></li>
 
             <li><label>备注：</label><asp:TextBox ID="tb_remark" runat="server" MaxLength="500" TextMode="MultiLine"></asp:TextBox></li>
-            <li><label>访客可见故障描述及备注：</label><asp:RadioButtonList ID="rbl_ispublic" runat="server" RepeatLayout="Flow" RepeatDirection="Horizontal" AutoPostBack="true" CssClass="radiobox">
+            <li><label>访客可见故障描述及备注：</label><asp:RadioButtonList ID="rbl_ispublic" runat="server" RepeatLayout="Flow" RepeatDirection="Horizontal" CssClass="radiobox">
                 <asp:ListItem Text="是" Value="1" Selected="True"></asp:ListItem>
                 <asp:ListItem Text="否" Value="0"></asp:ListItem>
             </asp:RadioButtonList></li>
