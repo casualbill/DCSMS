@@ -27,6 +27,7 @@ namespace DCSMS.Web.order
         protected void btn_submit_Click(object sender, EventArgs e)
         {
             int operateUserId;
+            Boolean isPublic;
 
             int customerId = Convert.ToInt16(hf_customerid.Value);
             int technicianId = Convert.ToInt16(hf_technicianid.Value);
@@ -81,7 +82,16 @@ namespace DCSMS.Web.order
             productInfo.Add(tb_product_firmware.Text.Trim());
             productInfo.Add(tb_product_remark.Text.Trim());
 
-            if (orderLogic.orderTotallyUpdate(lb_orderid.Text, productInfo, tb_failure_description.Text.Trim(), tb_remark.Text.Trim(), workType, technicianId, adminId, customerId, formerStatus, newStatus, operateUserId) != 1)
+            if (rbl_ispublic.SelectedValue == "0")
+            {
+                isPublic = false;
+            }
+            else
+            {
+                isPublic = true;
+            }
+
+            if (orderLogic.orderTotallyUpdate(lb_orderid.Text, productInfo, tb_failure_description.Text.Trim(), tb_remark.Text.Trim(), workType, technicianId, adminId, customerId, formerStatus, newStatus, isPublic, operateUserId) != 1)
             {
                 Response.Write("<script type=\"text/javascript\">alert (\"系统错误！\");</script>");
             }
@@ -119,6 +129,15 @@ namespace DCSMS.Web.order
 
                     ddl_worktype.Items.FindByValue(ds.Tables[0].Rows[0]["WorkType"].ToString()).Selected = true;
                     ddl_orderstatus.Items.FindByValue(ds.Tables[0].Rows[0]["OrderStatus"].ToString()).Selected = true;
+
+                    if (ds.Tables[0].Rows[0]["IsPublic"].ToString() == "1")
+                    {
+                        rbl_ispublic.SelectedValue = "1";
+                    }
+                    else
+                    {
+                        rbl_ispublic.SelectedValue = "0";
+                    }
 
                     tb_technician.Text = ds.Tables[6].Rows[0]["UserName"].ToString();
                     hf_technicianid.Value = ds.Tables[6].Rows[0]["Id"].ToString();

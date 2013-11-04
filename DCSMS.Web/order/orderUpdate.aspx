@@ -119,6 +119,11 @@
                 <asp:ListItem Text="完成" Value="8"></asp:ListItem>
             </asp:DropDownList></li>
 
+            <li><label>访客可见故障描述及备注：</label><asp:RadioButtonList ID="rbl_ispublic" runat="server" RepeatLayout="Flow" RepeatDirection="Horizontal" CssClass="radiobox">
+                <asp:ListItem Text="是" Value="1"></asp:ListItem>
+                <asp:ListItem Text="否" Value="0"></asp:ListItem>
+            </asp:RadioButtonList></li>
+
             <li><label></label><asp:CheckBox ID="cb_manageorder" runat="server" Text="由我管理这个工单" CssClass="checkbox" />
                 <asp:HiddenField ID="hf_adminid" runat="server" /></li>
 

@@ -25,9 +25,9 @@ namespace DCSMS.DAL
             return executeSqlCommandNoQuery(sqlCommand, paramList);
         }
 
-        public int orderTotallyUpdate(String id, String failureDescription, String remark, int workType, int technicianId, int adminId, int customerId, int orderStatus)
+        public int orderTotallyUpdate(String id, String failureDescription, String remark, int workType, int technicianId, int adminId, int customerId, int orderStatus, Boolean isPublic)
         {
-            String sqlCommand = "update orderinfo set FailureDescription = @FailureDescription, Remark = @Remark, WorkType = @WorkType, TechnicianId = @TechnicianId, AdminId = @AdminId, CustomerId = @CustomerId, OrderStatus = @OrderStatus, UpdateTime = now() where Id = @Id";
+            String sqlCommand = "update orderinfo set FailureDescription = @FailureDescription, Remark = @Remark, WorkType = @WorkType, TechnicianId = @TechnicianId, AdminId = @AdminId, CustomerId = @CustomerId, OrderStatus = @OrderStatus, IsPublic = @IsPublic, UpdateTime = now() where Id = @Id";
 
             List<MySqlParameter> paramList = new List<MySqlParameter>();
             paramList.Add(new MySqlParameter("@FailureDescription", failureDescription));
@@ -37,6 +37,7 @@ namespace DCSMS.DAL
             paramList.Add(new MySqlParameter("@AdminId", adminId));
             paramList.Add(new MySqlParameter("@CustomerId", customerId));
             paramList.Add(new MySqlParameter("@OrderStatus", orderStatus));
+            paramList.Add(new MySqlParameter("@IsPublic", isPublic));
             paramList.Add(new MySqlParameter("@Id", id));
 
             return executeSqlCommandNoQuery(sqlCommand, paramList);

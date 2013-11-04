@@ -68,7 +68,7 @@ namespace DCSMS.BLL
         //8 发货完成
 
         //工单完全修改（不包括备件）
-        public int orderTotallyUpdate(String id, List<String> productInfo, String failureDescription, String remark, int workType, int technicianId, int adminId, int customerId, int formerStatus, int newStatus, int operateUserId)
+        public int orderTotallyUpdate(String id, List<String> productInfo, String failureDescription, String remark, int workType, int technicianId, int adminId, int customerId, int formerStatus, int newStatus, Boolean isPublic, int operateUserId)
         {
             ProductDB productDb = new ProductDB();
             if (productDb.productUpdate(productInfo, id) != 1)
@@ -76,7 +76,7 @@ namespace DCSMS.BLL
                 return -1;
             }
 
-            if (orderDb.orderTotallyUpdate(id, failureDescription, remark, workType, technicianId, adminId, customerId, newStatus) != 1)
+            if (orderDb.orderTotallyUpdate(id, failureDescription, remark, workType, technicianId, adminId, customerId, newStatus, isPublic) != 1)
             {
                 return -2;
             }
