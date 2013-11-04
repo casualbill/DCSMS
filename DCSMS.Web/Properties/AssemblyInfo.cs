@@ -9,7 +9,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Desoutter")]
-[assembly: AssemblyProduct("DCSMS.Web")]
+[assembly: AssemblyProduct("Desoutter Customer Center China Online Service System")]
 [assembly: AssemblyCopyright("Copyright © Desoutter 2013")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
