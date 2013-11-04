@@ -12,6 +12,9 @@
             <table>
                 <tr>
                     <th>工单号</th>
+                    <th>创建时间</th>
+                    <th>客户名称</th>
+                    <th>终客户名称</th>
                     <th>故障描述</th>
                     <th>备注</th>
                     <th>工单状态</th>
@@ -21,12 +24,15 @@
                 <ItemTemplate>
 
                     <tr>
-                        <td><%# Eval("Id")%></td>
+                        <td><%# Eval("OrderId")%></td>
+                        <td><%# Eval("CreateTime")%></td>
+                        <td><%# Eval("CustomerName")%></td>
+                        <td><%# Eval("EndCustomerName")%></td>
                         <td><%# Eval("FailureDescription")%></td>
                         <td><%# Eval("Remark")%></td>
                         <td><%# Eval("OrderStatusStr")%></td>
                         <td>
-                            <a href="myTaskDetail.aspx?id=<%# Eval("Id") %>">查看详情</a>
+                            <a href="myTaskDetail.aspx?id=<%# Eval("OrderId") %>">查看详情</a>
                         </td>
                     </tr>
             
