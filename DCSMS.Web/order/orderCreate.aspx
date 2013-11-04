@@ -93,7 +93,7 @@
                 <asp:ListItem Text="客户付费" Value="2"></asp:ListItem>
                 <asp:ListItem Text="Demo工具维修" Value="3"></asp:ListItem>
                 <asp:ListItem Text="项目维修" Value="4"></asp:ListItem>
-            </asp:DropDownList>            
+            </asp:DropDownList></li>
 
             <li><label><em>*</em>客户：</label>
             <asp:RadioButtonList ID="rbl_customer" runat="server" RepeatLayout="Flow" RepeatDirection="Horizontal" AutoPostBack="true" OnSelectedIndexChanged="rbl_customer_change" CssClass="radiobox">
@@ -116,7 +116,7 @@
             <li><label>固件版本：</label><asp:TextBox ID="tb_firmwareversion" MaxLength="20" runat="server"></asp:TextBox></li>
             <li class="margin-bottom"><label>备注：</label><asp:TextBox ID="tb_product_remark" MaxLength="300" TextMode="MultiLine" runat="server"></asp:TextBox></li>
 
-            <li><label><em>*</em>工作站：</label><asp:DropDownList ID="ddl_station" runat="server"></asp:DropDownList>
+            <li><label><em>*</em>工作站：</label><asp:DropDownList ID="ddl_station" runat="server"></asp:DropDownList></li>
 
             <li><label><em>*</em>跟单技术员：</label><asp:TextBox ID="tb_technician" runat="server" title="technicianSelector"></asp:TextBox>
             <asp:HiddenField ID="hf_technicianid" Value="0" runat="server" /></li>
