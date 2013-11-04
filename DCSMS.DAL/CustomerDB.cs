@@ -7,9 +7,9 @@ namespace DCSMS.DAL
 {
     public class CustomerDB : DBHelper
     {
-        public int customerCreate(List<String> customerInfo, Boolean verify)
+        public int customerCreate(List<String> customerInfo, Boolean verify, int cityId)
         {
-            String sqlCommand = "insert into customerinfo values (null, @CustomerName, @EndCustomerName, @ContactPerson, @Telephone, @Mobile, @Address, @PostCode, @Remark, @Verified)";
+            String sqlCommand = "insert into customerinfo values (null, @CustomerName, @EndCustomerName, @ContactPerson, @Telephone, @Mobile, @Address, @PostCode, @Remark, @Verified, @CityId)";
 
             List<MySqlParameter> paramList = new List<MySqlParameter>();
             paramList.Add(new MySqlParameter("@CustomerName", customerInfo[0]));
@@ -21,6 +21,7 @@ namespace DCSMS.DAL
             paramList.Add(new MySqlParameter("@PostCode", customerInfo[6]));
             paramList.Add(new MySqlParameter("@Remark", customerInfo[7]));
             paramList.Add(new MySqlParameter("@Verified", verify));
+            paramList.Add(new MySqlParameter("@CityId", cityId));
 
             return executeSqlCommandNoQuery(sqlCommand, paramList);
         }

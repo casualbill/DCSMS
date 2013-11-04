@@ -11,9 +11,9 @@ namespace DCSMS.BLL
         protected const int pageSize = 50;
 
         //新建客户 返回：0失败，1成功
-        public int customerCreate(List<String> customerInfo, Boolean verify)
+        public int customerCreate(List<String> customerInfo, Boolean verify, int cityId)
         {
-            return customerDb.customerCreate(customerInfo, verify);
+            return customerDb.customerCreate(customerInfo, verify, cityId);
         }
 
         //客户信息修改 返回：0失败，1成功
