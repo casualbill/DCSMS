@@ -89,13 +89,21 @@ namespace DCSMS.DAL
             return executeSqlCommandScalar(sqlCommand, param);
         }
 
+
         public DataSet customerQueryByCustomerNameVaguely(String customerName)
         {
             String sqlCommand = "select * from customerinfo where CustomerName like @CustomerName limit 10";
             MySqlParameter param = new MySqlParameter("@CustomerName", customerName + "%");
             return executeSqlCommandDataSet(sqlCommand, param);
         }
-
+        public DataSet customerQueryByCustomerNameVaguely(String customerName, int cityId)
+        {
+            String sqlCommand = "select * from customerinfo where CityId = @CityId and CustomerName like @CustomerName limit 10";
+            List<MySqlParameter> paramList = new List<MySqlParameter>();
+            paramList.Add(new MySqlParameter("@CustomerName", customerName + "%"));
+            paramList.Add(new MySqlParameter("@CityId", cityId));
+            return executeSqlCommandDataSet(sqlCommand, paramList);
+        }
         public DataSet customerQueryByCustomerNameVaguely(String customerName, int offset, int rows, out int amount)
         {
             String sqlCommand = "select * from customerinfo where CustomerName like @customerName limit @Offset, @Rows";
@@ -108,13 +116,21 @@ namespace DCSMS.DAL
             return executeSqlCommandDataSet(sqlCommand, paramList);
         }
 
+
         public DataSet customerQueryByEndCustomerNameVaguely(String endCustomerName)
         {
             String sqlCommand = "select * from customerinfo where EndCustomerName like @EndCustomerName limit 10";
             MySqlParameter param = new MySqlParameter("@EndCustomerName", endCustomerName + "%");
             return executeSqlCommandDataSet(sqlCommand, param);
         }
-
+        public DataSet customerQueryByEndCustomerNameVaguely(String endCustomerName, int cityId)
+        {
+            String sqlCommand = "select * from customerinfo where CityId = @CityId and EndCustomerName like @EndCustomerName limit 10";
+            List<MySqlParameter> paramList = new List<MySqlParameter>();
+            paramList.Add(new MySqlParameter("@EndCustomerName", endCustomerName + "%"));
+            paramList.Add(new MySqlParameter("@CityId", cityId));
+            return executeSqlCommandDataSet(sqlCommand, paramList);
+        }
         public DataSet customerQueryByEndCustomerNameVaguely(String endCustomerName, int offset, int rows, out int amount)
         {
             String sqlCommand = "select * from customerinfo where EndCustomerName like @EndCustomerName limit @Offset, @Rows";

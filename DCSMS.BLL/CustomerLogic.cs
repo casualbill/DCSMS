@@ -39,7 +39,7 @@ namespace DCSMS.BLL
             int amount;
             DataSet ds = customerDb.customerQuery(offset, pageSize, out amount);
             pageAmount = amount / pageSize + 1;
-            
+
             if (ds.Tables[0].Rows.Count > 0)
             {
                 return ds.Tables[0];
@@ -90,6 +90,7 @@ namespace DCSMS.BLL
             return customerInfoStr;
         }
 
+
         //客户查询 根据客户名模糊查询
         public DataTable customerQueryByCustomerNameVaguely(String queryStr)
         {
@@ -103,11 +104,10 @@ namespace DCSMS.BLL
                 return null;
             }
         }
-
-        //客户查询 根据 终客户名模糊查询
-        public DataTable customerQueryByEndCustomerNameVaguely(String queryStr)
+        //客户查询 根据城市ID及客户名模糊查询
+        public DataTable customerQueryByCustomerNameVaguely(String queryStr, int cityId)
         {
-            DataSet ds = customerDb.customerQueryByEndCustomerNameVaguely(queryStr);
+            DataSet ds = customerDb.customerQueryByCustomerNameVaguely(queryStr, cityId);
             if (ds.Tables[0].Rows.Count > 0)
             {
                 return ds.Tables[0];
@@ -117,7 +117,6 @@ namespace DCSMS.BLL
                 return null;
             }
         }
-
         //客户查询 根据客户名模糊查询 （包含技术员信息） 分页
         public DataTable customerQueryByCustomerNameVaguely(String queryStr, int page, out int pageAmount)
         {
@@ -136,6 +135,33 @@ namespace DCSMS.BLL
             }
         }
 
+
+        //客户查询 根据 终客户名模糊查询
+        public DataTable customerQueryByEndCustomerNameVaguely(String queryStr)
+        {
+            DataSet ds = customerDb.customerQueryByEndCustomerNameVaguely(queryStr);
+            if (ds.Tables[0].Rows.Count > 0)
+            {
+                return ds.Tables[0];
+            }
+            else
+            {
+                return null;
+            }
+        }
+        //客户查询 根据城市ID及 终客户名模糊查询
+        public DataTable customerQueryByEndCustomerNameVaguely(String queryStr, int cityId)
+        {
+            DataSet ds = customerDb.customerQueryByEndCustomerNameVaguely(queryStr, cityId);
+            if (ds.Tables[0].Rows.Count > 0)
+            {
+                return ds.Tables[0];
+            }
+            else
+            {
+                return null;
+            }
+        }
         //客户查询 根据 终客户名模糊查询 （包含技术员信息） 分页
         public DataTable customerQueryByEndCustomerNameVaguely(String queryStr, int page, out int pageAmount)
         {
@@ -153,6 +179,7 @@ namespace DCSMS.BLL
                 return null;
             }
         }
+
 
         //未审核客户查询
         public DataTable unverifiedCustomerQuery()
