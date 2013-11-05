@@ -228,6 +228,7 @@ var regionSelector = function (provinceSelector, citySelector) {
                 for (var i = 0; i < data.length; i++) {
                     citySelector.append('<option value="' + data[i].id + '">' + data[i].city + '</option>');
                 }
+                citySelector.next('[type="hidden"]').val(data[0].id);
             }
         });
     }
