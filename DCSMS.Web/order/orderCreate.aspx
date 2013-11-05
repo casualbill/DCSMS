@@ -4,6 +4,7 @@
         $(function () {
             userAjaxSelector($('[title="technicianSelector"]'), true);
             customerAjaxSelector($('[title="customerName"]'), false);
+            regionSelector($('#provinceSelector'), $('#citySelector'));
         });
 
         function btn_submit_client_click() {
@@ -105,6 +106,12 @@
                 <asp:HiddenField ID="hf_customerid" Value="0" runat="server" /></li>
             <li><label><em>*</em>终客户名称：</label><asp:TextBox ID="tb_endcustomername" title="endCustomerName" runat="server" MaxLength="100" Enabled="false"></asp:TextBox></li>
             <li><label><em>*</em>联系人：</label><asp:TextBox ID="tb_contactperson" title="contactPerson" runat="server" MaxLength="50" Enabled="false"></asp:TextBox></li>
+
+            <li id="li_province" runat="server" visible="false"><label>省份：<em>*</em></label><select id="provinceSelector"></select></li>
+            <li id="li_city" runat="server" visible="false"><label>城市：<em>*</em></label><select id="citySelector"></select>
+                <asp:HiddenField ID="hf_cityid" runat="server" />
+            </li>
+
             <li><label>电话：</label><asp:TextBox ID="tb_telephone" title="telephone" runat="server" MaxLength="20" Enabled="false"></asp:TextBox></li>
             <li><label>手机：</label><asp:TextBox ID="tb_mobile" title="mobile" runat="server" MaxLength="20" Enabled="false"></asp:TextBox></li>
             <li><label>地址：</label><asp:TextBox ID="tb_address" title="address" runat="server" MaxLength="100" Enabled="false"></asp:TextBox></li>

@@ -31,6 +31,9 @@ namespace DCSMS.Web.order
                 tb_mobile.Enabled = false;
                 tb_address.Enabled = false;
                 tb_postcode.Enabled = false;
+
+                li_province.Visible = false;
+                li_city.Visible = false;
             }
             else
             {
@@ -50,6 +53,8 @@ namespace DCSMS.Web.order
                 tb_postcode.Text = "";
 
                 hf_customerid.Value = "0";
+                li_province.Visible = true;
+                li_city.Visible = true;
             }
         }
 
@@ -124,6 +129,7 @@ namespace DCSMS.Web.order
 
 
             List<String> customerInfo = new List<String>();
+            int cityId = 0;
             if (rbl_customer.SelectedValue == "1")
             {
                 customerInfo.Add(tb_customername.Text.Trim());
@@ -134,6 +140,7 @@ namespace DCSMS.Web.order
                 customerInfo.Add(tb_address.Text.Trim());
                 customerInfo.Add(tb_postcode.Text.Trim());
                 customerInfo.Add("");   //Remark
+                cityId = Convert.ToInt16(hf_cityid.Value);
 
                 customerId = 0;
             }
@@ -159,7 +166,7 @@ namespace DCSMS.Web.order
                 isPublic = true;
             }
 
-            if (orderLogic.createOrder(tb_remark.Text.Trim(), workType, isPublic, customerInfo, customerId, productInfo, createUserId, technicianId, stationId) != 1)
+            if (orderLogic.createOrder(tb_remark.Text.Trim(), workType, isPublic, customerInfo, cityId, customerId, productInfo, createUserId, technicianId, stationId) != 1)
             {
                 Response.Write("<script type=\"text/javascript\">alert (\"系统错误！\");</script>");
             }
