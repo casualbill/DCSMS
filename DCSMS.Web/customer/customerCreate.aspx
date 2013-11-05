@@ -1,6 +1,10 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/main.Master" AutoEventWireup="true" CodeBehind="customerCreate.aspx.cs" Inherits="DCSMS.Web.customer.customerCreate" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <script type="text/javascript">
+        $(function () {
+            regionSelector($('#provinceSelector'), $('#citySelector'));
+        });
+
         function btn_submit_client_click() {
             if (!textValidate($('#ctl00_MainContentPlaceHolder_tb_customername'))) {
                 $('.content-tips').html('请输入客户名称！');
@@ -47,6 +51,12 @@
             <li><label><em>*</em>客户名称：</label><asp:TextBox ID="tb_customername" runat="server" MaxLength="100"></asp:TextBox></li>
             <li><label><em>*</em>终客户名称：</label><asp:TextBox ID="tb_endcustomername" runat="server" MaxLength="100"></asp:TextBox></li>
             <li><label><em>*</em>联系人：</label><asp:TextBox ID="tb_contactperson" runat="server" MaxLength="50"></asp:TextBox></li>
+
+            <li><label>省份：<em>*</em></label><select id="provinceSelector"></select></li>
+            <li><label>城市：<em>*</em></label><select id="citySelector"></select>
+                <asp:HiddenField ID="hf_cityid" runat="server" />
+            </li>
+
             <li><label>电话：</label><asp:TextBox ID="tb_telephone" runat="server" MaxLength="20"></asp:TextBox></li>
             <li><label>手机：</label><asp:TextBox ID="tb_mobile" runat="server" MaxLength="20"></asp:TextBox></li>
             <li><label>地址：</label><asp:TextBox ID="tb_address" runat="server" MaxLength="100"></asp:TextBox></li>

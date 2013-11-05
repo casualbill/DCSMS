@@ -25,13 +25,15 @@ namespace DCSMS.Web.customer
             customerInfo.Add(tb_postcode.Text.Trim());
             customerInfo.Add(tb_remark.Text);
 
+            int cityId = Convert.ToInt16(hf_cityid.Value);
+
             if (customerInfo[0].Length < 1 || customerInfo[2].Length < 1)
             {
                 lb_tips.Text = "请完整输入客户信息！";
             }
             else
             {
-                int retVal = customerLogic.customerCreate(customerInfo, true);
+                int retVal = customerLogic.customerCreate(customerInfo, true, cityId);
                 if (retVal == 1)
                 {
                     lb_tips.Text = "客户添加成功！";
