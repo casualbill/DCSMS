@@ -14,7 +14,7 @@ namespace DCSMS.DAL
 
         public DataSet cityListQuery(int provinceId)
         {
-            String sqlCommand = "select * from cityinfo where ProvinceId = @ProvinceId";
+            String sqlCommand = "select * from citylist where ProvinceId = @ProvinceId";
             MySqlParameter param = new MySqlParameter("@ProvinceId", provinceId);
             return executeSqlCommandDataSet(sqlCommand, param);
         }

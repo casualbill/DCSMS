@@ -229,7 +229,7 @@ namespace DCSMS.Web
                 {
                     str += "{";
                     str += "\"id\":" + dr["Id"] + ",";
-                    str += "\"userName\":\"" + dr["City"] + "\"";
+                    str += "\"city\":\"" + dr["City"] + "\"";
                     str += "},";
                 }
                 str = str.Substring(0, str.Length - 1);
