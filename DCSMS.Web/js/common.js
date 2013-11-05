@@ -133,7 +133,6 @@ var customerAjaxSelector = function (textbox, isOnlyId) {
                 $('#customerSelectorList').remove();
                 var data = JSON.parse(r.d);
                 if (data.length > 0) {
-                    console.log(data);
                     showList(data);
                 }
             }
