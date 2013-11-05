@@ -196,6 +196,49 @@ var customerAjaxSelector = function (textbox, isOnlyId) {
     }
 };
 
+var regionSelector = function (provinceSelector, citySelector) {
+    $.ajax({
+        url: '/ajax.asmx/provinceList',
+        type: "POST",
+        dataType: "json",
+        contentType: "application/json",
+        success: function (r) {
+            var data = JSON.parse(r.d);
+            for (var i = 0; i < data.length; i++) {
+                provinceSelector.append('<option value="' + data[i].id + '">' + data[i].province + '</option>');
+            }
+            showCityList(1);
+        }
+    });
+
+    provinceSelector.delegate(provinceSelector, 'change', function () {
+        var provinceId = $(this).val();
+        showCityList(provinceId);
+    });
+
+    function showCityList(provinceId) {
+        $.ajax({
+            url: '/ajax.asmx/cityList',
+            data: '{provinceId:' + provinceId + '}',
+            type: "POST",
+            dataType: "json",
+            contentType: "application/json",
+            success: function (r) {
+                citySelector.html('');
+                var data = JSON.parse(r.d);
+                for (var i = 0; i < data.length; i++) {
+                    citySelector.append('<option value="' + data[i].id + '">' + data[i].city + '</option>');
+                }
+            }
+        });
+    }
+
+    citySelector.delegate(citySelector, 'change', function () {
+        var cityId = $(this).val();
+        $(this).next('[type="hidden"]').val(cityId);
+    });
+}
+
 var textValidate = function (textbox, minLength) {
     if (!minLength) {
         minLength = 1;
