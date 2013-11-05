@@ -82,6 +82,13 @@ namespace DCSMS.DAL
             return executeSqlCommandDataSet(sqlCommand, param);
         }
 
+        public String customerIdQueryByEndCustomerName(String endCustomerName)
+        {
+            String sqlCommand = "select Id from customerinfo where EndCustomerName = @EndCustomerName order by Id desc";
+            MySqlParameter param = new MySqlParameter("@EndCustomerName", endCustomerName);
+            return executeSqlCommandScalar(sqlCommand, param);
+        }
+
         public DataSet customerQueryByCustomerNameVaguely(String customerName)
         {
             String sqlCommand = "select * from customerinfo where CustomerName like @customerName";

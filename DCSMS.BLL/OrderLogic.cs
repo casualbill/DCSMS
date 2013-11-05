@@ -29,8 +29,7 @@ namespace DCSMS.BLL
                 CustomerDB customerDb = new CustomerDB();
                 if (customerDb.customerCreate(customerInfo, false, cityId) == 1)
                 {
-                    DataSet ds = customerDb.customerQueryByCustomerName(customerInfo[0]);
-                    customerId = Convert.ToInt16(ds.Tables[0].Rows[0][0]);
+                    customerId = Convert.ToInt16(customerDb.customerIdQueryByEndCustomerName(customerInfo[1]));
                 }
                 else
                 {
