@@ -104,12 +104,44 @@ namespace DCSMS.BLL
             }
         }
 
+        //客户查询 根据 终客户名模糊查询
+        public DataTable customerQueryByEndCustomerNameVaguely(String queryStr)
+        {
+            DataSet ds = customerDb.customerQueryByEndCustomerNameVaguely(queryStr);
+            if (ds.Tables[0].Rows.Count > 0)
+            {
+                return ds.Tables[0];
+            }
+            else
+            {
+                return null;
+            }
+        }
+
         //客户查询 根据客户名模糊查询 （包含技术员信息） 分页
         public DataTable customerQueryByCustomerNameVaguely(String queryStr, int page, out int pageAmount)
         {
             int offset = (page - 1) * pageSize;
             int amount;
             DataSet ds = customerDb.customerQueryByCustomerNameVaguely(queryStr, offset, pageSize, out amount);
+            pageAmount = amount / pageSize + 1;
+
+            if (ds.Tables[0].Rows.Count > 0)
+            {
+                return ds.Tables[0];
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        //客户查询 根据 终客户名模糊查询 （包含技术员信息） 分页
+        public DataTable customerQueryByEndCustomerNameVaguely(String queryStr, int page, out int pageAmount)
+        {
+            int offset = (page - 1) * pageSize;
+            int amount;
+            DataSet ds = customerDb.customerQueryByEndCustomerNameVaguely(queryStr, offset, pageSize, out amount);
             pageAmount = amount / pageSize + 1;
 
             if (ds.Tables[0].Rows.Count > 0)

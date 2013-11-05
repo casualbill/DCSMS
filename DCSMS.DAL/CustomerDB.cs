@@ -91,17 +91,36 @@ namespace DCSMS.DAL
 
         public DataSet customerQueryByCustomerNameVaguely(String customerName)
         {
-            String sqlCommand = "select * from customerinfo where CustomerName like @customerName";
-            MySqlParameter param = new MySqlParameter("@customerName", customerName + "%");
+            String sqlCommand = "select * from customerinfo where CustomerName like @CustomerName";
+            MySqlParameter param = new MySqlParameter("@CustomerName", customerName + "%");
             return executeSqlCommandDataSet(sqlCommand, param);
         }
 
         public DataSet customerQueryByCustomerNameVaguely(String customerName, int offset, int rows, out int amount)
         {
             String sqlCommand = "select * from customerinfo where CustomerName like @customerName limit @Offset, @Rows";
-            String sqlCount = "select count(*) from customerinfo where CustomerName like @customerName";
+            String sqlCount = "select count(*) from customerinfo where CustomerName like @CustomerName";
             List<MySqlParameter> paramList = new List<MySqlParameter>();
-            paramList.Add(new MySqlParameter("@customerName", customerName + "%"));
+            paramList.Add(new MySqlParameter("@CustomerName", customerName + "%"));
+            paramList.Add(new MySqlParameter("@Offset", offset));
+            paramList.Add(new MySqlParameter("@Rows", rows));
+            amount = Convert.ToInt16(executeSqlCommandScalar(sqlCount, paramList));
+            return executeSqlCommandDataSet(sqlCommand, paramList);
+        }
+
+        public DataSet customerQueryByEndCustomerNameVaguely(String endCustomerName)
+        {
+            String sqlCommand = "select * from customerinfo where EndCustomerName like @EndCustomerName";
+            MySqlParameter param = new MySqlParameter("@EndCustomerName", endCustomerName + "%");
+            return executeSqlCommandDataSet(sqlCommand, param);
+        }
+
+        public DataSet customerQueryByEndCustomerNameVaguely(String endCustomerName, int offset, int rows, out int amount)
+        {
+            String sqlCommand = "select * from customerinfo where EndCustomerName like @EndCustomerName limit @Offset, @Rows";
+            String sqlCount = "select count(*) from customerinfo where EndCustomerName like @EndCustomerName";
+            List<MySqlParameter> paramList = new List<MySqlParameter>();
+            paramList.Add(new MySqlParameter("@EndCustomerName", endCustomerName + "%"));
             paramList.Add(new MySqlParameter("@Offset", offset));
             paramList.Add(new MySqlParameter("@Rows", rows));
             amount = Convert.ToInt16(executeSqlCommandScalar(sqlCount, paramList));
