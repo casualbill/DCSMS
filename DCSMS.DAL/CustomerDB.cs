@@ -91,7 +91,7 @@ namespace DCSMS.DAL
 
         public DataSet customerQueryByCustomerNameVaguely(String customerName)
         {
-            String sqlCommand = "select * from customerinfo where CustomerName like @CustomerName";
+            String sqlCommand = "select * from customerinfo where CustomerName like @CustomerName limit 10";
             MySqlParameter param = new MySqlParameter("@CustomerName", customerName + "%");
             return executeSqlCommandDataSet(sqlCommand, param);
         }
@@ -110,7 +110,7 @@ namespace DCSMS.DAL
 
         public DataSet customerQueryByEndCustomerNameVaguely(String endCustomerName)
         {
-            String sqlCommand = "select * from customerinfo where EndCustomerName like @EndCustomerName";
+            String sqlCommand = "select * from customerinfo where EndCustomerName like @EndCustomerName limit 10";
             MySqlParameter param = new MySqlParameter("@EndCustomerName", endCustomerName + "%");
             return executeSqlCommandDataSet(sqlCommand, param);
         }
