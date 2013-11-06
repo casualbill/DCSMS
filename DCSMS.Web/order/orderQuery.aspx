@@ -54,11 +54,11 @@
             <table>
                 <tr>
                     <th>工单号</th>
-                    <th>客户名</th>
+                    <th>客户名称</th>
+                    <th>终客户名称</th>
                     <th>工具型号</th>
                     <th>工具序列号</th>
-                    <th>维修站</th>
-                    <th>故障描述</th>
+                    <th>创建时间</th>
                     <th>工单状态</th>
                     <th>操作</th>
                 </tr>
@@ -67,11 +67,11 @@
 
                     <tr>
                         <td><%# Eval("OrderId")%></td>
-                        <td><%# Eval("customerName")%></td>
-                        <td><%# Eval("productName")%></td>
+                        <td><%# Eval("CustomerName")%></td>
+                        <td><%# Eval("EndCustomerName")%></td>
+                        <td><%# Eval("ProductName")%></td>
                         <td><%# Eval("SerialNumber")%></td>
-                        <td><%# Eval("StationName")%></td>
-                        <td><%# Eval("FailureDescription")%></td>
+                        <td><%# Eval("CreateTime")%></td>
                         <td><%# Eval("OrderStatusStr")%></td>
                         <td>
                             <a href="orderDetail.aspx?id=<%# Eval("OrderId") %>">查看详情</a>

@@ -117,11 +117,10 @@ namespace DCSMS.DAL
 
         public DataSet orderListQueryVaguely(String orderId, int workType, int technicianId, int customerId, String productName, String serialNumber, int stationId, int orderStatus)
         {
-            String sqlCommand = "select orderinfo.Id as OrderId, WorkType, UserName, CustomerName, ProductName, SerialNumber, StationName, FailureDescription, OrderStatus from orderinfo " +
+            String sqlCommand = "select orderinfo.Id as OrderId, WorkType, UserName, CustomerName, EndCustomerName, ProductName, SerialNumber, CreateTime, OrderStatus from orderinfo " +
             "inner join userinfo on orderinfo.technicianId = userinfo.Id " +
             "inner join customerinfo on orderinfo.customerId = customerinfo.Id " +
             "inner join productinfo on orderinfo.Id = productinfo.OrderId " +
-            "inner join stationinfo on orderinfo.stationId = stationinfo.Id " +
             "where ";
 
             List<MySqlParameter> paramList = new List<MySqlParameter>();
