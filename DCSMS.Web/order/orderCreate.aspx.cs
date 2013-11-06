@@ -25,19 +25,14 @@ namespace DCSMS.Web.order
         {
             if (rbl_customer.SelectedValue == "0")
             {
-                tb_endcustomername.Enabled = false;
                 tb_contactperson.Enabled = false;
                 tb_telephone.Enabled = false;
                 tb_mobile.Enabled = false;
                 tb_address.Enabled = false;
                 tb_postcode.Enabled = false;
-
-                li_province.Visible = false;
-                li_city.Visible = false;
             }
             else
             {
-                tb_endcustomername.Enabled = true;
                 tb_contactperson.Enabled = true;
                 tb_telephone.Enabled = true;
                 tb_mobile.Enabled = true;
@@ -53,8 +48,6 @@ namespace DCSMS.Web.order
                 tb_postcode.Text = "";
 
                 hf_customerid.Value = "0";
-                li_province.Visible = true;
-                li_city.Visible = true;
             }
         }
 

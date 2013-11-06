@@ -3,7 +3,8 @@
     <script type="text/javascript">
         $(function () {
             userAjaxSelector($('[title="technicianSelector"]'), true);
-            customerAjaxSelector($('[title="customerName"]'), false);
+            customerAjaxSelector($('[title="customerName"]'), $('#ctl00_MainContentPlaceHolder_hf_cityid'), 1, false);
+            customerAjaxSelector($('[title="endCustomerName"]'), $('#ctl00_MainContentPlaceHolder_hf_cityid'), 2, false);
             regionSelector($('#provinceSelector'), $('#citySelector'));
         });
 
@@ -102,15 +103,15 @@
                 <asp:ListItem Text="选择已有" Value="0" Selected="True"></asp:ListItem>
             </asp:RadioButtonList></li>
 
-            <li><label><em>*</em>客户名称：</label><asp:TextBox ID="tb_customername" title="customerName" runat="server" MaxLength="100"></asp:TextBox>
-                <asp:HiddenField ID="hf_customerid" Value="0" runat="server" /></li>
-            <li><label><em>*</em>终客户名称：</label><asp:TextBox ID="tb_endcustomername" title="endCustomerName" runat="server" MaxLength="100" Enabled="false"></asp:TextBox></li>
-            <li><label><em>*</em>联系人：</label><asp:TextBox ID="tb_contactperson" title="contactPerson" runat="server" MaxLength="50" Enabled="false"></asp:TextBox></li>
-
-            <li id="li_province" runat="server" visible="false"><label>省份：<em>*</em></label><select id="provinceSelector"></select></li>
-            <li id="li_city" runat="server" visible="false"><label>城市：<em>*</em></label><select id="citySelector"></select>
+            <li><label>省份：<em>*</em></label><select id="provinceSelector"></select></li>
+            <li><label>城市：<em>*</em></label><select id="citySelector"></select>
                 <asp:HiddenField ID="hf_cityid" runat="server" />
             </li>
+
+            <li><label><em>*</em>客户名称：</label><asp:TextBox ID="tb_customername" title="customerName" runat="server" MaxLength="100"></asp:TextBox>
+                <asp:HiddenField ID="hf_customerid" Value="0" runat="server" /></li>
+            <li><label><em>*</em>终客户名称：</label><asp:TextBox ID="tb_endcustomername" title="endCustomerName" runat="server" MaxLength="100"></asp:TextBox></li>
+            <li><label><em>*</em>联系人：</label><asp:TextBox ID="tb_contactperson" title="contactPerson" runat="server" MaxLength="50" Enabled="false"></asp:TextBox></li>
 
             <li><label>电话：</label><asp:TextBox ID="tb_telephone" title="telephone" runat="server" MaxLength="20" Enabled="false"></asp:TextBox></li>
             <li><label>手机：</label><asp:TextBox ID="tb_mobile" title="mobile" runat="server" MaxLength="20" Enabled="false"></asp:TextBox></li>
