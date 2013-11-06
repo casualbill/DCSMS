@@ -10,7 +10,7 @@
             orderProgressBar(<% =orderStatus %>);
 
             userAjaxSelector($('[title="technicianSelector"]'), true);
-            customerAjaxSelector($('[title="customerSelector"]'), true);
+            customerAjaxSelector($('[title="customerName"]'), null, 1, true);
         });
 
         function btn_submit_client_click() {
@@ -71,7 +71,7 @@
                 <asp:ListItem Text="项目维修" Value="4"></asp:ListItem>
             </asp:DropDownList></li>
 
-            <li><label>客户：</label><asp:TextBox ID="tb_customer" runat="server" title="customerSelector"></asp:TextBox>
+            <li><label>客户：</label><asp:TextBox ID="tb_customer" runat="server" title="customerName"></asp:TextBox>
                 <asp:HiddenField ID="hf_customerid" Value="0" runat="server" /></li>
 
             <li><label>工具型号：</label><asp:TextBox ID="tb_productname" MaxLength="50" runat="server"></asp:TextBox></li>
