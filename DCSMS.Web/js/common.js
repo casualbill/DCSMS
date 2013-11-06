@@ -114,25 +114,26 @@ var userAjaxSelector = function (textbox, isTechnician) {
 };
 
 
-var customerAjaxSelector = function (textbox, cityHiddenField, isCustomerName, isOnlyId) {
+var customerAjaxSelector = function (textbox, cityHiddenField, queryType, brief) {
     textbox.attr('autocomplete', 'off');
-    var customerIdField = textbox.next('[type="hidden"]');
-    var cityId;
-
-    if (cityHiddenField) {
-        cityId = cityHiddenField.val();
-    } else {
-        cityId = 0;
-    }
+    var customerIdField = $('#ctl00_MainContentPlaceHolder_hf_customerid');
 
     textbox.on('keyup focus', function (e) {
         if (e.type == 'keyup') {
             customerIdField.val('0');
         }
         var queryStr = $(this).val();
+
+        var cityId;
+        if (cityHiddenField) {
+            cityId = cityHiddenField.val();
+        } else {
+            cityId = 0;
+        }
+
         $.ajax({
             url: '/ajax.asmx/customerQuery',
-            data: '{queryStr:"' + queryStr + '", cityId:"' + cityId + '", isCustomerName:"' + isCustomerName + '", isOnlyId: ' + isOnlyId + '}',
+            data: '{queryStr:"' + queryStr + '", cityId:' + cityId + ', queryType:"' + queryType + '", brief: ' + brief + '}',
             type: "POST",
             dataType: "json",
             contentType: "application/json",
@@ -149,18 +150,17 @@ var customerAjaxSelector = function (textbox, cityHiddenField, isCustomerName, i
     textbox.on('blur', function () {
         setTimeout(function () {
             $('#customerSelectorList').remove();
-        }, 100);
+        }, 200);
     });
 
     $('body').delegate('#customerSelectorList li', 'click', function () {
         var customerId = $(this).attr('customerId');
-        var customerName = $(this).html();
-        textbox.val(customerName);
+        $('[title="customerName"]').val($(this).attr('customerName'));
+        $('[title="endCustomerName"]').val($(this).attr('endCustomerName'));
         customerIdField.val(customerId);
         $(this).parent().parent().remove();
 
-        if (!isOnlyId) {
-            $('[title="endCustomerName"]').val($(this).attr('endCustomerName'));
+        if (!brief) {
             $('[title="contactPerson"]').val($(this).attr('contactPerson'));
             $('[title="telephone"]').val($(this).attr('telephone'));
             $('[title="mobile"]').val($(this).attr('mobile'));
@@ -175,14 +175,15 @@ var customerAjaxSelector = function (textbox, cityHiddenField, isCustomerName, i
 
         for (var i = 0; i < data.length; i++) {
             var item = $('<li></li>');
-            item.html(data[i].customerName);
+            item.html('<span>' + data[i].customerName + '</span> - ' + data[i].endCustomerName);
             item.attr({
-                'customerId': data[i].id
+                'customerId': data[i].id,
+                'customerName': data[i].customerName,
+                'endCustomerName': data[i].endCustomerName
             });
 
-            if (!isOnlyId) {
+            if (!brief) {
                 item.attr({
-                    'endCustomerName': data[i].endCustomerName,
                     'contactPerson': data[i].contactPerson,
                     'telephone': data[i].telephone,
                     'mobile': data[i].mobile,

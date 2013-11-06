@@ -44,7 +44,7 @@ namespace DCSMS.Web
 
         [WebMethod]
         //客户查询匹配
-        public String customerQuery(String queryStr, int cityId, Boolean isCustomerName, Boolean isOnlyId)
+        public String customerQuery(String queryStr, int cityId, int queryType, Boolean brief)
         {
             CustomerLogic customerLogic = new CustomerLogic();
             if (queryStr.Length < 1)
@@ -53,7 +53,7 @@ namespace DCSMS.Web
             }
 
             DataTable dt;
-            if (isCustomerName == true)
+            if (queryType == 1)
             {
                 if (cityId == 0)
                 {
@@ -79,13 +79,14 @@ namespace DCSMS.Web
             String str = "[";
             if (dt != null)
             {
-                if (isOnlyId == true)
+                if (brief == true)
                 {
                     foreach (DataRow dr in dt.Rows)
                     {
                         str += "{";
                         str += "\"id\":" + dr["Id"] + ",";
-                        str += "\"customerName\":\"" + dr["CustomerName"] + "\"";
+                        str += "\"customerName\":\"" + dr["CustomerName"] + "\",";
+                        str += "\"endCustomerName\":\"" + dr["EndCustomerName"] + "\"";
                         str += "},";
                     }
                 }
