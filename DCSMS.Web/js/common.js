@@ -114,9 +114,16 @@ var userAjaxSelector = function (textbox, isTechnician) {
 };
 
 
-var customerAjaxSelector = function (textbox, isOnlyId) {
+var customerAjaxSelector = function (textbox, cityHiddenField, isCustomerName, isOnlyId) {
     textbox.attr('autocomplete', 'off');
     var customerIdField = textbox.next('[type="hidden"]');
+    var cityId;
+
+    if (cityHiddenField) {
+        cityId = cityHiddenField.val();
+    } else {
+        cityId = 0;
+    }
 
     textbox.on('keyup focus', function (e) {
         if (e.type == 'keyup') {
@@ -125,7 +132,7 @@ var customerAjaxSelector = function (textbox, isOnlyId) {
         var queryStr = $(this).val();
         $.ajax({
             url: '/ajax.asmx/customerQuery',
-            data: '{queryStr:"' + queryStr + '", isOnlyId: ' + isOnlyId + '}',
+            data: '{queryStr:"' + queryStr + '", cityId:"' + cityId + '", isCustomerName:"' + isCustomerName + '", isOnlyId: ' + isOnlyId + '}',
             type: "POST",
             dataType: "json",
             contentType: "application/json",

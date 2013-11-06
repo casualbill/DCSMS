@@ -44,14 +44,38 @@ namespace DCSMS.Web
 
         [WebMethod]
         //客户查询匹配
-        public String customerQuery(String queryStr, Boolean isOnlyId)
+        public String customerQuery(String queryStr, int cityId, Boolean isCustomerName, Boolean isOnlyId)
         {
             CustomerLogic customerLogic = new CustomerLogic();
             if (queryStr.Length < 1)
             {
                 return "[]";
             }
-            DataTable dt = customerLogic.customerQueryByCustomerNameVaguely(queryStr);
+
+            DataTable dt;
+            if (isCustomerName == true)
+            {
+                if (cityId == 0)
+                {
+                    dt = customerLogic.customerQueryByCustomerNameVaguely(queryStr);
+                }
+                else
+                {
+                    dt = customerLogic.customerQueryByCustomerNameVaguely(queryStr, cityId);
+                }
+            }
+            else
+            {
+                if (cityId == 0)
+                {
+                    dt = customerLogic.customerQueryByEndCustomerNameVaguely(queryStr);
+                }
+                else
+                {
+                    dt = customerLogic.customerQueryByEndCustomerNameVaguely(queryStr, cityId);
+                }
+            }
+
             String str = "[";
             if (dt != null)
             {
