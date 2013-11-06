@@ -121,6 +121,13 @@ var customerAjaxSelector = function (textbox, cityHiddenField, queryType, brief)
     textbox.on('keyup focus', function (e) {
         if (e.type == 'keyup') {
             customerIdField.val('0');
+            if (!brief) {
+                $('[title="contactPerson"]').val('');
+                $('[title="telephone"]').val('');
+                $('[title="mobile"]').val('');
+                $('[title="address"]').val('');
+                $('[title="postcode"]').val('');
+            }
         }
         var queryStr = $(this).val();
 
