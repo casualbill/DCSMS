@@ -181,6 +181,43 @@ namespace DCSMS.Web
         }
 
         [WebMethod]
+        //维修记录查询
+        public String repairLogQuery(String orderId)
+        {
+            OrderLogic orderLogic = new OrderLogic();
+            DataTable dt = orderLogic.repairLogQuery(orderId);
+            String str = "[";
+            if (dt != null)
+            {
+                foreach (DataRow dr in dt.Rows)
+                {
+                    str += "{";
+                    str += "\"id\":" + dr["Id"] + ",";
+                    str += "\"startTime\":\"" + dr["StartTime"] + "\",";
+                    str += "\"endTime\":\"" + dr["EndTime"] + "\",";
+                    str += "\"workDetail\":\"" + dr["WorkDetail"] + "\",";
+                    str += "\"defaultCharacter\":\"" + dr["DefaultCharacter"] + "\",";
+                    str += "\"workTime\":\"" + dr["WorkTime"] + "\"";
+                    str += "},";
+                }
+                str = str.Substring(0, str.Length - 1);
+            }
+            str += "]";
+            return str;
+        }
+
+        [WebMethod(EnableSession = true)]
+        //维修记录添加
+        public int repairLogAdd(DateTime startTime, DateTime endTime, String workDetail, String defaultCharacter, String workTime, String orderId)
+        {
+             OrderLogic orderLogic = new OrderLogic();
+             int permissionFlag = orderLogic.orderOperatePermission(orderId, Convert.ToInt16(Session["userId"]), Convert.ToInt16(Session["userType"]));
+             if (permissionFlag != 1) { return permissionFlag; }
+
+             return orderLogic.repairLogAdd(startTime, endTime, workDetail, defaultCharacter, workTime, orderId);
+        }
+
+        [WebMethod]
         //图片显示
         public String imageShow(String orderId)
         {
