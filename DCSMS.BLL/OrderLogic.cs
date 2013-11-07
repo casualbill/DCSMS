@@ -9,6 +9,8 @@ namespace DCSMS.BLL
     {
         protected OrderDB orderDb = new OrderDB();
 
+        #region 工单
+
         //新建工单
         public int createOrder(String remark, int workType, Boolean isPublic, List<String> customerInfo, int cityId, int customerId, List<String> productInfo, int createUserId, int technicianId, int stationId)
         {
@@ -55,7 +57,7 @@ namespace DCSMS.BLL
             return 1;
         }
 
-        
+
         //orderStatus状态说明：
         //1 收到工具 等待客户审核（随工单创建的客户）
         //2 客户审核完成 等待工单检查（技术员）
@@ -248,6 +250,10 @@ namespace DCSMS.BLL
             }
             return 1;
         }
+        #endregion
+
+
+        #region 备件
 
         //备件查询 根据工单号
         public DataTable sparePartQuery(String orderId)
@@ -299,10 +305,15 @@ namespace DCSMS.BLL
         }
 
         //删除备件
-        public int sparePartRemove(int id) {
+        public int sparePartRemove(int id)
+        {
             SparePartDB sparePartDb = new SparePartDB();
             return sparePartDb.sparePartDelete(id);
         }
+        #endregion
+
+
+        #region 图片
 
         //图片查询 根据工单号
         public DataTable imageQuery(String orderId)
@@ -339,6 +350,37 @@ namespace DCSMS.BLL
             ImageDB imageDb = new ImageDB();
             return imageDb.imageDelete(id);
         }
+        #endregion
+
+
+        #region 维修记录
+
+        //维修记录查询 根据工单号
+        public DataTable repairLogQuery(String orderId)
+        {
+            RepairLogDB repairLogDb = new RepairLogDB();
+            DataSet ds = repairLogDb.repairLogQuery(orderId);
+            if (ds.Tables[0].Rows.Count > 0)
+            {
+                return ds.Tables[0];
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        //添加维修记录
+        public int repairLogAdd(DateTime startTime, DateTime endTime, String workDetail, String defaultCharacter, String workTime, String orderId)
+        {
+            RepairLogDB repairLogDb = new RepairLogDB();
+            return repairLogDb.repairLogCreate(startTime, endTime, workDetail, defaultCharacter, workTime, orderId);
+        }
+
+        #endregion
+
+
+        #region 工单操作记录
 
         //工单操作记录查询
         public DataTable orderLogQuery(String orderId)
@@ -386,6 +428,7 @@ namespace DCSMS.BLL
                 return null;
             }
         }
+        #endregion
 
 
         //为工单表加入工作类型文字说明
