@@ -377,6 +377,13 @@ namespace DCSMS.BLL
             return repairLogDb.repairLogCreate(startTime, endTime, workDetail, defaultCharacter, workTime, orderId);
         }
 
+        //删除维修记录
+        public int repairLogRemove(int id)
+        {
+            RepairLogDB repairLogDb = new RepairLogDB();
+            return repairLogDb.repairLogDelete(id);
+        }
+
         #endregion
 
 

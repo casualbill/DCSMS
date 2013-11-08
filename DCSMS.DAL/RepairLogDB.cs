@@ -37,6 +37,13 @@ namespace DCSMS.DAL
             return executeSqlCommandNoQuery(sqlCommand, paramList);
         }
 
+        public int repairLogDelete(int id)
+        {
+            String sqlCommand = "delete from repairlog where Id = @Id";
+            MySqlParameter param = new MySqlParameter("@Id", id);
+            return executeSqlCommandNoQuery(sqlCommand, param);
+        }
+
         public DataSet repairLogQuery(String orderId)
         {
             String sqlCommand = "select * from repairlog where orderId = @OrderId";
