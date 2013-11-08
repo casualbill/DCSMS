@@ -217,6 +217,17 @@ namespace DCSMS.Web
              return orderLogic.repairLogAdd(startTime, endTime, workDetail, defaultCharacter, workTime, orderId);
         }
 
+        [WebMethod(EnableSession = true)]
+        //维修记录删除
+        public int repairLogRemove(String orderId, int id)
+        {
+            OrderLogic orderLogic = new OrderLogic();
+            int permissionFlag = orderLogic.orderOperatePermission(orderId, Convert.ToInt16(Session["userId"]), Convert.ToInt16(Session["userType"]));
+            if (permissionFlag != 1) { return permissionFlag; }
+
+            return orderLogic.repairLogRemove(id);
+        }
+
         [WebMethod]
         //图片显示
         public String imageShow(String orderId)
