@@ -6,6 +6,7 @@
     <script type="text/javascript">
         $(function () {
             sparePartHandler();
+            repairLogHandler();
             imageHandler(true);
             orderProgressBar(<% =orderStatus %>);
 
@@ -89,6 +90,19 @@
                     <th>订货号</th>
                     <th>数量</th>
                     <th>备注</th>
+                    <th>操作</th>
+                </tr>
+            </tbody>
+        </table>
+
+        <table>
+            <tbody title="repairLogTable">
+                <tr>
+                    <th>工作内容</th>
+                    <th>缺省特征信息</th>
+                    <th>开始时间</th>
+                    <th>结束时间</th>
+                    <th>消耗工时</th>
                     <th>操作</th>
                 </tr>
             </tbody>
