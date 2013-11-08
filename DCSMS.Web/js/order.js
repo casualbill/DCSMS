@@ -6,6 +6,15 @@ sparePartTemplate.push('    <td><input type="text" title="sparePartRemark" maxle
 sparePartTemplate.push('    <td><input type="button" value="添加备件" title="sparePartAdd" />');
 sparePartTemplate.push('    <input type="hidden" value="0" title="sparePartId" /></td></tr>');
 
+var repairLogTemplate = [];
+repairLogTemplate.push('<tr><td><input type="text" title="workDetail" maxlength="300" /></td>');
+repairLogTemplate.push('    <td><input type="text" title="defaultCharacter" maxlength="300" /></td>');
+repairLogTemplate.push('    <td><input type="text" title="startTime" maxlength="20" /></td>');
+repairLogTemplate.push('    <td><input type="text" title="endTime" maxlength="20" /></td>');
+repairLogTemplate.push('    <td><input type="text" title="workTime" maxlength="10" /></td>');
+repairLogTemplate.push('    <td><input type="button" value="添加维修记录" title="repairLogAdd" />');
+repairLogTemplate.push('    <input type="hidden" value="0" title="repairLogId" /></td></tr>');
+
 var sparePartHandler = function () {
     var orderId = getQueryStringByName('id');
     var sparePartTable = $('[title="sparePartTable"]');
@@ -88,6 +97,97 @@ var sparePartHandler = function () {
 
                     if (result == 1) {
                         sparePartInfo.remove();
+                    } else { alert('系统错误'); }
+                }
+            });
+        }
+    });
+}
+
+var repairLogHandler = function () {
+    var orderId = getQueryStringByName('id');
+    var repairLogTable = $('[title="repairLogTable"]');
+    repairLogTable.parent().removeClass('hide');
+
+    $.ajax({
+        url: '/ajax.asmx/repairLogQuery',
+        data: '{orderId:"' + orderId + '"}',
+        type: "POST",
+        dataType: "json",
+        contentType: "application/json",
+        success: function (r) {
+            var result = JSON.parse(r.d);
+            var spartPartCollection;
+
+            for (var i = 0; i < result.length; i++) {
+                var temp = $(repairLogTemplate.join(''));
+                temp.find('[title="workDetail"]').val(result[i].workDetail);
+                temp.find('[title="defaultCharacter"]').val(result[i].orderingNumber);
+                temp.find('[title="startTime"]').val(result[i].startTime);
+                temp.find('[title="endTime"]').val(result[i].endTime);
+                temp.find('[title="workTime"]').val(result[i].workTime);
+                temp.find('[title="repairLogId"]').val(result[i].id);
+                temp.find('input').attr('disabled', true);
+                temp.find('[title="repairLogAdd"]').remove()
+                temp.children().last().append('<input type="button" value="删除维修记录" title="repairLogRemove" />');
+
+                repairLogTable.append(temp);
+            }
+
+            repairLogTable.append(repairLogTemplate.join(''));
+        }
+    });
+
+    repairLogTable.delegate('[title="repairLogAdd"]', 'click', function () {
+        var self = $(this);
+        var repairLogInfo = self.parent().parent();
+        var workDetail = repairLogInfo.find('[title="workDetail"]').val();
+        var defaultCharacter = repairLogInfo.find('[title="defaultCharacter"]').val();
+        var startTime = repairLogInfo.find('[title="startTime"]').val();
+        var endTime = repairLogInfo.find('[title="endTime"]').val();
+        var workTime = repairLogInfo.find('[title="workTime"]').val();
+
+        if (workDetail.length < 1) {
+            alert('请完整填写维修信息');
+        } else {
+            $.ajax({
+                url: '/ajax.asmx/repairLogAdd',
+                data: '{workDetail:"' + workDetail + '", defaultCharacter:"' + defaultCharacter + '", startTime:"' + startTime + '", endTime:"' + endTime + '", workTime:"' + workTime + '", orderId:"' + orderId + '"}',
+                type: "POST",
+                dataType: "json",
+                contentType: "application/json",
+                success: function (r) {
+                    var result = JSON.parse(r.d);
+
+                    if (result == -2) {
+                        alert('你没有操作权限！');
+                    } else if (result == -1) {
+                        alert('工单不存在！')
+                    } else if (result == 1) {
+                        repairLogInfo.find('input').attr('disabled', true);
+                        self.val('已添加');
+                        repairLogTable.append(repairLogTemplate.join(''));
+                    } else { alert('系统错误'); }
+                }
+            });
+        }
+    });
+
+    repairLogTable.delegate('[title="repairLogRemove"]', 'click', function () {
+        if (confirm('确定删除此维修记录？')) {
+            var repairLogInfo = $(this).parent().parent();
+            var id = repairLogInfo.find('[title="repairLogId"]').val();
+            $.ajax({
+                url: '/ajax.asmx/repairLogRemove',
+                data: '{orderId:"' + orderId + '", id:"' + id + '"}',
+                type: "POST",
+                dataType: "json",
+                contentType: "application/json",
+                success: function (r) {
+                    var result = JSON.parse(r.d);
+
+                    if (result == 1) {
+                        repairLogInfo.remove();
                     } else { alert('系统错误'); }
                 }
             });

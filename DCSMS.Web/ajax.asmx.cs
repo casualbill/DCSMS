@@ -193,10 +193,10 @@ namespace DCSMS.Web
                 {
                     str += "{";
                     str += "\"id\":" + dr["Id"] + ",";
-                    str += "\"startTime\":\"" + dr["StartTime"] + "\",";
-                    str += "\"endTime\":\"" + dr["EndTime"] + "\",";
                     str += "\"workDetail\":\"" + dr["WorkDetail"] + "\",";
                     str += "\"defaultCharacter\":\"" + dr["DefaultCharacter"] + "\",";
+                    str += "\"startTime\":\"" + dr["StartTime"] + "\",";
+                    str += "\"endTime\":\"" + dr["EndTime"] + "\",";
                     str += "\"workTime\":\"" + dr["WorkTime"] + "\"";
                     str += "},";
                 }
