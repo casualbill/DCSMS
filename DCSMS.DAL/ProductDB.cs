@@ -9,7 +9,7 @@ namespace DCSMS.DAL
     {
         public int productCreate(List<String> productInfo, String orderId)
         {
-            String sqlCommand = "insert into productinfo values (null, @ProductName, @SerialNumber, @OrderingNumber, @CycleCounters, @FirmwareVersion, @Remark, @OrderId)";
+            String sqlCommand = "insert into productinfo values (null, @ProductName, @SerialNumber, @OrderingNumber, @CycleCounters, @FirmwareVersion, @Remark, @ToolType, @OrderId)";
 
             List<MySqlParameter> paramList = new List<MySqlParameter>();
             paramList.Add(new MySqlParameter("@ProductName", productInfo[0]));
@@ -18,6 +18,7 @@ namespace DCSMS.DAL
             paramList.Add(new MySqlParameter("@CycleCounters", productInfo[3]));
             paramList.Add(new MySqlParameter("@FirmwareVersion", productInfo[4]));
             paramList.Add(new MySqlParameter("@Remark", productInfo[5]));
+            paramList.Add(new MySqlParameter("@ToolType", Convert.ToInt16(productInfo[6])));
             paramList.Add(new MySqlParameter("@OrderId", orderId));
 
             return executeSqlCommandNoQuery(sqlCommand, paramList);
@@ -25,7 +26,7 @@ namespace DCSMS.DAL
 
         public int productUpdate(List<String> productInfo, String orderId)
         {
-            String sqlCommand = "update productinfo set ProductName = @ProductName, SerialNumber = @SerialNumber, OrderingNumber = @OrderingNumber, CycleCounters = @CycleCounters, FirmwareVersion = @FirmwareVersion, Remark = @Remark where OrderId = @OrderId";
+            String sqlCommand = "update productinfo set ProductName = @ProductName, SerialNumber = @SerialNumber, OrderingNumber = @OrderingNumber, CycleCounters = @CycleCounters, FirmwareVersion = @FirmwareVersion, Remark = @Remark, ToolType = @ToolType where OrderId = @OrderId";
 
             List<MySqlParameter> paramList = new List<MySqlParameter>();
             paramList.Add(new MySqlParameter("@ProductName", productInfo[0]));
@@ -34,6 +35,7 @@ namespace DCSMS.DAL
             paramList.Add(new MySqlParameter("@CycleCounters", productInfo[3]));
             paramList.Add(new MySqlParameter("@FirmwareVersion", productInfo[4]));
             paramList.Add(new MySqlParameter("@Remark", productInfo[5]));
+            paramList.Add(new MySqlParameter("@ToolType", Convert.ToInt16(productInfo[6])));
             paramList.Add(new MySqlParameter("@OrderId", orderId));
 
             return executeSqlCommandNoQuery(sqlCommand, paramList);

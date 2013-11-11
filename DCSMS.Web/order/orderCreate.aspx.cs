@@ -58,6 +58,7 @@ namespace DCSMS.Web.order
             int createUserId;
             int stationId;
             int technicianId;
+            String toolType;
             Boolean isPublic;
 
             if (Session["userId"] == null)
@@ -88,8 +89,6 @@ namespace DCSMS.Web.order
                 return;
             }
 
-            //前端验证tb_sparepart_amount为数字
-
             if (ddl_worktype.SelectedValue == "0")
             {
                 Response.Write("<script type=\"text/javascript\">alert (\"请选择工作类型！\");</script>");
@@ -98,6 +97,16 @@ namespace DCSMS.Web.order
             else
             {
                 workType = Convert.ToInt16(ddl_worktype.SelectedValue);
+            }
+
+            if (ddl_tooltype.SelectedValue == "0")
+            {
+                Response.Write("<script type=\"text/javascript\">alert (\"请选择工具类型！\");</script>");
+                return;
+            }
+            else
+            {
+                toolType = ddl_tooltype.SelectedValue;
             }
 
             if (ddl_station.SelectedValue == "0")
@@ -149,6 +158,7 @@ namespace DCSMS.Web.order
             productInfo.Add("");    //CycleCounters
             productInfo.Add(tb_firmwareversion.Text.Trim());
             productInfo.Add(tb_product_remark.Text.Trim());
+            productInfo.Add(toolType);
 
             if (rbl_ispublic.SelectedValue == "0")
             {

@@ -67,6 +67,11 @@
                 return false;
             }
 
+            if ($('#ctl00_MainContentPlaceHolder_ddl_tooltype').children(':selected').val() == "0") {
+                $('.content-tips').html('请选择工具类型！');
+                return false;
+            }
+
             if ($('#ctl00_MainContentPlaceHolder_ddl_station').children(':selected').val() == "0") {
                 $('.content-tips').html('请选择工作站！');
                 return false;
@@ -122,7 +127,16 @@
             <li><label><em>*</em>序列号：</label><asp:TextBox ID="tb_serialnumber" MaxLength="30" runat="server"></asp:TextBox></li>
             <li><label><em>*</em>订货号：</label><asp:TextBox ID="tb_product_orderingnumber" MaxLength="30" runat="server"></asp:TextBox></li>
             <li><label>固件版本：</label><asp:TextBox ID="tb_firmwareversion" MaxLength="20" runat="server"></asp:TextBox></li>
-            <li class="margin-bottom"><label>备注：</label><asp:TextBox ID="tb_product_remark" MaxLength="300" TextMode="MultiLine" runat="server"></asp:TextBox></li>
+            <li><label>备注：</label><asp:TextBox ID="tb_product_remark" MaxLength="300" TextMode="MultiLine" runat="server"></asp:TextBox></li>
+            <li class="margin-bottom"><label><em>*</em>工具类型：</label><asp:DropDownList ID="ddl_tooltype" runat="server">
+                <asp:ListItem Text="请选择工具类型" Value="0"></asp:ListItem>
+                <asp:ListItem Text="电动装配工具" Value="1"></asp:ListItem>
+                <asp:ListItem Text="气动装配工具" Value="2"></asp:ListItem>
+                <asp:ListItem Text="控制器" Value="3"></asp:ListItem>
+                <asp:ListItem Text="气动打磨工具" Value="4"></asp:ListItem>
+                <asp:ListItem Text="电池式工具" Value="5"></asp:ListItem>
+                <asp:ListItem Text="附件" Value="6"></asp:ListItem>
+            </asp:DropDownList></li>
 
             <li><label><em>*</em>工作站：</label><asp:DropDownList ID="ddl_station" runat="server"></asp:DropDownList></li>
 
