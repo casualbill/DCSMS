@@ -7,7 +7,7 @@ namespace DCSMS.DAL
 {
     public class RepairLogDB : DBHelper
     {
-        public int repairLogCreate(DateTime startTime, DateTime endTime, String workDetail, String defaultCharacter, String workTime, String orderId)
+        public int repairLogCreate(DateTime? startTime, DateTime? endTime, String workDetail, String defaultCharacter, String workTime, String orderId)
         {
             String sqlCommand = "insert into repairlog values (null, @StartTime, @EndTime, @WorkDetail, @DefaultCharacter, @WorkTime, @OrderId)";
 

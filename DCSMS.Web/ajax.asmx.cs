@@ -208,13 +208,25 @@ namespace DCSMS.Web
 
         [WebMethod(EnableSession = true)]
         //维修记录添加
-        public int repairLogAdd(DateTime startTime, DateTime endTime, String workDetail, String defaultCharacter, String workTime, String orderId)
+        public int repairLogAdd(String startTime, String endTime, String workDetail, String defaultCharacter, String workTime, String orderId)
         {
-             OrderLogic orderLogic = new OrderLogic();
-             int permissionFlag = orderLogic.orderOperatePermission(orderId, Convert.ToInt16(Session["userId"]), Convert.ToInt16(Session["userType"]));
-             if (permissionFlag != 1) { return permissionFlag; }
+            OrderLogic orderLogic = new OrderLogic();
+            int permissionFlag = orderLogic.orderOperatePermission(orderId, Convert.ToInt16(Session["userId"]), Convert.ToInt16(Session["userType"]));
+            if (permissionFlag != 1) { return permissionFlag; }
 
-             return orderLogic.repairLogAdd(startTime, endTime, workDetail, defaultCharacter, workTime, orderId);
+            DateTime? startDateTime = null;
+            DateTime? endDateTime = null;
+            if (startTime.Trim().Length > 0)
+            {
+                startDateTime = DateTime.Parse(startTime);
+            }
+
+            if (endTime.Trim().Length > 0)
+            {
+                endDateTime = DateTime.Parse(endTime);
+            }
+
+            return orderLogic.repairLogAdd(startDateTime, endDateTime, workDetail, defaultCharacter, workTime, orderId);
         }
 
         [WebMethod(EnableSession = true)]

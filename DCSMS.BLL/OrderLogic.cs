@@ -371,7 +371,7 @@ namespace DCSMS.BLL
         }
 
         //添加维修记录
-        public int repairLogAdd(DateTime startTime, DateTime endTime, String workDetail, String defaultCharacter, String workTime, String orderId)
+        public int repairLogAdd(DateTime? startTime, DateTime? endTime, String workDetail, String defaultCharacter, String workTime, String orderId)
         {
             RepairLogDB repairLogDb = new RepairLogDB();
             return repairLogDb.repairLogCreate(startTime, endTime, workDetail, defaultCharacter, workTime, orderId);
