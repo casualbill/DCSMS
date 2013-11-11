@@ -130,7 +130,7 @@ namespace DCSMS.BLL
         }
 
 
-        //工单查询 根据工单号 返回DataSet：tabel 0为工单 1客户 2工具 3备件 4维修站 5工单记录 6跟单技术员 7创建人 8管理者
+        //工单查询 根据工单号 返回DataSet：tabel 0为工单 1客户 2工具 3备件 4维修站 5工单记录 6跟单技术员 7创建人 8管理者 9维修记录
         public DataSet orderQueryByOrderId(String orderId)
         {
             return orderQueryByOrderId(orderId, false);
@@ -189,6 +189,11 @@ namespace DCSMS.BLL
 
             dt = userDb.userQueryByUserId(adminId).Tables[0];
             dt.TableName = "AdminTable";
+            orderInfoDataSet.Tables.Add(dt.Copy());
+
+            RepairLogDB repairLogDb = new RepairLogDB();
+            dt = repairLogDb.repairLogQuery(orderId).Tables[0];
+            dt.TableName = "RepairLogTable";
             orderInfoDataSet.Tables.Add(dt.Copy());
 
             return orderInfoDataSet;

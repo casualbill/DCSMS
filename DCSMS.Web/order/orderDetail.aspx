@@ -57,7 +57,7 @@
             <li class="margin-bottom"><label>备注：</label><asp:Label ID="lb_product_remark" runat="server"></asp:Label></li>
         </ul>
             
-        <asp:Panel ID="pn_table" runat="server" Visible="false">
+        <asp:Panel ID="pn_sparepart" runat="server" Visible="false">
             <table>
                 <tr>
                     <th>备件名称</th>
@@ -73,6 +73,31 @@
                         <td><%# Eval("OrderingNumber")%></td>
                         <td><%# Eval("Amount")%></td>
                         <td><%# Eval("Remark")%></td>
+                    </tr>
+            
+                </ItemTemplate>
+            </asp:Repeater>
+            </table>
+        </asp:Panel>
+
+        <asp:Panel ID="pn_repairlog" runat="server" Visible="false">
+            <table>
+                <tr>
+                    <th>工作内容</th>
+                    <th>缺省特征信息</th>
+                    <th>开始时间</th>
+                    <th>结束时间</th>
+                    <th>消耗工时</th>
+                </tr>
+            <asp:Repeater ID="rpt_repairlog" runat="server">
+                <ItemTemplate>
+
+                    <tr>
+                        <td><%# Eval("WorkDetail")%></td>
+                        <td><%# Eval("DefaultCharacter")%></td>
+                        <td><%# Eval("StartTime")%></td>
+                        <td><%# Eval("EndTime")%></td>
+                        <td><%# Eval("WorkTime")%></td>
                     </tr>
             
                 </ItemTemplate>

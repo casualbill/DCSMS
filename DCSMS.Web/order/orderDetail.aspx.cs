@@ -92,11 +92,22 @@ namespace DCSMS.Web.order
                     {
                         rpt_sparepart.DataSource = ds.Tables[3];
                         rpt_sparepart.DataBind();
-                        pn_table.Visible = true;
+                        pn_sparepart.Visible = true;
                     }
                     else
                     {
-                        pn_table.Visible = false;
+                        pn_sparepart.Visible = false;
+                    }
+
+                    if (ds.Tables[9].Rows.Count > 0)
+                    {
+                        rpt_repairlog.DataSource = ds.Tables[9];
+                        rpt_repairlog.DataBind();
+                        pn_repairlog.Visible = true;
+                    }
+                    else
+                    {
+                        pn_repairlog.Visible = false;
                     }
 
                     lb_stationname.Text = ds.Tables[4].Rows[0]["StationName"].ToString();
