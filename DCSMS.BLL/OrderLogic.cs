@@ -160,7 +160,7 @@ namespace DCSMS.BLL
             orderInfoDataSet.Tables.Add(dt.Copy());
 
             ProductDB productDb = new ProductDB();
-            dt = productDb.productQuery(orderId).Tables[0];
+            dt = addToolTypeText(productDb.productQuery(orderId).Tables[0]);
             dt.TableName = "ProductTable";
             orderInfoDataSet.Tables.Add(dt.Copy());
 
@@ -442,6 +442,28 @@ namespace DCSMS.BLL
         }
         #endregion
 
+
+        //为工具表加入工具类型文字说明
+        protected DataTable addToolTypeText(DataTable productTable)
+        {
+            productTable.Columns.Add("ToolTypeStr", Type.GetType("System.String"));
+
+            int index = 0;
+            foreach (DataRow dr in productTable.Rows)
+            {
+                switch (dr["ToolType"].ToString())
+                {
+                    case "1": productTable.Rows[index]["ToolTypeStr"] = "电动装配工具"; break;
+                    case "2": productTable.Rows[index]["ToolTypeStr"] = "气动装配工具"; break;
+                    case "3": productTable.Rows[index]["ToolTypeStr"] = "控制器"; break;
+                    case "4": productTable.Rows[index]["ToolTypeStr"] = "气动打磨工具"; break;
+                    case "5": productTable.Rows[index]["ToolTypeStr"] = "电池式工具"; break;
+                    case "6": productTable.Rows[index]["ToolTypeStr"] = "附件"; break;
+                }
+                index++;
+            }
+            return productTable;
+        }
 
         //为工单表加入工作类型文字说明
         protected DataTable addWorkTypeText(DataTable orderTable)

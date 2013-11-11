@@ -54,7 +54,8 @@
             <li><label>工具序列号：</label><asp:Label ID="lb_serialnumber" runat="server"></asp:Label></li>
             <li><label>工具订货号：</label><asp:Label ID="lb_product_orderingnumber" runat="server"></asp:Label></li>
             <li><label>固件版本：</label><asp:Label ID="lb_product_firmware" runat="server"></asp:Label></li>
-            <li class="margin-bottom"><label>备注：</label><asp:Label ID="lb_product_remark" runat="server"></asp:Label></li>
+            <li><label>备注：</label><asp:Label ID="lb_product_remark" runat="server"></asp:Label></li>
+            <li class="margin-bottom"><label>工具类型：</label><asp:Label ID="lb_tooltype" runat="server"></asp:Label></li>
         </ul>
             
         <asp:Panel ID="pn_sparepart" runat="server" Visible="false">
