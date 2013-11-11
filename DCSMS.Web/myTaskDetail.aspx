@@ -1,13 +1,17 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/main.Master" AutoEventWireup="true" CodeBehind="myTaskDetail.aspx.cs" Inherits="DCSMS.Web.myTaskDetail" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <link rel="stylesheet" type="text/css" href="/js/jquery.ui.timepicker/jquery-ui.css" />
+    <link rel="stylesheet" type="text/css" href="/js/jquery.ui.timepicker/jquery-ui-timepicker-addon.min.css" />
     <link rel="stylesheet" type="text/css" href="/js/uploadify/uploadify.css" />
+    <script type="text/javascript" src="/js/jquery.ui.timepicker/jquery-ui-1.10.3.custom.min.js"></script>
+    <script type="text/javascript" src="/js/jquery.ui.timepicker/jquery-ui-timepicker-addon.min.js"></script>
     <script type="text/javascript" src="/js/uploadify/jquery.uploadify.js"></script>
     <script type="text/javascript" src="/js/order.js"></script>
     <script type="text/javascript">
         $(function () {
             sparePartHandler();
+            repairLogHandler();
             imageHandler(true);
-
             orderProgressBar(<% =formerStatus %>);
         });
     
@@ -47,13 +51,26 @@
             <li class="margin-bottom"><label>备注：</label><asp:Label ID="lb_product_remark" runat="server"></asp:Label></li>
         </ul>
 
-        <table class="hide">
+        <table>
             <tbody title="sparePartTable">
                 <tr>
                     <th>备件名称</th>
                     <th>订货号</th>
                     <th>数量</th>
                     <th>备注</th>
+                    <th>操作</th>
+                </tr>
+            </tbody>
+        </table>
+
+        <table>
+            <tbody title="repairLogTable">
+                <tr>
+                    <th>工作内容</th>
+                    <th>缺省特征信息</th>
+                    <th>开始时间</th>
+                    <th>结束时间</th>
+                    <th>消耗工时</th>
                     <th>操作</th>
                 </tr>
             </tbody>
