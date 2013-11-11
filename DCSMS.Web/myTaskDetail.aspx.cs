@@ -130,6 +130,7 @@ namespace DCSMS.Web
                     lb_product_orderingnumber.Text = ds.Tables[2].Rows[0]["OrderingNumber"].ToString();
                     lb_product_firmware.Text = ds.Tables[2].Rows[0]["FirmwareVersion"].ToString();
                     lb_product_remark.Text = ds.Tables[2].Rows[0]["Remark"].ToString();
+                    lb_tooltype.Text = ds.Tables[2].Rows[0]["ToolTypeStr"].ToString();
 
                     if (userType < 3) {
                         cb_manageorder.Visible = false;
