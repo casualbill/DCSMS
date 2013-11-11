@@ -15,6 +15,10 @@ repairLogTemplate.push('    <td><input type="text" title="workTime" maxlength="1
 repairLogTemplate.push('    <td><input type="button" value="添加维修记录" title="repairLogAdd" />');
 repairLogTemplate.push('    <input type="hidden" value="0" title="repairLogId" /></td></tr>');
 
+var dateTimePickerOptions = {
+    dateFormat: 'yy/mm/dd'
+};
+
 var sparePartHandler = function () {
     var orderId = getQueryStringByName('id');
     var sparePartTable = $('[title="sparePartTable"]');
@@ -135,8 +139,8 @@ var repairLogHandler = function () {
             }
 
             repairLogTable.append(repairLogTemplate.join(''));
-            repairLogTable.find('[title="startTime"]').last().datetimepicker();
-            repairLogTable.find('[title="endTime"]').last().datetimepicker();
+            repairLogTable.find('[title="startTime"]').last().datetimepicker(dateTimePickerOptions);
+            repairLogTable.find('[title="endTime"]').last().datetimepicker(dateTimePickerOptions);
         }
     });
 
@@ -169,8 +173,8 @@ var repairLogHandler = function () {
                         repairLogInfo.find('input').attr('disabled', true);
                         self.val('已添加');
                         repairLogTable.append(repairLogTemplate.join(''));
-                        repairLogTable.find('[title="startTime"]').last().datetimepicker();
-                        repairLogTable.find('[title="endTime"]').last().datetimepicker();
+                        repairLogTable.find('[title="startTime"]').last().datetimepicker(dateTimePickerOptions);
+                        repairLogTable.find('[title="endTime"]').last().datetimepicker(dateTimePickerOptions);
                     } else { alert('系统错误'); }
                 }
             });
