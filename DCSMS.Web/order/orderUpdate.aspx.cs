@@ -81,6 +81,7 @@ namespace DCSMS.Web.order
             productInfo.Add("");    //CycleCounters
             productInfo.Add(tb_product_firmware.Text.Trim());
             productInfo.Add(tb_product_remark.Text.Trim());
+            productInfo.Add(ddl_tooltype.SelectedValue);
 
             if (rbl_ispublic.SelectedValue == "0")
             {
@@ -160,6 +161,7 @@ namespace DCSMS.Web.order
                     tb_product_orderingnumber.Text = ds.Tables[2].Rows[0]["OrderingNumber"].ToString();
                     tb_product_firmware.Text = ds.Tables[2].Rows[0]["FirmwareVersion"].ToString();
                     tb_product_remark.Text = ds.Tables[2].Rows[0]["Remark"].ToString();
+                    ddl_tooltype.SelectedValue = ds.Tables[2].Rows[0]["ToolType"].ToString();
 
                 }
                 else
