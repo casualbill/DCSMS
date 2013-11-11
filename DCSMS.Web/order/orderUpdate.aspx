@@ -1,6 +1,10 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/main.Master" AutoEventWireup="true" CodeBehind="orderUpdate.aspx.cs" Inherits="DCSMS.Web.order.orderUpdate" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <link rel="stylesheet" type="text/css" href="/js/jquery.ui.timepicker/jquery-ui.css" />
+    <link rel="stylesheet" type="text/css" href="/js/jquery.ui.timepicker/jquery-ui-timepicker-addon.min.css" />
     <link rel="stylesheet" type="text/css" href="/js/uploadify/uploadify.css" />
+    <script type="text/javascript" src="/js/jquery.ui.timepicker/jquery-ui-1.10.3.custom.min.js"></script>
+    <script type="text/javascript" src="/js/jquery.ui.timepicker/jquery-ui-timepicker-addon.min.js"></script>
     <script type="text/javascript" src="/js/uploadify/jquery.uploadify.js"></script>
     <script type="text/javascript" src="/js/order.js"></script>
     <script type="text/javascript">

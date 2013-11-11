@@ -135,6 +135,8 @@ var repairLogHandler = function () {
             }
 
             repairLogTable.append(repairLogTemplate.join(''));
+            repairLogTable.find('[title="startTime"]').last().datetimepicker();
+            repairLogTable.find('[title="endTime"]').last().datetimepicker();
         }
     });
 
@@ -167,6 +169,8 @@ var repairLogHandler = function () {
                         repairLogInfo.find('input').attr('disabled', true);
                         self.val('已添加');
                         repairLogTable.append(repairLogTemplate.join(''));
+                        repairLogTable.find('[title="startTime"]').last().datetimepicker();
+                        repairLogTable.find('[title="endTime"]').last().datetimepicker();
                     } else { alert('系统错误'); }
                 }
             });
