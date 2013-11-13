@@ -9,7 +9,7 @@ namespace DCSMS.DAL
     {
         public int inspectionResultCreate(List<int> inspectionResultStatus, List<String> inspectionResultComment, String orderId)
         {
-            String sqlCommand = "insert into inspectionresult values (null, @OrderId, @Item1, @Item2, @Item3, @Item4, @Item5, @Item6, @Item7, @Item8, @Comment1, @Comment2, @Comment3, @Comment4, @Comment5, @Comment6, @Comment7, @Comment8)";
+            String sqlCommand = "insert into inspectionresult values (@OrderId, @Item1, @Item2, @Item3, @Item4, @Item5, @Item6, @Item7, @Item8, @Comment1, @Comment2, @Comment3, @Comment4, @Comment5, @Comment6, @Comment7, @Comment8)";
 
             List<MySqlParameter> paramList = new List<MySqlParameter>();
             paramList.Add(new MySqlParameter("@OrderId", orderId));
