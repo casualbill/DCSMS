@@ -46,7 +46,7 @@ namespace DCSMS.DAL
 
         public DataSet repairLogQuery(String orderId)
         {
-            String sqlCommand = "select * from repairlog where orderId = @OrderId";
+            String sqlCommand = "select * from repairlog where OrderId = @OrderId";
             MySqlParameter param = new MySqlParameter("@OrderId", orderId);
             return executeSqlCommandDataSet(sqlCommand, param);
         }

@@ -27,7 +27,7 @@ namespace DCSMS.DAL
 
         public DataSet imageQueryByOrderId(String orderId)
         {
-            String sqlCommand = "select * from imageinfo where orderId = @OrderId order by Id";
+            String sqlCommand = "select * from imageinfo where OrderId = @OrderId order by Id";
             MySqlParameter param = new MySqlParameter("@OrderId", orderId);
             return executeSqlCommandDataSet(sqlCommand, param);
         }
