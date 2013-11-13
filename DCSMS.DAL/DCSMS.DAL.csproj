@@ -51,6 +51,7 @@
     <Compile Include="RepairLogDB.cs" />
     <Compile Include="SparePartDB.cs" />
     <Compile Include="StationDB.cs" />
+    <Compile Include="ToolFunctionTestDB.cs" />
     <Compile Include="UserDB.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
