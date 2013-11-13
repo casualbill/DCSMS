@@ -69,6 +69,33 @@ CREATE TABLE `imageinfo` (
 
 insert  into `imageinfo`(`Id`,`FileUrl`,`OrderId`) values (39,'/uploads/OS1300005/6b1394a6tw1e5lr3kwn5rj20c80h6js0.jpg','OS1300005'),(41,'/uploads/OS1300005/6f582097gw1e8xeu0op8gj20c82e5akf.jpg','OS1300005'),(42,'/uploads/OS1300005/7cc829d3jw1e4r1w1bt75g207r06s000.gif','OS1300005');
 
+/*Table structure for table `inspectionresult` */
+
+DROP TABLE IF EXISTS `inspectionresult`;
+
+CREATE TABLE `inspectionresult` (
+  `OrderId` char(9) NOT NULL DEFAULT '',
+  `Item1` tinyint(3) DEFAULT NULL,
+  `Item2` tinyint(3) DEFAULT NULL,
+  `Item3` tinyint(3) DEFAULT NULL,
+  `Item4` tinyint(3) DEFAULT NULL,
+  `Item5` tinyint(3) DEFAULT NULL,
+  `Item6` tinyint(3) DEFAULT NULL,
+  `Item7` tinyint(3) DEFAULT NULL,
+  `Item8` tinyint(3) DEFAULT NULL,
+  `Comment1` varchar(300) DEFAULT NULL,
+  `Comment2` varchar(300) DEFAULT NULL,
+  `Comment3` varchar(300) DEFAULT NULL,
+  `Comment4` varchar(300) DEFAULT NULL,
+  `Comment5` varchar(300) DEFAULT NULL,
+  `Comment6` varchar(300) DEFAULT NULL,
+  `Comment7` varchar(300) DEFAULT NULL,
+  `Comment8` varchar(300) DEFAULT NULL,
+  PRIMARY KEY (`OrderId`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+/*Data for the table `inspectionresult` */
+
 /*Table structure for table `orderinfo` */
 
 DROP TABLE IF EXISTS `orderinfo`;
@@ -92,7 +119,7 @@ CREATE TABLE `orderinfo` (
 
 /*Data for the table `orderinfo` */
 
-insert  into `orderinfo`(`Id`,`FailureDescription`,`Remark`,`WorkType`,`CreateTime`,`UpdateTime`,`CreateUserId`,`TechnicianId`,`AdminId`,`CustomerId`,`StationId`,`OrderStatus`,`IsPublic`) values ('OS1300001','','remark1..log',1,'2013-10-09 14:51:15','2013-10-10 10:29:40',13,15,1,12,1,8,''),('OS1300005','dfddfdfdfddfddfdfdfdf','rrrrrrrrrrrrrrrrrrrrrrr',3,'2013-10-10 17:22:49','2013-11-04 16:14:37',13,18,0,25,1,4,'\0'),('OS1300002','failure description22','22222 bzbz\r\n客户确认了\r\n到期 维修完成~~\r\n\r\nok',4,'2013-10-09 15:04:00','2013-10-15 16:38:54',13,10,13,6,1,8,''),('OS1300003','desc','r',2,'2013-10-09 15:19:04','2013-10-29 11:06:23',13,10,0,9,1,2,''),('OS1300004','','',2,'2013-10-09 15:29:56','2013-10-29 11:14:52',13,10,0,9,1,4,''),('SH1300001',NULL,'',2,'2013-10-09 15:30:16',NULL,13,11,0,9,2,2,''),('SH1300002',NULL,'',1,'2013-10-15 17:34:59',NULL,13,11,0,6,2,2,''),('OS1300006',NULL,'',1,'2013-10-15 17:40:13',NULL,13,10,0,12,1,2,''),('OS1300007',NULL,'',1,'2013-10-15 17:40:48',NULL,13,10,0,16,1,1,''),('SH1300003',NULL,'',2,'2013-10-16 14:59:52',NULL,13,10,0,19,2,1,''),('SH1300004',NULL,'',2,'2013-10-24 11:25:57',NULL,13,10,0,30,2,2,''),('SH1300005',NULL,'',1,'2013-10-25 15:34:27',NULL,625,11,0,377,2,2,''),('OS1300008',NULL,'aefef',2,'2013-11-04 14:56:01',NULL,13,21,0,12,1,2,'\0'),('DS1300001',NULL,'ddddddd',4,'2013-11-04 15:04:57',NULL,13,10,0,9,2,2,''),('OS1300009',NULL,'ddddddd',1,'2013-11-04 15:05:33',NULL,13,11,0,9,1,2,'\0'),('DS1300002',NULL,'',1,'2013-11-05 16:28:37',NULL,13,11,0,508,2,1,''),('DS1300003',NULL,'',4,'2013-11-05 16:44:45',NULL,13,10,0,511,2,1,''),('DS1300004',NULL,'',4,'2013-11-05 16:48:35',NULL,13,10,0,21,2,2,'');
+insert  into `orderinfo`(`Id`,`FailureDescription`,`Remark`,`WorkType`,`CreateTime`,`UpdateTime`,`CreateUserId`,`TechnicianId`,`AdminId`,`CustomerId`,`StationId`,`OrderStatus`,`IsPublic`) values ('OS1300001','','remark1..log',1,'2013-10-09 14:51:15','2013-10-10 10:29:40',13,15,1,12,1,8,''),('OS1300005','dfddfdfdfddfddfdfdfdf','rrrrrrrrrrrrrrrrrrrrrrr',3,'2013-10-10 17:22:49','2013-11-04 16:14:37',13,18,0,25,1,4,'\0'),('OS1300002','failure description22','22222 bzbz\r\n客户确认了\r\n到期 维修完成~~\r\n\r\nok',4,'2013-10-09 15:04:00','2013-10-15 16:38:54',13,10,13,6,1,8,''),('OS1300003','desc','r',2,'2013-10-09 15:19:04','2013-10-29 11:06:23',13,10,0,9,1,2,''),('OS1300004','','',2,'2013-10-09 15:29:56','2013-10-29 11:14:52',13,10,0,9,1,4,''),('SH1300001',NULL,'',2,'2013-10-09 15:30:16',NULL,13,11,0,9,2,2,''),('SH1300002',NULL,'',1,'2013-10-15 17:34:59',NULL,13,11,0,6,2,2,''),('OS1300006',NULL,'',1,'2013-10-15 17:40:13',NULL,13,10,0,12,1,2,''),('OS1300007',NULL,'',1,'2013-10-15 17:40:48',NULL,13,10,0,16,1,1,''),('SH1300003',NULL,'',2,'2013-10-16 14:59:52',NULL,13,10,0,19,2,1,''),('SH1300004',NULL,'',2,'2013-10-24 11:25:57',NULL,13,10,0,30,2,2,''),('SH1300005',NULL,'',1,'2013-10-25 15:34:27',NULL,625,11,0,377,2,2,''),('OS1300008',NULL,'aefef',2,'2013-11-04 14:56:01',NULL,13,21,0,12,1,2,'\0'),('DS1300001',NULL,'ddddddd',4,'2013-11-04 15:04:57',NULL,13,10,0,9,2,2,''),('OS1300009',NULL,'ddddddd',1,'2013-11-04 15:05:33',NULL,13,11,0,9,1,2,'\0'),('DS1300002',NULL,'',1,'2013-11-05 16:28:37',NULL,13,11,0,508,2,1,''),('DS1300003',NULL,'',4,'2013-11-05 16:44:45',NULL,13,10,0,511,2,1,''),('DS1300004',NULL,'',4,'2013-11-05 16:48:35',NULL,13,10,0,21,2,2,''),('DS1300005','','',1,'2013-11-11 16:49:14','2013-11-11 16:57:46',13,10,0,1,2,2,'');
 
 /*Table structure for table `orderlog` */
 
@@ -100,18 +127,18 @@ DROP TABLE IF EXISTS `orderlog`;
 
 CREATE TABLE `orderlog` (
   `Id` int(11) NOT NULL AUTO_INCREMENT,
-  `OrderId` varchar(20) NOT NULL DEFAULT '',
+  `OrderId` char(9) NOT NULL DEFAULT '',
   `UserId` int(11) NOT NULL DEFAULT '0',
   `FormerStatus` tinyint(3) NOT NULL DEFAULT '0',
   `NewStatus` tinyint(3) DEFAULT NULL,
   `OperateTime` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
   PRIMARY KEY (`Id`),
   KEY `OperateTime` (`OperateTime`)
-) ENGINE=MyISAM AUTO_INCREMENT=49 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=50 DEFAULT CHARSET=utf8;
 
 /*Data for the table `orderlog` */
 
-insert  into `orderlog`(`Id`,`OrderId`,`UserId`,`FormerStatus`,`NewStatus`,`OperateTime`) values (16,'OS1300002',13,5,4,'2013-10-09 15:04:24'),(15,'OS1300002',13,4,5,'2013-10-21 15:04:00'),(14,'OS1300002',13,3,4,'2013-10-22 15:04:00'),(13,'OS1300002',10,2,3,'2013-10-18 21:04:00'),(12,'OS1300002',13,1,2,'2013-10-18 15:04:00'),(11,'OS1300001',13,2,8,'2013-10-09 14:51:15'),(10,'OS1300001',13,7,2,'2013-10-09 15:56:15'),(9,'OS1300001',13,2,7,'2013-10-09 15:51:15'),(17,'OS1300002',13,4,5,'2013-10-17 19:04:00'),(18,'OS1300002',13,5,3,'2013-10-17 15:04:00'),(20,'OS1300002',13,3,4,'2013-10-16 15:04:00'),(21,'OS1300002',13,4,5,'2013-10-13 15:04:00'),(22,'OS1300002',10,5,6,'2013-10-09 15:04:00'),(23,'OS1300002',10,6,7,'2013-10-09 15:05:36'),(24,'OS1300002',13,7,8,'2013-10-10 15:04:00'),(25,'OS1300005',13,1,2,'2013-10-10 17:22:49'),(26,'OS1300003',10,2,3,'2013-10-09 15:19:04'),(27,'OS1300003',13,3,2,'2013-10-09 15:19:04'),(28,'OS1300003',10,2,3,'2013-10-09 15:19:04'),(29,'OS1300001',13,0,2,'2013-10-09 14:52:15'),(30,'OS1300002',13,0,1,'2013-10-12 15:04:00'),(31,'OS1300003',13,0,2,'2013-10-09 15:19:04'),(32,'OS1300004',13,0,2,'2013-10-09 15:29:56'),(33,'OS1300005',13,0,1,'2013-10-10 17:22:49'),(34,'OS1300006',13,0,2,'2013-10-15 17:40:13'),(35,'OS1300007',13,0,1,'2013-10-15 17:40:48'),(36,'SH1300001',13,0,2,'2013-10-09 15:30:16'),(37,'SH1300002',13,0,2,'2013-10-15 17:34:59'),(38,'SH1300003',13,0,1,'2013-10-16 14:59:52'),(39,'SH1300004',13,0,2,'2013-10-24 11:25:57'),(40,'SH1300005',625,0,2,'2013-10-25 15:34:27'),(41,'OS1300005',626,3,4,'2013-10-29 10:55:50'),(42,'OS1300004',626,2,4,'2013-10-29 11:14:52'),(43,'OS1300008',13,0,2,'2013-11-04 14:56:01'),(44,'DS1300001',13,0,2,'2013-11-04 15:04:57'),(45,'OS1300009',13,0,2,'2013-11-04 15:05:33'),(46,'DS1300002',13,0,1,'2013-11-05 16:28:37'),(47,'DS1300003',13,0,1,'2013-11-05 16:44:45'),(48,'DS1300004',13,0,2,'2013-11-05 16:48:35');
+insert  into `orderlog`(`Id`,`OrderId`,`UserId`,`FormerStatus`,`NewStatus`,`OperateTime`) values (16,'OS1300002',13,5,4,'2013-10-09 15:04:24'),(15,'OS1300002',13,4,5,'2013-10-21 15:04:00'),(14,'OS1300002',13,3,4,'2013-10-22 15:04:00'),(13,'OS1300002',10,2,3,'2013-10-18 21:04:00'),(12,'OS1300002',13,1,2,'2013-10-18 15:04:00'),(11,'OS1300001',13,2,8,'2013-10-09 14:51:15'),(10,'OS1300001',13,7,2,'2013-10-09 15:56:15'),(9,'OS1300001',13,2,7,'2013-10-09 15:51:15'),(17,'OS1300002',13,4,5,'2013-10-17 19:04:00'),(18,'OS1300002',13,5,3,'2013-10-17 15:04:00'),(20,'OS1300002',13,3,4,'2013-10-16 15:04:00'),(21,'OS1300002',13,4,5,'2013-10-13 15:04:00'),(22,'OS1300002',10,5,6,'2013-10-09 15:04:00'),(23,'OS1300002',10,6,7,'2013-10-09 15:05:36'),(24,'OS1300002',13,7,8,'2013-10-10 15:04:00'),(25,'OS1300005',13,1,2,'2013-10-10 17:22:49'),(26,'OS1300003',10,2,3,'2013-10-09 15:19:04'),(27,'OS1300003',13,3,2,'2013-10-09 15:19:04'),(28,'OS1300003',10,2,3,'2013-10-09 15:19:04'),(29,'OS1300001',13,0,2,'2013-10-09 14:52:15'),(30,'OS1300002',13,0,1,'2013-10-12 15:04:00'),(31,'OS1300003',13,0,2,'2013-10-09 15:19:04'),(32,'OS1300004',13,0,2,'2013-10-09 15:29:56'),(33,'OS1300005',13,0,1,'2013-10-10 17:22:49'),(34,'OS1300006',13,0,2,'2013-10-15 17:40:13'),(35,'OS1300007',13,0,1,'2013-10-15 17:40:48'),(36,'SH1300001',13,0,2,'2013-10-09 15:30:16'),(37,'SH1300002',13,0,2,'2013-10-15 17:34:59'),(38,'SH1300003',13,0,1,'2013-10-16 14:59:52'),(39,'SH1300004',13,0,2,'2013-10-24 11:25:57'),(40,'SH1300005',625,0,2,'2013-10-25 15:34:27'),(41,'OS1300005',626,3,4,'2013-10-29 10:55:50'),(42,'OS1300004',626,2,4,'2013-10-29 11:14:52'),(43,'OS1300008',13,0,2,'2013-11-04 14:56:01'),(44,'DS1300001',13,0,2,'2013-11-04 15:04:57'),(45,'OS1300009',13,0,2,'2013-11-04 15:05:33'),(46,'DS1300002',13,0,1,'2013-11-05 16:28:37'),(47,'DS1300003',13,0,1,'2013-11-05 16:44:45'),(48,'DS1300004',13,0,2,'2013-11-05 16:48:35'),(49,'DS1300005',13,0,2,'2013-11-11 16:49:14');
 
 /*Table structure for table `productinfo` */
 
@@ -126,13 +153,13 @@ CREATE TABLE `productinfo` (
   `FirmwareVersion` varchar(20) DEFAULT NULL,
   `Remark` varchar(300) DEFAULT NULL,
   `ToolType` tinyint(3) NOT NULL DEFAULT '0',
-  `OrderId` varchar(20) NOT NULL DEFAULT '0',
+  `OrderId` char(9) NOT NULL DEFAULT '0',
   PRIMARY KEY (`Id`)
-) ENGINE=MyISAM AUTO_INCREMENT=32 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=33 DEFAULT CHARSET=utf8;
 
 /*Data for the table `productinfo` */
 
-insert  into `productinfo`(`Id`,`ProductName`,`SerialNumber`,`OrderingNumber`,`CycleCounters`,`FirmwareVersion`,`Remark`,`ToolType`,`OrderId`) values (13,'Product-A2','PA2-002','ORDERPA2002','','2.4','',2,'OS1300003'),(12,'Product-A2','PA2-001','ORDERPA2001','','2.4','',1,'OS1300002'),(18,'prff','awefef','aefaef3','','','',3,'SH1300002'),(16,'Product-A3','PA3-00111','ORDERPA3002','','','',2,'OS1300005'),(17,'prff','awefef','aefaef3','','','',4,'SH1300002'),(9,'Product-A2','PA2-001','ORDERPA2001','','2.6','',1,'OS1300001'),(14,'Product-A2','PA2-002','ORDERPA2003','','2.4','',3,'OS1300004'),(15,'Product-A3','PA3-001','ORDERPA3001','','2.4','',1,'SH1300001'),(19,'asdfafe','awt44','2523553','','','',1,'OS1300006'),(20,'asdfafe','awt44','2523553','','','',1,'OS1300007'),(21,'q6tq43','aaefe','awf3wf','','','',2,'SH1300003'),(22,'t4ta4twg','waeaeew','efewfewf','','','',3,'SH1300004'),(23,'t4ta4twg','waeaeew','efewfewf','','','',2,'SH1300004'),(24,'t4ta4twg','waeaeew','efewfewf','','','',3,'SH1300004'),(25,'aewfawf','4t4a','afawef','','','',2,'SH1300005'),(26,'23535','52532','2533523','','','',2,'OS1300008'),(27,'123123213','1231232','312321','','','',4,'DS1300001'),(28,'123123213','1231232','3123rgr','','','',3,'OS1300009'),(29,'asdfasdfd','sdfadfadf','fdfsdfasdf','','','',1,'DS1300002'),(30,'1434234','234324234','342423434','','','',1,'DS1300003'),(31,'1434234','234324234','342423434','','','',1,'DS1300004');
+insert  into `productinfo`(`Id`,`ProductName`,`SerialNumber`,`OrderingNumber`,`CycleCounters`,`FirmwareVersion`,`Remark`,`ToolType`,`OrderId`) values (13,'Product-A2','PA2-002','ORDERPA2002','','2.4','',2,'OS1300003'),(12,'Product-A2','PA2-001','ORDERPA2001','','2.4','',1,'OS1300002'),(18,'prff','awefef','aefaef3','','','',3,'SH1300002'),(16,'Product-A3','PA3-00111','ORDERPA3002','','','',2,'OS1300005'),(17,'prff','awefef','aefaef3','','','',4,'SH1300002'),(9,'Product-A2','PA2-001','ORDERPA2001','','2.6','',1,'OS1300001'),(14,'Product-A2','PA2-002','ORDERPA2003','','2.4','',3,'OS1300004'),(15,'Product-A3','PA3-001','ORDERPA3001','','2.4','',1,'SH1300001'),(19,'asdfafe','awt44','2523553','','','',1,'OS1300006'),(20,'asdfafe','awt44','2523553','','','',1,'OS1300007'),(21,'q6tq43','aaefe','awf3wf','','','',2,'SH1300003'),(22,'t4ta4twg','waeaeew','efewfewf','','','',3,'SH1300004'),(23,'t4ta4twg','waeaeew','efewfewf','','','',2,'SH1300004'),(24,'t4ta4twg','waeaeew','efewfewf','','','',3,'SH1300004'),(25,'aewfawf','4t4a','afawef','','','',2,'SH1300005'),(26,'23535','52532','2533523','','','',2,'OS1300008'),(27,'123123213','1231232','312321','','','',4,'DS1300001'),(28,'123123213','1231232','3123rgr','','','',3,'OS1300009'),(29,'asdfasdfd','sdfadfadf','fdfsdfasdf','','','',1,'DS1300002'),(30,'1434234','234324234','342423434','','','',1,'DS1300003'),(31,'1434234','234324234','342423434','','','',1,'DS1300004'),(32,'newProduct','1234','4321','','','',5,'DS1300005');
 
 /*Table structure for table `provincelist` */
 
@@ -159,7 +186,7 @@ CREATE TABLE `repairlog` (
   `WorkDetail` varchar(300) DEFAULT NULL,
   `DefaultCharacter` varchar(300) DEFAULT NULL,
   `WorkTime` varchar(10) DEFAULT NULL,
-  `OrderId` varchar(20) NOT NULL DEFAULT '0',
+  `OrderId` char(9) NOT NULL DEFAULT '0',
   PRIMARY KEY (`Id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
 
@@ -177,7 +204,7 @@ CREATE TABLE `sparepartinfo` (
   `OrderingNumber` varchar(30) NOT NULL DEFAULT '',
   `Amount` int(11) NOT NULL DEFAULT '0',
   `Remark` varchar(300) DEFAULT NULL,
-  `OrderId` varchar(20) NOT NULL DEFAULT '0',
+  `OrderId` char(9) NOT NULL DEFAULT '0',
   PRIMARY KEY (`Id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=19 DEFAULT CHARSET=utf8;
 
@@ -199,6 +226,29 @@ CREATE TABLE `stationinfo` (
 /*Data for the table `stationinfo` */
 
 insert  into `stationinfo`(`Id`,`StationName`,`StationCode`) values (1,'现场维修','OS'),(2,'上海','DS');
+
+/*Table structure for table `toolfunctiontest` */
+
+DROP TABLE IF EXISTS `toolfunctiontest`;
+
+CREATE TABLE `toolfunctiontest` (
+  `OrderId` char(9) NOT NULL DEFAULT '',
+  `Item1` tinyint(3) DEFAULT NULL,
+  `Item2` tinyint(3) DEFAULT NULL,
+  `Item3` tinyint(3) DEFAULT NULL,
+  `Item4` tinyint(3) DEFAULT NULL,
+  `Item5` tinyint(3) DEFAULT NULL,
+  `Item6` tinyint(3) DEFAULT NULL,
+  `Comment1` varchar(300) DEFAULT NULL,
+  `Comment2` varchar(300) DEFAULT NULL,
+  `Comment3` varchar(300) DEFAULT NULL,
+  `Comment4` varchar(300) DEFAULT NULL,
+  `Comment5` varchar(300) DEFAULT NULL,
+  `Comment6` varchar(300) DEFAULT NULL,
+  PRIMARY KEY (`OrderId`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+/*Data for the table `toolfunctiontest` */
 
 /*Table structure for table `userinfo` */
 
