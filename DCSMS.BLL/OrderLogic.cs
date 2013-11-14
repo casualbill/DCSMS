@@ -392,6 +392,60 @@ namespace DCSMS.BLL
         #endregion
 
 
+        #region 检查结果及工具功能测试
+
+        //创建检查结果
+        public int inspectionResultCreate(List<int> inspectionResultStatue, List<String> inspectionResultComment, String orderId)
+        {
+            InspectionResultDB inspectionResultDb = new InspectionResultDB();
+
+            if (inspectionResultStatue.Count < 8)
+            {
+                for (int i = inspectionResultStatue.Count; i < 8; i++)
+                {
+                    inspectionResultStatue.Add(0);
+                    inspectionResultComment.Add(null);
+                }
+            }
+
+            return inspectionResultDb.inspectionResultCreate(inspectionResultStatue, inspectionResultComment, orderId);
+        }
+
+        //修改检查结果
+        public int inspectionResultUpdate(List<int> inspectionResultStatue, List<String> inspectionResultComment, String orderId)
+        {
+            InspectionResultDB inspectionResultDb = new InspectionResultDB();
+
+            if (inspectionResultStatue.Count < 8)
+            {
+                for (int i = inspectionResultStatue.Count; i < 8; i++)
+                {
+                    inspectionResultStatue.Add(0);
+                    inspectionResultComment.Add(null);
+                }
+            }
+
+            return inspectionResultDb.inspectionResultUpdate(inspectionResultStatue, inspectionResultComment, orderId);
+        }
+
+        #endregion
+
+        //查询检查结果
+        public DataTable inspectionResultQuery(String orderId)
+        {
+            InspectionResultDB inspectionResultDb = new InspectionResultDB();
+            DataSet ds = inspectionResultDb.inspectionResultQuery(orderId);
+            if (ds.Tables[0].Rows.Count > 0)
+            {
+                return ds.Tables[0];
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+
         #region 工单操作记录
 
         //工单操作记录查询
@@ -442,6 +496,8 @@ namespace DCSMS.BLL
         }
         #endregion
 
+
+        #region 在表中加入状态对应文字
 
         //为工具表加入工具类型文字说明
         protected DataTable addToolTypeText(DataTable productTable)
@@ -531,5 +587,6 @@ namespace DCSMS.BLL
             }
             return orderTable;
         }
+        #endregion
     }
 }
