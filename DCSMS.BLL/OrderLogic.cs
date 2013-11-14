@@ -428,8 +428,6 @@ namespace DCSMS.BLL
             return inspectionResultDb.inspectionResultUpdate(inspectionResultStatue, inspectionResultComment, orderId);
         }
 
-        #endregion
-
         //查询检查结果
         public DataTable inspectionResultQuery(String orderId)
         {
@@ -444,6 +442,57 @@ namespace DCSMS.BLL
                 return null;
             }
         }
+
+        //创建工具功能测试
+        public int toolFunctionTestCreate(List<int> toolFunctionTestStatue, List<String> toolFunctionTestComment, String orderId)
+        {
+            ToolFunctionTestDB toolFunctionTestDb = new ToolFunctionTestDB();
+
+            if (toolFunctionTestStatue.Count < 6)
+            {
+                for (int i = toolFunctionTestStatue.Count; i < 6; i++)
+                {
+                    toolFunctionTestStatue.Add(0);
+                    toolFunctionTestComment.Add(null);
+                }
+            }
+
+            return toolFunctionTestDb.toolFunctionTestCreate(toolFunctionTestStatue, toolFunctionTestComment, orderId);
+        }
+
+        //修改工具功能测试
+        public int toolFunctionTestUpdate(List<int> toolFunctionTestStatue, List<String> toolFunctionTestComment, String orderId)
+        {
+            ToolFunctionTestDB toolFunctionTestDb = new ToolFunctionTestDB();
+
+            if (toolFunctionTestStatue.Count < 6)
+            {
+                for (int i = toolFunctionTestStatue.Count; i < 6; i++)
+                {
+                    toolFunctionTestStatue.Add(0);
+                    toolFunctionTestComment.Add(null);
+                }
+            }
+
+            return toolFunctionTestDb.toolFunctionTestUpdate(toolFunctionTestStatue, toolFunctionTestComment, orderId);
+        }
+
+        //查询工具功能测试
+        public DataTable toolFunctionTestQuery(String orderId)
+        {
+            ToolFunctionTestDB toolFunctionTestDb = new ToolFunctionTestDB();
+            DataSet ds = toolFunctionTestDb.toolFunctionTestQuery(orderId);
+            if (ds.Tables[0].Rows.Count > 0)
+            {
+                return ds.Tables[0];
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        #endregion
 
 
         #region 工单操作记录
