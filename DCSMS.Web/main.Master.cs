@@ -31,7 +31,7 @@ namespace DCSMS.Web
             }
         }
 
-        protected void lb_logout_click(object sender, EventArgs e)
+        protected void lbtn_logout_click(object sender, EventArgs e)
         {
             Session.Clear();
             Response.Redirect("/login.aspx");
