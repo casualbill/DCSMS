@@ -23,6 +23,10 @@ namespace DCSMS.Web.order
             }
         }
 
+        protected void lbtn_inspectionresult_click(object sender, EventArgs e)
+        {
+            Response.Redirect("/order/inspectionResult.aspx?id=" + urlQueryId);
+        }
 
         protected void btn_submit_Click(object sender, EventArgs e)
         {

@@ -255,6 +255,22 @@ namespace DCSMS.BLL
             }
             return 1;
         }
+
+        //工具查询
+        public DataTable productQuery(String orderId)
+        {
+            ProductDB productDb = new ProductDB();
+            DataSet ds = productDb.productQuery(orderId);
+            if (ds.Tables[0].Rows.Count > 0)
+            {
+                return ds.Tables[0];
+            }
+            else
+            {
+                return null;
+            }
+        }
+
         #endregion
 
 

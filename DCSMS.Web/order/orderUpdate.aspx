@@ -92,6 +92,7 @@
                 <asp:ListItem Text="电池式工具" Value="5"></asp:ListItem>
                 <asp:ListItem Text="附件" Value="6"></asp:ListItem>
             </asp:DropDownList></li>
+            <li><label></label><asp:LinkButton ID="lbtn_inspectionresult" runat="server" Text="检查结果及工具功能测试" OnClick="lbtn_inspectionresult_click"></asp:LinkButton></li>
         </ul>
 
         <table>

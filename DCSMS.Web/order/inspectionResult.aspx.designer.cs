@@ -10,213 +10,258 @@
 namespace DCSMS.Web.order {
     
     
-    public partial class orderUpdate {
+    public partial class inspectionResult {
         
         /// <summary>
-        /// lb_orderid 控件。
+        /// lb_itemtext1 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lb_orderid;
+        protected global::System.Web.UI.WebControls.Label lb_itemtext1;
         
         /// <summary>
-        /// ddl_worktype 控件。
+        /// ddl_item1 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddl_worktype;
+        protected global::System.Web.UI.WebControls.DropDownList ddl_item1;
         
         /// <summary>
-        /// tb_customer 控件。
+        /// tb_comment1 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tb_customer;
+        protected global::System.Web.UI.WebControls.TextBox tb_comment1;
         
         /// <summary>
-        /// hf_customerid 控件。
+        /// lb_itemtext2 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField hf_customerid;
+        protected global::System.Web.UI.WebControls.Label lb_itemtext2;
         
         /// <summary>
-        /// tb_productname 控件。
+        /// ddl_item2 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tb_productname;
+        protected global::System.Web.UI.WebControls.DropDownList ddl_item2;
         
         /// <summary>
-        /// tb_serialnumber 控件。
+        /// tb_comment2 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tb_serialnumber;
+        protected global::System.Web.UI.WebControls.TextBox tb_comment2;
         
         /// <summary>
-        /// tb_product_orderingnumber 控件。
+        /// lb_itemtext3 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tb_product_orderingnumber;
+        protected global::System.Web.UI.WebControls.Label lb_itemtext3;
         
         /// <summary>
-        /// tb_product_firmware 控件。
+        /// ddl_item3 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tb_product_firmware;
+        protected global::System.Web.UI.WebControls.DropDownList ddl_item3;
         
         /// <summary>
-        /// tb_product_remark 控件。
+        /// tb_comment3 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tb_product_remark;
+        protected global::System.Web.UI.WebControls.TextBox tb_comment3;
         
         /// <summary>
-        /// ddl_tooltype 控件。
+        /// lb_itemtext4 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddl_tooltype;
+        protected global::System.Web.UI.WebControls.Label lb_itemtext4;
         
         /// <summary>
-        /// lbtn_inspectionresult 控件。
+        /// ddl_item4 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lbtn_inspectionresult;
+        protected global::System.Web.UI.WebControls.DropDownList ddl_item4;
         
         /// <summary>
-        /// tb_failure_description 控件。
+        /// tb_comment4 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tb_failure_description;
+        protected global::System.Web.UI.WebControls.TextBox tb_comment4;
         
         /// <summary>
-        /// tb_remark 控件。
+        /// tr_inspectionresult5 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tb_remark;
+        protected global::System.Web.UI.HtmlControls.HtmlTableRow tr_inspectionresult5;
         
         /// <summary>
-        /// tb_technician 控件。
+        /// lb_itemtext5 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tb_technician;
+        protected global::System.Web.UI.WebControls.Label lb_itemtext5;
         
         /// <summary>
-        /// hf_technicianid 控件。
+        /// ddl_item5 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField hf_technicianid;
+        protected global::System.Web.UI.WebControls.DropDownList ddl_item5;
         
         /// <summary>
-        /// lb_orderstatus 控件。
+        /// tb_comment5 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lb_orderstatus;
+        protected global::System.Web.UI.WebControls.TextBox tb_comment5;
         
         /// <summary>
-        /// hd_formerstatus 控件。
+        /// tr_inspectionresult6 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField hd_formerstatus;
+        protected global::System.Web.UI.HtmlControls.HtmlTableRow tr_inspectionresult6;
         
         /// <summary>
-        /// ddl_orderstatus 控件。
+        /// lb_itemtext6 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddl_orderstatus;
+        protected global::System.Web.UI.WebControls.Label lb_itemtext6;
         
         /// <summary>
-        /// rbl_ispublic 控件。
+        /// ddl_item6 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButtonList rbl_ispublic;
+        protected global::System.Web.UI.WebControls.DropDownList ddl_item6;
         
         /// <summary>
-        /// cb_manageorder 控件。
+        /// tb_comment6 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox cb_manageorder;
+        protected global::System.Web.UI.WebControls.TextBox tb_comment6;
         
         /// <summary>
-        /// hf_adminid 控件。
+        /// tr_inspectionresult7 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField hf_adminid;
+        protected global::System.Web.UI.HtmlControls.HtmlTableRow tr_inspectionresult7;
         
         /// <summary>
-        /// btn_submit 控件。
+        /// lb_itemtext7 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn_submit;
+        protected global::System.Web.UI.WebControls.Label lb_itemtext7;
         
         /// <summary>
-        /// lb_tips 控件。
+        /// ddl_item7 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lb_tips;
+        protected global::System.Web.UI.WebControls.DropDownList ddl_item7;
+        
+        /// <summary>
+        /// tb_comment7 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox tb_comment7;
+        
+        /// <summary>
+        /// tr_inspectionresult8 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTableRow tr_inspectionresult8;
+        
+        /// <summary>
+        /// lb_itemtext8 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lb_itemtext8;
+        
+        /// <summary>
+        /// ddl_item8 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddl_item8;
+        
+        /// <summary>
+        /// tb_comment8 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox tb_comment8;
     }
 }

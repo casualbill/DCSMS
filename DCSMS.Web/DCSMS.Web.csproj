@@ -93,6 +93,7 @@
     <Content Include="login.aspx" />
     <Content Include="myTask.aspx" />
     <Content Include="myTaskDetail.aspx" />
+    <Content Include="order\inspectionResult.aspx" />
     <Content Include="order\orderCreate.aspx" />
     <Content Include="order\orderDetail.aspx" />
     <Content Include="order\orderLog.aspx" />
@@ -184,6 +185,13 @@
       <DependentUpon>myTaskDetail.aspx</DependentUpon>
     </Compile>
     <Compile Include="orderConfig.cs" />
+    <Compile Include="order\inspectionResult.aspx.cs">
+      <DependentUpon>inspectionResult.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="order\inspectionResult.aspx.designer.cs">
+      <DependentUpon>inspectionResult.aspx</DependentUpon>
+    </Compile>
     <Compile Include="order\orderCreate.aspx.cs">
       <DependentUpon>orderCreate.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
