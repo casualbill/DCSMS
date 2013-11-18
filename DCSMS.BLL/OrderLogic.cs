@@ -434,20 +434,10 @@ namespace DCSMS.BLL
         }
 
         //创建工具功能测试
-        public int toolFunctionTestCreate(List<int> toolFunctionTestStatue, List<String> toolFunctionTestComment, String orderId)
+        public int toolFunctionTestCreate(String orderId)
         {
             ToolFunctionTestDB toolFunctionTestDb = new ToolFunctionTestDB();
-
-            if (toolFunctionTestStatue.Count < 6)
-            {
-                for (int i = toolFunctionTestStatue.Count; i < 6; i++)
-                {
-                    toolFunctionTestStatue.Add(0);
-                    toolFunctionTestComment.Add(null);
-                }
-            }
-
-            return toolFunctionTestDb.toolFunctionTestCreate(toolFunctionTestStatue, toolFunctionTestComment, orderId);
+            return toolFunctionTestDb.toolFunctionTestCreate(orderId);
         }
 
         //修改工具功能测试
