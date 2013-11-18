@@ -395,20 +395,10 @@ namespace DCSMS.BLL
         #region 检查结果及工具功能测试
 
         //创建检查结果
-        public int inspectionResultCreate(List<int> inspectionResultStatue, List<String> inspectionResultComment, String orderId)
+        public int inspectionResultCreate(String orderId)
         {
             InspectionResultDB inspectionResultDb = new InspectionResultDB();
-
-            if (inspectionResultStatue.Count < 8)
-            {
-                for (int i = inspectionResultStatue.Count; i < 8; i++)
-                {
-                    inspectionResultStatue.Add(0);
-                    inspectionResultComment.Add(null);
-                }
-            }
-
-            return inspectionResultDb.inspectionResultCreate(inspectionResultStatue, inspectionResultComment, orderId);
+            return inspectionResultDb.inspectionResultCreate(orderId);
         }
 
         //修改检查结果
