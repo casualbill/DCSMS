@@ -36,6 +36,7 @@ namespace DCSMS.Web.order
                     {
                         toolType = Convert.ToInt16(productDt.Rows[0]["ToolType"]);
                         getInspectionResult(toolType);
+                        getToolFunctionTest(toolType);
                     }
                 }
             }
@@ -135,6 +136,60 @@ namespace DCSMS.Web.order
             }
         }
 
+        protected void getToolFunctionTest(int toolType)
+        {
+            DataTable dt = orderLogic.toolFunctionTestQuery(urlQueryId);
+            if (dt == null)
+            {
+                orderLogic.toolFunctionTestCreate(urlQueryId);
+            }
+            else
+            {
+                ddl_tft_item1.SelectedValue = dt.Rows[0]["Item1"].ToString();
+                ddl_tft_item2.SelectedValue = dt.Rows[0]["Item2"].ToString();
+                ddl_tft_item3.SelectedValue = dt.Rows[0]["Item3"].ToString();
+                ddl_tft_item4.SelectedValue = dt.Rows[0]["Item4"].ToString();
+                ddl_tft_item5.SelectedValue = dt.Rows[0]["Item5"].ToString();
+                ddl_tft_item6.SelectedValue = dt.Rows[0]["Item6"].ToString();
 
+                tb_tft_comment1.Text = dt.Rows[0]["Comment1"].ToString();
+                tb_tft_comment2.Text = dt.Rows[0]["Comment2"].ToString();
+                tb_tft_comment3.Text = dt.Rows[0]["Comment3"].ToString();
+                tb_tft_comment4.Text = dt.Rows[0]["Comment4"].ToString();
+                tb_tft_comment5.Text = dt.Rows[0]["Comment5"].ToString();
+                tb_tft_comment6.Text = dt.Rows[0]["Comment6"].ToString();
+            }
+
+            switch (toolType)
+            {
+                case 1:
+                case 2:
+                case 4:
+                case 5:
+                    lb_tft_itemtext1.Text = "工具装配";
+                    lb_tft_itemtext2.Text = "客户附件安装";
+                    lb_tft_itemtext3.Text = "工具表面清洁";
+                    lb_tft_itemtext4.Text = "扭矩测试";
+                    lb_tft_itemtext5.Text = "速度";
+                    lb_tft_itemtext6.Text = "其他";
+                    break;
+                case 3:
+                    lb_tft_itemtext1.Text = "装配";
+                    lb_tft_itemtext2.Text = "客户附件安装";
+                    lb_tft_itemtext3.Text = "表面清洁";
+                    lb_tft_itemtext4.Text = "工具连接测试";
+                    lb_tft_itemtext5.Text = "扭矩测试";
+                    lb_tft_itemtext6.Text = "其他";
+                    break;
+                case 6:
+                    lb_tft_itemtext1.Text = "装配";
+                    lb_tft_itemtext2.Text = "工具表面清洁";
+                    lb_tft_itemtext3.Text = "其他";
+                    tr_tft4.Visible = false;
+                    tr_tft5.Visible = false;
+                    tr_tft6.Visible = false;
+                    break;
+            }
+        }
     }
 }

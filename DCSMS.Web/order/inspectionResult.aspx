@@ -114,6 +114,85 @@
             </tr>
         </table>
 
-        
+        <table>
+            <tr>
+                <td>1</td>
+                <td><asp:Label ID="lb_tft_itemtext1" runat="server"></asp:Label></td>
+                <td>
+                    <asp:DropDownList ID="ddl_tft_item1" runat="server">
+                        <asp:ListItem Text="请选择" Value="0"></asp:ListItem>
+                        <asp:ListItem Text="OK" Value="1"></asp:ListItem>
+                        <asp:ListItem Text="NOK" Value="2"></asp:ListItem>
+                        <asp:ListItem Text="NA" Value="3"></asp:ListItem>
+                    </asp:DropDownList>
+                </td>
+                <td><asp:TextBox ID="tb_tft_comment1" runat="server" MaxLength="300"></asp:TextBox></td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td><asp:Label ID="lb_tft_itemtext2" runat="server"></asp:Label></td>
+                <td>
+                    <asp:DropDownList ID="ddl_tft_item2" runat="server">
+                        <asp:ListItem Text="请选择" Value="0"></asp:ListItem>
+                        <asp:ListItem Text="OK" Value="1"></asp:ListItem>
+                        <asp:ListItem Text="NOK" Value="2"></asp:ListItem>
+                        <asp:ListItem Text="NA" Value="3"></asp:ListItem>
+                    </asp:DropDownList>
+                </td>
+                <td><asp:TextBox ID="tb_tft_comment2" runat="server" MaxLength="300"></asp:TextBox></td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td><asp:Label ID="lb_tft_itemtext3" runat="server"></asp:Label></td>
+                <td>
+                    <asp:DropDownList ID="ddl_tft_item3" runat="server">
+                        <asp:ListItem Text="请选择" Value="0"></asp:ListItem>
+                        <asp:ListItem Text="OK" Value="1"></asp:ListItem>
+                        <asp:ListItem Text="NOK" Value="2"></asp:ListItem>
+                        <asp:ListItem Text="NA" Value="3"></asp:ListItem>
+                    </asp:DropDownList>
+                </td>
+                <td><asp:TextBox ID="tb_tft_comment3" runat="server" MaxLength="300"></asp:TextBox></td>
+            </tr>
+            <tr id="tr_tft4" runat="server">
+                <td>4</td>
+                <td><asp:Label ID="lb_tft_itemtext4" runat="server"></asp:Label></td>
+                <td>
+                    <asp:DropDownList ID="ddl_tft_item4" runat="server">
+                        <asp:ListItem Text="请选择" Value="0"></asp:ListItem>
+                        <asp:ListItem Text="OK" Value="1"></asp:ListItem>
+                        <asp:ListItem Text="NOK" Value="2"></asp:ListItem>
+                        <asp:ListItem Text="NA" Value="3"></asp:ListItem>
+                    </asp:DropDownList>
+                </td>
+                <td><asp:TextBox ID="tb_tft_comment4" runat="server" MaxLength="300"></asp:TextBox></td>
+            </tr>
+            <tr id="tr_tft5" runat="server">
+                <td>5</td>
+                <td><asp:Label ID="lb_tft_itemtext5" runat="server"></asp:Label></td>
+                <td>
+                    <asp:DropDownList ID="ddl_tft_item5" runat="server">
+                        <asp:ListItem Text="请选择" Value="0"></asp:ListItem>
+                        <asp:ListItem Text="OK" Value="1"></asp:ListItem>
+                        <asp:ListItem Text="NOK" Value="2"></asp:ListItem>
+                        <asp:ListItem Text="NA" Value="3"></asp:ListItem>
+                    </asp:DropDownList>
+                </td>
+                <td><asp:TextBox ID="tb_tft_comment5" runat="server" MaxLength="300"></asp:TextBox></td>
+            </tr>
+            <tr id="tr_tft6" runat="server">
+                <td>6</td>
+                <td><asp:Label ID="lb_tft_itemtext6" runat="server"></asp:Label></td>
+                <td>
+                    <asp:DropDownList ID="ddl_tft_item6" runat="server">
+                        <asp:ListItem Text="请选择" Value="0"></asp:ListItem>
+                        <asp:ListItem Text="OK" Value="1"></asp:ListItem>
+                        <asp:ListItem Text="NOK" Value="2"></asp:ListItem>
+                        <asp:ListItem Text="NA" Value="3"></asp:ListItem>
+                    </asp:DropDownList>
+                </td>
+                <td><asp:TextBox ID="tb_tft_comment6" runat="server" MaxLength="300"></asp:TextBox></td>
+            </tr>
+        </table>
     </div>
 </asp:Content>
