@@ -4,7 +4,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title>Desoutter CC China Online Service Management System</title>
+    <title>Desoutter Customer Center China Online Service System</title>
     <link href="/css/global.css" rel="Stylesheet" type="text/css" />
     <script type="text/javascript" src="/js/jquery-1.10.2.min.js"></script>
     <script type="text/javascript" src="/js/common.js"></script>
@@ -38,7 +38,7 @@
                             <a id="addToFav" class="header-border-right" href="javascript:;">收藏本站</a>
                             <asp:LinkButton ID="lb_logout" Text="退出" runat="server" OnClick="lb_logout_click"></asp:LinkButton>
                         </div>
-                        <div class="header-title">Desoutter CC China Service Management System</div>
+                        <div class="header-title">Desoutter Customer Center China Online Service System</div>
                     </div>
                 </div>
 
