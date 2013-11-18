@@ -100,8 +100,8 @@ namespace DCSMS.DAL
 
         public DataSet orderQueryByTask(int userId, Boolean isAdmin)
         {
-            String sqlCommand = "select orderinfo.Id as OrderId, FailureDescription, orderinfo.Remark as Remark, OrderStatus, CreateTime, CustomerName, EndCustomerName " +
-            "from orderinfo inner join customerinfo on orderinfo.customerId = customerinfo.Id ";
+            String sqlCommand = "select orderinfo.Id as OrderId, FailureDescription, orderinfo.Remark as Remark, OrderStatus, CreateTime, CustomerName, EndCustomerName, ProductName, SerialNumber " +
+            "from orderinfo inner join customerinfo on orderinfo.customerId = customerinfo.Id inner join productinfo on orderinfo.Id = productinfo.OrderId ";
             if (isAdmin)
             {
                 sqlCommand += "where AdminId in (0, @UserId) and orderStatus in (1, 3, 4, 7)";

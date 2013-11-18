@@ -15,6 +15,8 @@
                     <th>创建时间</th>
                     <th>客户名称</th>
                     <th>终客户名称</th>
+                    <th>工具型号</th>
+                    <th>工具序列号</th>
                     <th>故障描述</th>
                     <th>备注</th>
                     <th>工单状态</th>
@@ -28,6 +30,8 @@
                         <td><%# Eval("CreateTime")%></td>
                         <td><%# Eval("CustomerName")%></td>
                         <td><%# Eval("EndCustomerName")%></td>
+                        <td><%# Eval("ProductName")%></td>
+                        <td><%# Eval("SerialNumber")%></td>
                         <td><%# Eval("FailureDescription")%></td>
                         <td><%# Eval("Remark")%></td>
                         <td><%# Eval("OrderStatusStr")%></td>
