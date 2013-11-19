@@ -42,6 +42,38 @@ namespace DCSMS.Web.order
             }
         }
 
+        protected void btn_submit_click(object sender, EventArgs e)
+        {
+            List<int> inspectionResultStatus = new List<int>();
+            inspectionResultStatus.Add(Convert.ToInt16(ddl_ir_item1.SelectedValue));
+            inspectionResultStatus.Add(Convert.ToInt16(ddl_ir_item2.SelectedValue));
+            inspectionResultStatus.Add(Convert.ToInt16(ddl_ir_item3.SelectedValue));
+            inspectionResultStatus.Add(Convert.ToInt16(ddl_ir_item4.SelectedValue));
+            inspectionResultStatus.Add(Convert.ToInt16(ddl_ir_item5.SelectedValue));
+            inspectionResultStatus.Add(Convert.ToInt16(ddl_ir_item6.SelectedValue));
+            inspectionResultStatus.Add(Convert.ToInt16(ddl_ir_item7.SelectedValue));
+            inspectionResultStatus.Add(Convert.ToInt16(ddl_ir_item8.SelectedValue));
+
+            List<String> inspectionResultComment = new List<String>();
+            inspectionResultComment.Add(tb_ir_comment1.Text);
+            inspectionResultComment.Add(tb_ir_comment2.Text);
+            inspectionResultComment.Add(tb_ir_comment3.Text);
+            inspectionResultComment.Add(tb_ir_comment4.Text);
+            inspectionResultComment.Add(tb_ir_comment5.Text);
+            inspectionResultComment.Add(tb_ir_comment6.Text);
+            inspectionResultComment.Add(tb_ir_comment7.Text);
+            inspectionResultComment.Add(tb_ir_comment8.Text);
+
+            if (orderLogic.inspectionResultUpdate(inspectionResultStatus, inspectionResultComment, urlQueryId) == 1)
+            {
+                lb_tips.Text = "修改成功！";
+            }
+            else
+            {
+                lb_tips.Text = "系统错误！";
+            }
+        }
+
         protected void getInspectionResult(int toolType)
         {
             DataTable dt = orderLogic.inspectionResultQuery(urlQueryId);
