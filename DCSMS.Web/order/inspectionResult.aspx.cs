@@ -16,6 +16,8 @@ namespace DCSMS.Web.order
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            permissionVerify pv = new permissionVerify(2);
+
             urlQueryId = Request.QueryString["id"];
             if (!IsPostBack)
             {
