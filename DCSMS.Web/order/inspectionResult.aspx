@@ -1,5 +1,22 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/main.Master" AutoEventWireup="true" CodeBehind="inspectionResult.aspx.cs" Inherits="DCSMS.Web.order.inspectionResult" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <script type="text/javascript">
+        $(function () {
+            $('select').each(function () {
+                if ($(this).val() != '2') {
+                    $(this).closest('tr').find('[type="text"]').attr('disabled', true);
+                }
+            });
+
+            $('select').on('change', function () {
+                if ($(this).val() == '2') {
+                    $(this).closest('tr').find('[type="text"]').removeAttr('disabled');
+                } else {
+                    $(this).closest('tr').find('[type="text"]').val('').attr('disabled', true);
+                }
+            })
+        });
+    </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContentPlaceHolder" runat="server">
     <div class="main-title">
