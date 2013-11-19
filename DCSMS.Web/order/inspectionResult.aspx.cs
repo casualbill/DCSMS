@@ -64,7 +64,23 @@ namespace DCSMS.Web.order
             inspectionResultComment.Add(tb_ir_comment7.Text);
             inspectionResultComment.Add(tb_ir_comment8.Text);
 
-            if (orderLogic.inspectionResultUpdate(inspectionResultStatus, inspectionResultComment, urlQueryId) == 1)
+            List<int> toolFunctionTestStatus = new List<int>();
+            toolFunctionTestStatus.Add(Convert.ToInt16(ddl_tft_item1.SelectedValue));
+            toolFunctionTestStatus.Add(Convert.ToInt16(ddl_tft_item2.SelectedValue));
+            toolFunctionTestStatus.Add(Convert.ToInt16(ddl_tft_item3.SelectedValue));
+            toolFunctionTestStatus.Add(Convert.ToInt16(ddl_tft_item4.SelectedValue));
+            toolFunctionTestStatus.Add(Convert.ToInt16(ddl_tft_item5.SelectedValue));
+            toolFunctionTestStatus.Add(Convert.ToInt16(ddl_tft_item6.SelectedValue));
+
+            List<String> toolFunctionTestComment = new List<String>();
+            toolFunctionTestComment.Add(tb_tft_comment1.Text);
+            toolFunctionTestComment.Add(tb_tft_comment2.Text);
+            toolFunctionTestComment.Add(tb_tft_comment3.Text);
+            toolFunctionTestComment.Add(tb_tft_comment4.Text);
+            toolFunctionTestComment.Add(tb_tft_comment5.Text);
+            toolFunctionTestComment.Add(tb_tft_comment6.Text);
+
+            if (orderLogic.inspectionResultUpdate(inspectionResultStatus, inspectionResultComment, urlQueryId) == 1 && orderLogic.toolFunctionTestUpdate(toolFunctionTestStatus, toolFunctionTestComment, urlQueryId) == 1)
             {
                 lb_tips.Text = "修改成功！";
             }
