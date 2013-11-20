@@ -61,6 +61,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   查找类似 Address 地址 的本地化字符串。
+        /// </summary>
+        internal static string address {
+            get {
+                return ResourceManager.GetString("address", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Contact Person 联系人 的本地化字符串。
         /// </summary>
         internal static string contact_person {
@@ -84,6 +93,15 @@ namespace Resources {
         internal static string customer_create {
             get {
                 return ResourceManager.GetString("customer_create", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Customer Id 客户编号 的本地化字符串。
+        /// </summary>
+        internal static string customer_id {
+            get {
+                return ResourceManager.GetString("customer_id", resourceCulture);
             }
         }
         

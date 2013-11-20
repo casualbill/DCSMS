@@ -3,32 +3,32 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContentPlaceHolder" runat="server">
     <div class="main-title">
-        客户查询
+        <asp:Literal runat="server" Text="<%$ Resources:GlobalResource, customer_query %>"></asp:Literal>
     </div>
 
     <div class="main-content">
         <div class="content-list"><ul>
             <li>
-                <label>客户名称：</label>
+                <label><asp:Literal runat="server" Text="<%$ Resources:GlobalResource, customer_name %>"></asp:Literal>：</label>
                 <asp:TextBox ID="tb_query_text" runat="server" MaxLength="50"></asp:TextBox>
                 <asp:HiddenField ID="hf_query_text" runat="server" />
-                <asp:Button ID="btn_submit" runat="server" Text="确定" OnClick="btn_submit_Click" CssClass="small-button" />
+                <asp:Button ID="btn_submit" runat="server" Text="<%$ Resources:GlobalResource, ok %>" OnClick="btn_submit_Click" CssClass="small-button" />
             </li>
         </ul></div>
     
         <asp:Panel ID="pn_table" runat="server" Visible="false">
             <table>
                 <tr>
-                    <th>客户ID</th>
-                    <th>客户名称</th>
-                    <th>终客户名称</th>
-                    <th>联系人</th>
-                    <th>电话</th>
-                    <th>手机</th>
-                    <th>地址</th>
-                    <th>邮编</th>
-                    <th>备注</th>
-                    <th>操作</th>
+                    <th><asp:Literal runat="server" Text="<%$ Resources:GlobalResource, customer_id %>"></asp:Literal></th>
+                    <th><asp:Literal runat="server" Text="<%$ Resources:GlobalResource, customer_name %>"></asp:Literal></th>
+                    <th><asp:Literal runat="server" Text="<%$ Resources:GlobalResource, end_customer_name %>"></asp:Literal></th>
+                    <th><asp:Literal runat="server" Text="<%$ Resources:GlobalResource, contact_person %>"></asp:Literal></th>
+                    <th><asp:Literal runat="server" Text="<%$ Resources:GlobalResource, telephone %>"></asp:Literal></th>
+                    <th><asp:Literal runat="server" Text="<%$ Resources:GlobalResource, mobile %>"></asp:Literal></th>
+                    <th><asp:Literal runat="server" Text="<%$ Resources:GlobalResource, address %>"></asp:Literal></th>
+                    <th><asp:Literal runat="server" Text="<%$ Resources:GlobalResource, postcode %>"></asp:Literal></th>
+                    <th><asp:Literal runat="server" Text="<%$ Resources:GlobalResource, remark %>"></asp:Literal></th>
+                    <th><asp:Literal runat="server" Text="<%$ Resources:GlobalResource, operation %>"></asp:Literal></th>
                 </tr>
             <asp:Repeater ID="rpt_customerinfo" runat="server">
                 <ItemTemplate>
@@ -44,7 +44,7 @@
                         <td><%# Eval("PostCode")%></td>
                         <td><%# Eval("Remark")%></td>
                         <td>
-                            <a href="customerUpdate.aspx?id=<%# Eval("Id") %>">编辑</a>
+                            <a href="customerUpdate.aspx?id=<%# Eval("Id") %>"><asp:Literal runat="server" Text="<%$ Resources:GlobalResource, edit %>"></asp:Literal></a>
                         </td>
                     </tr>
             
