@@ -118,6 +118,11 @@
       <DependentUpon>ajax.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="App_GlobalResources\GlobalResource.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GlobalResource.resx</DependentUpon>
+    </Compile>
     <Compile Include="customer\customerCreate.aspx.cs">
       <DependentUpon>customerCreate.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -284,6 +289,12 @@
     <None Include="js\uploadify\check-exists.php" />
     <None Include="js\uploadify\index.php" />
     <None Include="js\uploadify\uploadify.php" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\GlobalResource.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>GlobalResource.designer.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

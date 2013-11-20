@@ -35,16 +35,16 @@
 
                 <table cellpadding="0" cellspacing="0" class="login-table">
                     <tr>
-                        <td width="40%" class="login-item-text">用户名：</td>
+                        <td width="40%" class="login-item-text"><asp:Literal runat="server" Text="<%$ Resources:GlobalResource, username %>"></asp:Literal>：</td>
                         <td width="60%"><asp:TextBox ID="tb_username" runat="server" MaxLength="32"></asp:TextBox></td>
                     </tr>
                     <tr>
-                        <td class="login-item-text">密码：</td>
+                        <td class="login-item-text"><asp:Literal ID="Literal1" runat="server" Text="<%$ Resources:GlobalResource, password %>"></asp:Literal>：</td>
                         <td><asp:TextBox ID="tb_password" runat="server" TextMode="Password" MaxLength="32"></asp:TextBox></td>
                     </tr>
                     <tr>
                         <td class="login-item-text"></td>
-                        <td><asp:Button ID="btn_submit" OnClientClick="return btn_submit_client_click();" OnClick="btn_submit_Click" runat="server" Text="登录" /></td>
+                        <td><asp:Button ID="btn_submit" OnClientClick="return btn_submit_client_click();" OnClick="btn_submit_Click" runat="server" Text="<%$ Resources:GlobalResource, login %>" /></td>
                     </tr>
                     <tr>
                         <td class="login-item-text"></td>
