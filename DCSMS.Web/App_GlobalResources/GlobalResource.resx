@@ -120,6 +120,9 @@
   <data name="address" xml:space="preserve">
     <value>Address 地址</value>
   </data>
+  <data name="city" xml:space="preserve">
+    <value>城市</value>
+  </data>
   <data name="contact_person" xml:space="preserve">
     <value>Contact Person 联系人</value>
   </data>
@@ -209,6 +212,9 @@
   </data>
   <data name="product_name" xml:space="preserve">
     <value>Module Type 工具型号</value>
+  </data>
+  <data name="province" xml:space="preserve">
+    <value>省份</value>
   </data>
   <data name="real_name" xml:space="preserve">
     <value>Name 姓名</value>

@@ -70,6 +70,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   查找类似 城市 的本地化字符串。
+        /// </summary>
+        internal static string city {
+            get {
+                return ResourceManager.GetString("city", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Contact Person 联系人 的本地化字符串。
         /// </summary>
         internal static string contact_person {
@@ -336,6 +345,15 @@ namespace Resources {
         internal static string product_name {
             get {
                 return ResourceManager.GetString("product_name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 省份 的本地化字符串。
+        /// </summary>
+        internal static string province {
+            get {
+                return ResourceManager.GetString("province", resourceCulture);
             }
         }
         
