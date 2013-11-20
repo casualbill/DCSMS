@@ -141,6 +141,9 @@
   <data name="customer_verify" xml:space="preserve">
     <value>Customer Verify 客户审核</value>
   </data>
+  <data name="edit" xml:space="preserve">
+    <value>Edit 编辑</value>
+  </data>
   <data name="email" xml:space="preserve">
     <value>Email 电子邮件</value>
   </data>
@@ -212,6 +215,9 @@
   </data>
   <data name="telephone" xml:space="preserve">
     <value>Telephone 电话</value>
+  </data>
+  <data name="userid" xml:space="preserve">
+    <value>User Id 用户编号</value>
   </data>
   <data name="username" xml:space="preserve">
     <value>User Name 用户名</value>

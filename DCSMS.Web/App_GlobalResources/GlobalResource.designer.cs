@@ -133,6 +133,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   查找类似 Edit 编辑 的本地化字符串。
+        /// </summary>
+        internal static string edit {
+            get {
+                return ResourceManager.GetString("edit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Email 电子邮件 的本地化字符串。
         /// </summary>
         internal static string email {
@@ -345,6 +354,15 @@ namespace Resources {
         internal static string telephone {
             get {
                 return ResourceManager.GetString("telephone", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 User Id 用户编号 的本地化字符串。
+        /// </summary>
+        internal static string userid {
+            get {
+                return ResourceManager.GetString("userid", resourceCulture);
             }
         }
         
