@@ -117,11 +117,20 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="contact_person" xml:space="preserve">
+    <value>Contact Person 联系人</value>
+  </data>
+  <data name="create_time" xml:space="preserve">
+    <value>Create Time 创建时间</value>
+  </data>
   <data name="customer_create" xml:space="preserve">
     <value>Customer Create 客户添加</value>
   </data>
   <data name="customer_management" xml:space="preserve">
     <value>Customer Management 客户管理</value>
+  </data>
+  <data name="customer_name" xml:space="preserve">
+    <value>Customer Name 客户名称</value>
   </data>
   <data name="customer_query" xml:space="preserve">
     <value>Customer Search 客户查询</value>
@@ -132,11 +141,23 @@
   <data name="customer_verify" xml:space="preserve">
     <value>Customer Verify 客户审核</value>
   </data>
+  <data name="end_customer_name" xml:space="preserve">
+    <value>End Customer Name 终用户名称</value>
+  </data>
+  <data name="failure_description" xml:space="preserve">
+    <value>Faulty Description 故障描述</value>
+  </data>
+  <data name="firmware_version" xml:space="preserve">
+    <value>Firmware Version 固件版本</value>
+  </data>
   <data name="login" xml:space="preserve">
     <value>Login 登录</value>
   </data>
   <data name="logout" xml:space="preserve">
     <value>Logout 登出</value>
+  </data>
+  <data name="mobile" xml:space="preserve">
+    <value>Mobile 手机</value>
   </data>
   <data name="mytask" xml:space="preserve">
     <value>My Task 我的任务</value>
@@ -144,14 +165,41 @@
   <data name="ok" xml:space="preserve">
     <value>OK 确定</value>
   </data>
+  <data name="operation" xml:space="preserve">
+    <value>Operation 操作</value>
+  </data>
+  <data name="ordering_number" xml:space="preserve">
+    <value>Ordering Number 订货号</value>
+  </data>
   <data name="order_create" xml:space="preserve">
     <value>Order Create 创建工单</value>
+  </data>
+  <data name="order_id" xml:space="preserve">
+    <value>Work Order Id 工单号</value>
   </data>
   <data name="order_query" xml:space="preserve">
     <value>Order Search 工单查询 </value>
   </data>
+  <data name="order_status" xml:space="preserve">
+    <value>Work Order Status 工单状态</value>
+  </data>
   <data name="password" xml:space="preserve">
     <value>Password 密码</value>
+  </data>
+  <data name="postcode" xml:space="preserve">
+    <value>Post Code 邮编</value>
+  </data>
+  <data name="product_name" xml:space="preserve">
+    <value>Module Type 工具型号</value>
+  </data>
+  <data name="remark" xml:space="preserve">
+    <value>Remarks 备注</value>
+  </data>
+  <data name="serial_number" xml:space="preserve">
+    <value>Serial Number 序列号</value>
+  </data>
+  <data name="telephone" xml:space="preserve">
+    <value>Telephone 电话</value>
   </data>
   <data name="username" xml:space="preserve">
     <value>User Name 用户名</value>

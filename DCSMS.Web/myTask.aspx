@@ -3,7 +3,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContentPlaceHolder" runat="server">
     <div class="main-title">
-        我的任务
+        <asp:Literal runat="server" Text="<%$ Resources:GlobalResource, mytask %>"></asp:Literal>
     </div>
 
     <div class="main-content">
@@ -11,16 +11,16 @@
         <asp:Panel ID="pn_table" runat="server" Visible="false">
             <table>
                 <tr>
-                    <th>工单号</th>
-                    <th>创建时间</th>
-                    <th>客户名称</th>
-                    <th>终客户名称</th>
-                    <th>工具型号</th>
-                    <th>工具序列号</th>
-                    <th>故障描述</th>
-                    <th>备注</th>
-                    <th>工单状态</th>
-                    <th>操作</th>
+                    <th><asp:Literal runat="server" Text="<%$ Resources:GlobalResource, order_id %>"></asp:Literal></th>
+                    <th><asp:Literal runat="server" Text="<%$ Resources:GlobalResource, create_time %>"></asp:Literal></th>
+                    <th><asp:Literal runat="server" Text="<%$ Resources:GlobalResource, customer_name %>"></asp:Literal></th>
+                    <th><asp:Literal runat="server" Text="<%$ Resources:GlobalResource, end_customer_name %>"></asp:Literal></th>
+                    <th><asp:Literal runat="server" Text="<%$ Resources:GlobalResource, product_name %>"></asp:Literal></th>
+                    <th><asp:Literal runat="server" Text="<%$ Resources:GlobalResource, serial_number %>"></asp:Literal></th>
+                    <th><asp:Literal runat="server" Text="<%$ Resources:GlobalResource, failure_description %>"></asp:Literal></th>
+                    <th><asp:Literal runat="server" Text="<%$ Resources:GlobalResource, remark %>"></asp:Literal></th>
+                    <th><asp:Literal runat="server" Text="<%$ Resources:GlobalResource, order_status %>"></asp:Literal></th>
+                    <th><asp:Literal runat="server" Text="<%$ Resources:GlobalResource, operation %>"></asp:Literal></th>
                 </tr>
             <asp:Repeater ID="rpt_orderinfo" runat="server">
                 <ItemTemplate>

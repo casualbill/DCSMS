@@ -61,6 +61,24 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   查找类似 Contact Person 联系人 的本地化字符串。
+        /// </summary>
+        internal static string contact_person {
+            get {
+                return ResourceManager.GetString("contact_person", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Create Time 创建时间 的本地化字符串。
+        /// </summary>
+        internal static string create_time {
+            get {
+                return ResourceManager.GetString("create_time", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Customer Create 客户添加 的本地化字符串。
         /// </summary>
         internal static string customer_create {
@@ -75,6 +93,15 @@ namespace Resources {
         internal static string customer_management {
             get {
                 return ResourceManager.GetString("customer_management", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Customer Name 客户名称 的本地化字符串。
+        /// </summary>
+        internal static string customer_name {
+            get {
+                return ResourceManager.GetString("customer_name", resourceCulture);
             }
         }
         
@@ -106,6 +133,33 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   查找类似 End Customer Name 终用户名称 的本地化字符串。
+        /// </summary>
+        internal static string end_customer_name {
+            get {
+                return ResourceManager.GetString("end_customer_name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Faulty Description 故障描述 的本地化字符串。
+        /// </summary>
+        internal static string failure_description {
+            get {
+                return ResourceManager.GetString("failure_description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Firmware Version 固件版本 的本地化字符串。
+        /// </summary>
+        internal static string firmware_version {
+            get {
+                return ResourceManager.GetString("firmware_version", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Login 登录 的本地化字符串。
         /// </summary>
         internal static string login {
@@ -120,6 +174,15 @@ namespace Resources {
         internal static string logout {
             get {
                 return ResourceManager.GetString("logout", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Mobile 手机 的本地化字符串。
+        /// </summary>
+        internal static string mobile {
+            get {
+                return ResourceManager.GetString("mobile", resourceCulture);
             }
         }
         
@@ -142,11 +205,38 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   查找类似 Operation 操作 的本地化字符串。
+        /// </summary>
+        internal static string operation {
+            get {
+                return ResourceManager.GetString("operation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Ordering Number 订货号 的本地化字符串。
+        /// </summary>
+        internal static string ordering_number {
+            get {
+                return ResourceManager.GetString("ordering_number", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Order Create 创建工单 的本地化字符串。
         /// </summary>
         internal static string order_create {
             get {
                 return ResourceManager.GetString("order_create", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Work Order Id 工单号 的本地化字符串。
+        /// </summary>
+        internal static string order_id {
+            get {
+                return ResourceManager.GetString("order_id", resourceCulture);
             }
         }
         
@@ -160,11 +250,65 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   查找类似 Work Order Status 工单状态 的本地化字符串。
+        /// </summary>
+        internal static string order_status {
+            get {
+                return ResourceManager.GetString("order_status", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Password 密码 的本地化字符串。
         /// </summary>
         internal static string password {
             get {
                 return ResourceManager.GetString("password", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Post Code 邮编 的本地化字符串。
+        /// </summary>
+        internal static string postcode {
+            get {
+                return ResourceManager.GetString("postcode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Module Type 工具型号 的本地化字符串。
+        /// </summary>
+        internal static string product_name {
+            get {
+                return ResourceManager.GetString("product_name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Remarks 备注 的本地化字符串。
+        /// </summary>
+        internal static string remark {
+            get {
+                return ResourceManager.GetString("remark", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Serial Number 序列号 的本地化字符串。
+        /// </summary>
+        internal static string serial_number {
+            get {
+                return ResourceManager.GetString("serial_number", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Telephone 电话 的本地化字符串。
+        /// </summary>
+        internal static string telephone {
+            get {
+                return ResourceManager.GetString("telephone", resourceCulture);
             }
         }
         
