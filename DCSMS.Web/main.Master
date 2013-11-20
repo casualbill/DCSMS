@@ -52,7 +52,7 @@
                             <dd><a href="/customer/customerQuery.aspx"><asp:Literal runat="server" Text="<%$ Resources:GlobalResource, customer_query %>"></asp:Literal></a></dd>
                             <dd><a href="/customer/customerCreate.aspx"><asp:Literal runat="server" Text="<%$ Resources:GlobalResource, customer_create %>"></asp:Literal></a></dd>
                             <dd><a href="/customer/customerQuery.aspx"><asp:Literal runat="server" Text="<%$ Resources:GlobalResource, customer_update %>"></asp:Literal></a></dd>
-                            <dd><a href="/customer/customerVerify.aspx"><asp:Literal runat="server" Text="<%$ Resources:GlobalResource, customer_verify %>"></asp:Literal></a></dd>
+                            <%--<dd><a href="/customer/customerVerify.aspx"><asp:Literal runat="server" Text="<%$ Resources:GlobalResource, customer_verify %>"></asp:Literal></a></dd>--%>
                         </dl></li>
                         <li id="menuUser"><dl>
                             <dt><asp:Literal runat="server" Text="<%$ Resources:GlobalResource, user_management %>"></asp:Literal></dt>
