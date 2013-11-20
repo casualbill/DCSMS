@@ -117,16 +117,55 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="customer_create" xml:space="preserve">
+    <value>Customer Create 客户添加</value>
+  </data>
+  <data name="customer_management" xml:space="preserve">
+    <value>Customer Management 客户管理</value>
+  </data>
+  <data name="customer_query" xml:space="preserve">
+    <value>Customer Search 客户查询</value>
+  </data>
+  <data name="customer_update" xml:space="preserve">
+    <value>Customer Update 客户修改</value>
+  </data>
+  <data name="customer_verify" xml:space="preserve">
+    <value>Customer Verify 客户审核</value>
+  </data>
   <data name="login" xml:space="preserve">
     <value>Login 登录</value>
   </data>
+  <data name="logout" xml:space="preserve">
+    <value>Logout 登出</value>
+  </data>
+  <data name="mytask" xml:space="preserve">
+    <value>My Task 我的任务</value>
+  </data>
   <data name="ok" xml:space="preserve">
     <value>OK 确定</value>
+  </data>
+  <data name="order_create" xml:space="preserve">
+    <value>Order Create 创建工单</value>
+  </data>
+  <data name="order_query" xml:space="preserve">
+    <value>Order Search 工单查询 </value>
   </data>
   <data name="password" xml:space="preserve">
     <value>Password 密码</value>
   </data>
   <data name="username" xml:space="preserve">
     <value>User Name 用户名</value>
+  </data>
+  <data name="user_create" xml:space="preserve">
+    <value>User Create 用户添加</value>
+  </data>
+  <data name="user_management" xml:space="preserve">
+    <value>User Management 用户管理</value>
+  </data>
+  <data name="user_query" xml:space="preserve">
+    <value>User Search 用户查询</value>
+  </data>
+  <data name="user_update" xml:space="preserve">
+    <value>User Update 用户修改</value>
   </data>
 </root>

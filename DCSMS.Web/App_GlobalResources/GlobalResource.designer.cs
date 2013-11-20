@@ -61,6 +61,51 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   查找类似 Customer Create 客户添加 的本地化字符串。
+        /// </summary>
+        internal static string customer_create {
+            get {
+                return ResourceManager.GetString("customer_create", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Customer Management 客户管理 的本地化字符串。
+        /// </summary>
+        internal static string customer_management {
+            get {
+                return ResourceManager.GetString("customer_management", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Customer Search 客户查询 的本地化字符串。
+        /// </summary>
+        internal static string customer_query {
+            get {
+                return ResourceManager.GetString("customer_query", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Customer Update 客户修改 的本地化字符串。
+        /// </summary>
+        internal static string customer_update {
+            get {
+                return ResourceManager.GetString("customer_update", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Customer Verify 客户审核 的本地化字符串。
+        /// </summary>
+        internal static string customer_verify {
+            get {
+                return ResourceManager.GetString("customer_verify", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Login 登录 的本地化字符串。
         /// </summary>
         internal static string login {
@@ -70,11 +115,47 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   查找类似 Logout 登出 的本地化字符串。
+        /// </summary>
+        internal static string logout {
+            get {
+                return ResourceManager.GetString("logout", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 My Task 我的任务 的本地化字符串。
+        /// </summary>
+        internal static string mytask {
+            get {
+                return ResourceManager.GetString("mytask", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 OK 确定 的本地化字符串。
         /// </summary>
         internal static string ok {
             get {
                 return ResourceManager.GetString("ok", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Order Create 创建工单 的本地化字符串。
+        /// </summary>
+        internal static string order_create {
+            get {
+                return ResourceManager.GetString("order_create", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Order Search 工单查询  的本地化字符串。
+        /// </summary>
+        internal static string order_query {
+            get {
+                return ResourceManager.GetString("order_query", resourceCulture);
             }
         }
         
@@ -93,6 +174,42 @@ namespace Resources {
         internal static string username {
             get {
                 return ResourceManager.GetString("username", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 User Create 用户添加 的本地化字符串。
+        /// </summary>
+        internal static string user_create {
+            get {
+                return ResourceManager.GetString("user_create", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 User Management 用户管理 的本地化字符串。
+        /// </summary>
+        internal static string user_management {
+            get {
+                return ResourceManager.GetString("user_management", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 User Search 用户查询 的本地化字符串。
+        /// </summary>
+        internal static string user_query {
+            get {
+                return ResourceManager.GetString("user_query", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 User Update 用户修改 的本地化字符串。
+        /// </summary>
+        internal static string user_update {
+            get {
+                return ResourceManager.GetString("user_update", resourceCulture);
             }
         }
     }

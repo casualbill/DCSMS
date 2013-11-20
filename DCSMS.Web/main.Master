@@ -36,7 +36,7 @@
                         <div class="header-user">
                             <asp:Label ID="lb_username" runat="server" CssClass="header-border-right"></asp:Label>
                             <a id="addToFav" class="header-border-right" href="javascript:;">收藏本站</a>
-                            <asp:LinkButton ID="lbtn_logout" Text="退出" runat="server" OnClick="lbtn_logout_click"></asp:LinkButton>
+                            <asp:LinkButton ID="lbtn_logout" Text="<%$ Resources:GlobalResource, logout %>" runat="server" OnClick="lbtn_logout_click"></asp:LinkButton>
                         </div>
                         <div class="header-title">Desoutter Customer Center China Online Service System</div>
                     </div>
@@ -44,21 +44,21 @@
 
                 <div class="header-menu clearfix">
                     <ul>
-                        <li id="menuTask"><a href="/myTask.aspx">我的任务</a></li>
-                        <li id="menuOrderQuery"><a href="/order/orderQuery.aspx">查询工单</a></li>
-                        <li id="menuOrderCreate"><a href="/order/orderCreate.aspx">新建工单</a></li>
+                        <li id="menuTask"><a href="/myTask.aspx"><asp:Literal runat="server" Text="<%$ Resources:GlobalResource, mytask %>"></asp:Literal></a></li>
+                        <li id="menuOrderQuery"><a href="/order/orderQuery.aspx"><asp:Literal runat="server" Text="<%$ Resources:GlobalResource, order_query %>"></asp:Literal></a></li>
+                        <li id="menuOrderCreate"><a href="/order/orderCreate.aspx"><asp:Literal runat="server" Text="<%$ Resources:GlobalResource, order_create %>"></asp:Literal></a></li>
                         <li id="menuCustomer"><dl>
-                            <dt>客户管理</dt>
-                            <dd><a href="/customer/customerQuery.aspx">客户查询</a></dd>
-                            <dd><a href="/customer/customerCreate.aspx">客户添加</a></dd>
-                            <dd><a href="/customer/customerQuery.aspx">客户修改</a></dd>
-                            <dd><a href="/customer/customerVerify.aspx">审核列表</a></dd>
+                            <dt><asp:Literal runat="server" Text="<%$ Resources:GlobalResource, customer_management %>"></asp:Literal></dt>
+                            <dd><a href="/customer/customerQuery.aspx"><asp:Literal runat="server" Text="<%$ Resources:GlobalResource, customer_query %>"></asp:Literal></a></dd>
+                            <dd><a href="/customer/customerCreate.aspx"><asp:Literal runat="server" Text="<%$ Resources:GlobalResource, customer_create %>"></asp:Literal></a></dd>
+                            <dd><a href="/customer/customerQuery.aspx"><asp:Literal runat="server" Text="<%$ Resources:GlobalResource, customer_update %>"></asp:Literal></a></dd>
+                            <dd><a href="/customer/customerVerify.aspx"><asp:Literal runat="server" Text="<%$ Resources:GlobalResource, customer_verify %>"></asp:Literal></a></dd>
                         </dl></li>
                         <li id="menuUser"><dl>
-                            <dt>用户管理</dt>
-                            <dd><a href="/user/userQuery.aspx">用户查询</a></dd>
-                            <dd><a href="/user/userCreate.aspx">用户添加</a></dd>
-                            <dd><a href="/user/userQuery.aspx">用户修改</a></dd>
+                            <dt><asp:Literal runat="server" Text="<%$ Resources:GlobalResource, user_management %>"></asp:Literal></dt>
+                            <dd><a href="/user/userQuery.aspx"><asp:Literal runat="server" Text="<%$ Resources:GlobalResource, user_query %>"></asp:Literal></a></dd>
+                            <dd><a href="/user/userCreate.aspx"><asp:Literal runat="server" Text="<%$ Resources:GlobalResource, user_create %>"></asp:Literal></a></dd>
+                            <dd><a href="/user/userQuery.aspx"><asp:Literal runat="server" Text="<%$ Resources:GlobalResource, user_update %>"></asp:Literal></a></dd>
                         </dl></li>
                     </ul>
                 </div>
