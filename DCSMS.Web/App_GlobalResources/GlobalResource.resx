@@ -141,6 +141,12 @@
   <data name="customer_verify" xml:space="preserve">
     <value>Customer Verify 客户审核</value>
   </data>
+  <data name="email" xml:space="preserve">
+    <value>Email 电子邮件</value>
+  </data>
+  <data name="emp_code" xml:space="preserve">
+    <value>工号</value>
+  </data>
   <data name="end_customer_name" xml:space="preserve">
     <value>End Customer Name 终用户名称</value>
   </data>
@@ -186,11 +192,17 @@
   <data name="password" xml:space="preserve">
     <value>Password 密码</value>
   </data>
+  <data name="password_repeat" xml:space="preserve">
+    <value>Repeat Password 重复密码</value>
+  </data>
   <data name="postcode" xml:space="preserve">
     <value>Post Code 邮编</value>
   </data>
   <data name="product_name" xml:space="preserve">
     <value>Module Type 工具型号</value>
+  </data>
+  <data name="real_name" xml:space="preserve">
+    <value>Name 姓名</value>
   </data>
   <data name="remark" xml:space="preserve">
     <value>Remarks 备注</value>
@@ -212,6 +224,9 @@
   </data>
   <data name="user_query" xml:space="preserve">
     <value>User Search 用户查询</value>
+  </data>
+  <data name="user_type" xml:space="preserve">
+    <value>User Type 用户类型</value>
   </data>
   <data name="user_update" xml:space="preserve">
     <value>User Update 用户修改</value>

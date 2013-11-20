@@ -133,6 +133,24 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   查找类似 Email 电子邮件 的本地化字符串。
+        /// </summary>
+        internal static string email {
+            get {
+                return ResourceManager.GetString("email", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 工号 的本地化字符串。
+        /// </summary>
+        internal static string emp_code {
+            get {
+                return ResourceManager.GetString("emp_code", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 End Customer Name 终用户名称 的本地化字符串。
         /// </summary>
         internal static string end_customer_name {
@@ -268,6 +286,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   查找类似 Repeat Password 重复密码 的本地化字符串。
+        /// </summary>
+        internal static string password_repeat {
+            get {
+                return ResourceManager.GetString("password_repeat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Post Code 邮编 的本地化字符串。
         /// </summary>
         internal static string postcode {
@@ -282,6 +309,15 @@ namespace Resources {
         internal static string product_name {
             get {
                 return ResourceManager.GetString("product_name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Name 姓名 的本地化字符串。
+        /// </summary>
+        internal static string real_name {
+            get {
+                return ResourceManager.GetString("real_name", resourceCulture);
             }
         }
         
@@ -345,6 +381,15 @@ namespace Resources {
         internal static string user_query {
             get {
                 return ResourceManager.GetString("user_query", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 User Type 用户类型 的本地化字符串。
+        /// </summary>
+        internal static string user_type {
+            get {
+                return ResourceManager.GetString("user_type", resourceCulture);
             }
         }
         
