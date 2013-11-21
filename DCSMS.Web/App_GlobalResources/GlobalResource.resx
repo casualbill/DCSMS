@@ -271,7 +271,7 @@
     <value>Start Time 开始时间</value>
   </data>
   <data name="station" xml:space="preserve">
-    <value>Repair Station 维修站</value>
+    <value>Work Station 工作站</value>
   </data>
   <data name="telephone" xml:space="preserve">
     <value>Telephone 电话</value>

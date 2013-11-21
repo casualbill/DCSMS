@@ -754,7 +754,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   查找类似 Repair Station 维修站 的本地化字符串。
+        ///   查找类似 Work Station 工作站 的本地化字符串。
         /// </summary>
         internal static string station {
             get {
