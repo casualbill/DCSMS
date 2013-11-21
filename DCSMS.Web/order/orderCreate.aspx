@@ -130,12 +130,12 @@
             <li><label><asp:Literal runat="server" Text="<%$ Resources:GlobalResource, remark %>"></asp:Literal>：</label><asp:TextBox ID="tb_product_remark" MaxLength="300" TextMode="MultiLine" runat="server"></asp:TextBox></li>
             <li class="margin-bottom"><label><em>*</em><asp:Literal runat="server" Text="<%$ Resources:GlobalResource, tool_type %>"></asp:Literal>：</label><asp:DropDownList ID="ddl_tooltype" runat="server">
                 <asp:ListItem Text="请选择工具类型" Value="0"></asp:ListItem>
-                <asp:ListItem Text="电动装配工具" Value="1"></asp:ListItem>
-                <asp:ListItem Text="气动装配工具" Value="2"></asp:ListItem>
-                <asp:ListItem Text="控制器" Value="3"></asp:ListItem>
-                <asp:ListItem Text="气动打磨工具" Value="4"></asp:ListItem>
-                <asp:ListItem Text="电池式工具" Value="5"></asp:ListItem>
-                <asp:ListItem Text="附件" Value="6"></asp:ListItem>
+                <asp:ListItem Text="<%$ Resources:GlobalResource, tool_type_text1 %>" Value="1"></asp:ListItem>
+                <asp:ListItem Text="<%$ Resources:GlobalResource, tool_type_text2 %>" Value="2"></asp:ListItem>
+                <asp:ListItem Text="<%$ Resources:GlobalResource, tool_type_text3 %>" Value="3"></asp:ListItem>
+                <asp:ListItem Text="<%$ Resources:GlobalResource, tool_type_text4 %>" Value="4"></asp:ListItem>
+                <asp:ListItem Text="<%$ Resources:GlobalResource, tool_type_text5 %>" Value="5"></asp:ListItem>
+                <asp:ListItem Text="<%$ Resources:GlobalResource, tool_type_text6 %>" Value="6"></asp:ListItem>
             </asp:DropDownList></li>
 
             <li><label><em>*</em><asp:Literal runat="server" Text="<%$ Resources:GlobalResource, station %>"></asp:Literal>：</label><asp:DropDownList ID="ddl_station" runat="server"></asp:DropDownList></li>

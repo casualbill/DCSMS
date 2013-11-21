@@ -35,12 +35,12 @@ namespace DCSMS.Web
             {
                 switch (dr["ToolType"].ToString())
                 {
-                    case "1": productTable.Rows[index]["ToolTypeStr"] = "电动装配工具"; break;
-                    case "2": productTable.Rows[index]["ToolTypeStr"] = "气动装配工具"; break;
-                    case "3": productTable.Rows[index]["ToolTypeStr"] = "控制器"; break;
-                    case "4": productTable.Rows[index]["ToolTypeStr"] = "气动打磨工具"; break;
-                    case "5": productTable.Rows[index]["ToolTypeStr"] = "电池式工具"; break;
-                    case "6": productTable.Rows[index]["ToolTypeStr"] = "附件"; break;
+                    case "1": productTable.Rows[index]["ToolTypeStr"] = GlobalResource.tool_type_text1; break;
+                    case "2": productTable.Rows[index]["ToolTypeStr"] = GlobalResource.tool_type_text2; break;
+                    case "3": productTable.Rows[index]["ToolTypeStr"] = GlobalResource.tool_type_text3; break;
+                    case "4": productTable.Rows[index]["ToolTypeStr"] = GlobalResource.tool_type_text4; break;
+                    case "5": productTable.Rows[index]["ToolTypeStr"] = GlobalResource.tool_type_text5; break;
+                    case "6": productTable.Rows[index]["ToolTypeStr"] = GlobalResource.tool_type_text6; break;
                 }
                 index++;
             }

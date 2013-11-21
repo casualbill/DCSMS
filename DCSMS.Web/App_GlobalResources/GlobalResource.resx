@@ -420,6 +420,24 @@
   <data name="tool_function_test_item_text9" xml:space="preserve">
     <value>Tool Connection Test 工具连接测试</value>
   </data>
+  <data name="tool_type_text1" xml:space="preserve">
+    <value>Electrical Assembly Tools 电动装配工具</value>
+  </data>
+  <data name="tool_type_text2" xml:space="preserve">
+    <value>Pneumatic Assembly Tools 气动装配工具</value>
+  </data>
+  <data name="tool_type_text3" xml:space="preserve">
+    <value>Controller 控制器</value>
+  </data>
+  <data name="tool_type_text4" xml:space="preserve">
+    <value>Pneumatic Removal Tools 气动打磨工具</value>
+  </data>
+  <data name="tool_type_text5" xml:space="preserve">
+    <value>Battery Tool 电池式工具</value>
+  </data>
+  <data name="tool_type_text6" xml:space="preserve">
+    <value>Accessories 附件</value>
+  </data>
   <data name="update_status" xml:space="preserve">
     <value>Updated Status 更新状态</value>
   </data>

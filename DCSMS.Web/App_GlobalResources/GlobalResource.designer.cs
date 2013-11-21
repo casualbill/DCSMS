@@ -880,6 +880,60 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   查找类似 Electrical Assembly Tools 电动装配工具 的本地化字符串。
+        /// </summary>
+        internal static string tool_type_text1 {
+            get {
+                return ResourceManager.GetString("tool_type_text1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Pneumatic Assembly Tools 气动装配工具 的本地化字符串。
+        /// </summary>
+        internal static string tool_type_text2 {
+            get {
+                return ResourceManager.GetString("tool_type_text2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Controller 控制器 的本地化字符串。
+        /// </summary>
+        internal static string tool_type_text3 {
+            get {
+                return ResourceManager.GetString("tool_type_text3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Pneumatic Removal Tools 气动打磨工具 的本地化字符串。
+        /// </summary>
+        internal static string tool_type_text4 {
+            get {
+                return ResourceManager.GetString("tool_type_text4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Battery Tool 电池式工具 的本地化字符串。
+        /// </summary>
+        internal static string tool_type_text5 {
+            get {
+                return ResourceManager.GetString("tool_type_text5", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Accessories 附件 的本地化字符串。
+        /// </summary>
+        internal static string tool_type_text6 {
+            get {
+                return ResourceManager.GetString("tool_type_text6", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Updated Status 更新状态 的本地化字符串。
         /// </summary>
         internal static string update_status {

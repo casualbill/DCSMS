@@ -85,12 +85,12 @@
             <li><label><asp:Literal runat="server" Text="<%$ Resources:GlobalResource, firmware_version %>"></asp:Literal>：</label><asp:TextBox ID="tb_product_firmware" MaxLength="20" runat="server"></asp:TextBox></li>
             <li><label><asp:Literal runat="server" Text="<%$ Resources:GlobalResource, remark %>"></asp:Literal>：</label><asp:TextBox ID="tb_product_remark" MaxLength="300" TextMode="MultiLine" runat="server"></asp:TextBox></li>
             <li><label><asp:Literal runat="server" Text="<%$ Resources:GlobalResource, tool_type %>"></asp:Literal>：</label><asp:DropDownList ID="ddl_tooltype" runat="server">
-                <asp:ListItem Text="电动装配工具" Value="1"></asp:ListItem>
-                <asp:ListItem Text="气动装配工具" Value="2"></asp:ListItem>
-                <asp:ListItem Text="控制器" Value="3"></asp:ListItem>
-                <asp:ListItem Text="气动打磨工具" Value="4"></asp:ListItem>
-                <asp:ListItem Text="电池式工具" Value="5"></asp:ListItem>
-                <asp:ListItem Text="附件" Value="6"></asp:ListItem>
+                <asp:ListItem Text="<%$ Resources:GlobalResource, tool_type_text1 %>" Value="1"></asp:ListItem>
+                <asp:ListItem Text="<%$ Resources:GlobalResource, tool_type_text2 %>" Value="2"></asp:ListItem>
+                <asp:ListItem Text="<%$ Resources:GlobalResource, tool_type_text3 %>" Value="3"></asp:ListItem>
+                <asp:ListItem Text="<%$ Resources:GlobalResource, tool_type_text4 %>" Value="4"></asp:ListItem>
+                <asp:ListItem Text="<%$ Resources:GlobalResource, tool_type_text5 %>" Value="5"></asp:ListItem>
+                <asp:ListItem Text="<%$ Resources:GlobalResource, tool_type_text6 %>" Value="6"></asp:ListItem>
             </asp:DropDownList></li>
             <li><label></label><asp:LinkButton ID="lbtn_inspectionresult" runat="server" Text="<%$ Resources:GlobalResource, inspection_result_and_tool_function_test %>" OnClick="lbtn_inspectionresult_click"></asp:LinkButton></li>
         </ul>
