@@ -16,7 +16,7 @@ namespace DCSMS.Web
             int userId = Convert.ToInt16(Session["userId"]);
             int userType = Convert.ToInt16(Session["userType"]);
 
-            DataTable dt = orderLogic.orderQueryByTask(userId, userType);
+            DataTable dt = orderConfig.addOrderStatusText(orderLogic.orderQueryByTask(userId, userType));
 
             if (dt != null)
             {

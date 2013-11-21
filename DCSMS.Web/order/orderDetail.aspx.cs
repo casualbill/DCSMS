@@ -41,6 +41,9 @@ namespace DCSMS.Web.order
                 DataSet ds = orderLogic.orderQueryByOrderId(urlQueryId);
                 if (ds != null && ds.Tables.Count > 0)
                 {
+                    orderConfig.addWorkTypeText(orderConfig.addOrderStatusText(ds.Tables[0]));
+                    orderConfig.addToolTypeText(ds.Tables[2]);
+
                     lb_orderid.Text = ds.Tables[0].Rows[0]["Id"].ToString();
 
                     if (Convert.ToInt16(Session["userType"]) == 1 && ds.Tables[0].Rows[0]["IsPublic"].ToString() == "0")

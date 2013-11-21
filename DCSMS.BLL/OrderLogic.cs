@@ -144,7 +144,7 @@ namespace DCSMS.BLL
                 return null;
             }
             dt.TableName = "OrderInfoTable";
-            orderInfoDataSet.Tables.Add(addWorkTypeText(addOrderStatusText(dt.Copy(), true)));
+            orderInfoDataSet.Tables.Add(dt.Copy());
 
             if (isOnlyOrderInfo == true) { return orderInfoDataSet; }
 
@@ -160,7 +160,7 @@ namespace DCSMS.BLL
             orderInfoDataSet.Tables.Add(dt.Copy());
 
             ProductDB productDb = new ProductDB();
-            dt = addToolTypeText(productDb.productQuery(orderId).Tables[0]);
+            dt = productDb.productQuery(orderId).Tables[0];
             dt.TableName = "ProductTable";
             orderInfoDataSet.Tables.Add(dt.Copy());
 
@@ -215,7 +215,7 @@ namespace DCSMS.BLL
             DataSet ds = orderDb.orderQueryByTask(userId, isAdmin);
             if (ds.Tables[0].Rows.Count > 0)
             {
-                return addOrderStatusText(ds.Tables[0]);
+                return ds.Tables[0];
             }
             else
             {
@@ -229,7 +229,7 @@ namespace DCSMS.BLL
             DataSet ds = orderDb.orderListQueryVaguely(orderId, workType, technicianId, customerId, productName, serialNumber, stationId, orderStatus);
             if (ds.Tables[0].Rows.Count > 0)
             {
-                return addOrderStatusText(ds.Tables[0]);
+                return ds.Tables[0];
             }
             else
             {
@@ -541,97 +541,5 @@ namespace DCSMS.BLL
         }
         #endregion
 
-
-        #region 在表中加入状态对应文字
-
-        //为工具表加入工具类型文字说明
-        protected DataTable addToolTypeText(DataTable productTable)
-        {
-            productTable.Columns.Add("ToolTypeStr", Type.GetType("System.String"));
-
-            int index = 0;
-            foreach (DataRow dr in productTable.Rows)
-            {
-                switch (dr["ToolType"].ToString())
-                {
-                    case "1": productTable.Rows[index]["ToolTypeStr"] = "电动装配工具"; break;
-                    case "2": productTable.Rows[index]["ToolTypeStr"] = "气动装配工具"; break;
-                    case "3": productTable.Rows[index]["ToolTypeStr"] = "控制器"; break;
-                    case "4": productTable.Rows[index]["ToolTypeStr"] = "气动打磨工具"; break;
-                    case "5": productTable.Rows[index]["ToolTypeStr"] = "电池式工具"; break;
-                    case "6": productTable.Rows[index]["ToolTypeStr"] = "附件"; break;
-                }
-                index++;
-            }
-            return productTable;
-        }
-
-        //为工单表加入工作类型文字说明
-        protected DataTable addWorkTypeText(DataTable orderTable)
-        {
-            orderTable.Columns.Add("WorkTypeStr", Type.GetType("System.String"));
-
-            int index = 0;
-            foreach (DataRow dr in orderTable.Rows)
-            {
-                switch (dr["WorkType"].ToString())
-                {
-                    case "1": orderTable.Rows[index]["WorkTypeStr"] = "质保"; break;
-                    case "2": orderTable.Rows[index]["WorkTypeStr"] = "客户付费"; break;
-                    case "3": orderTable.Rows[index]["WorkTypeStr"] = "Demo工具维修"; break;
-                    case "4": orderTable.Rows[index]["WorkTypeStr"] = "项目维修"; break;
-                }
-                index++;
-            }
-            return orderTable;
-        }
-
-        //为工单表加入工单状态文字说明
-        protected DataTable addOrderStatusText(DataTable orderTable)
-        {
-            return addOrderStatusText(orderTable, false);
-        }
-
-        protected DataTable addOrderStatusText(DataTable orderTable, Boolean showFinishTask)
-        {
-            orderTable.Columns.Add("OrderStatusStr", Type.GetType("System.String"));
-            if (showFinishTask == true)
-            {
-                orderTable.Columns.Add("TaskFinishText", Type.GetType("System.String"));
-            }
-
-            int index = 0;
-            foreach (DataRow dr in orderTable.Rows)
-            {
-                switch (dr["OrderStatus"].ToString())
-                {
-                    case "1": orderTable.Rows[index]["OrderStatusStr"] = "等待客户审核"; break;
-                    case "2": orderTable.Rows[index]["OrderStatusStr"] = "等待检查"; break;
-                    case "3": orderTable.Rows[index]["OrderStatusStr"] = "等待报价"; break;
-                    case "4": orderTable.Rows[index]["OrderStatusStr"] = "等待客户确认"; break;
-                    case "5": orderTable.Rows[index]["OrderStatusStr"] = "等待备件到齐"; break;
-                    case "6": orderTable.Rows[index]["OrderStatusStr"] = "等待维修"; break;
-                    case "7": orderTable.Rows[index]["OrderStatusStr"] = "等待发货"; break;
-                    case "8": orderTable.Rows[index]["OrderStatusStr"] = "完成"; break;
-                }
-
-                if (showFinishTask == true)
-                {
-                    switch (dr["OrderStatus"].ToString())
-                    {
-                        case "1": orderTable.Rows[index]["TaskFinishText"] = "客户审核完成"; break;
-                        case "2": orderTable.Rows[index]["TaskFinishText"] = "工单检查完成"; break;
-                        case "3": orderTable.Rows[index]["TaskFinishText"] = "报价完成"; break;
-                        case "4": orderTable.Rows[index]["TaskFinishText"] = "客户已确认"; break;
-                        case "5": orderTable.Rows[index]["TaskFinishText"] = "备件已到齐"; break;
-                        case "6": orderTable.Rows[index]["TaskFinishText"] = "维修完成"; break;
-                        case "7": orderTable.Rows[index]["TaskFinishText"] = "发货完成"; break;
-                    }
-                }
-                index++;
-            }
-            return orderTable;
-        }
-        #endregion
     }
 }

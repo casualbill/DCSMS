@@ -52,7 +52,7 @@ namespace DCSMS.Web.order
             }
             else
             {
-                DataTable dt = orderLogic.orderListQueryVaguely(orderId, workType, technicianId, customerId, productName, serialNumber, stationId, orderStatuts);
+                DataTable dt = orderConfig.addOrderStatusText(orderLogic.orderListQueryVaguely(orderId, workType, technicianId, customerId, productName, serialNumber, stationId, orderStatuts));
                 if (dt == null)
                 {
                     pn_table.Visible = false;

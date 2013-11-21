@@ -120,6 +120,9 @@ namespace DCSMS.Web.order
                 DataSet ds = orderLogic.orderQueryByOrderId(urlQueryId);
                 if (ds != null)
                 {
+                    orderConfig.addWorkTypeText(orderConfig.addOrderStatusText(ds.Tables[0]));
+                    orderConfig.addToolTypeText(ds.Tables[2]);
+
                     lb_orderid.Text = ds.Tables[0].Rows[0]["Id"].ToString();
                     tb_failure_description.Text = ds.Tables[0].Rows[0]["FailureDescription"].ToString();
                     tb_remark.Text = ds.Tables[0].Rows[0]["Remark"].ToString();

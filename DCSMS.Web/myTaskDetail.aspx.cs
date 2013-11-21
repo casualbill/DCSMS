@@ -82,6 +82,9 @@ namespace DCSMS.Web
                 DataSet ds = orderLogic.orderQueryByOrderId(urlQueryId);
                 if (ds != null)
                 {
+                    orderConfig.addWorkTypeText(orderConfig.addOrderStatusText(ds.Tables[0]));
+                    orderConfig.addToolTypeText(ds.Tables[2]);
+
                     hf_usertype.Value = userType.ToString();
 
                     int technicianId = Convert.ToInt16(ds.Tables[0].Rows[0]["TechnicianId"]);
