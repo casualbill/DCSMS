@@ -20,13 +20,13 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContentPlaceHolder" runat="server">
     <div class="main-title">
-        检查结果及工具功能测试
+        <asp:Literal runat="server" Text="<%$ Resources:GlobalResource, inspection_result_and_tool_function_test %>"></asp:Literal>
     </div>
 
     <div class="main-content">
         <div class="content-list">
 
-            <div class="content-tips">检查结果</div>
+            <div class="content-tips"><asp:Literal runat="server" Text="<%$ Resources:GlobalResource, inspection_result %>"></asp:Literal></div>
             <table>
                 <tr>
                     <td>1</td>
@@ -134,7 +134,7 @@
                 </tr>
             </table>
 
-            <div class="content-tips">工具功能测试</div>
+            <div class="content-tips"><asp:Literal runat="server" Text="<%$ Resources:GlobalResource, tool_function_test %>"></asp:Literal></div>
             <table>
                 <tr>
                     <td>1</td>
@@ -217,7 +217,7 @@
             </table>
 
             <ul>
-                <li><label></label><asp:Button ID="btn_submit" runat="server" Text="确定" OnClick="btn_submit_click" /></li>
+                <li><label></label><asp:Button ID="btn_submit" runat="server" Text="<%$ Resources:GlobalResource, ok %>" OnClick="btn_submit_click" /></li>
             </ul>
         </div>
         <asp:Label ID="lb_tips" runat="server" CssClass="content-tips"></asp:Label>

@@ -268,11 +268,182 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   查找类似 Inspection Result 检查及结果 的本地化字符串。
+        /// </summary>
+        internal static string inspection_result {
+            get {
+                return ResourceManager.GetString("inspection_result", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Inspection Result And Tool Function Test 检查结果及工具功能测试 的本地化字符串。
         /// </summary>
         internal static string inspection_result_and_tool_function_test {
             get {
                 return ResourceManager.GetString("inspection_result_and_tool_function_test", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Appearance Check 外观检查 的本地化字符串。
+        /// </summary>
+        internal static string inspection_result_item_text1 {
+            get {
+                return ResourceManager.GetString("inspection_result_item_text1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Servo Driver 伺服驱动 的本地化字符串。
+        /// </summary>
+        internal static string inspection_result_item_text10 {
+            get {
+                return ResourceManager.GetString("inspection_result_item_text10", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 I/O and CPU I/O及CPU 的本地化字符串。
+        /// </summary>
+        internal static string inspection_result_item_text11 {
+            get {
+                return ResourceManager.GetString("inspection_result_item_text11", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Power Supply 电源 的本地化字符串。
+        /// </summary>
+        internal static string inspection_result_item_text12 {
+            get {
+                return ResourceManager.GetString("inspection_result_item_text12", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Front Panel 前面板 的本地化字符串。
+        /// </summary>
+        internal static string inspection_result_item_text13 {
+            get {
+                return ResourceManager.GetString("inspection_result_item_text13", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Display 显示 的本地化字符串。
+        /// </summary>
+        internal static string inspection_result_item_text14 {
+            get {
+                return ResourceManager.GetString("inspection_result_item_text14", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Clutch 离合器 的本地化字符串。
+        /// </summary>
+        internal static string inspection_result_item_text15 {
+            get {
+                return ResourceManager.GetString("inspection_result_item_text15", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Memory Board 记忆卡 的本地化字符串。
+        /// </summary>
+        internal static string inspection_result_item_text16 {
+            get {
+                return ResourceManager.GetString("inspection_result_item_text16", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Phisycal Connections 物理连接 的本地化字符串。
+        /// </summary>
+        internal static string inspection_result_item_text17 {
+            get {
+                return ResourceManager.GetString("inspection_result_item_text17", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Mechnical Parts 机械部件 的本地化字符串。
+        /// </summary>
+        internal static string inspection_result_item_text18 {
+            get {
+                return ResourceManager.GetString("inspection_result_item_text18", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Anglehead Frontpart 弯头总成或输出轴组件 的本地化字符串。
+        /// </summary>
+        internal static string inspection_result_item_text2 {
+            get {
+                return ResourceManager.GetString("inspection_result_item_text2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Planetary Gear Unit 行星齿轮装置 的本地化字符串。
+        /// </summary>
+        internal static string inspection_result_item_text3 {
+            get {
+                return ResourceManager.GetString("inspection_result_item_text3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Transducer 传感器 的本地化字符串。
+        /// </summary>
+        internal static string inspection_result_item_text4 {
+            get {
+                return ResourceManager.GetString("inspection_result_item_text4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Motor 马达 的本地化字符串。
+        /// </summary>
+        internal static string inspection_result_item_text5 {
+            get {
+                return ResourceManager.GetString("inspection_result_item_text5", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Handle &amp; Memory Card 手柄及主板 的本地化字符串。
+        /// </summary>
+        internal static string inspection_result_item_text6 {
+            get {
+                return ResourceManager.GetString("inspection_result_item_text6", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Clutch Pulse Unit 离合器或脉冲单元 的本地化字符串。
+        /// </summary>
+        internal static string inspection_result_item_text7 {
+            get {
+                return ResourceManager.GetString("inspection_result_item_text7", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Trigger System 开关系统 的本地化字符串。
+        /// </summary>
+        internal static string inspection_result_item_text8 {
+            get {
+                return ResourceManager.GetString("inspection_result_item_text8", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Other Parts 其他部件 的本地化字符串。
+        /// </summary>
+        internal static string inspection_result_item_text9 {
+            get {
+                return ResourceManager.GetString("inspection_result_item_text9", resourceCulture);
             }
         }
         
@@ -606,6 +777,96 @@ namespace Resources {
         internal static string telephone {
             get {
                 return ResourceManager.GetString("telephone", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Tool Function Test 工具功能测试 的本地化字符串。
+        /// </summary>
+        internal static string tool_function_test {
+            get {
+                return ResourceManager.GetString("tool_function_test", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Tool Assembly 工具装配 的本地化字符串。
+        /// </summary>
+        internal static string tool_function_test_item_text1 {
+            get {
+                return ResourceManager.GetString("tool_function_test_item_text1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Customer Acce. 客户附件安装 的本地化字符串。
+        /// </summary>
+        internal static string tool_function_test_item_text2 {
+            get {
+                return ResourceManager.GetString("tool_function_test_item_text2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Surface Clean 工具表面清洁 的本地化字符串。
+        /// </summary>
+        internal static string tool_function_test_item_text3 {
+            get {
+                return ResourceManager.GetString("tool_function_test_item_text3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Torque Test 扭矩测试 的本地化字符串。
+        /// </summary>
+        internal static string tool_function_test_item_text4 {
+            get {
+                return ResourceManager.GetString("tool_function_test_item_text4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Speed 速度 的本地化字符串。
+        /// </summary>
+        internal static string tool_function_test_item_text5 {
+            get {
+                return ResourceManager.GetString("tool_function_test_item_text5", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Others 其他 的本地化字符串。
+        /// </summary>
+        internal static string tool_function_test_item_text6 {
+            get {
+                return ResourceManager.GetString("tool_function_test_item_text6", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Assembly 装配 的本地化字符串。
+        /// </summary>
+        internal static string tool_function_test_item_text7 {
+            get {
+                return ResourceManager.GetString("tool_function_test_item_text7", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Surface Clean 表面清洁 的本地化字符串。
+        /// </summary>
+        internal static string tool_function_test_item_text8 {
+            get {
+                return ResourceManager.GetString("tool_function_test_item_text8", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Tool Connection Test 工具连接测试 的本地化字符串。
+        /// </summary>
+        internal static string tool_function_test_item_text9 {
+            get {
+                return ResourceManager.GetString("tool_function_test_item_text9", resourceCulture);
             }
         }
         

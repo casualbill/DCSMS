@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using DCSMS.BLL;
 using System.Data;
+using Resources;
 
 namespace DCSMS.Web.order
 {
@@ -124,60 +125,60 @@ namespace DCSMS.Web.order
             switch (toolType)
             {
                 case 1:
-                    lb_ir_itemtext1.Text = "外观检查";
-                    lb_ir_itemtext2.Text = "弯头总成或输出轴组件";
-                    lb_ir_itemtext3.Text = "行星齿轮装置";
-                    lb_ir_itemtext4.Text = "传感器";
-                    lb_ir_itemtext5.Text = "马达";
-                    lb_ir_itemtext6.Text = "手柄及主板";
+                    lb_ir_itemtext1.Text = GlobalResource.inspection_result_item_text1;
+                    lb_ir_itemtext2.Text = GlobalResource.inspection_result_item_text2;
+                    lb_ir_itemtext3.Text = GlobalResource.inspection_result_item_text3;
+                    lb_ir_itemtext4.Text = GlobalResource.inspection_result_item_text4;
+                    lb_ir_itemtext5.Text = GlobalResource.inspection_result_item_text5;
+                    lb_ir_itemtext6.Text = GlobalResource.inspection_result_item_text6;
                     tr_ir7.Visible = false;
                     tr_ir8.Visible = false;
                     break;
                 case 2:
-                    lb_ir_itemtext1.Text = "外观检查";
-                    lb_ir_itemtext2.Text = "弯头总成或输出轴组件";
-                    lb_ir_itemtext3.Text = "行星齿轮装置";
-                    lb_ir_itemtext4.Text = "离合器或脉冲单元";
-                    lb_ir_itemtext5.Text = "马达";
-                    lb_ir_itemtext6.Text = "开关系统";
-                    lb_ir_itemtext7.Text = "其他部件";
+                    lb_ir_itemtext1.Text = GlobalResource.inspection_result_item_text1;
+                    lb_ir_itemtext2.Text = GlobalResource.inspection_result_item_text2;
+                    lb_ir_itemtext3.Text = GlobalResource.inspection_result_item_text3;
+                    lb_ir_itemtext4.Text = GlobalResource.inspection_result_item_text7;
+                    lb_ir_itemtext5.Text = GlobalResource.inspection_result_item_text5;
+                    lb_ir_itemtext6.Text = GlobalResource.inspection_result_item_text8;
+                    lb_ir_itemtext7.Text = GlobalResource.inspection_result_item_text9;
                     tr_ir8.Visible = false;
                     break;
                 case 3:
-                    lb_ir_itemtext1.Text = "外观检查";
-                    lb_ir_itemtext2.Text = "伺服驱动";
-                    lb_ir_itemtext3.Text = "I/O及CPU";
-                    lb_ir_itemtext4.Text = "电源";
-                    lb_ir_itemtext5.Text = "前面板";
-                    lb_ir_itemtext6.Text = "显示";
-                    lb_ir_itemtext7.Text = "其他部件";
+                    lb_ir_itemtext1.Text = GlobalResource.inspection_result_item_text1;
+                    lb_ir_itemtext2.Text = GlobalResource.inspection_result_item_text10;
+                    lb_ir_itemtext3.Text = GlobalResource.inspection_result_item_text11;
+                    lb_ir_itemtext4.Text = GlobalResource.inspection_result_item_text12;
+                    lb_ir_itemtext5.Text = GlobalResource.inspection_result_item_text13;
+                    lb_ir_itemtext6.Text = GlobalResource.inspection_result_item_text14;
+                    lb_ir_itemtext7.Text = GlobalResource.inspection_result_item_text9;
                     tr_ir8.Visible = false;
                     break;
                 case 4:
-                    lb_ir_itemtext1.Text = "外观检查";
-                    lb_ir_itemtext2.Text = "弯头总成或输出轴组件";
-                    lb_ir_itemtext3.Text = "行星齿轮装置";
-                    lb_ir_itemtext4.Text = "马达";
-                    lb_ir_itemtext5.Text = "开关系统";
-                    lb_ir_itemtext6.Text = "其他部件";
+                    lb_ir_itemtext1.Text = GlobalResource.inspection_result_item_text1;
+                    lb_ir_itemtext2.Text = GlobalResource.inspection_result_item_text2;
+                    lb_ir_itemtext3.Text = GlobalResource.inspection_result_item_text3;
+                    lb_ir_itemtext4.Text = GlobalResource.inspection_result_item_text5;
+                    lb_ir_itemtext5.Text = GlobalResource.inspection_result_item_text8;
+                    lb_ir_itemtext6.Text = GlobalResource.inspection_result_item_text9;
                     tr_ir7.Visible = false;
                     tr_ir8.Visible = false;
                     break;
                 case 5:
-                    lb_ir_itemtext1.Text = "外观检查";
-                    lb_ir_itemtext2.Text = "弯头总成或输出轴组件";
-                    lb_ir_itemtext3.Text = "行星齿轮装置";
-                    lb_ir_itemtext4.Text = "离合器";
-                    lb_ir_itemtext5.Text = "马达";
-                    lb_ir_itemtext6.Text = "记忆卡";
-                    lb_ir_itemtext7.Text = "开关系统";
-                    lb_ir_itemtext8.Text = "其他部件";
+                    lb_ir_itemtext1.Text = GlobalResource.inspection_result_item_text1;
+                    lb_ir_itemtext2.Text = GlobalResource.inspection_result_item_text2;
+                    lb_ir_itemtext3.Text = GlobalResource.inspection_result_item_text3;
+                    lb_ir_itemtext4.Text = GlobalResource.inspection_result_item_text15;
+                    lb_ir_itemtext5.Text = GlobalResource.inspection_result_item_text5;
+                    lb_ir_itemtext6.Text = GlobalResource.inspection_result_item_text16;
+                    lb_ir_itemtext7.Text = GlobalResource.inspection_result_item_text8;
+                    lb_ir_itemtext8.Text = GlobalResource.inspection_result_item_text9;
                     break;
                 case 6:
-                    lb_ir_itemtext1.Text = "外观检查";
-                    lb_ir_itemtext2.Text = "物理连接";
-                    lb_ir_itemtext3.Text = "机械部件";
-                    lb_ir_itemtext4.Text = "其他部件";
+                    lb_ir_itemtext1.Text = GlobalResource.inspection_result_item_text1;
+                    lb_ir_itemtext2.Text = GlobalResource.inspection_result_item_text17;
+                    lb_ir_itemtext3.Text = GlobalResource.inspection_result_item_text18;
+                    lb_ir_itemtext4.Text = GlobalResource.inspection_result_item_text9;
                     tr_ir5.Visible = false;
                     tr_ir6.Visible = false;
                     tr_ir7.Visible = false;
@@ -216,25 +217,25 @@ namespace DCSMS.Web.order
                 case 2:
                 case 4:
                 case 5:
-                    lb_tft_itemtext1.Text = "工具装配";
-                    lb_tft_itemtext2.Text = "客户附件安装";
-                    lb_tft_itemtext3.Text = "工具表面清洁";
-                    lb_tft_itemtext4.Text = "扭矩测试";
-                    lb_tft_itemtext5.Text = "速度";
-                    lb_tft_itemtext6.Text = "其他";
+                    lb_tft_itemtext1.Text = GlobalResource.tool_function_test_item_text1;
+                    lb_tft_itemtext2.Text = GlobalResource.tool_function_test_item_text2;
+                    lb_tft_itemtext3.Text = GlobalResource.tool_function_test_item_text3;
+                    lb_tft_itemtext4.Text = GlobalResource.tool_function_test_item_text4;
+                    lb_tft_itemtext5.Text = GlobalResource.tool_function_test_item_text5;
+                    lb_tft_itemtext6.Text = GlobalResource.tool_function_test_item_text6;
                     break;
                 case 3:
-                    lb_tft_itemtext1.Text = "装配";
-                    lb_tft_itemtext2.Text = "客户附件安装";
-                    lb_tft_itemtext3.Text = "表面清洁";
-                    lb_tft_itemtext4.Text = "工具连接测试";
-                    lb_tft_itemtext5.Text = "扭矩测试";
-                    lb_tft_itemtext6.Text = "其他";
+                    lb_tft_itemtext1.Text = GlobalResource.tool_function_test_item_text7;
+                    lb_tft_itemtext2.Text = GlobalResource.tool_function_test_item_text2;
+                    lb_tft_itemtext3.Text = GlobalResource.tool_function_test_item_text8;
+                    lb_tft_itemtext4.Text = GlobalResource.tool_function_test_item_text9;
+                    lb_tft_itemtext5.Text = GlobalResource.tool_function_test_item_text4;
+                    lb_tft_itemtext6.Text = GlobalResource.tool_function_test_item_text6;
                     break;
                 case 6:
-                    lb_tft_itemtext1.Text = "装配";
-                    lb_tft_itemtext2.Text = "工具表面清洁";
-                    lb_tft_itemtext3.Text = "其他";
+                    lb_tft_itemtext1.Text = GlobalResource.tool_function_test_item_text7;
+                    lb_tft_itemtext2.Text = GlobalResource.tool_function_test_item_text3;
+                    lb_tft_itemtext3.Text = GlobalResource.tool_function_test_item_text6;
                     tr_tft4.Visible = false;
                     tr_tft5.Visible = false;
                     tr_tft6.Visible = false;

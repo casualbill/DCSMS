@@ -315,8 +315,65 @@
   <data name="image" xml:space="preserve">
     <value>Image 图片</value>
   </data>
+  <data name="inspection_result" xml:space="preserve">
+    <value>Inspection Result 检查及结果</value>
+  </data>
   <data name="inspection_result_and_tool_function_test" xml:space="preserve">
     <value>Inspection Result And Tool Function Test 检查结果及工具功能测试</value>
+  </data>
+  <data name="inspection_result_item_text1" xml:space="preserve">
+    <value>Appearance Check 外观检查</value>
+  </data>
+  <data name="inspection_result_item_text10" xml:space="preserve">
+    <value>Servo Driver 伺服驱动</value>
+  </data>
+  <data name="inspection_result_item_text11" xml:space="preserve">
+    <value>I/O and CPU I/O及CPU</value>
+  </data>
+  <data name="inspection_result_item_text12" xml:space="preserve">
+    <value>Power Supply 电源</value>
+  </data>
+  <data name="inspection_result_item_text13" xml:space="preserve">
+    <value>Front Panel 前面板</value>
+  </data>
+  <data name="inspection_result_item_text14" xml:space="preserve">
+    <value>Display 显示</value>
+  </data>
+  <data name="inspection_result_item_text15" xml:space="preserve">
+    <value>Clutch 离合器</value>
+  </data>
+  <data name="inspection_result_item_text16" xml:space="preserve">
+    <value>Memory Board 记忆卡</value>
+  </data>
+  <data name="inspection_result_item_text17" xml:space="preserve">
+    <value>Phisycal Connections 物理连接</value>
+  </data>
+  <data name="inspection_result_item_text18" xml:space="preserve">
+    <value>Mechnical Parts 机械部件</value>
+  </data>
+  <data name="inspection_result_item_text2" xml:space="preserve">
+    <value>Anglehead Frontpart 弯头总成或输出轴组件</value>
+  </data>
+  <data name="inspection_result_item_text3" xml:space="preserve">
+    <value>Planetary Gear Unit 行星齿轮装置</value>
+  </data>
+  <data name="inspection_result_item_text4" xml:space="preserve">
+    <value>Transducer 传感器</value>
+  </data>
+  <data name="inspection_result_item_text5" xml:space="preserve">
+    <value>Motor 马达</value>
+  </data>
+  <data name="inspection_result_item_text6" xml:space="preserve">
+    <value>Handle &amp; Memory Card 手柄及主板</value>
+  </data>
+  <data name="inspection_result_item_text7" xml:space="preserve">
+    <value>Clutch Pulse Unit 离合器或脉冲单元</value>
+  </data>
+  <data name="inspection_result_item_text8" xml:space="preserve">
+    <value>Trigger System 开关系统</value>
+  </data>
+  <data name="inspection_result_item_text9" xml:space="preserve">
+    <value>Other Parts 其他部件</value>
   </data>
   <data name="order_creator" xml:space="preserve">
     <value>创建者</value>
@@ -332,6 +389,36 @@
   </data>
   <data name="status_update_time" xml:space="preserve">
     <value>Status Update Time 状态更新时间</value>
+  </data>
+  <data name="tool_function_test" xml:space="preserve">
+    <value>Tool Function Test 工具功能测试</value>
+  </data>
+  <data name="tool_function_test_item_text1" xml:space="preserve">
+    <value>Tool Assembly 工具装配</value>
+  </data>
+  <data name="tool_function_test_item_text2" xml:space="preserve">
+    <value>Customer Acce. 客户附件安装</value>
+  </data>
+  <data name="tool_function_test_item_text3" xml:space="preserve">
+    <value>Surface Clean 工具表面清洁</value>
+  </data>
+  <data name="tool_function_test_item_text4" xml:space="preserve">
+    <value>Torque Test 扭矩测试</value>
+  </data>
+  <data name="tool_function_test_item_text5" xml:space="preserve">
+    <value>Speed 速度</value>
+  </data>
+  <data name="tool_function_test_item_text6" xml:space="preserve">
+    <value>Others 其他</value>
+  </data>
+  <data name="tool_function_test_item_text7" xml:space="preserve">
+    <value>Assembly 装配</value>
+  </data>
+  <data name="tool_function_test_item_text8" xml:space="preserve">
+    <value>Surface Clean 表面清洁</value>
+  </data>
+  <data name="tool_function_test_item_text9" xml:space="preserve">
+    <value>Tool Connection Test 工具连接测试</value>
   </data>
   <data name="update_status" xml:space="preserve">
     <value>Updated Status 更新状态</value>
