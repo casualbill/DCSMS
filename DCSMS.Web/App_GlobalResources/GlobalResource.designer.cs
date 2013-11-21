@@ -567,72 +567,72 @@ namespace Resources {
         /// <summary>
         ///   查找类似 Awaiting for Customer Authorization 等待客户审核 的本地化字符串。
         /// </summary>
-        internal static string order_status_1 {
+        internal static string order_status_text1 {
             get {
-                return ResourceManager.GetString("order_status_1", resourceCulture);
+                return ResourceManager.GetString("order_status_text1", resourceCulture);
             }
         }
         
         /// <summary>
         ///   查找类似 Awaiting for Check 等待检查 的本地化字符串。
         /// </summary>
-        internal static string order_status_2 {
+        internal static string order_status_text2 {
             get {
-                return ResourceManager.GetString("order_status_2", resourceCulture);
+                return ResourceManager.GetString("order_status_text2", resourceCulture);
             }
         }
         
         /// <summary>
         ///   查找类似 Awaiting for Quotation 等待报价 的本地化字符串。
         /// </summary>
-        internal static string order_status_3 {
+        internal static string order_status_text3 {
             get {
-                return ResourceManager.GetString("order_status_3", resourceCulture);
+                return ResourceManager.GetString("order_status_text3", resourceCulture);
             }
         }
         
         /// <summary>
         ///   查找类似 Awaiting for Customer Confirmation 等待客户确认 的本地化字符串。
         /// </summary>
-        internal static string order_status_4 {
+        internal static string order_status_text4 {
             get {
-                return ResourceManager.GetString("order_status_4", resourceCulture);
+                return ResourceManager.GetString("order_status_text4", resourceCulture);
             }
         }
         
         /// <summary>
         ///   查找类似 Awaiting for Spare Parts 等待备件到齐 的本地化字符串。
         /// </summary>
-        internal static string order_status_5 {
+        internal static string order_status_text5 {
             get {
-                return ResourceManager.GetString("order_status_5", resourceCulture);
+                return ResourceManager.GetString("order_status_text5", resourceCulture);
             }
         }
         
         /// <summary>
         ///   查找类似 Awaiting for Repair 等待维修 的本地化字符串。
         /// </summary>
-        internal static string order_status_6 {
+        internal static string order_status_text6 {
             get {
-                return ResourceManager.GetString("order_status_6", resourceCulture);
+                return ResourceManager.GetString("order_status_text6", resourceCulture);
             }
         }
         
         /// <summary>
         ///   查找类似 Awaiting for Shipment 等待发货 的本地化字符串。
         /// </summary>
-        internal static string order_status_7 {
+        internal static string order_status_text7 {
             get {
-                return ResourceManager.GetString("order_status_7", resourceCulture);
+                return ResourceManager.GetString("order_status_text7", resourceCulture);
             }
         }
         
         /// <summary>
         ///   查找类似 Work Order Finished 工单完成 的本地化字符串。
         /// </summary>
-        internal static string order_status_8 {
+        internal static string order_status_text8 {
             get {
-                return ResourceManager.GetString("order_status_8", resourceCulture);
+                return ResourceManager.GetString("order_status_text8", resourceCulture);
             }
         }
         

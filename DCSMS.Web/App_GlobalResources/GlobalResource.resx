@@ -213,28 +213,28 @@
   <data name="order_status" xml:space="preserve">
     <value>Work Order Status 工单状态</value>
   </data>
-  <data name="order_status_1" xml:space="preserve">
+  <data name="order_status_text1" xml:space="preserve">
     <value>Awaiting for Customer Authorization 等待客户审核</value>
   </data>
-  <data name="order_status_2" xml:space="preserve">
+  <data name="order_status_text2" xml:space="preserve">
     <value>Awaiting for Check 等待检查</value>
   </data>
-  <data name="order_status_3" xml:space="preserve">
+  <data name="order_status_text3" xml:space="preserve">
     <value>Awaiting for Quotation 等待报价</value>
   </data>
-  <data name="order_status_4" xml:space="preserve">
+  <data name="order_status_text4" xml:space="preserve">
     <value>Awaiting for Customer Confirmation 等待客户确认</value>
   </data>
-  <data name="order_status_5" xml:space="preserve">
+  <data name="order_status_text5" xml:space="preserve">
     <value>Awaiting for Spare Parts 等待备件到齐</value>
   </data>
-  <data name="order_status_6" xml:space="preserve">
+  <data name="order_status_text6" xml:space="preserve">
     <value>Awaiting for Repair 等待维修</value>
   </data>
-  <data name="order_status_7" xml:space="preserve">
+  <data name="order_status_text7" xml:space="preserve">
     <value>Awaiting for Shipment 等待发货</value>
   </data>
-  <data name="order_status_8" xml:space="preserve">
+  <data name="order_status_text8" xml:space="preserve">
     <value>Work Order Finished 工单完成</value>
   </data>
   <data name="password" xml:space="preserve">

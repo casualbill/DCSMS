@@ -2,6 +2,7 @@
 using System.Data;
 using System.Web.UI.WebControls;
 using DCSMS.BLL;
+using Resources;
 
 namespace DCSMS.Web
 {
@@ -85,14 +86,14 @@ namespace DCSMS.Web
             {
                 switch (dr["OrderStatus"].ToString())
                 {
-                    case "1": orderTable.Rows[index]["OrderStatusStr"] = "等待客户审核"; break;
-                    case "2": orderTable.Rows[index]["OrderStatusStr"] = "等待检查"; break;
-                    case "3": orderTable.Rows[index]["OrderStatusStr"] = "等待报价"; break;
-                    case "4": orderTable.Rows[index]["OrderStatusStr"] = "等待客户确认"; break;
-                    case "5": orderTable.Rows[index]["OrderStatusStr"] = "等待备件到齐"; break;
-                    case "6": orderTable.Rows[index]["OrderStatusStr"] = "等待维修"; break;
-                    case "7": orderTable.Rows[index]["OrderStatusStr"] = "等待发货"; break;
-                    case "8": orderTable.Rows[index]["OrderStatusStr"] = "完成"; break;
+                    case "1": orderTable.Rows[index]["OrderStatusStr"] = GlobalResource.order_status_text1; break;
+                    case "2": orderTable.Rows[index]["OrderStatusStr"] = GlobalResource.order_status_text2; break;
+                    case "3": orderTable.Rows[index]["OrderStatusStr"] = GlobalResource.order_status_text3; break;
+                    case "4": orderTable.Rows[index]["OrderStatusStr"] = GlobalResource.order_status_text4; break;
+                    case "5": orderTable.Rows[index]["OrderStatusStr"] = GlobalResource.order_status_text5; break;
+                    case "6": orderTable.Rows[index]["OrderStatusStr"] = GlobalResource.order_status_text6; break;
+                    case "7": orderTable.Rows[index]["OrderStatusStr"] = GlobalResource.order_status_text7; break;
+                    case "8": orderTable.Rows[index]["OrderStatusStr"] = GlobalResource.order_status_text8; break;
                 }
 
                 if (showFinishTask == true)

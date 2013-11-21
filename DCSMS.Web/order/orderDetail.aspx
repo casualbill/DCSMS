@@ -15,14 +15,14 @@
 
     <div class="main-content">
         <div class="order-progress-bar clearfix"><ul>
-            <li><asp:Literal runat="server" Text="<%$ Resources:GlobalResource, order_status_1 %>"></asp:Literal></li>
-            <li><asp:Literal runat="server" Text="<%$ Resources:GlobalResource, order_status_2 %>"></asp:Literal></li>
-            <li><asp:Literal runat="server" Text="<%$ Resources:GlobalResource, order_status_3 %>"></asp:Literal></li>
-            <li><asp:Literal runat="server" Text="<%$ Resources:GlobalResource, order_status_4 %>"></asp:Literal></li>
-            <li><asp:Literal runat="server" Text="<%$ Resources:GlobalResource, order_status_5 %>"></asp:Literal></li>
-            <li><asp:Literal runat="server" Text="<%$ Resources:GlobalResource, order_status_6 %>"></asp:Literal></li>
-            <li><asp:Literal runat="server" Text="<%$ Resources:GlobalResource, order_status_7 %>"></asp:Literal></li>
-            <li><asp:Literal runat="server" Text="<%$ Resources:GlobalResource, order_status_8 %>"></asp:Literal></li>
+            <li><asp:Literal runat="server" Text="<%$ Resources:GlobalResource, order_status_text1 %>"></asp:Literal></li>
+            <li><asp:Literal runat="server" Text="<%$ Resources:GlobalResource, order_status_text2 %>"></asp:Literal></li>
+            <li><asp:Literal runat="server" Text="<%$ Resources:GlobalResource, order_status_text3 %>"></asp:Literal></li>
+            <li><asp:Literal runat="server" Text="<%$ Resources:GlobalResource, order_status_text4 %>"></asp:Literal></li>
+            <li><asp:Literal runat="server" Text="<%$ Resources:GlobalResource, order_status_text5 %>"></asp:Literal></li>
+            <li><asp:Literal runat="server" Text="<%$ Resources:GlobalResource, order_status_text6 %>"></asp:Literal></li>
+            <li><asp:Literal runat="server" Text="<%$ Resources:GlobalResource, order_status_text7 %>"></asp:Literal></li>
+            <li><asp:Literal runat="server" Text="<%$ Resources:GlobalResource, order_status_text8 %>"></asp:Literal></li>
         </ul></div>
 
         <div class="content-list"><ul>

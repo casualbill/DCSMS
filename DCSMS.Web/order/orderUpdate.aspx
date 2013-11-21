@@ -57,14 +57,14 @@
 
     <div class="main-content">
         <div class="order-progress-bar clearfix"><ul>
-            <li><asp:Literal runat="server" Text="<%$ Resources:GlobalResource, order_status_1 %>"></asp:Literal></li>
-            <li><asp:Literal runat="server" Text="<%$ Resources:GlobalResource, order_status_2 %>"></asp:Literal></li>
-            <li><asp:Literal runat="server" Text="<%$ Resources:GlobalResource, order_status_3 %>"></asp:Literal></li>
-            <li><asp:Literal runat="server" Text="<%$ Resources:GlobalResource, order_status_4 %>"></asp:Literal></li>
-            <li><asp:Literal runat="server" Text="<%$ Resources:GlobalResource, order_status_5 %>"></asp:Literal></li>
-            <li><asp:Literal runat="server" Text="<%$ Resources:GlobalResource, order_status_6 %>"></asp:Literal></li>
-            <li><asp:Literal runat="server" Text="<%$ Resources:GlobalResource, order_status_7 %>"></asp:Literal></li>
-            <li><asp:Literal runat="server" Text="<%$ Resources:GlobalResource, order_status_8 %>"></asp:Literal></li>
+            <li><asp:Literal runat="server" Text="<%$ Resources:GlobalResource, order_status_text1 %>"></asp:Literal></li>
+            <li><asp:Literal runat="server" Text="<%$ Resources:GlobalResource, order_status_text2 %>"></asp:Literal></li>
+            <li><asp:Literal runat="server" Text="<%$ Resources:GlobalResource, order_status_text3 %>"></asp:Literal></li>
+            <li><asp:Literal runat="server" Text="<%$ Resources:GlobalResource, order_status_text4 %>"></asp:Literal></li>
+            <li><asp:Literal runat="server" Text="<%$ Resources:GlobalResource, order_status_text5 %>"></asp:Literal></li>
+            <li><asp:Literal runat="server" Text="<%$ Resources:GlobalResource, order_status_text6 %>"></asp:Literal></li>
+            <li><asp:Literal runat="server" Text="<%$ Resources:GlobalResource, order_status_text7 %>"></asp:Literal></li>
+            <li><asp:Literal runat="server" Text="<%$ Resources:GlobalResource, order_status_text8 %>"></asp:Literal></li>
         </ul></div>
 
         <div class="content-list"><ul>
@@ -135,14 +135,14 @@
             <li><label><asp:Literal runat="server" Text="<%$ Resources:GlobalResource, current_status %>"></asp:Literal>：</label><asp:Label ID="lb_orderstatus" runat="server"></asp:Label>
                 <asp:HiddenField ID="hd_formerstatus" runat="server" /></li>
             <li><label><asp:Literal runat="server" Text="<%$ Resources:GlobalResource, update_status %>"></asp:Literal>：</label><asp:DropDownList ID="ddl_orderstatus" runat="server">
-                <asp:ListItem Text="等待客户审核" Value="1"></asp:ListItem>
-                <asp:ListItem Text="等待检查" Value="2"></asp:ListItem>
-                <asp:ListItem Text="等待报价" Value="3"></asp:ListItem>
-                <asp:ListItem Text="等待客户确认" Value="4"></asp:ListItem>
-                <asp:ListItem Text="等待备件到齐" Value="5"></asp:ListItem>
-                <asp:ListItem Text="等待维修" Value="6"></asp:ListItem>
-                <asp:ListItem Text="等待发货" Value="7"></asp:ListItem>
-                <asp:ListItem Text="完成" Value="8"></asp:ListItem>
+                <asp:ListItem Text="<%$ Resources:GlobalResource, order_status_text1 %>" Value="1"></asp:ListItem>
+                <asp:ListItem Text="<%$ Resources:GlobalResource, order_status_text2 %>" Value="2"></asp:ListItem>
+                <asp:ListItem Text="<%$ Resources:GlobalResource, order_status_text3 %>" Value="3"></asp:ListItem>
+                <asp:ListItem Text="<%$ Resources:GlobalResource, order_status_text4 %>" Value="4"></asp:ListItem>
+                <asp:ListItem Text="<%$ Resources:GlobalResource, order_status_text5 %>" Value="5"></asp:ListItem>
+                <asp:ListItem Text="<%$ Resources:GlobalResource, order_status_text6 %>" Value="6"></asp:ListItem>
+                <asp:ListItem Text="<%$ Resources:GlobalResource, order_status_text7 %>" Value="7"></asp:ListItem>
+                <asp:ListItem Text="<%$ Resources:GlobalResource, order_status_text8 %>" Value="8"></asp:ListItem>
             </asp:DropDownList></li>
 
             <li><label>访客可见故障描述及备注：</label><asp:RadioButtonList ID="rbl_ispublic" runat="server" RepeatLayout="Flow" RepeatDirection="Horizontal" CssClass="radiobox">
