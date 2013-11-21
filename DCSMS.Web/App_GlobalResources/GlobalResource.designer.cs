@@ -79,7 +79,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   查找类似 城市 的本地化字符串。
+        ///   查找类似 City 城市 的本地化字符串。
         /// </summary>
         internal static string city {
             get {
@@ -241,7 +241,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   查找类似 Firmware Version 固件版本 的本地化字符串。
+        ///   查找类似 Firmware 固件版本 的本地化字符串。
         /// </summary>
         internal static string firmware_version {
             get {
@@ -295,7 +295,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   查找类似 Operation 操作 的本地化字符串。
+        ///   查找类似 Handling 操作 的本地化字符串。
         /// </summary>
         internal static string operation {
             get {
@@ -304,7 +304,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   查找类似 Ordering Number 订货号 的本地化字符串。
+        ///   查找类似 Part Number 订货号 的本地化字符串。
         /// </summary>
         internal static string ordering_number {
             get {
@@ -313,7 +313,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   查找类似 Order Create 创建工单 的本地化字符串。
+        ///   查找类似 New Order Creation 创建工单 的本地化字符串。
         /// </summary>
         internal static string order_create {
             get {
@@ -322,7 +322,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   查找类似 Work Order Id 工单号 的本地化字符串。
+        ///   查找类似 Work Order Number 工单号 的本地化字符串。
         /// </summary>
         internal static string order_id {
             get {
@@ -331,7 +331,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   查找类似 Order Search 工单查询  的本地化字符串。
+        ///   查找类似 Work Order Searching 工单查询  的本地化字符串。
         /// </summary>
         internal static string order_query {
             get {
@@ -457,7 +457,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   查找类似 省份 的本地化字符串。
+        ///   查找类似 Province 省份 的本地化字符串。
         /// </summary>
         internal static string province {
             get {
@@ -498,6 +498,15 @@ namespace Resources {
         internal static string serial_number {
             get {
                 return ResourceManager.GetString("serial_number", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Aceess to the Work Order 查看详情 的本地化字符串。
+        /// </summary>
+        internal static string show_detail {
+            get {
+                return ResourceManager.GetString("show_detail", resourceCulture);
             }
         }
         

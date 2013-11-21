@@ -36,7 +36,7 @@
                         <td><%# Eval("Remark")%></td>
                         <td><%# Eval("OrderStatusStr")%></td>
                         <td>
-                            <a href="myTaskDetail.aspx?id=<%# Eval("OrderId") %>">查看详情</a>
+                            <a href="myTaskDetail.aspx?id=<%# Eval("OrderId") %>"><asp:Literal runat="server" Text="<%$ Resources:GlobalResource, show_detail %>"></asp:Literal></a>
                         </td>
                     </tr>
             

@@ -124,7 +124,7 @@
     <value>Amount 数量</value>
   </data>
   <data name="city" xml:space="preserve">
-    <value>城市</value>
+    <value>City 城市</value>
   </data>
   <data name="contact_person" xml:space="preserve">
     <value>Contact Person 联系人</value>
@@ -178,7 +178,7 @@
     <value>Faulty Description 故障描述</value>
   </data>
   <data name="firmware_version" xml:space="preserve">
-    <value>Firmware Version 固件版本</value>
+    <value>Firmware 固件版本</value>
   </data>
   <data name="login" xml:space="preserve">
     <value>Login 登录</value>
@@ -196,19 +196,19 @@
     <value>OK 确定</value>
   </data>
   <data name="operation" xml:space="preserve">
-    <value>Operation 操作</value>
+    <value>Handling 操作</value>
   </data>
   <data name="ordering_number" xml:space="preserve">
-    <value>Ordering Number 订货号</value>
+    <value>Part Number 订货号</value>
   </data>
   <data name="order_create" xml:space="preserve">
-    <value>Order Create 创建工单</value>
+    <value>New Order Creation 创建工单</value>
   </data>
   <data name="order_id" xml:space="preserve">
-    <value>Work Order Id 工单号</value>
+    <value>Work Order Number 工单号</value>
   </data>
   <data name="order_query" xml:space="preserve">
-    <value>Order Search 工单查询 </value>
+    <value>Work Order Searching 工单查询 </value>
   </data>
   <data name="order_status" xml:space="preserve">
     <value>Work Order Status 工单状态</value>
@@ -250,7 +250,7 @@
     <value>Module Type 工具型号</value>
   </data>
   <data name="province" xml:space="preserve">
-    <value>省份</value>
+    <value>Province 省份</value>
   </data>
   <data name="real_name" xml:space="preserve">
     <value>Name 姓名</value>
@@ -308,5 +308,8 @@
   </data>
   <data name="work_type" xml:space="preserve">
     <value>Requisition Type 工作类型</value>
+  </data>
+  <data name="show_detail" xml:space="preserve">
+    <value>Aceess to the Work Order 查看详情</value>
   </data>
 </root>
