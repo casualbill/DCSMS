@@ -315,6 +315,9 @@
   <data name="image" xml:space="preserve">
     <value>Image 图片</value>
   </data>
+  <data name="inspection_result_and_tool_function_test" xml:space="preserve">
+    <value>Inspection Result And Tool Function Test 检查结果及工具功能测试</value>
+  </data>
   <data name="order_creator" xml:space="preserve">
     <value>创建者</value>
   </data>
@@ -329,5 +332,8 @@
   </data>
   <data name="status_update_time" xml:space="preserve">
     <value>Status Update Time 状态更新时间</value>
+  </data>
+  <data name="update_status" xml:space="preserve">
+    <value>Updated Status 更新状态</value>
   </data>
 </root>

@@ -268,6 +268,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   查找类似 Inspection Result And Tool Function Test 检查结果及工具功能测试 的本地化字符串。
+        /// </summary>
+        internal static string inspection_result_and_tool_function_test {
+            get {
+                return ResourceManager.GetString("inspection_result_and_tool_function_test", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Login 登录 的本地化字符串。
         /// </summary>
         internal static string login {
@@ -606,6 +615,15 @@ namespace Resources {
         internal static string tool_type {
             get {
                 return ResourceManager.GetString("tool_type", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Updated Status 更新状态 的本地化字符串。
+        /// </summary>
+        internal static string update_status {
+            get {
+                return ResourceManager.GetString("update_status", resourceCulture);
             }
         }
         
