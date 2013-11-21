@@ -20,46 +20,46 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContentPlaceHolder" runat="server">
     <div class="main-content">
         <div class="order-progress-bar clearfix"><ul>
-            <li>等待客户审核</li>
-            <li>等待工单检查</li>
-            <li>等待报价</li>
-            <li>等待客户确认</li>
-            <li>等待备件到齐</li>
-            <li>等待维修</li>
-            <li>等待发货</li>
-            <li>工单完成</li>
+            <li><asp:Literal runat="server" Text="<%$ Resources:GlobalResource, order_status_1 %>"></asp:Literal></li>
+            <li><asp:Literal runat="server" Text="<%$ Resources:GlobalResource, order_status_2 %>"></asp:Literal></li>
+            <li><asp:Literal runat="server" Text="<%$ Resources:GlobalResource, order_status_3 %>"></asp:Literal></li>
+            <li><asp:Literal runat="server" Text="<%$ Resources:GlobalResource, order_status_4 %>"></asp:Literal></li>
+            <li><asp:Literal runat="server" Text="<%$ Resources:GlobalResource, order_status_5 %>"></asp:Literal></li>
+            <li><asp:Literal runat="server" Text="<%$ Resources:GlobalResource, order_status_6 %>"></asp:Literal></li>
+            <li><asp:Literal runat="server" Text="<%$ Resources:GlobalResource, order_status_7 %>"></asp:Literal></li>
+            <li><asp:Literal runat="server" Text="<%$ Resources:GlobalResource, order_status_8 %>"></asp:Literal></li>
         </ul></div>
 
         <div class="content-list"><ul>
             <asp:HiddenField ID="hf_usertype" runat="server" />
-            <li><label>工单号：</label><asp:Label ID="lb_orderid" title="orderId" runat="server"></asp:Label></li>
-            <li><label>工作类型：</label><asp:Label ID="lb_worktype" runat="server"></asp:Label></li>
-            <li class="margin-bottom"><label>维修站：</label><asp:Label ID="lb_stationname" runat="server"></asp:Label></li>
+            <li><label><asp:Literal runat="server" Text="<%$ Resources:GlobalResource, order_id %>"></asp:Literal>：</label><asp:Label ID="lb_orderid" title="orderId" runat="server"></asp:Label></li>
+            <li><label><asp:Literal runat="server" Text="<%$ Resources:GlobalResource, work_type %>"></asp:Literal>：</label><asp:Label ID="lb_worktype" runat="server"></asp:Label></li>
+            <li class="margin-bottom"><label><asp:Literal runat="server" Text="<%$ Resources:GlobalResource, station %>"></asp:Literal>：</label><asp:Label ID="lb_stationname" runat="server"></asp:Label></li>
             
-            <li><label>客户名称：</label><asp:Label ID="lb_customername" runat="server"></asp:Label></li>
-            <li><label>终客户名称：</label><asp:Label ID="lb_endcustomername" runat="server"></asp:Label></li>
-            <li><label>联系人：</label><asp:Label ID="lb_contactperson" runat="server"></asp:Label></li>
-            <li><label>电话：</label><asp:Label ID="lb_customer_telephone" runat="server"></asp:Label></li>
-            <li><label>手机：</label><asp:Label ID="lb_customer_mobile" runat="server"></asp:Label></li>
-            <li><label>地址：</label><asp:Label ID="lb_customer_address" runat="server"></asp:Label></li>
-            <li class="margin-bottom"><label>邮编：</label><asp:Label ID="lb_customer_postcode" runat="server"></asp:Label></li>
+            <li><label><asp:Literal runat="server" Text="<%$ Resources:GlobalResource, customer_name %>"></asp:Literal>：</label><asp:Label ID="lb_customername" runat="server"></asp:Label></li>
+            <li><label><asp:Literal runat="server" Text="<%$ Resources:GlobalResource, end_customer_name %>"></asp:Literal>：</label><asp:Label ID="lb_endcustomername" runat="server"></asp:Label></li>
+            <li><label><asp:Literal runat="server" Text="<%$ Resources:GlobalResource, contact_person %>"></asp:Literal>：</label><asp:Label ID="lb_contactperson" runat="server"></asp:Label></li>
+            <li><label><asp:Literal runat="server" Text="<%$ Resources:GlobalResource, telephone %>"></asp:Literal>：</label><asp:Label ID="lb_customer_telephone" runat="server"></asp:Label></li>
+            <li><label><asp:Literal runat="server" Text="<%$ Resources:GlobalResource, mobile %>"></asp:Literal>：</label><asp:Label ID="lb_customer_mobile" runat="server"></asp:Label></li>
+            <li><label><asp:Literal runat="server" Text="<%$ Resources:GlobalResource, address %>"></asp:Literal>：</label><asp:Label ID="lb_customer_address" runat="server"></asp:Label></li>
+            <li class="margin-bottom"><label><asp:Literal runat="server" Text="<%$ Resources:GlobalResource, postcode %>"></asp:Literal>：</label><asp:Label ID="lb_customer_postcode" runat="server"></asp:Label></li>
             
-            <li><label>工具型号：</label><asp:Label ID="lb_productname" runat="server"></asp:Label></li>
-            <li><label>工具序列号：</label><asp:Label ID="lb_serialnumber" runat="server"></asp:Label></li>
-            <li><label>工具订货号：</label><asp:Label ID="lb_product_orderingnumber" runat="server"></asp:Label></li>
-            <li><label>固件版本：</label><asp:Label ID="lb_product_firmware" runat="server"></asp:Label></li>
-            <li><label>备注：</label><asp:Label ID="lb_product_remark" runat="server"></asp:Label></li>
-            <li class="margin-bottom"><label>工具类型：</label><asp:Label ID="lb_tooltype" runat="server"></asp:Label></li>
+            <li><label><asp:Literal runat="server" Text="<%$ Resources:GlobalResource, product_name %>"></asp:Literal>：</label><asp:Label ID="lb_productname" runat="server"></asp:Label></li>
+            <li><label><asp:Literal runat="server" Text="<%$ Resources:GlobalResource, serial_number %>"></asp:Literal>：</label><asp:Label ID="lb_serialnumber" runat="server"></asp:Label></li>
+            <li><label><asp:Literal runat="server" Text="<%$ Resources:GlobalResource, ordering_number %>"></asp:Literal>：</label><asp:Label ID="lb_product_orderingnumber" runat="server"></asp:Label></li>
+            <li><label><asp:Literal runat="server" Text="<%$ Resources:GlobalResource, firmware_version %>"></asp:Literal>：</label><asp:Label ID="lb_product_firmware" runat="server"></asp:Label></li>
+            <li><label><asp:Literal runat="server" Text="<%$ Resources:GlobalResource, remark %>"></asp:Literal>：</label><asp:Label ID="lb_product_remark" runat="server"></asp:Label></li>
+            <li class="margin-bottom"><label><asp:Literal runat="server" Text="<%$ Resources:GlobalResource, tool_type %>"></asp:Literal>：</label><asp:Label ID="lb_tooltype" runat="server"></asp:Label></li>
         </ul>
 
         <table>
             <tbody title="sparePartTable">
                 <tr>
-                    <th>备件名称</th>
-                    <th>订货号</th>
-                    <th>数量</th>
-                    <th>备注</th>
-                    <th>操作</th>
+                    <th><asp:Literal runat="server" Text="<%$ Resources:GlobalResource, spare_part_name %>"></asp:Literal></th>
+                    <th><asp:Literal runat="server" Text="<%$ Resources:GlobalResource, ordering_number %>"></asp:Literal></th>
+                    <th><asp:Literal runat="server" Text="<%$ Resources:GlobalResource, amount %>"></asp:Literal></th>
+                    <th><asp:Literal runat="server" Text="<%$ Resources:GlobalResource, remark %>"></asp:Literal></th>
+                    <th><asp:Literal runat="server" Text="<%$ Resources:GlobalResource, operation %>"></asp:Literal></th>
                 </tr>
             </tbody>
         </table>
@@ -67,29 +67,29 @@
         <table>
             <tbody title="repairLogTable">
                 <tr>
-                    <th>工作内容</th>
-                    <th>缺省特征信息</th>
-                    <th>开始时间</th>
-                    <th>结束时间</th>
-                    <th>消耗工时</th>
-                    <th>操作</th>
+                    <th><asp:Literal runat="server" Text="<%$ Resources:GlobalResource, work_content %>"></asp:Literal></th>
+                    <th><asp:Literal runat="server" Text="<%$ Resources:GlobalResource, default_character %>"></asp:Literal></th>
+                    <th><asp:Literal runat="server" Text="<%$ Resources:GlobalResource, start_time %>"></asp:Literal></th>
+                    <th><asp:Literal runat="server" Text="<%$ Resources:GlobalResource, end_time %>"></asp:Literal></th>
+                    <th><asp:Literal runat="server" Text="<%$ Resources:GlobalResource, work_time %>"></asp:Literal></th>
+                    <th><asp:Literal runat="server" Text="<%$ Resources:GlobalResource, operation %>"></asp:Literal></th>
                 </tr>
             </tbody>
         </table>
 
         <ul>
-            <li><label>故障描述：</label><asp:TextBox ID="tb_failure_description" runat="server" MaxLength="300" TextMode="MultiLine"></asp:TextBox></li>
+            <li><label><asp:Literal runat="server" Text="<%$ Resources:GlobalResource, failure_description %>"></asp:Literal>：</label><asp:TextBox ID="tb_failure_description" runat="server" MaxLength="300" TextMode="MultiLine"></asp:TextBox></li>
             <li class="clearfix hide">
-                <label>照片选择：</label>
+                <label><asp:Literal runat="server" Text="<%$ Resources:GlobalResource, select_image %>"></asp:Literal>：</label>
                 <div class="image-frame">
                     <div id="imageContainer" class="clearfix"></div>
                     <div id="fileQueue"></div><input type="file" name="uploadify" id="uploadify" />
                 </div>
             </li>
-            <li><label>备注：</label><asp:TextBox ID="tb_remark" MaxLength="500" TextMode="MultiLine" runat="server"></asp:TextBox></li>
-            <li><label>当前状态：</label><asp:Label ID="lb_orderstatus" runat="server"></asp:Label></li>
+            <li><label><asp:Literal runat="server" Text="<%$ Resources:GlobalResource, remark %>"></asp:Literal>：</label><asp:TextBox ID="tb_remark" MaxLength="500" TextMode="MultiLine" runat="server"></asp:TextBox></li>
+            <li><label><asp:Literal runat="server" Text="<%$ Resources:GlobalResource, current_status %>"></asp:Literal>：</label><asp:Label ID="lb_orderstatus" runat="server"></asp:Label></li>
             <li><label></label><asp:CheckBox ID="cb_manageorder" runat="server" Text="由我管理这个工单" CssClass="checkbox" /></li>
-            <li><label></label><asp:Button ID="btn_submit" runat="server" Text="确定" OnClick="btn_submit_Click" /></li>
+            <li><label></label><asp:Button ID="btn_submit" runat="server" Text="<%$ Resources:GlobalResource, ok %>" OnClick="btn_submit_Click" /></li>
         </ul></div>
     </div>
 </asp:Content>

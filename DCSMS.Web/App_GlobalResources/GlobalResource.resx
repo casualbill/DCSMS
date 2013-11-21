@@ -120,6 +120,9 @@
   <data name="address" xml:space="preserve">
     <value>Address 地址</value>
   </data>
+  <data name="amount" xml:space="preserve">
+    <value>Amount 数量</value>
+  </data>
   <data name="city" xml:space="preserve">
     <value>城市</value>
   </data>
@@ -128,6 +131,9 @@
   </data>
   <data name="create_time" xml:space="preserve">
     <value>Create Time 创建时间</value>
+  </data>
+  <data name="current_status" xml:space="preserve">
+    <value>Current Status 当前状态</value>
   </data>
   <data name="customer_create" xml:space="preserve">
     <value>Customer Create 客户添加</value>
@@ -150,6 +156,9 @@
   <data name="customer_verify" xml:space="preserve">
     <value>Customer Verify 客户审核</value>
   </data>
+  <data name="default_character" xml:space="preserve">
+    <value>缺省特征信息</value>
+  </data>
   <data name="edit" xml:space="preserve">
     <value>Edit 编辑</value>
   </data>
@@ -161,6 +170,9 @@
   </data>
   <data name="end_customer_name" xml:space="preserve">
     <value>End Customer Name 终用户名称</value>
+  </data>
+  <data name="end_time" xml:space="preserve">
+    <value>End Time 结束时间</value>
   </data>
   <data name="failure_description" xml:space="preserve">
     <value>Faulty Description 故障描述</value>
@@ -201,6 +213,30 @@
   <data name="order_status" xml:space="preserve">
     <value>Work Order Status 工单状态</value>
   </data>
+  <data name="order_status_1" xml:space="preserve">
+    <value>Awaiting for Customer Authorization 等待客户审核</value>
+  </data>
+  <data name="order_status_2" xml:space="preserve">
+    <value>Awaiting for Check 等待检查</value>
+  </data>
+  <data name="order_status_3" xml:space="preserve">
+    <value>Awaiting for Quotation 等待报价</value>
+  </data>
+  <data name="order_status_4" xml:space="preserve">
+    <value>Awaiting for Customer Confirmation 等待客户确认</value>
+  </data>
+  <data name="order_status_5" xml:space="preserve">
+    <value>Awaiting for Spare Parts 等待备件到齐</value>
+  </data>
+  <data name="order_status_6" xml:space="preserve">
+    <value>Awaiting for Repair 等待维修</value>
+  </data>
+  <data name="order_status_7" xml:space="preserve">
+    <value>Awaiting for Shipment 等待发货</value>
+  </data>
+  <data name="order_status_8" xml:space="preserve">
+    <value>Work Order Finished 工单完成</value>
+  </data>
   <data name="password" xml:space="preserve">
     <value>Password 密码</value>
   </data>
@@ -222,11 +258,26 @@
   <data name="remark" xml:space="preserve">
     <value>Remarks 备注</value>
   </data>
+  <data name="select_image" xml:space="preserve">
+    <value>Select Image 选择图片</value>
+  </data>
   <data name="serial_number" xml:space="preserve">
     <value>Serial Number 序列号</value>
   </data>
+  <data name="spare_part_name" xml:space="preserve">
+    <value>Spare Part Name 备件名称</value>
+  </data>
+  <data name="start_time" xml:space="preserve">
+    <value>Start Time 开始时间</value>
+  </data>
+  <data name="station" xml:space="preserve">
+    <value>Repair Station 维修站</value>
+  </data>
   <data name="telephone" xml:space="preserve">
     <value>Telephone 电话</value>
+  </data>
+  <data name="tool_type" xml:space="preserve">
+    <value>Tool Type 工具类型</value>
   </data>
   <data name="userid" xml:space="preserve">
     <value>User Id 用户编号</value>
@@ -248,5 +299,14 @@
   </data>
   <data name="user_update" xml:space="preserve">
     <value>User Update 用户修改</value>
+  </data>
+  <data name="work_content" xml:space="preserve">
+    <value>Work Content 工作内容</value>
+  </data>
+  <data name="work_time" xml:space="preserve">
+    <value>消耗工时</value>
+  </data>
+  <data name="work_type" xml:space="preserve">
+    <value>Requisition Type 工作类型</value>
   </data>
 </root>

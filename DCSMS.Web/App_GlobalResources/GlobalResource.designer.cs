@@ -70,6 +70,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   查找类似 Amount 数量 的本地化字符串。
+        /// </summary>
+        internal static string amount {
+            get {
+                return ResourceManager.GetString("amount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 城市 的本地化字符串。
         /// </summary>
         internal static string city {
@@ -93,6 +102,15 @@ namespace Resources {
         internal static string create_time {
             get {
                 return ResourceManager.GetString("create_time", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Current Status 当前状态 的本地化字符串。
+        /// </summary>
+        internal static string current_status {
+            get {
+                return ResourceManager.GetString("current_status", resourceCulture);
             }
         }
         
@@ -160,6 +178,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   查找类似 缺省特征信息 的本地化字符串。
+        /// </summary>
+        internal static string default_character {
+            get {
+                return ResourceManager.GetString("default_character", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Edit 编辑 的本地化字符串。
         /// </summary>
         internal static string edit {
@@ -192,6 +219,15 @@ namespace Resources {
         internal static string end_customer_name {
             get {
                 return ResourceManager.GetString("end_customer_name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 End Time 结束时间 的本地化字符串。
+        /// </summary>
+        internal static string end_time {
+            get {
+                return ResourceManager.GetString("end_time", resourceCulture);
             }
         }
         
@@ -313,6 +349,78 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   查找类似 Awaiting for Customer Authorization 等待客户审核 的本地化字符串。
+        /// </summary>
+        internal static string order_status_1 {
+            get {
+                return ResourceManager.GetString("order_status_1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Awaiting for Check 等待检查 的本地化字符串。
+        /// </summary>
+        internal static string order_status_2 {
+            get {
+                return ResourceManager.GetString("order_status_2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Awaiting for Quotation 等待报价 的本地化字符串。
+        /// </summary>
+        internal static string order_status_3 {
+            get {
+                return ResourceManager.GetString("order_status_3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Awaiting for Customer Confirmation 等待客户确认 的本地化字符串。
+        /// </summary>
+        internal static string order_status_4 {
+            get {
+                return ResourceManager.GetString("order_status_4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Awaiting for Spare Parts 等待备件到齐 的本地化字符串。
+        /// </summary>
+        internal static string order_status_5 {
+            get {
+                return ResourceManager.GetString("order_status_5", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Awaiting for Repair 等待维修 的本地化字符串。
+        /// </summary>
+        internal static string order_status_6 {
+            get {
+                return ResourceManager.GetString("order_status_6", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Awaiting for Shipment 等待发货 的本地化字符串。
+        /// </summary>
+        internal static string order_status_7 {
+            get {
+                return ResourceManager.GetString("order_status_7", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Work Order Finished 工单完成 的本地化字符串。
+        /// </summary>
+        internal static string order_status_8 {
+            get {
+                return ResourceManager.GetString("order_status_8", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Password 密码 的本地化字符串。
         /// </summary>
         internal static string password {
@@ -376,6 +484,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   查找类似 Select Image 选择图片 的本地化字符串。
+        /// </summary>
+        internal static string select_image {
+            get {
+                return ResourceManager.GetString("select_image", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Serial Number 序列号 的本地化字符串。
         /// </summary>
         internal static string serial_number {
@@ -385,11 +502,47 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   查找类似 Spare Part Name 备件名称 的本地化字符串。
+        /// </summary>
+        internal static string spare_part_name {
+            get {
+                return ResourceManager.GetString("spare_part_name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Start Time 开始时间 的本地化字符串。
+        /// </summary>
+        internal static string start_time {
+            get {
+                return ResourceManager.GetString("start_time", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Repair Station 维修站 的本地化字符串。
+        /// </summary>
+        internal static string station {
+            get {
+                return ResourceManager.GetString("station", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Telephone 电话 的本地化字符串。
         /// </summary>
         internal static string telephone {
             get {
                 return ResourceManager.GetString("telephone", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Tool Type 工具类型 的本地化字符串。
+        /// </summary>
+        internal static string tool_type {
+            get {
+                return ResourceManager.GetString("tool_type", resourceCulture);
             }
         }
         
@@ -453,6 +606,33 @@ namespace Resources {
         internal static string user_update {
             get {
                 return ResourceManager.GetString("user_update", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Work Content 工作内容 的本地化字符串。
+        /// </summary>
+        internal static string work_content {
+            get {
+                return ResourceManager.GetString("work_content", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 消耗工时 的本地化字符串。
+        /// </summary>
+        internal static string work_time {
+            get {
+                return ResourceManager.GetString("work_time", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Requisition Type 工作类型 的本地化字符串。
+        /// </summary>
+        internal static string work_type {
+            get {
+                return ResourceManager.GetString("work_type", resourceCulture);
             }
         }
     }
