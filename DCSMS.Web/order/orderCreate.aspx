@@ -89,12 +89,12 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContentPlaceHolder" runat="server">
     <div class="main-title">
-        新建工单
+        <asp:Literal runat="server" Text="<%$ Resources:GlobalResource, order_create %>"></asp:Literal>
     </div>
 
     <div class="main-content">
         <div class="content-list"><ul>
-            <li><label><em>*</em>工作类型：</label><asp:DropDownList ID="ddl_worktype" runat="server">
+            <li><label><em>*</em><asp:Literal runat="server" Text="<%$ Resources:GlobalResource, work_type %>"></asp:Literal>：</label><asp:DropDownList ID="ddl_worktype" runat="server">
                 <asp:ListItem Text="请选择工作类型" Value="0"></asp:ListItem>
                 <asp:ListItem Text="质保" Value="1"></asp:ListItem>
                 <asp:ListItem Text="客户付费" Value="2"></asp:ListItem>
@@ -102,33 +102,33 @@
                 <asp:ListItem Text="项目维修" Value="4"></asp:ListItem>
             </asp:DropDownList></li>
 
-            <li><label><em>*</em>客户：</label>
+            <li><label><em>*</em><asp:Literal runat="server" Text="<%$ Resources:GlobalResource, customer %>"></asp:Literal>：</label>
             <asp:RadioButtonList ID="rbl_customer" runat="server" RepeatLayout="Flow" RepeatDirection="Horizontal" AutoPostBack="true" OnSelectedIndexChanged="rbl_customer_change" CssClass="radiobox">
                 <asp:ListItem Text="新建" Value="1"></asp:ListItem>
                 <asp:ListItem Text="选择已有" Value="0" Selected="True"></asp:ListItem>
             </asp:RadioButtonList></li>
 
-            <li><label>省份：<em>*</em></label><select id="provinceSelector"></select></li>
-            <li><label>城市：<em>*</em></label><select id="citySelector"></select>
+            <li><label><asp:Literal runat="server" Text="<%$ Resources:GlobalResource, province %>"></asp:Literal>：<em>*</em></label><select id="provinceSelector"></select></li>
+            <li><label><asp:Literal runat="server" Text="<%$ Resources:GlobalResource, city %>"></asp:Literal>：<em>*</em></label><select id="citySelector"></select>
                 <asp:HiddenField ID="hf_cityid" runat="server" />
             </li>
 
-            <li><label><em>*</em>客户名称：</label><asp:TextBox ID="tb_customername" title="customerName" runat="server" MaxLength="100"></asp:TextBox>
+            <li><label><em>*</em><asp:Literal runat="server" Text="<%$ Resources:GlobalResource, customer_name %>"></asp:Literal>：</label><asp:TextBox ID="tb_customername" title="customerName" runat="server" MaxLength="100"></asp:TextBox>
                 <asp:HiddenField ID="hf_customerid" Value="0" runat="server" /></li>
-            <li><label><em>*</em>终客户名称：</label><asp:TextBox ID="tb_endcustomername" title="endCustomerName" runat="server" MaxLength="100"></asp:TextBox></li>
-            <li><label><em>*</em>联系人：</label><asp:TextBox ID="tb_contactperson" title="contactPerson" runat="server" MaxLength="50" Enabled="false"></asp:TextBox></li>
+            <li><label><em>*</em><asp:Literal runat="server" Text="<%$ Resources:GlobalResource, end_customer_name %>"></asp:Literal>：</label><asp:TextBox ID="tb_endcustomername" title="endCustomerName" runat="server" MaxLength="100"></asp:TextBox></li>
+            <li><label><em>*</em><asp:Literal runat="server" Text="<%$ Resources:GlobalResource, contact_person %>"></asp:Literal>：</label><asp:TextBox ID="tb_contactperson" title="contactPerson" runat="server" MaxLength="50" Enabled="false"></asp:TextBox></li>
 
-            <li><label>电话：</label><asp:TextBox ID="tb_telephone" title="telephone" runat="server" MaxLength="20" Enabled="false"></asp:TextBox></li>
-            <li><label>手机：</label><asp:TextBox ID="tb_mobile" title="mobile" runat="server" MaxLength="20" Enabled="false"></asp:TextBox></li>
-            <li><label>地址：</label><asp:TextBox ID="tb_address" title="address" runat="server" MaxLength="100" Enabled="false"></asp:TextBox></li>
-            <li class="margin-bottom"><label>邮编：</label><asp:TextBox ID="tb_postcode" title="postcode" runat="server" MaxLength="10" Enabled="false"></asp:TextBox></li>
+            <li><label><asp:Literal runat="server" Text="<%$ Resources:GlobalResource, telephone %>"></asp:Literal>：</label><asp:TextBox ID="tb_telephone" title="telephone" runat="server" MaxLength="20" Enabled="false"></asp:TextBox></li>
+            <li><label><asp:Literal runat="server" Text="<%$ Resources:GlobalResource, mobile %>"></asp:Literal>：</label><asp:TextBox ID="tb_mobile" title="mobile" runat="server" MaxLength="20" Enabled="false"></asp:TextBox></li>
+            <li><label><asp:Literal runat="server" Text="<%$ Resources:GlobalResource, address %>"></asp:Literal>：</label><asp:TextBox ID="tb_address" title="address" runat="server" MaxLength="100" Enabled="false"></asp:TextBox></li>
+            <li class="margin-bottom"><label><asp:Literal runat="server" Text="<%$ Resources:GlobalResource, postcode %>"></asp:Literal>：</label><asp:TextBox ID="tb_postcode" title="postcode" runat="server" MaxLength="10" Enabled="false"></asp:TextBox></li>
     
-            <li><label><em>*</em>工具型号：</label><asp:TextBox ID="tb_productname" MaxLength="50" runat="server"></asp:TextBox></li>
-            <li><label><em>*</em>序列号：</label><asp:TextBox ID="tb_serialnumber" MaxLength="30" runat="server"></asp:TextBox></li>
-            <li><label><em>*</em>订货号：</label><asp:TextBox ID="tb_product_orderingnumber" MaxLength="30" runat="server"></asp:TextBox></li>
-            <li><label>固件版本：</label><asp:TextBox ID="tb_firmwareversion" MaxLength="20" runat="server"></asp:TextBox></li>
-            <li><label>备注：</label><asp:TextBox ID="tb_product_remark" MaxLength="300" TextMode="MultiLine" runat="server"></asp:TextBox></li>
-            <li class="margin-bottom"><label><em>*</em>工具类型：</label><asp:DropDownList ID="ddl_tooltype" runat="server">
+            <li><label><em>*</em><asp:Literal runat="server" Text="<%$ Resources:GlobalResource, product_name %>"></asp:Literal>：</label><asp:TextBox ID="tb_productname" MaxLength="50" runat="server"></asp:TextBox></li>
+            <li><label><em>*</em><asp:Literal runat="server" Text="<%$ Resources:GlobalResource, serial_number %>"></asp:Literal>：</label><asp:TextBox ID="tb_serialnumber" MaxLength="30" runat="server"></asp:TextBox></li>
+            <li><label><em>*</em><asp:Literal runat="server" Text="<%$ Resources:GlobalResource, ordering_number %>"></asp:Literal>：</label><asp:TextBox ID="tb_product_orderingnumber" MaxLength="30" runat="server"></asp:TextBox></li>
+            <li><label><asp:Literal runat="server" Text="<%$ Resources:GlobalResource, firmware_version %>"></asp:Literal>：</label><asp:TextBox ID="tb_firmwareversion" MaxLength="20" runat="server"></asp:TextBox></li>
+            <li><label><asp:Literal runat="server" Text="<%$ Resources:GlobalResource, remark %>"></asp:Literal>：</label><asp:TextBox ID="tb_product_remark" MaxLength="300" TextMode="MultiLine" runat="server"></asp:TextBox></li>
+            <li class="margin-bottom"><label><em>*</em><asp:Literal runat="server" Text="<%$ Resources:GlobalResource, tool_type %>"></asp:Literal>：</label><asp:DropDownList ID="ddl_tooltype" runat="server">
                 <asp:ListItem Text="请选择工具类型" Value="0"></asp:ListItem>
                 <asp:ListItem Text="电动装配工具" Value="1"></asp:ListItem>
                 <asp:ListItem Text="气动装配工具" Value="2"></asp:ListItem>
@@ -138,18 +138,18 @@
                 <asp:ListItem Text="附件" Value="6"></asp:ListItem>
             </asp:DropDownList></li>
 
-            <li><label><em>*</em>工作站：</label><asp:DropDownList ID="ddl_station" runat="server"></asp:DropDownList></li>
+            <li><label><em>*</em><asp:Literal runat="server" Text="<%$ Resources:GlobalResource, station %>"></asp:Literal>：</label><asp:DropDownList ID="ddl_station" runat="server"></asp:DropDownList></li>
 
-            <li><label><em>*</em>跟单技术员：</label><asp:TextBox ID="tb_technician" runat="server" title="technicianSelector"></asp:TextBox>
+            <li><label><em>*</em><asp:Literal runat="server" Text="<%$ Resources:GlobalResource, responsible_technician %>"></asp:Literal>：</label><asp:TextBox ID="tb_technician" runat="server" title="technicianSelector"></asp:TextBox>
             <asp:HiddenField ID="hf_technicianid" Value="0" runat="server" /></li>
 
-            <li><label>备注：</label><asp:TextBox ID="tb_remark" runat="server" MaxLength="500" TextMode="MultiLine"></asp:TextBox></li>
+            <li><label><asp:Literal runat="server" Text="<%$ Resources:GlobalResource, remark %>"></asp:Literal>：</label><asp:TextBox ID="tb_remark" runat="server" MaxLength="500" TextMode="MultiLine"></asp:TextBox></li>
             <li><label>访客可见故障描述及备注：</label><asp:RadioButtonList ID="rbl_ispublic" runat="server" RepeatLayout="Flow" RepeatDirection="Horizontal" CssClass="radiobox">
                 <asp:ListItem Text="是" Value="1" Selected="True"></asp:ListItem>
                 <asp:ListItem Text="否" Value="0"></asp:ListItem>
             </asp:RadioButtonList></li>
 
-            <li><label></label><asp:Button ID="btn_submit" runat="server" Text="确定" OnClientClick="return btn_submit_client_click();" OnClick="btn_submit_Click" /></li>
+            <li><label></label><asp:Button ID="btn_submit" runat="server" Text="<%$ Resources:GlobalResource, ok %>" OnClientClick="return btn_submit_client_click();" OnClick="btn_submit_Click" /></li>
         </ul></div>
 
         <asp:Label ID="lb_tips" runat="server" CssClass="content-tips"></asp:Label>

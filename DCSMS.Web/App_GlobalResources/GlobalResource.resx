@@ -309,7 +309,25 @@
   <data name="work_type" xml:space="preserve">
     <value>Requisition Type 工作类型</value>
   </data>
+  <data name="customer" xml:space="preserve">
+    <value>Customer 客户</value>
+  </data>
+  <data name="image" xml:space="preserve">
+    <value>Image 图片</value>
+  </data>
+  <data name="order_creator" xml:space="preserve">
+    <value>创建者</value>
+  </data>
+  <data name="order_manager" xml:space="preserve">
+    <value>管理者</value>
+  </data>
+  <data name="responsible_technician" xml:space="preserve">
+    <value>Responsible Technician 跟单技术员</value>
+  </data>
   <data name="show_detail" xml:space="preserve">
     <value>Aceess to the Work Order 查看详情</value>
+  </data>
+  <data name="status_update_time" xml:space="preserve">
+    <value>Status Update Time 状态更新时间</value>
   </data>
 </root>

@@ -115,6 +115,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   查找类似 Customer 客户 的本地化字符串。
+        /// </summary>
+        internal static string customer {
+            get {
+                return ResourceManager.GetString("customer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Customer Create 客户添加 的本地化字符串。
         /// </summary>
         internal static string customer_create {
@@ -250,6 +259,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   查找类似 Image 图片 的本地化字符串。
+        /// </summary>
+        internal static string image {
+            get {
+                return ResourceManager.GetString("image", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Login 登录 的本地化字符串。
         /// </summary>
         internal static string login {
@@ -322,11 +340,29 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   查找类似 创建者 的本地化字符串。
+        /// </summary>
+        internal static string order_creator {
+            get {
+                return ResourceManager.GetString("order_creator", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Work Order Number 工单号 的本地化字符串。
         /// </summary>
         internal static string order_id {
             get {
                 return ResourceManager.GetString("order_id", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 管理者 的本地化字符串。
+        /// </summary>
+        internal static string order_manager {
+            get {
+                return ResourceManager.GetString("order_manager", resourceCulture);
             }
         }
         
@@ -484,6 +520,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   查找类似 Responsible Technician 跟单技术员 的本地化字符串。
+        /// </summary>
+        internal static string responsible_technician {
+            get {
+                return ResourceManager.GetString("responsible_technician", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Select Image 选择图片 的本地化字符串。
         /// </summary>
         internal static string select_image {
@@ -534,6 +579,15 @@ namespace Resources {
         internal static string station {
             get {
                 return ResourceManager.GetString("station", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Status Update Time 状态更新时间 的本地化字符串。
+        /// </summary>
+        internal static string status_update_time {
+            get {
+                return ResourceManager.GetString("status_update_time", resourceCulture);
             }
         }
         
