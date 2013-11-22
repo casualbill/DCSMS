@@ -11,6 +11,11 @@ namespace DCSMS.Web
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["userId"] == null)
+            {
+                Response.Redirect("/login.aspx");
+            }
+
             if (Convert.ToInt16(Session["userType"]) == 1)
             {
                 Response.Redirect("/order/orderQuery.aspx");
