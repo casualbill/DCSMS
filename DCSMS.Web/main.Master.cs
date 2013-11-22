@@ -11,15 +11,6 @@ namespace DCSMS.Web
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            // test!!!
-            Session["userId"] = "9";
-            Session["userName"] = "admin";
-            Session["userType"] = "5";
-
-
-
-
-
             if (!IsPostBack)
             {
                 if (Session["userId"] == null)
