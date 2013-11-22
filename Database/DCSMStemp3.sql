@@ -67,8 +67,6 @@ CREATE TABLE `imageinfo` (
 
 /*Data for the table `imageinfo` */
 
-insert  into `imageinfo`(`Id`,`FileUrl`,`OrderId`) values (39,'/uploads/OS1300005/6b1394a6tw1e5lr3kwn5rj20c80h6js0.jpg','OS1300005'),(41,'/uploads/OS1300005/6f582097gw1e8xeu0op8gj20c82e5akf.jpg','OS1300005'),(42,'/uploads/OS1300005/7cc829d3jw1e4r1w1bt75g207r06s000.gif','OS1300005');
-
 /*Table structure for table `inspectionresult` */
 
 DROP TABLE IF EXISTS `inspectionresult`;
@@ -95,6 +93,8 @@ CREATE TABLE `inspectionresult` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 /*Data for the table `inspectionresult` */
+
+insert  into `inspectionresult`(`OrderId`,`Item1`,`Item2`,`Item3`,`Item4`,`Item5`,`Item6`,`Item7`,`Item8`,`Comment1`,`Comment2`,`Comment3`,`Comment4`,`Comment5`,`Comment6`,`Comment7`,`Comment8`) values ('OS1300005',1,1,2,3,0,2,1,0,'','','5321','','','asdfasdfdf','',''),('OS1300003',0,0,0,0,0,0,0,0,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),('OS1300002',0,0,0,0,0,0,0,0,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),('OS1300001',1,0,0,2,0,0,0,0,'','','','235aeeg','','','','');
 
 /*Table structure for table `orderinfo` */
 
@@ -221,11 +221,11 @@ CREATE TABLE `stationinfo` (
   `StationName` varchar(50) NOT NULL DEFAULT '',
   `StationCode` char(2) NOT NULL DEFAULT '',
   PRIMARY KEY (`Id`)
-) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
 /*Data for the table `stationinfo` */
 
-insert  into `stationinfo`(`Id`,`StationName`,`StationCode`) values (1,'现场维修','OS'),(2,'上海','DS');
+insert  into `stationinfo`(`Id`,`StationName`,`StationCode`) values (1,'驻场服务','OS'),(2,'上海维修站','DS'),(3,'现场服务','FS');
 
 /*Table structure for table `toolfunctiontest` */
 
@@ -249,6 +249,8 @@ CREATE TABLE `toolfunctiontest` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 /*Data for the table `toolfunctiontest` */
+
+insert  into `toolfunctiontest`(`OrderId`,`Item1`,`Item2`,`Item3`,`Item4`,`Item5`,`Item6`,`Comment1`,`Comment2`,`Comment3`,`Comment4`,`Comment5`,`Comment6`) values ('OS1300005',3,1,2,3,1,0,NULL,NULL,'aeftaw  a4t4 at',NULL,NULL,NULL),('OS1300001',1,1,3,0,2,0,'','','','','asdfasdfasd',''),('OS1300002',0,0,0,0,0,0,NULL,NULL,NULL,NULL,NULL,NULL);
 
 /*Table structure for table `userinfo` */
 
