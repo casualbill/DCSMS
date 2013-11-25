@@ -3,8 +3,8 @@
     <script type="text/javascript">
         $(function () {
             userAjaxSelector($('[title="technicianSelector"]'), true);
-            customerAjaxSelector($('[title="customerName"]'), $('#ctl00_MainContentPlaceHolder_hf_cityid'), 1, false);
-            customerAjaxSelector($('[title="endCustomerName"]'), $('#ctl00_MainContentPlaceHolder_hf_cityid'), 2, false);
+            customerAjaxSelector($('[title="customerName"]'), $('[name="ctl00$MainContentPlaceHolder$hf_cityid"]'), 1, false);
+            customerAjaxSelector($('[title="endCustomerName"]'), $('[name="ctl00$MainContentPlaceHolder$hf_cityid"]'), 2, false);
             regionSelector($('#provinceSelector'), $('#citySelector'));
         });
 

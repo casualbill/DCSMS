@@ -116,7 +116,7 @@ var userAjaxSelector = function (textbox, isTechnician) {
 
 var customerAjaxSelector = function (textbox, cityHiddenField, queryType, brief) {
     textbox.attr('autocomplete', 'off');
-    var customerIdField = $('#ctl00_MainContentPlaceHolder_hf_customerid');
+    var customerIdField = $('[name="ctl00$MainContentPlaceHolder$hf_customerid"]');
 
     textbox.on('keyup focus', function (e) {
         if (e.type == 'keyup') {
