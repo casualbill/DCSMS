@@ -82,7 +82,7 @@ namespace DCSMS.Web
                 DataSet ds = orderLogic.orderQueryByOrderId(urlQueryId);
                 if (ds != null)
                 {
-                    orderConfig.addWorkTypeText(orderConfig.addOrderStatusText(ds.Tables[0]));
+                    orderConfig.addWorkTypeText(orderConfig.addOrderStatusText(ds.Tables[0], true));
                     orderConfig.addToolTypeText(ds.Tables[2]);
 
                     hf_usertype.Value = userType.ToString();
