@@ -50,6 +50,11 @@ namespace DCSMS.Web
         //为工单表加入工作类型文字说明
         public static DataTable addWorkTypeText(DataTable orderTable)
         {
+            if (orderTable == null)
+            {
+                return null;
+            }
+
             orderTable.Columns.Add("WorkTypeStr", Type.GetType("System.String"));
 
             int index = 0;
@@ -75,6 +80,11 @@ namespace DCSMS.Web
 
         public static DataTable addOrderStatusText(DataTable orderTable, Boolean showFinishTask)
         {
+            if (orderTable == null)
+            {
+                return null;
+            }
+
             orderTable.Columns.Add("OrderStatusStr", Type.GetType("System.String"));
             if (showFinishTask == true)
             {
